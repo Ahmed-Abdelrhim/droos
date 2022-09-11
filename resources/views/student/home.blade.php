@@ -24,8 +24,8 @@
             <h3 class="name">Welcome</h3>
             <p class="role">studen</p>
             <div class="flex-btn">
-                <a href="login.html" class="option-btn">login</a>
-                <a href="register.html" class="option-btn">register</a>
+                <a href="{{route('student.login')}}" class="option-btn">login</a>
+                <a href="{{route('student.register')}}" class="option-btn">register</a>
             </div>
         </div>
 

@@ -16,12 +16,21 @@ use App\Http\Controllers\Student\Auth\CustomLoginController;
 */
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'guest'] , function () {
+    Route::get('/', function () {
+        return view('student.home');
+    });
+
+    Route::get('home',function () {
+        return view('student.home');
+    })->name('home');
+
+    Route::get('register',[CustomLoginController::class,'showRegisterForm'])->name('student.register');
+    Route::get('login',[CustomLoginController::class,'showLoginForm'])->name('student.login');
 });
 
 
-Route::get('home',function () {
-    return view('student.home');
+Route::group(['middleware' => 'auth:web' ], function() {
+
 });
-//Route::get('/home', [HomeController::class, 'index'])->name('home');
+
