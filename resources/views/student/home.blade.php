@@ -43,13 +43,16 @@
 
         <div class="heading">
             <h1>أ/علاء الدين</h1>
-            <p>
-                منصة علاء الدين لشرح منهج الفزياء للثانوية العامة
-            </p>
+            <p class="main-text">
+            منصة
+            <span class="st-span">علاء الدين</span>
+            لشرح منهج الفزياء
+            <span class="nd-span">للثانوية العامة</span>
+         </p>
         </div>
         <div class="img">
             <img src="{{asset('images/logo.png')}}" alt="image"
-                 width="100%">
+                width="100%">
         </div>
 
     </div>
