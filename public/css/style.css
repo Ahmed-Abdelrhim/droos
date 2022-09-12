@@ -396,8 +396,48 @@ footer .container img {
 }
 
 .content .img {
-    width: 40%;
-    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.img img {
+    position: relative;
+    height: 100%;
+    width: calc(130% - 80px);
+    top: -100px;
+    right: 50px;
+    /* transform: rotateY(180deg); */
+    animation: animateUser 4s linear infinite;
+}
+
+@keyframes animateUser {
+    50% {
+        right: 30px;
+        top: -90px;
+    }
+}
+
+.img #splash{
+    position: absolute;
+}
+
+#logo-background {
+    position: absolute;
+    width: 200px;
+    height: 120px;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#back-ground {
+    position: absolute;
+    width:500px;
+    height: 300px;
+    z-index: -1;
+    top: -100px;
+    right: -100px;
 }
 
 .content .heading {

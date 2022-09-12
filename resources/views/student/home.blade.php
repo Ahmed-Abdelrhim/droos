@@ -3,6 +3,7 @@
 
 <header class="header">
 
+    <img id="back-ground" src="{{asset('images/back-ground.png')}}">
     <section class="flex">
 
         <div class="icons">
@@ -28,7 +29,7 @@
                 <a href="{{route('student.register')}}" class="option-btn">register</a>
             </div>
         </div>
-
+        <img id="logo-background" src="{{asset('images/splash.png')}}">
         <a href="home.html" class="logo"><img src="{{asset('images/logo.png')}}"></a>
     </section>
 
@@ -39,8 +40,6 @@
 <section class="home-grid">
 
     <div class="content">
-
-
         <div class="heading">
             <h1>أ/علاء الدين</h1>
             <p class="main-text">
@@ -48,13 +47,13 @@
             <span class="st-span">علاء الدين</span>
             لشرح منهج الفزياء
             <span class="nd-span">للثانوية العامة</span>
-         </p>
+            </p>
         </div>
-        <div class="img">
-            <img src="{{asset('images/logo.png')}}" alt="image"
-                width="100%">
+        <div class="imgbox">
+            <div class="img">
+                <img src="{{asset('images/logo.png')}}" alt="image">
+            </div>
         </div>
-
     </div>
 
 </section>
