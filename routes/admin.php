@@ -15,6 +15,6 @@ use App\Http\Controllers\Admin\Auth\CustomLoginController;
 |
 */
 
-Route::get('play',function() {
-    return view('student.auth.login');
-});
+//Route::get('play',function() {
+//    return view('student.auth.login');
+//});

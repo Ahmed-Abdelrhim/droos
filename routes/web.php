@@ -40,9 +40,24 @@ Route::get('home',function () {
 
 Route::group(['middleware' => 'auth:web' ], function() {
     Route::get('logout',[CustomLoginController::class,'logout'])->name('logout');
-
     Route::get('secondary/first/year',[AcademicFirstYear::class,'index'])->name('academic_first_years');
     Route::get('secondary/second/year',[AcademicSecondYear::class,'index'])->name('academic_second_years');
     Route::get('secondary/third/year',[AcademicThirdYear::class,'index'])->name('academic_third_years');
+
+    Route::get('about',function (){
+        return view('student.about');
+    })->name('about');
+
+    Route::get('contact',function (){
+        return view('student.contact');
+    })->name('contact');
+
+    Route::get('course',function (){
+        return view('student.courses');
+    })->name('course');
+
+    Route::get('playlist',function (){
+        return view('student.playlist');
+    })->name('playlist');
 });
 
