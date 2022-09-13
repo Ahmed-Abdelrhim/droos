@@ -18,7 +18,7 @@
 
 
             <div class="profile">
-                <img src="images/pic-1.jpg" class="image" alt="">
+                <img src="{{asset('images/pic-1.jpg')}}" class="image" alt="">
                 <h3 class="name">Welcome</h3>
                 <p class="role">studen</p>
                 <div class="flex-btn">
@@ -33,13 +33,19 @@
     </header>
     <section class="form-container">
 
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="{{route('login.student')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+
+            @error('email')
+            <span class="text-danger" style="font-size: 20px">{{$message}}</span>
+            @enderror
             <h3>login now</h3>
             <p>your email <span>*</span></p>
             <input type="email" name="email" placeholder="enter your email" required maxlength="50" class="box">
+
             <p>your password <span>*</span></p>
-            <input type="password" name="pass" placeholder="enter your password" required maxlength="20" class="box">
-            <input type="submit" value="login new" name="submit" class="btn">
+            <input type="password" name="password" placeholder="enter your password" required maxlength="20" class="box">
+            <button type="submit" class="btn">Submit</button>
         </form>
 
     </section>
