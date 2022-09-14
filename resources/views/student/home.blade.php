@@ -47,10 +47,10 @@
                 </div>
                 <div class="col-12 col-lg-6 text-md-center text-lg-left content">
                     <div class="slider-content heading">
-                        <h1 class="main-font text-uppercase"><span class="slider-text px-2">أ/علاء الدين</h1>
+                        <h1 class="main-font text-uppercase"><span class="slider-text px-2">م/علاء الدين</h1>
                         <p class="main-text">
                             منصة
-                            <span class="st-span">علاء الدين</span>
+                            <span class="st-span">باشمهندس علاء الدين </span>
                             لشرح منهج الفزياء
                             <span class="nd-span">للثانوية العامة</span>
                         </p>
