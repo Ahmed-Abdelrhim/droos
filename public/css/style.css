@@ -786,17 +786,22 @@ footer .container img {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
+.custom-select {
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+    border: 0;
+    background-image: none;
+    background-color: var(--light-bg);
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    flex: 1;
+    padding: 0 .5em;
+    color: var(--light-color);
+    cursor: pointer;
+    font-size: 1.5em;
+}
 
 
 
