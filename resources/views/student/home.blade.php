@@ -13,11 +13,12 @@
         </div>
 
         <nav class="navbar">
-            <a href="home.html" class="active"><i class="fas fa-home"></i><span>الرئيسية</span></a>
-            <a href="about.html"><i class="fas fa-question"></i><span>من نحن</span></a>
-            <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
-            <a href="contact.html"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
-        </nav>
+         <a href="home.html" class="active"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+         <a href="about.html" class="active"><i class="fas fa-question"></i><span>من نحن</span></a>
+         <a href="courses.html" class="active"><i class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
+         <a href="contact.html" class="active"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
+      </nav>
+
 
 
         <div class="profile">
@@ -107,8 +108,8 @@
 
 
 
+<h2 class="main-title">الصفوف الدراسية</h2>
 <div class="card-container" id="cards">
-    <h2 class="main-title">الصفوف الدراسية</h2>
     <div class="card">
         <span></span>
         <span></span>
