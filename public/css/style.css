@@ -418,7 +418,7 @@ footer .container img {
     }
 }
 
-.img #splash{
+.img #splash {
     position: absolute;
 }
 
@@ -431,25 +431,30 @@ footer .container img {
     z-index: -1;
 }
 
+
 #back-ground {
     position: absolute;
-    width:500px;
+    width: 500px;
     height: 300px;
     z-index: -1;
     top: -100px;
     right: -100px;
 }
 
-.content .heading {
-    width: 50%;
-    display: inline-block;
-    border-bottom: none;
+@media(max-width:767px){
+    #back-ground {
+            width: 300px;
+            height: 260px;
+        }
 }
 
+
+
 .content .heading h1 {
-    font-size: 100px;
+    font-size: 80px;
     font-weight: 400;
 }
+
 
 .content .heading p {
     line-height: 1.6;
@@ -464,6 +469,347 @@ footer .container img {
 .content .heading p .nd-span {
     color: #1da1f2;
 }
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+    margin: 50px auto;
+    background-color: #f1c40f;
+}
+
+.card-container .card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background-color: #06285f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.card-container .card::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+
+.card-container .card .card-content {
+    padding: 30px;
+    text-align: center;
+}
+
+.card-container .card .card-content img {
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 300px;
+    height: 150px;
+    z-index: 0;
+}
+
+.card-container .card .card-content h2{
+    position: absolute;
+    right: 30px;
+    font-size: 4em;
+    font-weight: 800;
+    color: #1779ff;
+    z-index: 1;
+    opacity: 0.1;
+    transition: 0.5s;
+}
+
+.card-container .card:hover .card-content h2 {
+    opacity: 1;
+    transform: translateY(-70px);
+}
+
+.card-container .card .card-content h3 {
+    position: relative;
+    font-size: 3em;
+    margin-top: 3.0em;
+    color: #f3f4f6;
+    z-index: 2;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    transition: 0.5s;
+}
+
+.card-container .card:hover .card-content h3 {
+    opacity: 1;
+}
+
+
+.card-container .card .card-content p {
+    position: relative;
+    font-size: 1.5em;
+    color: #f3f4f6;
+    z-index: 2;
+    opacity: 0.7;
+    transition: 0.5s;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.card-container .card:hover .card-content h3,
+.card-container .card:hover .card-content p {
+    opacity: 1;
+}
+
+.card-container .card .card-content a {
+    display: inline-block;
+    font-size: 1.5em;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #f3f4f6;
+    color: #06285f;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+
+.card-container .card span {
+    transition: 0.5;
+
+}
+
+.card-container .card span:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #1779ff);
+    animation: animate1 2s linear infinite;
+}
+
+@keyframes animate1 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.card-container .card span:nth-child(2) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #1779ff);
+    animation: animate2 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animate2 {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.card-container .card span:nth-child(3) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to left, transparent, #1779ff);
+    animation: animate3 2s linear infinite;
+}
+
+@keyframes animate3 {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.card-container .card span:nth-child(4) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to top, transparent, #1779ff);
+    animation: animate4 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animate4 {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+
+/* ===================================
+    Banner
+====================================== */
+
+
+.slider-image img {
+    position: relative;
+    width: 100%;
+}
+
+
+.slider-area {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.circle-one {
+    position: absolute;
+    top: 28%;
+    left: 47%;
+}
+
+.circle-two {
+    top: 14%;
+    left: 68%;
+    position: absolute;
+}
+
+.circle-three {
+    top: 38%;
+    left: 10%;
+    position: absolute;
+}
+
+.circle-four {
+    top: 80%;
+    left: 20%;
+    position: absolute;
+}
+
+.circle-five {
+    top: 86%;
+    left: 90%;
+    position: absolute;
+}
+
+.animated-circle {
+    background-color: transparent;
+    border: none;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.animated-circle:after {
+    content: "";
+    height: 25px;
+    width: 25px;
+    background-color: #ffd700;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    -webkit-box-shadow: 0 0 0 0 rgba(217, 190, 38, 0.4);
+    box-shadow: 0 0 0 0 rgba(217, 190, 38, 0.4);
+    -webkit-animation: ripple 2s infinite;
+    animation: ripple 2s infinite;
+}
+
+.fixed {
+    position: fixed;
+}
+
+@-webkit-keyframes ripple {
+    0% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    70% {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        -webkit-box-shadow: 0 0 0 20px rgba(0, 159, 153, 0);
+        box-shadow: 0 0 0 20px rgba(0, 159, 153, 0);
+    }
+
+    to {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 159, 153, 0);
+        box-shadow: 0 0 0 0 rgba(0, 159, 153, 0);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    70% {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        -webkit-box-shadow: 0 0 0 20px rgba(0, 159, 153, 0);
+        box-shadow: 0 0 0 20px rgba(0, 159, 153, 0);
+    }
+
+    to {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 159, 153, 0);
+        box-shadow: 0 0 0 0 rgba(0, 159, 153, 0);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .about .row {
     display: flex;
@@ -1506,6 +1852,19 @@ footer .container img {
 }
 
 /* End Footer */
+
+.top {
+    position: fixed;
+    bottom: 7.5rem;
+    right: 2rem;
+    z-index: 10000;
+    display: none;
+}
+
+.top img {
+    height: 60px;
+}
+
 /* Start Animation */
 @keyframes up-and-down {
 

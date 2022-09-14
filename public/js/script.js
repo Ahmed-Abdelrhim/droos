@@ -89,3 +89,25 @@ document.addEventListener('DOMContentLoaded',function(event){
     // start the text animation
     StartTextAnimation(0);
 });
+
+
+
+// scroll to top
+let up = document.querySelector(".top");
+
+window.onscroll = function () {
+    console.log(window.scrollY);
+    if (window.scrollY >= 300) {
+        up.style.display = "block";
+    } else {
+        up.style.display = "none";
+    }
+   //  this.scrollY >= 1000 ? span.classList.add("show") : span.classList.remove("show");
+};
+
+up.onclick = function () {
+    window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+    });
+};

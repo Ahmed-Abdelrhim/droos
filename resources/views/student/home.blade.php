@@ -36,27 +36,114 @@
 </header>
 
 
-
-<section class="home-grid">
-
-    <div class="content">
-        <div class="heading">
-            <h1>أ/علاء الدين</h1>
-            <p class="main-text">
-            منصة
-            <span class="st-span">علاء الدين</span>
-            لشرح منهج الفزياء
-            <span class="nd-span">للثانوية العامة</span>
-            </p>
-        </div>
-        <div class="imgbox">
-            <div class="img">
-                <img src="{{asset('images/logo.png')}}" alt="image">
+<!-- START BANNER -->
+    <section class="section slide1 p-0" id="home">
+        <div class="slider-area" id="slider-area">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg-6 image-order">
+                    <div class="slider-image imgbox">
+                        <img src="{{asset('images/logo.png')}}" alt="image">
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 text-md-center text-lg-left content">
+                    <div class="slider-content heading">
+                        <h1 class="main-font text-uppercase"><span class="slider-text px-2">أ/علاء الدين</h1>
+                        <p class="main-text">
+                            منصة
+                            <span class="st-span">علاء الدين</span>
+                            لشرح منهج الفزياء
+                            <span class="nd-span">للثانوية العامة</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Circle-One -->
+            <div class="circle-one">
+                 <span data-tootik="About" data-tootik-conf="right dark square shadow">
+                    <a href="#about">
+                        <span class="animated-circle position-relative"></span>
+                    </a>
+                 </span>
+            </div>
+            <!-- Circle-Two -->
+            <div class="circle-two">
+                 <span data-tootik="Timeline" data-tootik-conf="left dark square shadow">
+                    <a href="#timeline">
+                        <span class="animated-circle position-relative"></span>
+                    </a>
+                 </span>
+            </div>
+            <!-- Circle-Three -->
+            <div class="circle-three">
+              <span data-tootik="Portfolio" data-tootik-conf="top dark square shadow">
+                    <a href="#portfolio">
+                        <span class="animated-circle position-relative"></span>
+                    </a>
+              </span>
+            </div>
+            <!-- Circle-Four -->
+            <div class="circle-four">
+                  <span data-tootik="Testimonials" data-tootik-conf="bottom dark square shadow">
+                    <a href="#testimonial">
+                        <span class="animated-circle position-relative"></span>
+                    </a>
+                  </span>
+            </div>
+            <!-- Circle-Five -->
+            <div class="circle-five">
+                  <span data-tootik="Contact" data-tootik-conf="bottom dark square shadow">
+                        <a href="#contact">
+                            <span class="animated-circle position-relative"></span>
+                        </a>
+                  </span>
             </div>
         </div>
-    </div>
+    </section>
+<!-- END BANNER -->
 
-</section>
+
+
+<div class="card-container">
+    <div class="card">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="card-content">
+            <img src="{{asset('images/year-1.jpeg')}}">
+            <h2>01</h2>
+            <h3>الصف الدراسي الأول</h3>
+            <p>جميع كورسات الصف الأول الثانوي</p>
+            <a href="#">ابدا التعلم</a>
+        </div>
+    </div>
+    <div class="card">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="card-content">
+            <img src="{{asset('images/year-2.jpeg')}}">
+            <h2>02</h2>
+            <h3>الصف الدراسي الثاني</h3>
+            <p>جميع كورسات الصف الثاني الثانوي</p>
+            <a href="#">ابدا التعلم</a>
+        </div>
+    </div>
+    <div class="card">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="card-content">
+            <img src="{{asset('images/year-3.jpeg')}}">
+            <h2>03</h2>
+            <h3>الصف الدراسي الثالث</h3>
+            <p>جميع كورسات الصف الثالث الثانوي</p>
+            <a href="#">ابدا التعلم</a>
+        </div>
+    </div>
+</div>
 
 
 
@@ -122,6 +209,11 @@
     <p class="copyright">Developed By <a href="#" class="fas fa-heart"></a> By Anas , Ahmed</p>
     &copy; copyright @ 2022 | all rights reserved!
 </footer>
+
+<!-- scroll top button  -->
+<a href="#" class="top">
+    <img src="{{asset('images/scroll-top-img.png')}}">
+</a>
 <!-- End Footer -->
 
 @endsection
