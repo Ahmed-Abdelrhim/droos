@@ -57,6 +57,9 @@
                     </div>
                 </div>
             </div>
+            <a href="#cards" class="go-down">
+                <i class="fas fa-angle-double-down fa-2x"></i>
+            </a>
             <!-- Circle-One -->
             <div class="circle-one">
                  <span data-tootik="About" data-tootik-conf="right dark square shadow">
@@ -99,11 +102,13 @@
             </div>
         </div>
     </section>
+
 <!-- END BANNER -->
 
 
 
-<div class="card-container">
+<div class="card-container" id="cards">
+    <h2 class="main-title">الصفوف الدراسية</h2>
     <div class="card">
         <span></span>
         <span></span>
@@ -143,7 +148,35 @@
             <a href="#">ابدا التعلم</a>
         </div>
     </div>
+
 </div>
+<div class="spikes"></div>
+
+
+<!-- Start Features -->
+    <div class="features" id="features">
+      <div class="container">
+        <div class="box quality">
+          <div class="img-holder"><img src="{{asset('images/fet-2.svg')}}"></div>
+          <h2>Quality</h2>
+          <p>شاهد دروسك اكثر من مرة</p>
+          <a href="#">More</a>
+        </div>
+        <div class="box time">
+          <div class="img-holder"><img src="{{asset('images/fet-1.svg')}}"></div>
+          <h2>Time</h2>
+          <p>وفر وقت المواصلات و السنتر</p>
+          <a href="#">More</a>
+        </div>
+        <div class="box passion">
+          <div class="img-holder"><img src="{{asset('images/fet-3.svg')}}"></div>
+          <h2>Passion</h2>
+          <p>احضر امتحانات دورية </p>
+          <a href="#">More</a>
+        </div>
+      </div>
+    </div>
+    <!-- End Features -->
 
 
 
