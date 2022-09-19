@@ -5,6 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\WaitingListFirstYear;
+use App\Models\WaitingListSecondtYear;
+use App\Models\WaitingListThirdYear;
+use App\Models\SubscribedFirstYear;
+use App\Models\SubscribedSecondYear;
+use App\Models\SubscribedThirdYear;
 class DashboardController extends Controller
 {
     public function index()
@@ -21,4 +28,50 @@ class DashboardController extends Controller
     {
         return Auth::guard('admin')->user();
     }
+
+    public function studentsFirstYear()
+    {
+        return User::where('academic_year',1)->get();
+    }
+
+    public function studentsSecondYear()
+    {
+        return User::where('academic_year',2)->get();
+    }
+
+    public function studentsThirdYear()
+    {
+        return User::where('academic_year',3)->get();
+    }
+
+    public function waitingListFirstYear()
+    {
+        return WaitingListFirstYear::get();
+    }
+
+    public function waitingListSecondYear()
+    {
+        return WaitingListFirstYear::get();
+    }
+
+    public function waitingListThirdYear()
+    {
+        return WaitingListFirstYear::get();
+    }
+
+    public function subscribedFirstYear()
+    {
+        return SubscribedFirstYear::get();
+    }
+
+    public function subscribedSecondYear()
+    {
+        return SubscribedSecondYear::get();
+    }
+
+    public function subscribedThirdYear()
+    {
+        return SubscribedThirdYear::get();
+    }
+
 }
