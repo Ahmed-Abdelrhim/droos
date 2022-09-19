@@ -37,6 +37,18 @@ class DashboardController extends Controller
         return User::where('academic_year',1)->get();
     }
 
+    public function showCourses1stYearForm()
+    {
+        return view('admin.courses.1st');
+    }
+
+    public function storeCourses1stYear()
+    {
+        CourseFirstYear::create([
+
+        ]);
+    }
+
     public function studentsSecondYear()
     {
         return User::where('academic_year',2)->get();

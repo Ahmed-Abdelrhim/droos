@@ -99,6 +99,9 @@ Route::group(['middleware' => 'disable_back_btn'],function () {
         Route::get('student_3rd_year',[DashboardController::class,'studentsThirdYear'])->name('student_3rd_year');
 
         Route::get('admin/courses/1st/year',[DashboardController::class,'CourseFirstYear'])->name('admin.courses.1st');
+        Route::get('admin/courses/add/1st/year',[DashboardController::class,'showCourses1stYearForm']);
+        Route::post('admin/courses/add/1st/year',[DashboardController::class,'storeCourses1stYear'])->name('store.1st');
+
         Route::get('admin/courses/2nd/year',[DashboardController::class,'CourseSecondYear'])->name('admin.courses.2nd');
         Route::get('admin/courses/3rd/year',[DashboardController::class,'CourseThirdYear'])->name('admin.courses.3rd');
 
