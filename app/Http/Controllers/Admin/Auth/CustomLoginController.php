@@ -18,28 +18,28 @@ class CustomLoginController extends Controller
 
     public function login(Request $request)
     {
-        //return redirect()->route('dashboard');
+        // return $request;
+        // return redirect()->route('dashboard');
+        // if (Auth::guard('admin')->attempt($this->credentials($request))) {
         if (Auth::guard('admin')->attempt($this->credentials($request))) {
+
+//            return redirect()->route('dashboard');
             return 'Admin';
         }
         return redirect()->back()->withErrors(['errors' => 'Email Or Password Is Incorrect',]);
     }
 
-
-    public
-    function credentials($request)
+    public function credentials($request)
     {
         return $request->only($this->username(), 'password');
     }
 
-    public
-    function username(): string
+    public function username(): string
     {
         return 'email';
     }
 
-    public
-    function logout()
+    public function logout()
     {
         Auth::guard('admin')->logout();
         return redirect()->route('admin.login.form');

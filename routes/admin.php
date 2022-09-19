@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\Auth\CustomLoginController;
 use  App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\AdminLoginController;
+
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -16,15 +18,18 @@ use  App\Http\Controllers\Admin\DashboardController;
 |
 */
 
-Route::group(['middleware' =>'guest:admin'] , function () {
-    Route::get('admin/login',[CustomLoginController::class,'showLoginForm'])->name('admin.login.form');
-    Route::post('admin/login',[CustomLoginController::class,'login'])->name('admin.login');
-    Route::get('admin/logout',[CustomLoginController::class,'logout']);
-});
+//Route::get('admin/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login.form')->middleware('guest:author');
+//Route::post('admin/asdasdasdasdsadasdasdasdas/login', [AdminLoginController::class, 'login'])->name('signIn');
+//Route::get('admin/logout', [AdminLoginController::class, 'logout']);
+//
+//Route::group(['middleware' => 'auth:author'], function () {
+////    Route::post('logout',[AdminLoginController::class,'logout']);
+//
+//    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+//
+//    Route::get('admin/teachers', [DashboardController::class, 'showTeachers'])->name('teachers');
+//});
 
-Route::group(['middleware' =>'auth:admin'],function(){
-    Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
 
-    Route::get('teachers',[DashboardController::class,'showTeachers']);
 
-});
+//Route::get('admin/play', [DashboardController::class, 'play']);

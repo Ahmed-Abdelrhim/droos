@@ -19,7 +19,7 @@
             <div class="profile">
                 <img src="{{asset('images/pic-1.jpg')}}" class="image" alt="">
                 <h3 class="name">Welcome</h3>
-                <p class="role">student</p>
+                <p class="role">studen</p>
                 <div class="flex-btn">
                     <a href="{{route('student.register')}}" class="option-btn">login</a>
                     <a href="{{route('student.register')}}" class="option-btn">register</a>
@@ -32,12 +32,17 @@
     </header>
     <section class="form-container">
 
-        <form action="{{route('admin.login')}}" method="POST">
+        <form action="{{route('signIn')}}" method="POST" >
             @csrf
-{{--            @error('email')--}}
-{{--            @enderror--}}
-
-            <h3>login Admin now</h3>
+            @if(\Session::get('message'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <div class="alert-body">
+                        {{ \Session::get('message') }}
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+            <h3>Dashboard login</h3>
             <p>your email <span>*</span></p>
             <input type="email" name="email" placeholder="enter your email" required maxlength="50" class="box"
                    value="{{old('email')}}">
@@ -55,7 +60,7 @@
     <footer class="footer">
         <div class="container">
             <div class="box">
-                <a href="home.html" class="logo"><img src="{{asset('images/logo.png')}}"></a>
+                <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
                 <ul class="social">
                     <li>
                         <a href="#" class="facebook">
@@ -79,20 +84,20 @@
             </div>
             <div class="box">
                 <ul class="links">
-                    <li><a href="{{asset('home')}}">الرئيسية</a></li>
-                    <li><a href="{{asset('about')}}">من نحن</a></li>
-                    <li><a href="{{asset('contact')}}">تواصل معنا</a></li>
-                    <li><a href="{{asset('courses')}}">الكورسات</a></li>
+                    <li><a href="home.html">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                    <li><a href="courses.html">الكورسات</a></li>
                 </ul>
             </div>
             <div class="box">
                 <div class="line">
                     <i class="fas fa-map-marker-alt fa-fw"></i>
-                    <div class="info" style="color: #8e44ad">مصر</div>
+                    <div class="info">مصر</div>
                 </div>
                 <div class="line">
                     <i class="far fa-clock fa-fw"></i>
-                    <div class="info" style="color: #8e44ad">24/7</div>
+                    <div class="info">24/7</div>
                 </div>
                 <div class="line">
                     <i class="fas fa-phone-volume fa-fw"></i>
@@ -125,3 +130,4 @@
     <script src="{{asset('js/script.js')}}"></script>
 
 @endsection
+

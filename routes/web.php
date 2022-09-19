@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
@@ -31,7 +33,7 @@ Route::group(['middleware' => 'guest:web'] , function () {
     Route::post('login',[CustomLoginController::class,'login'])->name('login.student');
 });
 Route::get('hash',function() {
-    return bcrypt('123456');
+    return bcrypt('12345678');
 });
 
 Route::get('home',function () {
@@ -61,6 +63,7 @@ Route::group(['middleware' => 'auth:web' ], function() {
     Route::get('first/year', [AcademicFirstYear::class,'index'])->name('1st.year');
     Route::get('second/year',[AcademicSecondYear::class,'index'])->name('2nd.year');
     Route::get('third/year', [AcademicThirdYear::class,'index'])->name('3rd.year');
+//    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
     Route::get('playlist',function (){
@@ -69,4 +72,19 @@ Route::group(['middleware' => 'auth:web' ], function() {
 });
 
 Route::get('aaa',[StudentGeneralController::class,'play']);
+Route::get('admin/play', [DashboardController::class, 'play']);
 
+
+
+Route::group(['middleware' => 'guest:admin'],function() {
+    Route::get('admin/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login.form');
+    Route::post('admin/post/login', [AdminLoginController::class, 'login'])->name('signIn');
+});
+
+Route::group(['middleware' => 'auth:admin'], function () {
+    Route::get('admin/logout', [AdminLoginController::class, 'logout']);
+
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('admin/teachers', [DashboardController::class, 'showTeachers'])->name('teachers');
+});
