@@ -9,6 +9,8 @@ class AcademicSecondYear extends Controller
 {
     public function index ()
     {
-        return 'Academic Second Year';
+//        return 'Academic Second Year';
+        return view('student.2nd');
+
     }
 }

@@ -19,7 +19,7 @@ use App\Http\Controllers\Student\AcademicThirdYear;
 */
 //Auth::routes();
 
-Route::group(['middleware' => 'guest'] , function () {
+Route::group(['middleware' => 'guest:web'] , function () {
     Route::get('/', function () {
         return view('student.home');
     });
@@ -55,6 +55,10 @@ Route::group(['middleware' => 'auth:web' ], function() {
     Route::get('course',function (){
         return view('student.courses');
     })->name('course');
+
+    Route::get('first/year',[AcademicFirstYear::class,'index'])->name('1st.year');
+    Route::get('second/year',[AcademicSecondYear::class,'index'])->name('2nd.year');
+    Route::get('third/year',[AcademicThirdYear::class,'index'])->name('3rd.year');
 
     Route::get('playlist',function (){
         return view('student.playlist');
