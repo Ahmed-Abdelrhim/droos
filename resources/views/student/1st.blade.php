@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="thumb">
-                    <img src="{{asset('images/images/thumb-5.png')}}">
+                    <img src="{{asset('images/thumb-5.png')}}">
                     <span>10 videos</span>
                 </div>
                 <h3 class="title">كورس الشهر الأول 1ث</h3>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="thumb">
-                    <img src="{{asset('images/images/thumb-1.png')}}">
+                    <img src="{{asset('images/thumb-1.png')}}">
                     <span>10 videos</span>
                 </div>
                 <h3 class="title">كورس الشهر الثاني 1ث</h3>
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="thumb">
-                    <img src="{{asset('images/images/thumb-9.png')}}">
+                    <img src="{{asset('images/thumb-9.png')}}">
                     <span>10 videos</span>
                 </div>
                 <h3 class="title">كورس الشهر الثالث 1ث</h3>
