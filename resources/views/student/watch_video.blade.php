@@ -14,11 +14,12 @@
         </div>
 
         <nav class="navbar">
-         <a href="home.html" class="active"><i class="fas fa-home"></i><span>الرئيسية</span></a>
-         <a href="about.html" class="active"><i class="fas fa-question"></i><span>من نحن</span></a>
-         <a href="courses.html" class="active"><i class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
-         <a href="contact.html" class="active"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
-      </nav>
+            <a href="{{asset('home')}}" class="active"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+            <a href="{{asset('about')}}" class="active"><i class="fas fa-question"></i><span>من نحن</span></a>
+            <a href="{{asset('courses')}}" class="active"><i class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
+            <a href="{{asset('contact')}}" class="active"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
+        </nav>
+
 
 
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\Student\Auth\CustomLoginController;
 use App\Http\Controllers\Student\AcademicFirstYear;
 use App\Http\Controllers\Student\AcademicSecondYear;
 use App\Http\Controllers\Student\AcademicThirdYear;
+use App\Http\Controllers\StudentGeneralController;
 /*
 |--------------------------------------------------------------------------
 | Student Routes
@@ -55,13 +56,17 @@ Route::group(['middleware' => 'auth:web' ], function() {
     Route::get('course',function (){
         return view('student.courses');
     })->name('course');
+    Route::post('message',[StudentGeneralController::class,'storeMessage'])->name('msg');
 
-    Route::get('first/year',[AcademicFirstYear::class,'index'])->name('1st.year');
+    Route::get('first/year', [AcademicFirstYear::class,'index'])->name('1st.year');
     Route::get('second/year',[AcademicSecondYear::class,'index'])->name('2nd.year');
-    Route::get('third/year',[AcademicThirdYear::class,'index'])->name('3rd.year');
+    Route::get('third/year', [AcademicThirdYear::class,'index'])->name('3rd.year');
+
 
     Route::get('playlist',function (){
         return view('student.playlist');
     })->name('playlist');
 });
+
+Route::get('aaa',[StudentGeneralController::class,'play']);
 
