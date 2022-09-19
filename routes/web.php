@@ -32,6 +32,10 @@ Route::group(['middleware' => 'disable_back_btn'],function () {
 
         Route::get('login',[CustomLoginController::class,'showLoginForm'])->name('student.login');
         Route::post('login',[CustomLoginController::class,'login'])->name('login.student');
+
+        Route::get('courses/1st/year',[AcademicFirstYear::class,'courses'])->name('courses.1st');
+        Route::get('courses/2nd/year',[AcademicSecondYear::class,'courses'])->name('courses.2nd');
+        Route::get('courses/3rd/year',[AcademicThirdYear::class,'courses'])->name('courses.3rd');
     });
     Route::get('hash',function() {
         return bcrypt('12345678');
@@ -64,7 +68,8 @@ Route::group(['middleware' => 'disable_back_btn'],function () {
         Route::get('first/year', [AcademicFirstYear::class,'index'])->name('1st.year');
         Route::get('second/year',[AcademicSecondYear::class,'index'])->name('2nd.year');
         Route::get('third/year', [AcademicThirdYear::class,'index'])->name('3rd.year');
-//    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+
 
 
         Route::get('playlist',function (){
@@ -92,6 +97,10 @@ Route::group(['middleware' => 'disable_back_btn'],function () {
         Route::get('student_1st_year',[DashboardController::class,'studentsFirstYear'])->name('student_1st_year');
         Route::get('student_2nd_year',[DashboardController::class,'studentsSecondYear'])->name('student_2nd_year');
         Route::get('student_3rd_year',[DashboardController::class,'studentsThirdYear'])->name('student_3rd_year');
+
+        Route::get('admin/courses/1st/year',[DashboardController::class,'CourseFirstYear'])->name('admin.courses.1st');
+        Route::get('admin/courses/2nd/year',[DashboardController::class,'CourseSecondYear'])->name('admin.courses.2nd');
+        Route::get('admin/courses/3rd/year',[DashboardController::class,'CourseThirdYear'])->name('admin.courses.3rd');
 
         Route::get('waiting_list_1st_year',[DashboardController::class,'waitingListFirstYear'])->name('waiting_list_1st_year');
         Route::get('waiting_list_2nd_year',[DashboardController::class,'waitingListSecondYear'])->name('waiting_list_2nd_year');

@@ -3,14 +3,18 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Models\CourseSecondYear;
 use Illuminate\Http\Request;
 
 class AcademicSecondYear extends Controller
 {
     public function index ()
     {
-//        return 'Academic Second Year';
-        return view('student.2nd');
+        return view('student.2nda');
+    }
 
+    public function courses()
+    {
+        return CourseSecondYear::get();
     }
 }

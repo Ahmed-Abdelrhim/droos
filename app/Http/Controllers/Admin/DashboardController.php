@@ -12,6 +12,9 @@ use App\Models\WaitingListThirdYear;
 use App\Models\SubscribedFirstYear;
 use App\Models\SubscribedSecondYear;
 use App\Models\SubscribedThirdYear;
+use App\Models\CourseFirstYear;
+use App\Models\CourseSecondYear;
+use App\Models\CourseThirdYear;
 class DashboardController extends Controller
 {
     public function index()
@@ -42,6 +45,21 @@ class DashboardController extends Controller
     public function studentsThirdYear()
     {
         return User::where('academic_year',3)->get();
+    }
+
+    public function coursesFirstYear()
+    {
+        return CourseFirstYear::get();
+    }
+
+    public function CourseSecondYear()
+    {
+        return CourseSecondYear::get();
+    }
+
+    public function CourseThirdYear()
+    {
+        return CourseThirdYear::get();
     }
 
     public function waitingListFirstYear()
