@@ -50,8 +50,8 @@ class CustomLoginController extends Controller
                 return redirect()->route('academic_second_years');
             return redirect()->route('academic_third_years');
         }
-        return back()->withErrors([
-            'email' => 'Email Or Password Is Incorrect',
+        return redirect()->back()->withErrors([
+            'errors' => 'Email Or Password Is Incorrect',
         ]);
     }
 

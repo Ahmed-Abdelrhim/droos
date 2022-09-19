@@ -34,9 +34,12 @@
 
         <form action="{{route('login.student')}}" method="POST" enctype="multipart/form-data">
             @csrf
-
-            @error('email')
-            <span class="text-danger" style="font-size: 20px">{{$message}}</span>
+            @error('errors')
+            <div class="row mr-2 ml-2">
+                <button type="text" class="btn btn-lg btn-block btn-outline-danger mb-2"
+                        id="type-error">{{$message}}
+                </button>
+            </div>
             @enderror
             <h3>login now</h3>
             <p>your email <span>*</span></p>
