@@ -17,6 +17,8 @@ class AcademicThirdYear extends Controller
 
     public function courses()
     {
-        return CourseThirdYear::get();
+        $courses = CourseThirdYear::get();
+        return view('student.all_course.3rd',compact('courses'));
+
     }
 }

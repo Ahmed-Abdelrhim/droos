@@ -14,6 +14,7 @@ class AcademicFirstYear extends Controller
 
     public function courses()
     {
-        return CourseFirstYear::get();
+        $courses =  CourseFirstYear::get();
+        return view('student.all_course.1st',compact('courses'));
     }
 }

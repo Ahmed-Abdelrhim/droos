@@ -33,10 +33,12 @@ Route::group(['middleware' => 'disable_back_btn'],function () {
         Route::get('login',[CustomLoginController::class,'showLoginForm'])->name('student.login');
         Route::post('login',[CustomLoginController::class,'login'])->name('login.student');
 
-        Route::get('courses/1st/year',[AcademicFirstYear::class,'courses'])->name('courses.1st');
-        Route::get('courses/2nd/year',[AcademicSecondYear::class,'courses'])->name('courses.2nd');
-        Route::get('courses/3rd/year',[AcademicThirdYear::class,'courses'])->name('courses.3rd');
     });
+
+    Route::get('courses/1st/year',[AcademicFirstYear::class,'courses'])->name('courses.1st');
+    Route::get('courses/2nd/year',[AcademicSecondYear::class,'courses'])->name('courses.2nd');
+    Route::get('courses/3rd/year',[AcademicThirdYear::class,'courses'])->name('courses.3rd');
+
     Route::get('hash',function() {
         return bcrypt('12345678');
     });

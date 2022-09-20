@@ -15,6 +15,8 @@ class AcademicSecondYear extends Controller
 
     public function courses()
     {
-        return CourseSecondYear::get();
+        $courses = CourseSecondYear::get();
+        return view('student.all_course.2nd',compact('courses'));
+
     }
 }
