@@ -8,12 +8,14 @@
                 <span></span>
                 <span></span>
                 <div class="card-content">
-                    <img src="{{asset('images/courses_second_year/'.$course->cover)}}">
+                    <img src="{{asset('images/courses_first_year/'.$course->cover)}}">
                     <h2>01</h2>
-                    <h3>الصف الثاني الثانوي</h3>
+                    <h3>الصف الأول الثانوي</h3>
                     <p style="margin-top: 5px">{{$course->name}}</p>
                     <p style="margin-top: 5px">السعر : {{$course->price}}</p>
-                    <a href="#">اشترك الأن</a>
+                    <a href="{{route('edit.course.1st',$course->id)}}" class="btn btn-primary" >edit course</a>
+                    <a href="{{route('delete.course.1st',$course->id)}}" class="btn btn-danger" >delete course</a>
+
                 </div>
             </div>
         @endforeach

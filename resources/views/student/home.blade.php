@@ -120,7 +120,7 @@
             <h2>01</h2>
             <h3>الصف الدراسي الأول</h3>
             <p>جميع كورسات الصف الأول الثانوي</p>
-            <a href="{{route('courses.1st')}}">ابدا التعلم</a>
+            <a href="{{route('courses.1st.students')}}">ابدا التعلم</a>
         </div>
     </div>
     <div class="card">
@@ -133,7 +133,7 @@
             <h2>02</h2>
             <h3>الصف الدراسي الثاني</h3>
             <p>جميع كورسات الصف الثاني الثانوي</p>
-            <a href="{{route('courses.2nd')}}">ابدا التعلم</a>
+            <a href="{{route('courses.2nd.students')}}">ابدا التعلم</a>
         </div>
     </div>
     <div class="card">
@@ -146,7 +146,7 @@
             <h2>03</h2>
             <h3>الصف الدراسي الثالث</h3>
             <p>جميع كورسات الصف الثالث الثانوي</p>
-            <a href="{{route('courses.3rd')}}">ابدا التعلم</a>
+            <a href="{{route('courses.3rd.students')}}">ابدا التعلم</a>
         </div>
     </div>
 

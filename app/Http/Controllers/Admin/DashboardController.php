@@ -39,7 +39,7 @@ class DashboardController extends Controller
         return User::where('academic_year', 1)->get();
     }
 
-    public function showAddCoursesForm()
+    public function showCoursesAddForm()
     {
         return view('admin.courses.add');
     }
@@ -51,10 +51,11 @@ class DashboardController extends Controller
             $discount = null;
             $oldPrice = $request->price;
             $price = $request->price;
-            if ($request->has('discount'))
+            if ($request->discount != null)
             {
-                $discount = ($request->discount / 100) * ($request->price);
-                $price = $request->price - $discount;
+                $dis = ($request->discount / 100) * ($request->price);
+                $discount = $request->discount;
+                $price = $request->price - $dis;
             }
             if ($academic_year == 1)
             {

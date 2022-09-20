@@ -13,7 +13,7 @@
                     <h3>الصف الثالث الثانوي</h3>
                     <p style="margin-top: 5px">{{$course->name}}</p>
                     <p style="margin-top: 5px">السعر : {{$course->price}}</p>
-                    <a href="{{route('courses.1st')}}">اشترك الأن</a>
+                    <a href="#">اشترك الأن</a>
                 </div>
             </div>
         @endforeach
