@@ -61,7 +61,7 @@ class AcademicThirdYear extends Controller
         $cover = $course->cover;
         if($request->has('cover'))
         {
-            $cover = $this->handleImage('courses_first_year',$request);
+            $cover = $this->handleImage('courses_third_year',$request);
         }
         $course->update([
             'name' => $request->name,
