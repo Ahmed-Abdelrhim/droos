@@ -94,21 +94,26 @@ Route::group(['middleware' => 'disable_back_btn'],function () {
 
         Route::get('admin/teachers', [DashboardController::class, 'showTeachers'])->name('teachers');
 
+        //View Students Who Have an Account
         Route::get('student_1st_year',[DashboardController::class,'studentsFirstYear'])->name('student_1st_year');
         Route::get('student_2nd_year',[DashboardController::class,'studentsSecondYear'])->name('student_2nd_year');
         Route::get('student_3rd_year',[DashboardController::class,'studentsThirdYear'])->name('student_3rd_year');
 
+        //View Courses
         Route::get('admin/courses/1st/year',[DashboardController::class,'CourseFirstYear'])->name('admin.courses.1st');
-        Route::get('admin/courses/add/1st/year',[DashboardController::class,'showCourses1stYearForm']);
-        Route::post('admin/courses/add/1st/year',[DashboardController::class,'storeCourses1stYear'])->name('store.1st');
-
         Route::get('admin/courses/2nd/year',[DashboardController::class,'CourseSecondYear'])->name('admin.courses.2nd');
         Route::get('admin/courses/3rd/year',[DashboardController::class,'CourseThirdYear'])->name('admin.courses.3rd');
 
+        //Add Courses
+        Route::get('admin/add/courses',[DashboardController::class,'showAddCoursesForm']);
+        Route::post('admin/add/courses',[DashboardController::class,'addCourses'])->name('store.courses');
+
+        //View WaitingList Students
         Route::get('waiting_list_1st_year',[DashboardController::class,'waitingListFirstYear'])->name('waiting_list_1st_year');
         Route::get('waiting_list_2nd_year',[DashboardController::class,'waitingListSecondYear'])->name('waiting_list_2nd_year');
         Route::get('waiting_list_3rd_year',[DashboardController::class,'waitingListThirdYear'])->name('waiting_list_3rd_year');
 
+        //View Subscribed Students
         Route::get('subscribed_1st_year',[DashboardController::class,'subscribedFirstYear'])->name('subscribed_1st_year');
         Route::get('subscribed_2nd_year',[DashboardController::class,'subscribedSecondYear'])->name('subscribed_2nd_year');
         Route::get('subscribed_3rd_year',[DashboardController::class,'subscribedThirdYear'])->name('subscribed_3rd_year');
