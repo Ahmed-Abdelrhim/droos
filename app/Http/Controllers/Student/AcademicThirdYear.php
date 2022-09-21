@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Models\CourseThirdYear;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\WaitingListThirdYear;
 
 class AcademicThirdYear extends Controller
 {
@@ -18,7 +20,6 @@ class AcademicThirdYear extends Controller
     {
         $courses = CourseThirdYear::get();
         return view('student.all_course.3rd',compact('courses'));
-
     }
 
     public function showAllCourses()
@@ -81,6 +82,26 @@ class AcademicThirdYear extends Controller
         $course = CourseThirdYear::findOrFail($id);
         $course->delete();
         return redirect()->back()->with(['success' => 'تم حذف الكورس ']);
+    }
+
+    public function toSubscribeCourse($id)
+    {
+        $course = CourseThirdYear::findOrFail($id);
+        return view('student.to_subscribe.3rd',compact('course'));
+    }
+
+    public function subscribeCourseNow($id)
+    {
+        $student_id = Auth::user()->id;
+        $course = CourseThirdYear::findOrFail($id);
+        $serial_number = $course->serial_number;
+        WaitingListThirdYear::create([
+            'student_id' => $student_id,
+            'serial_number' => $serial_number,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        return redirect()->back()->with(['success' => 'تم تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
     }
 
     function uploadImage($folder, $image): string

@@ -47,6 +47,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
     Route::get('courses/3rd/year', [AcademicThirdYear::class, 'courses'])->name('courses.3rd.students');
 
 
+
     Route::get('hash', function () {
         return bcrypt('12345678');
     });
@@ -80,6 +81,14 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('playlist', function () {
             return view('student.playlist');
         })->name('playlist');
+
+        ####### To Subscribe In A Specific Course ##########
+        Route::get('subscribe/3rd/year/{id}',[AcademicThirdYear::class,'toSubscribeCourse'])->name('to.subscribe.3rd');
+//        Route::get('subscribe/3rd/year/{id}',[AcademicThirdYear::class,'toSubscribeCourse'])->name('gooo');
+        Route::get('subscribe/course/3rd/{id}',[AcademicThirdYear::class,'subscribeCourseNow'])->name('subscribe.3rd');
+
+
+
     });
 
     Route::get('aaa', [StudentGeneralController::class, 'play']);
