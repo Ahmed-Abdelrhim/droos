@@ -15,12 +15,14 @@ class AcademicFirstYear extends Controller
         return view('student.1st');
     }
 
+    //Student View All Courses
     public function courses()
     {
         $courses = CourseFirstYear::get();
         return view('student.all_course.1st', compact('courses'));
     }
 
+    //Admin View All Courses
     public function showAllCourses()
     {
         $courses = CourseFirstYear::get();

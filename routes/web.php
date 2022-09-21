@@ -34,6 +34,11 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('login', [CustomLoginController::class, 'showLoginForm'])->name('student.login');
         Route::post('login', [CustomLoginController::class, 'login'])->name('login.student');
 
+        Route::get('home', function () {
+            return view('student.home');
+        })->name('home');
+
+
     });
 
     //View All Courses For anyone
@@ -46,9 +51,6 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         return bcrypt('12345678');
     });
 
-    Route::get('home', function () {
-        return view('student.home');
-    })->name('home');
 
 
     Route::group(['middleware' => 'auth:web'], function () {
