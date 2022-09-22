@@ -19,7 +19,10 @@
                     <h3>الصف الثالث الثانوي</h3>
                     <p style="margin-top: 5px">{{$course->name}}</p>
                     <p style="margin-top: 5px">السعر : {{$course->price}}</p>
-                    <a href="{{route('subscribe.3rd',$course->id)}}">شراء الكورس</a>
+                    <form action="{{route('subscribe.3rd',$course->id)}}" method="POST">
+                        @csrf
+                        <button class="btn btn-primary">شراء الكورس</button>
+                    </form>
                 </div>
             </div>
 

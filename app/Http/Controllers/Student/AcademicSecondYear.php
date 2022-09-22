@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\CourseSecondYear;
+use App\Models\WaitingListSecondtYear;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class AcademicSecondYear extends Controller
 {
     public function index ()
@@ -81,6 +82,29 @@ class AcademicSecondYear extends Controller
         $course = CourseSecondYear::findOrFail($id);
         $course->delete();
         return redirect()->back()->with(['success' => 'تم حذف الكورس ']);
+    }
+
+    public function toSubscribeCourse($id)
+    {
+        $course = CourseSecondYear::findOrFail($id);
+        return view('student.to_subscribe.2nd',compact('course'));
+    }
+
+    public function subscribeCourseNow($id)
+    {
+        $student = Auth::user();
+        $student_id = $student->id;
+        if($student->academic_year != 2 )
+            return redirect()->back()->with(['errors' =>' يجب أن تكون في الصف الثاني الثانوي حتي تستطيع الاشتراك في الكورس']);
+        $course = CourseSecondYear::findOrFail($id);
+        $serial_number = $course->serial_number;
+        WaitingListSecondtYear::create([
+            'student_id' => $student_id,
+            'serial_number' => $serial_number,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        return redirect()->back()->with(['success' => 'تم تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
     }
 
 
