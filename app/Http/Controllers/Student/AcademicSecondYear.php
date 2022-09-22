@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\CourseSecondYear;
+use App\Models\SubscribedSecondYear;
 use App\Models\WaitingListSecondtYear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,8 +18,34 @@ class AcademicSecondYear extends Controller
     public function courses()
     {
         $courses = CourseSecondYear::get();
-        return view('student.all_course.2nd',compact('courses'));
+        if(Auth::check())
+        {
+            $serials = [];
+            $id = Auth::id();
 
+            //If Student Already Subscribed In The Course
+            $subscribed = SubscribedSecondYear::where('student_id',$id)->get();
+            if(count($subscribed) > 0)
+            {
+                foreach ($subscribed as $sub)
+                {
+                    $serials[] = $sub->serial_number;
+                }
+                return view('student.all_course.2nd',compact('courses','serials'));
+            }
+
+            // If Student In The Waiting List Of The Course
+            $waitingList =  WaitingListSecondtYear::where('student_id',$id)->get();
+            if(count($waitingList) > 0)
+            {
+                foreach ($waitingList as $waiting)
+                {
+                    $serials[] = $waiting->serial_number;
+                }
+                return view('student.all_course.2nd',compact('courses','serials'));
+            }
+        }
+        return view('student.all_course.2nd',compact('courses'));
     }
 
     public function showAllCourses()

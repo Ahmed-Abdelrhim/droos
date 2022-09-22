@@ -31,13 +31,3 @@
     <div class="spikes"></div>
 
 @endsection
-
-
-{{--@foreach($serials as $serial_number)--}}
-{{--    @if($course->serial_number == $serial_number)--}}
-{{--        <a>عرض الكورس</a>--}}
-{{--    @endif--}}
-{{--    @if($course->serial_number != $serial_number)--}}
-{{--        <a href="{{route('to.subscribe.3rd',$course->id)}}">اشترك الأن</a>--}}
-{{--    @endif--}}
-{{--@endforeach--}}

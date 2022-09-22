@@ -167,6 +167,11 @@ class DashboardController extends Controller
         return $image_name;
     }
 
+    public function showTeacherProfile()
+    {
+        return view('admin.teacher_profile');
+    }
+
     public function handleImage($folder, $request): ?string
     {
         if ($request->has('cover'))

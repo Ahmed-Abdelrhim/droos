@@ -13,7 +13,16 @@
                     <h3>الصف الأول الثانوي</h3>
                     <p style="margin-top: 5px">{{$course->name}}</p>
                     <p style="margin-top: 5px">السعر : {{$course->price}}</p>
-                    <a href="#">اشترك الأن</a>
+                    @if(isset($serials))
+                        @if(in_array($course->serial_number,$serials))
+                            <a>عرض الكورس</a>
+                        @else
+                            <a href="{{route('to.subscribe.1st',$course->id)}}">اشترك الأن</a>
+                        @endif
+
+                    @else
+                        <a href="{{route('to.subscribe.1st',$course->id)}}">اشترك الأن</a>
+                    @endif
                 </div>
             </div>
         @endforeach
