@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\CourseFirstYear;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Gate;
 
 class AcademicFirstYear extends Controller
 {
@@ -26,7 +27,9 @@ class AcademicFirstYear extends Controller
         {
             $serials = [];
             $id = Auth::id();
-            $this->authorize('view-courses',Auth::user()->academic_year);
+            $academic_year = Auth::user()->academic_year;
+            if(!Gate::allows('view-courses',1))
+                return view('student.access_denied',compact('academic_year'));
             //If Student Already Subscribed In The Course
             $subscribed = SubscribedFirstYear::where('student_id',$id)->get();
             if(count($subscribed) > 0)

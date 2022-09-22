@@ -9,6 +9,7 @@ use App\Models\WaitingListSecondtYear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\WaitingListThirdYear;
+use Illuminate\Support\Facades\Gate;
 
 class AcademicThirdYear extends Controller
 {
@@ -25,6 +26,10 @@ class AcademicThirdYear extends Controller
         {
             $serials = [];
             $id = Auth::id();
+            $academic_year = Auth::user()->academic_year;
+
+            if(!Gate::allows('view-courses',3))
+                return view('student.access_denied',compact('academic_year'));
 
             //If Student Already Subscribed In The Course
             $subscribed = SubscribedThirdYear::where('student_id',$id)->get();

@@ -8,6 +8,7 @@ use App\Models\SubscribedSecondYear;
 use App\Models\WaitingListSecondtYear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 class AcademicSecondYear extends Controller
 {
     public function index ()
@@ -22,6 +23,10 @@ class AcademicSecondYear extends Controller
         {
             $serials = [];
             $id = Auth::id();
+            $academic_year = Auth::user()->academic_year;
+
+            if(!Gate::allows('view-courses',2))
+                return view('student.access_denied',compact('academic_year'));
 
             //If Student Already Subscribed In The Course
             $subscribed = SubscribedSecondYear::where('student_id',$id)->get();
