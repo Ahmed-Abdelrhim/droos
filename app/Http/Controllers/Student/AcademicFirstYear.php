@@ -122,14 +122,14 @@ class AcademicFirstYear extends Controller
     public function toSubscribeCourse($id)
     {
         $course = CourseFirstYear::findOrFail($id);
-        return view('student.to_subscribe.2nd',compact('course'));
+        return view('student.to_subscribe.1st',compact('course'));
     }
 
     public function subscribeCourseNow($id)
     {
         $student = Auth::user();
         $student_id = $student->id;
-        if($student->academic_year != 2 )
+        if($student->academic_year != 1 )
             return redirect()->back()->with(['errors' =>' يجب أن تكون في الصف الثاني الثانوي حتي تستطيع الاشتراك في الكورس']);
         $course = CourseFirstYear::findOrFail($id);
         $serial_number = $course->serial_number;
@@ -139,7 +139,8 @@ class AcademicFirstYear extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-        return redirect()->back()->with(['success' => 'تم تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
+        //view(all_course.1st)
+        return redirect()->route('courses.1st.students')->with(['success' => 'تم تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
     }
 
 

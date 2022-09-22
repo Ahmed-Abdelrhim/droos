@@ -136,7 +136,8 @@ class AcademicSecondYear extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-        return redirect()->back()->with(['success' => 'تم تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
+        //view(all_course.2nd)
+        return redirect()->route('courses.2nd.students')->with(['success' => 'تم تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
     }
 
 

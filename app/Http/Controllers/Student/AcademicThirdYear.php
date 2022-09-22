@@ -129,14 +129,14 @@ class AcademicThirdYear extends Controller
         $student_id = Auth::user()->id;
         $course = CourseThirdYear::findOrFail($id);
         $serial_number = $course->serial_number;
-//        if()
         WaitingListThirdYear::create([
             'student_id' => $student_id,
             'serial_number' => $serial_number,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-        return redirect()->back()->with(['success' => 'تم تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
+        //view(all_course.3rd)
+        return redirect()->route('courses.3rd.students')->with(['success' => 'تم تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
     }
 
     function uploadImage($folder, $image): string
