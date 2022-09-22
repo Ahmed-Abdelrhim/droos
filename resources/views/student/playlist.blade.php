@@ -33,7 +33,7 @@
             </div>
         </div>
         <img id="logo-background" src="{{asset('images/splash.png')}}">
-        <a href="home.html" class="logo"><img src="{{asset('images/logo.png')}}"></a>
+        <a href="home" class="logo"><img src="{{asset('images/logo.png')}}"></a>
     </section>
 
 </header>

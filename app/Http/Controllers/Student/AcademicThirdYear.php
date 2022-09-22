@@ -9,6 +9,7 @@ use App\Models\WaitingListSecondtYear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\WaitingListThirdYear;
+use Illuminate\Support\Facades\Gate;
 
 class AcademicThirdYear extends Controller
 {
@@ -25,6 +26,10 @@ class AcademicThirdYear extends Controller
         {
             $serials = [];
             $id = Auth::id();
+            $academic_year = Auth::user()->academic_year;
+
+            if(!Gate::allows('view-courses',3))
+                return view('student.access_denied',compact('academic_year'));
 
             //If Student Already Subscribed In The Course
             $subscribed = SubscribedThirdYear::where('student_id',$id)->get();
@@ -124,14 +129,14 @@ class AcademicThirdYear extends Controller
         $student_id = Auth::user()->id;
         $course = CourseThirdYear::findOrFail($id);
         $serial_number = $course->serial_number;
-//        if()
         WaitingListThirdYear::create([
             'student_id' => $student_id,
             'serial_number' => $serial_number,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-        return redirect()->back()->with(['success' => 'تم تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
+        //view(all_course.3rd)
+        return redirect()->route('courses.3rd.students')->with(['success' => 'تم تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
     }
 
     function uploadImage($folder, $image): string

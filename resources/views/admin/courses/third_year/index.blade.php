@@ -14,7 +14,10 @@
                     <p style="margin-top: 5px">{{$course->name}}</p>
                     <p style="margin-top: 5px">السعر : {{$course->price}}</p>
                     <a href="{{route('edit.course.2nd',$course->id)}}" class="btn btn-primary" >edit course</a>
-                    <a href="{{route('delete.course.1st',$course->id)}}" class="btn btn-danger" >delete course</a>
+                    <form action="{{route('delete.course.3rd',$course->id)}}" method="POST">
+                        @csrf
+                        <button class="btn btn-danger">delete course</button>
+                    </form>
 
                 </div>
             </div>

@@ -4,9 +4,13 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateFirstYearCourseRrquest;
+use App\Models\SubscribedFirstYear;
+use App\Models\WaitingListFirstYear;
 use Illuminate\Http\Request;
 use App\Models\CourseFirstYear;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Gate;
 
 class AcademicFirstYear extends Controller
 {
@@ -19,8 +23,38 @@ class AcademicFirstYear extends Controller
     public function courses()
     {
         $courses = CourseFirstYear::get();
-        return view('student.all_course.1st', compact('courses'));
+        if(Auth::check())
+        {
+            $serials = [];
+            $id = Auth::id();
+            $academic_year = Auth::user()->academic_year;
+            if(!Gate::allows('view-courses',1))
+                return view('student.access_denied',compact('academic_year'));
+            //If Student Already Subscribed In The Course
+            $subscribed = SubscribedFirstYear::where('student_id',$id)->get();
+            if(count($subscribed) > 0)
+            {
+                foreach ($subscribed as $sub)
+                {
+                    $serials[] = $sub->serial_number;
+                }
+                return view('student.all_course.1st',compact('courses','serials'));
+            }
+
+            // If Student In The Waiting List Of The Course
+            $waitingList =  WaitingListFirstYear::where('student_id',$id)->get();
+            if(count($waitingList) > 0)
+            {
+                foreach ($waitingList as $waiting)
+                {
+                    $serials[] = $waiting->serial_number;
+                }
+                return view('student.all_course.1st',compact('courses','serials'));
+            }
+        }
+        return view('student.all_course.1st',compact('courses'));
     }
+
 
     //Admin[only] View All Courses
     public function showAllCourses()
@@ -84,6 +118,32 @@ class AcademicFirstYear extends Controller
         $course->delete();
         return redirect()->back()->with(['success' => 'تم حذف الكورس ']);
     }
+
+    public function toSubscribeCourse($id)
+    {
+        $course = CourseFirstYear::findOrFail($id);
+        return view('student.to_subscribe.1st',compact('course'));
+    }
+
+    public function subscribeCourseNow($id)
+    {
+        $student = Auth::user();
+        $student_id = $student->id;
+        if($student->academic_year != 1 )
+            return redirect()->back()->with(['errors' =>' يجب أن تكون في الصف الثاني الثانوي حتي تستطيع الاشتراك في الكورس']);
+        $course = CourseFirstYear::findOrFail($id);
+        $serial_number = $course->serial_number;
+        WaitingListFirstYear::create([
+            'student_id' => $student_id,
+            'serial_number' => $serial_number,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        //view(all_course.1st)
+        return redirect()->route('courses.1st.students')->with(['success' => 'تم تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
+    }
+
+
 
 //    public function addedCourses(Request $request)
 //    {

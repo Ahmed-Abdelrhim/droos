@@ -25,6 +25,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('view-courses',function($user,$academic_year) {
+            if($user->academic_year == $academic_year)
+                return true;
+        });
     }
 }

@@ -1,6 +1,13 @@
 @extends('layouts.design')
 @section('content')
     <div class="card-container" id="cards">
+        @if(\Session::get('success'))
+            <div class="row mr-2 ml-2">
+                <button type="text" class="btn btn-lg btn-block btn-outline-success mb-2"
+                        id="type-error">{{\Session::get('success')}}
+                </button>
+            </div>
+        @endif
         @foreach($courses as $course)
             <div class="card">
                 <span></span>
@@ -31,13 +38,3 @@
     
 
 @endsection
-
-
-{{--@foreach($serials as $serial_number)--}}
-{{--    @if($course->serial_number == $serial_number)--}}
-{{--        <a>عرض الكورس</a>--}}
-{{--    @endif--}}
-{{--    @if($course->serial_number != $serial_number)--}}
-{{--        <a href="{{route('to.subscribe.3rd',$course->id)}}">اشترك الأن</a>--}}
-{{--    @endif--}}
-{{--@endforeach--}}
