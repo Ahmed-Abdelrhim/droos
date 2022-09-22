@@ -99,6 +99,31 @@ body.active{
    right: -30rem;
 }
 
+
+.side-bar #close-btn{
+   text-align: left;
+   padding: 2rem;
+   display: none;
+}
+
+.side-bar #close-btn i{
+   text-align: left;
+   font-size: 2.5rem;
+   background:var(--red);
+   border-radius: .5rem;
+   color:var(--white);
+   cursor: pointer;
+   height: 4.5rem;
+   width: 4.5rem;
+   line-height: 4.5rem;
+   text-align: center;
+}
+
+.side-bar #close-btn i:hover{
+   background-color: var(--black);
+}
+
+
 .tutor {
     font-size: 1.8rem;
     color: var(--light-color);
@@ -126,6 +151,41 @@ body.active{
 .logo img {
     height: 8rem;
     width: 15rem;
+}
+
+.thumb #video {
+    width: 100%;
+    height:500px;
+    border-radius: 5px;
+}
+
+@media (max-width: 767px){
+    .thumb #video {
+        width: 100%;
+    }
+}
+
+@media (max-width:1200px){
+
+   body{
+      padding-right: 0;
+   }
+
+   .side-bar{
+      right: -30rem;
+      transition: .2s linear;
+   }
+
+   .side-bar #close-btn{
+      display: block;
+   }
+
+   .side-bar.active{
+      right: 0;
+      box-shadow: 0 0 0 100vw rgba(0,0,0,.8);
+      border-right: 0;
+   }
+
 }
 </style>
 <header class="header">
@@ -167,70 +227,21 @@ body.active{
 
 </div>
 
-    <section class="courses">
-        <h2 class="main-title">الصف الثالث الثانوي</h2>
+<section class="playlist-details">
 
-        <div class="box-container">
+   <h2 class="heading">فديو تعريفي </h2>
 
-            <div class="box">
-                <div class="tutor">
-                    <img src="{{asset('images/year-3.jpeg')}}">
-                    <div class="info">
-                        <h3>الصف الثالث الثانوي</h3>
-                        <span>150.00جنيهًا</span>
-                    </div>
-                </div>
-                <div class="thumb">
-                    <img src="{{asset('images/thumb-7.png')}}">
-                    <span>10 videos</span>
-                </div>
-                <h3 class="title">كورس الشهر الأول 3ث</h3>
-                <div class="box-links">
-                    <a href="playlist.html" class="inline-btn">الدخول للكورس</a>
-                    <a href="playlist.html" class="inline-btn">اشترك الآن !</a>
-                </div>
-            </div>
+   <div class="row">
 
-            <div class="box">
-                <div class="tutor">
-                    <img src="{{asset('images/thumb-3.png')}}">
-                    <div class="info">
-                        <h3>الصف الثالث الثانوي</h3>
-                        <span>150.00جنيهًا</span>
-                    </div>
-                </div>
-                <div class="thumb">
-                    <img src="images/thumb-3.png" alt="">
-                    <span>10 videos</span>
-                </div>
-                <h3 class="title">كورس الشهر الثاني 3ث</h3>
-                <div class="box-links">
-                    <a href="playlist.html" class="inline-btn">الدخول للكورس</a>
-                    <a href="playlist.html" class="inline-btn">اشترك الآن !</a>
-                </div>
-            </div>
+      <div class="column">
+         <div class="thumb">
+            <video src="{{asset('images/vid-1.mp4')}}" controls poster="images/post-1-1.png" id="video"></video>
+         </div>
+      </div>
+   </div>
 
-            <div class="box">
-                <div class="tutor">
-                    <img src="{{asset('images/year-3.jpeg')}}">
-                    <div class="info">
-                        <h3>الصف الثالث الثانوي</h3>
-                        <span>150.00جنيهًا</span>
-                    </div>
-                </div>
-                <div class="thumb">
-                    <img src="{{asset('images/thumb-4.png')}}">
-                    <span>10 videos</span>
-                </div>
-                <h3 class="title">كورس الشهر الثالث 3ث</h3>
-                <div class="box-links">
-                    <a href="playlist.html" class="inline-btn">الدخول للكورس</a>
-                    <a href="playlist.html" class="inline-btn">اشترك الآن !</a>
-                </div>
-            </div>
-        </div>
+</section>
 
-    </section>
 
 
 
