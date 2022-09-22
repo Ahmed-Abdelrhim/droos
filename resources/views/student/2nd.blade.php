@@ -1,4 +1,4 @@
-@extends('layouts.design')
+{{Auth::user()->name}}@extends('layouts.design')
 @section('content')
 
 <header class="header">

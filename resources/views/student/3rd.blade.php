@@ -139,7 +139,7 @@ body.active{
             <div class="tutor">
                 <div class="info">
                     <span>Welcome</span>
-                    <h3>Ahmed Abdelrhim</h3>
+                    <h3>{{Auth::user()->name}}</h3>
                 </div>
                 <img src="{{asset('images//pic-6.jpg')}}" alt="tutor">
             </div>
