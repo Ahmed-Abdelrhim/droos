@@ -199,7 +199,7 @@ body.active{
             </div>
             <div class="profile">
                 <img src="{{asset('images//pic-6.jpg')}}" alt="tutor">
-                <h3 class="name"> Ahmed Abdelrhim</h3>
+                <h3 class="name"> {{Auth::user()->name}}</h3>
                 <p class="role">studen</p>
                 <div class="flex-btn">
                     <a href="" class="option-btn">login</a>
