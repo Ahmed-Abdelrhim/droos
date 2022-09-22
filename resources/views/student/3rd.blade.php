@@ -221,7 +221,7 @@ body.active{
    </div>
 
    <div class="logo">
-      <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
+      <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
    </div>
 
    <nav class="navbar">
@@ -250,7 +250,12 @@ body.active{
 </section>
 
 
-
+    <div class="features" id="features">
+      <div class="container">
+            <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
+      </div>
+    </div>
+    <!-- End Features -->
 
     <div class="features" id="features">
       <div class="container">

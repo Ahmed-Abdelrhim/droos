@@ -31,7 +31,7 @@
             </div>
         </div>
         <img id="logo-background" src="{{asset('images/splash.png')}}">
-        <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
+        <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
     </section>
 
 </header>
