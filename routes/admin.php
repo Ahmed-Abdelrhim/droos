@@ -71,7 +71,12 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('edit/courses/3rd/year/{id}', [AcademicThirdYear::class, 'showCourseEditForm']);
         Route::post('edit/courses/3rd/year/{id}', [AcademicThirdYear::class, 'updateCourse'])->name('edit.course.3rd');
         Route::post('delete/courses/3rd/year/{id}', [AcademicThirdYear::class, 'deleteCourse'])->name('delete.course.3rd');
+
+        //Admin Profile
         Route::get('admin/profile',[DashboardController::class,'showTeacherProfile'])->name('teacher.profile');
+
+
+
 
     });
 
