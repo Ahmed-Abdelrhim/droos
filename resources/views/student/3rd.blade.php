@@ -20,6 +20,7 @@ body.active{
    height: 100vh;
    border-right: var(--border);
    z-index: 1200;
+   transition: .2s linear;
 }
 
 .side-bar #close-btn{
@@ -173,7 +174,7 @@ body.active{
 
    .side-bar{
       right: -30rem;
-      transition: .4s linear;
+      transition: .2s linear;
    }
 
    .side-bar #close-btn{
@@ -194,8 +195,18 @@ body.active{
             <div class="icons">
                 <div id="menu-btn" class="fas fa-bars"></div>
                 <div id="toggle-btn" class="fas fa-sun"></div>
+                <div id="user-btn" class="fas fa-user"></div>
             </div>
-
+            <div class="profile">
+                <img src="{{asset('images//pic-6.jpg')}}" alt="tutor">
+                <h3 class="name"> Ahmed Abdelrhim</h3>
+                <p class="role">studen</p>
+                <div class="flex-btn">
+                    <a href="" class="option-btn">login</a>
+                    <a href="" class="option-btn">register</a>
+                </div>
+                <a href="" class="btn">log out</a>
+            </div>
             <div class="tutor">
                 <div class="info">
                     <span>Welcome</span>
@@ -379,7 +390,15 @@ document.querySelector('#close-btn').onclick = () =>{
    body.classList.remove('active');
 }
 
+
+let profile = document.querySelector('.header .flex .profile');
+
+document.querySelector('#user-btn').onclick = () =>{
+    profile.classList.toggle('active');
+    search.classList.remove('active');
+}
 window.onscroll = () =>{
+    profile.classList.remove('active');
    if(window.innerWidth < 1200){
       sideBar.classList.remove('active');
       body.classList.remove('active');
