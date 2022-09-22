@@ -173,7 +173,7 @@ body.active{
 
    .side-bar{
       right: -30rem;
-      transition: .2s linear;
+      transition: .4s linear;
    }
 
    .side-bar #close-btn{
