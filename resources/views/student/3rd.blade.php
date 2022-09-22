@@ -1,43 +1,171 @@
 @extends('layouts.design')
 @section('content')
+<style>
 
+body{
+   background-color: var(--light-bg);
+   padding-right: 30rem;
+}
+
+body.active{
+   padding-right: 0;
+}
+
+
+.side-bar{
+   position: fixed;
+   top: 0; right: 0;
+   width: 30rem;
+   background-color: var(--white);
+   height: 100vh;
+   border-right: var(--border);
+   z-index: 1200;
+}
+
+.side-bar #close-btn{
+   text-align: left;
+   padding: 2rem;
+   display: none;
+}
+
+.side-bar #close-btn i{
+   text-align: left;
+   font-size: 2.5rem;
+   background:var(--red);
+   border-radius: .5rem;
+   color:var(--white);
+   cursor: pointer;
+   height: 4.5rem;
+   width: 4.5rem;
+   line-height: 4.5rem;
+   text-align: center;
+}
+
+.side-bar #close-btn i:hover{
+   background-color: var(--black);
+}
+
+.side-bar .profile{
+   padding:3rem 2rem;
+   text-align: center;
+}
+
+.side-bar .profile .image{
+   height: 10rem;
+   width: 10rem;
+   border-radius: 50%;
+   object-fit: contain;
+   margin-bottom: 1rem;
+}
+
+.side-bar .profile .name{
+   font-size: 2rem;
+   color:var(--black);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.side-bar .profile .role{
+   font-size: 1.8rem;
+   color: var(--light-color);
+}
+
+.side-bar .navbar a{
+   display: block;
+   padding: 2rem;
+   font-size: 2rem;
+}
+
+.side-bar .navbar a i{
+   margin-left: 1.5rem;
+   color:var(--main-color);
+   transition: .2s linear;
+}
+
+.side-bar .navbar a span{
+   color:var(--light-color);
+}
+
+.side-bar .navbar a:hover{
+   background-color: var(--light-bg);
+}
+
+.side-bar .navbar a:hover i{
+   margin-right: 2.5rem;
+}
+
+.side-bar.active{
+   right: -30rem;
+}
+
+.tutor {
+    font-size: 1.8rem;
+    color: var(--light-color);
+    display:flex;
+}
+
+.tutor img {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.tutor h3 {
+    font-size: 1.8rem;
+    color: var(--black);
+    margin-bottom: .2rem;
+}
+
+.tutor span {
+    font-size: 1.3rem;
+    color: var(--light-color);
+}
+
+.logo img {
+    height: 8rem;
+    width: 15rem;
+}
+</style>
 <header class="header">
-
-    <img id="back-ground" src="{{asset('images/back-ground.png')}}">
+    <!-- <img id="back-ground" src="{{asset('images/back-ground.png')}}"> -->
     <section class="flex">
-
-        <div class="icons">
-            <div id="menu-bars" class="fas fa-bars"></div>
-            <div id="toggle-btn" class="fas fa-sun"></div>
-            <div id="user-btn" class="fas fa-user"></div>
-        </div>
-
-        <nav class="navbar">
-            <a href="{{asset('home')}}" class="active"><i class="fas fa-home"></i><span>الرئيسية</span></a>
-            <a href="{{asset('about')}}" class="active"><i class="fas fa-question"></i><span>من نحن</span></a>
-            <a href="{{asset('courses')}}" class="active"><i class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
-            <a href="{{asset('contact')}}" class="active"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
-        </nav>
-
-
-
-
-        <div class="profile">
-            <img src="{{asset('images/pic-1.jpg')}}" class="image" alt="">
-            <h3 class="name">Welcome</h3>
-            <p class="role">studen</p>
-            <div class="flex-btn">
-                <a href="{{route('student.login')}}" class="option-btn">login</a>
-                <a href="{{route('student.register')}}" class="option-btn">register</a>
+            <div class="icons">
+                <div id="menu-btn" class="fas fa-bars"></div>
+                <div id="toggle-btn" class="fas fa-sun"></div>
             </div>
-        </div>
-        <img id="logo-background" src="{{asset('images/splash.png')}}">
-        <a href="home.html" class="logo"><img src="{{asset('images/logo.png')}}"></a>
-    </section>
 
+            <div class="tutor">
+                <div class="info">
+                    <span>Welcome</span>
+                    <h3>Ahmed Abdelrhim</h3>
+                </div>
+                <img src="{{asset('images//pic-6.jpg')}}" alt="tutor">
+            </div>
+    </section>
 </header>
 
-    <div class="spikes"></div>
+
+<div class="side-bar">
+
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="logo">
+      <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
+   </div>
+
+   <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>الصفحة الرئيسية</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
+      <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>المميزات</span></a>
+      <a href="contact.html"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
+      <a href="about.html"><i class="fas fa-question"></i><span>من نحن</span></a>
+    </nav>
+
+</div>
 
     <section class="courses">
         <h2 class="main-title">الصف الثالث الثانوي</h2>
@@ -200,7 +328,53 @@
     <img src="{{asset('images/scroll-top-img.png')}}">
 </a>
 <!-- End Footer -->
+<script>
+let toggleBtn = document.getElementById('toggle-btn');
+let body = document.body;
+let darkMode = localStorage.getItem('dark-mode');
 
+const enableDarkMode = () =>{
+   toggleBtn.classList.replace('fa-sun', 'fa-moon');
+   body.classList.add('dark');
+   localStorage.setItem('dark-mode', 'enabled');
+}
+
+const disableDarkMode = () =>{
+   toggleBtn.classList.replace('fa-moon', 'fa-sun');
+   body.classList.remove('dark');
+   localStorage.setItem('dark-mode', 'disabled');
+}
+
+if(darkMode === 'enabled'){
+   enableDarkMode();
+}
+
+toggleBtn.onclick = (e) =>{
+   darkMode = localStorage.getItem('dark-mode');
+   if(darkMode === 'disabled'){
+      enableDarkMode();
+   }else{
+      disableDarkMode();
+   }
+}
+let sideBar = document.querySelector('.side-bar');
+document.querySelector('#menu-btn').onclick = () =>{
+   sideBar.classList.toggle('active');
+   body.classList.toggle('active');
+}
+
+document.querySelector('#close-btn').onclick = () =>{
+   sideBar.classList.remove('active');
+   body.classList.remove('active');
+}
+
+window.onscroll = () =>{
+   if(window.innerWidth < 1200){
+      sideBar.classList.remove('active');
+      body.classList.remove('active');
+   }
+}
+</script>
 @endsection
 
 

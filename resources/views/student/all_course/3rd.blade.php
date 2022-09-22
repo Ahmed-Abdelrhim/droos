@@ -28,7 +28,7 @@
         @endforeach
 
     </div>
-    <div class="spikes"></div>
+    
 
 @endsection
 
