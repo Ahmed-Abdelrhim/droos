@@ -30,7 +30,7 @@
                 <a href="{{route('student.register')}}" class="option-btn">register</a>
             </div>
         </div>
-        <img id="logo-background" src="{{asset('images/splash.png')}}">
+        <!-- <img id="logo-background" src="{{asset('images/splash.png')}}"> -->
         <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
     </section>
 
