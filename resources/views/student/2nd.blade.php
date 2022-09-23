@@ -1,4 +1,4 @@
-{{Auth::user()->name}}@extends('layouts.design')
+@extends('layouts.design')
 @section('content')
 <style>
 
@@ -20,6 +20,7 @@ body.active{
    height: 100vh;
    border-right: var(--border);
    z-index: 1200;
+   transition: .2s linear;
 }
 
 .side-bar #close-btn{
@@ -194,12 +195,18 @@ body.active{
             <div class="icons">
                 <div id="menu-btn" class="fas fa-bars"></div>
                 <div id="toggle-btn" class="fas fa-sun"></div>
+                <div id="user-btn" class="fas fa-user"></div>
             </div>
-
+            <div class="profile">
+                <img src="{{asset('images//pic-6.jpg')}}" alt="tutor">
+                <h3 class="name"> {{Auth::user()->name}}</h3>
+                <p class="role">student</p>
+                <a href="" class="btn">log out</a>
+            </div>
             <div class="tutor">
                 <div class="info">
                     <span>Welcome</span>
-                    <h3>Ahmed Abdelrhim</h3>
+                    <h3>{{Auth::user()->name}}</h3>
                 </div>
                 <img src="{{asset('images//pic-6.jpg')}}" alt="tutor">
             </div>
@@ -214,7 +221,7 @@ body.active{
    </div>
 
    <div class="logo">
-      <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
+      <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
    </div>
 
    <nav class="navbar">
@@ -243,7 +250,12 @@ body.active{
 </section>
 
 
-
+    <div class="features" id="features">
+      <div class="container">
+            <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
+      </div>
+    </div>
+    <!-- End Features -->
 
     <div class="features" id="features">
       <div class="container">
@@ -379,12 +391,41 @@ document.querySelector('#close-btn').onclick = () =>{
    body.classList.remove('active');
 }
 
+
+let profile = document.querySelector('.header .flex .profile');
+
+document.querySelector('#user-btn').onclick = () =>{
+    profile.classList.toggle('active');
+    search.classList.remove('active');
+}
 window.onscroll = () =>{
+    profile.classList.remove('active');
    if(window.innerWidth < 1200){
       sideBar.classList.remove('active');
       body.classList.remove('active');
    }
 }
+
+// scroll to top
+let up = document.querySelector(".top");
+
+window.onscroll = function () {
+    console.log(window.scrollY);
+    if (window.scrollY >= 300) {
+        up.style.display = "block";
+    } else {
+        up.style.display = "none";
+    }
+   //  this.scrollY >= 1000 ? span.classList.add("show") : span.classList.remove("show");
+};
+
+up.onclick = function () {
+    window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+    });
+};
+
 </script>
 @endsection
 

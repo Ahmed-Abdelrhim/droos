@@ -1,5 +1,6 @@
 @extends('layouts.design')
 @section('content')
+
     <div class="card-container" id="cards">
         @if(\Session::get('success'))
             <div class="row mr-2 ml-2">
@@ -28,7 +29,6 @@
 
 
     </div>
-    <div class="spikes"></div>
 
 
 
