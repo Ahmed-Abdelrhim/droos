@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\WaitingListController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
@@ -98,6 +99,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
     Route::get('aaa', [StudentGeneralController::class, 'play']);
     Route::get('admin/play', [DashboardController::class, 'play']);
+//    Route::get('view/list/1st',[WaitingListController::class,'waitingFirstYear'])->name('waiting.list.1st');
 
 
 

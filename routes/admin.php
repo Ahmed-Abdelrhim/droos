@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\WaitingListController;
 use App\Http\Controllers\Student\AcademicFirstYear;
 use App\Http\Controllers\Student\AcademicSecondYear;
 use App\Http\Controllers\Student\AcademicThirdYear;
@@ -76,8 +77,16 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('admin/profile',[DashboardController::class,'showTeacherProfile'])->name('teacher.profile');
 
 
+        //Waiting List
+        Route::get('view/list/1st',[WaitingListController::class,'waitingFirstYear'])->name('waiting.list.1st');
+        Route::post('activate/waiting/list/1st/{id}' , [WaitingListController::class,'activateWaitingListFirstYear'])->name('activate.waiting.1st');
+        Route::post('delete/waiting/list/1st/{id}' , [WaitingListController::class,'deleteWaitingListFirstYear'])->name('delete.waiting.1st');
+        Route::get('view/list/2nd',[WaitingListController::class,'waitingSecondYear'])->name('waiting.list.2nd');
+        Route::get('view/list/3rd',[WaitingListController::class,'waitingThirdYear'])->name('waiting.list.3rd');
 
-
+        Route::get('ssad',function (){
+            return 'sad';
+        });
     });
 
 });
