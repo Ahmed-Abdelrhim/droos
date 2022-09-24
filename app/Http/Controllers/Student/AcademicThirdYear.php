@@ -32,27 +32,35 @@ class AcademicThirdYear extends Controller
             if(!Gate::allows('view-courses',3))
                 return view('student.access_denied',compact('academic_year'));
 
-            //If Student Already Subscribed In The Course
             $subscribed = SubscribedThirdYear::where('student_id',$id)->get();
-            if(count($subscribed) > 0)
+            $waitingList =  WaitingListThirdYear::where('student_id',$id)->get();
+            if(count($subscribed) > 0 || count($waitingList) > 0)
             {
+                //If Student Already Subscribed In The Course
                 foreach ($subscribed as $sub)
                 {
                     $serials[] = $sub->serial_number;
                 }
-                return view('student.all_course.3rd',compact('courses','serials'));
-            }
 
-            // If Student In The Waiting List Of The Course
-            $waitingList =  WaitingListThirdYear::where('student_id',$id)->get();
-            if(count($waitingList) > 0)
-            {
+                // If Student In The Waiting List Of The Course
                 foreach ($waitingList as $waiting)
                 {
                     $serials[] = $waiting->serial_number;
                 }
+
                 return view('student.all_course.3rd',compact('courses','serials'));
             }
+            //Student Authenticated and not waiting or subscribed in any course
+            return view('student.all_course.3rd',compact('courses'));
+            // If Student In The Waiting List Of The Course
+//            if(count($waitingList) > 0)
+//            {
+//                foreach ($waitingList as $waiting)
+//                {
+//                    $serials[] = $waiting->serial_number;
+//                }
+//                return view('student.all_course.3rd',compact('courses','serials'));
+//            }
         }
         return view('student.all_course.3rd',compact('courses'));
     }
