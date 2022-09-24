@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateFirstYearCourseRrquest;
 use App\Models\SubscribedFirstYear;
+use App\Models\User;
 use App\Models\WaitingListFirstYear;
 use Illuminate\Http\Request;
 use App\Models\CourseFirstYear;
@@ -53,6 +54,12 @@ class AcademicFirstYear extends Controller
             }
         }
         return view('student.all_course.1st',compact('courses'));
+    }
+
+    public function allStudents()
+    {
+        $students = User::where('academic_year', '=' ,1)->get();
+        return view('admin.students.1st',compact('students'));
     }
 
 

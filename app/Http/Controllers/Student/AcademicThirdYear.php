@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Models\CourseThirdYear;
 use App\Models\SubscribedThirdYear;
+use App\Models\User;
 use App\Models\WaitingListSecondtYear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -54,6 +55,12 @@ class AcademicThirdYear extends Controller
             }
         }
         return view('student.all_course.3rd',compact('courses'));
+    }
+
+    public function allStudents()
+    {
+        $students = User::where('academic_year',3)->get();
+        return view('admin.students.3rd',compact('students'));
     }
 
     public function showAllCourses()

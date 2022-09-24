@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\SubscribedFirstYear;
+use App\Models\SubscribedSecondYear;
+use App\Models\SubscribedThirdYear;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\WaitingListFirstYear;
@@ -40,7 +42,7 @@ class WaitingListController extends Controller
 
     }
 
-    public function activateWaitingListFirstYear(Request $request,$id)
+    public function activateWaitingListFirstYear($id)
     {
         $wait = WaitingListFirstYear::find($id);
         if(!$wait)
@@ -65,12 +67,80 @@ class WaitingListController extends Controller
 
     public function waitingSecondYear()
     {
+        $allData = WaitingListSecondtYear::get();
+        $student_names = [];
+        $student_emails = [];
+        $student_phones = [];
+        foreach ($allData as $student)
+        {
+            $student = User::find($student->student_id);
+            $student_names[] = $student->name;
+            $student_emails[] = $student->email;
+            $student_phones[] = $student->phone_number;
+        }
+        return view('admin.waiting_list.second.index',compact('allData','student_names','student_emails','student_phones'));
+    }
 
+    public function activateWaitingListSecondYear($id)
+    {
+        $wait = WaitingListSecondtYear::find($id);
+        if(!$wait)
+            return 'Student Not Found';
+        SubscribedSecondYear::create([
+            'student_id' => $wait->student_id,
+            'serial_number' => $wait->serial_number,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        return $this->deleteWaitingListSecondYear($id);
+    }
+
+    public function deleteWaitingListSecondYear($id)
+    {
+        $wait = WaitingListSecondtYear::find($id);
+        if(!$wait)
+            return 'Student Not Found';
+        $wait->delete();
+        return redirect()->route('waiting.list.2nd')->with(['success' => 'success transaction']);
     }
 
     public function waitingThirdYear()
     {
+        $allData = WaitingListThirdYear::get();
+        $student_names = [];
+        $student_emails = [];
+        $student_phones = [];
+        foreach ($allData as $student)
+        {
+            $student = User::find($student->student_id);
+            $student_names[] = $student->name;
+            $student_emails[] = $student->email;
+            $student_phones[] = $student->phone_number;
+        }
+        return view('admin.waiting_list.third.index',compact('allData','student_names','student_emails','student_phones'));
+    }
 
+    public function activateWaitingListThirdYear($id)
+    {
+        $wait = WaitingListThirdYear::find($id);
+        if(!$wait)
+            return 'Student Not Found';
+        SubscribedThirdYear::create([
+            'student_id' => $wait->student_id,
+            'serial_number' => $wait->serial_number,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        return $this->deleteWaitingListThirdYear($id);
+    }
+
+    public function deleteWaitingListThirdYear($id)
+    {
+        $wait = WaitingListThirdYear::find($id);
+        if(!$wait)
+            return 'Student Not Found';
+        $wait->delete();
+        return redirect()->route('waiting.list.3rd')->with(['success' => 'success transaction']);
     }
 
 

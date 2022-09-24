@@ -49,7 +49,10 @@
             <p>your password <span>*</span></p>
             <input type="password" name="password" placeholder="enter your password" required maxlength="20"
                    class="box">
+
             <button type="submit" class="btn">Submit</button>
+            <small id="emailHelp" class="form-text text-muted mt-2">dont have an account <a href="{{route('student.register')}}">register now</a> </small>
+
         </form>
 
     </section>

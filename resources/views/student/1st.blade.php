@@ -242,7 +242,7 @@ body.active{
 
       <div class="column">
          <div class="thumb">
-            <video src="{{asset('images/vid-1.mp4')}}" controls poster="images/post-1-1.png" id="video"></video>
+            <video src="{{asset('images/vid-1.mp4')}}" controls poster="{{asset('images/post-1-1.png')}}" id="video"></video>
          </div>
       </div>
    </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Models\CourseSecondYear;
 use App\Models\SubscribedSecondYear;
+use App\Models\User;
 use App\Models\WaitingListSecondtYear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -52,6 +53,13 @@ class AcademicSecondYear extends Controller
         }
         return view('student.all_course.2nd',compact('courses'));
     }
+
+    public function allStudents()
+    {
+        $students = User::where('academic_year',2)->get();
+        return view('admin.students.2nd',compact('students'));
+    }
+
 
     public function showAllCourses()
     {

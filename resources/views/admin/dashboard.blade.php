@@ -125,17 +125,22 @@ body.active{
    </div>
 
    <nav class="navbar">
-      <a href="home.html"><i class="fas fa-home"></i><span>home</span></a>
+{{--      <a href="home.html"><i class="fas fa-home"></i><span>home</span></a>--}}
 
 
 
-      <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>
+{{--      <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>--}}
+{{--       all/students/1st/year --}}
+       <a href="{{route('all.students.1st')}}"><i class="fas fa-question"></i><span>All Students 1st</span></a>
+       <a href="{{route('all.students.2nd')}}"><i class="fas fa-question"></i><span>All Students 2nd </span></a>
+       <a href="{{route('all.students.3rd')}}"><i class="fas fa-question"></i><span>All Students 3rd</span></a>
+
       <a href="{{url('view/list/1st')}}"><i class="fas fa-question"></i><span>Waiting list 1st</span></a>
-      <a href="{{url('view/list/1st')}}"><i class="fas fa-question"></i><span>Waiting list 2nd</span></a>
-      <a href="{{url('view/list/1st')}}"><i class="fas fa-question"></i><span>Waiting list 3rd</span></a>
+      <a href="{{url('view/list/2nd')}}"><i class="fas fa-question"></i><span>Waiting list 2nd</span></a>
+      <a href="{{url('view/list/3rd')}}"><i class="fas fa-question"></i><span>Waiting list 3rd</span></a>
       <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
-      <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
-      <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>
+{{--      <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>--}}
+{{--      <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>--}}
    </nav>
 
 </div>
@@ -149,14 +154,14 @@ body.active{
 
       <div class="box">
          <div class="tutor">
-            <img src="images/pic-2.jpg" alt="">
+            <img src="{{asset('images/pic-2.jpg')}}" alt="">
             <div class="info">
                <h3>john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
          <div class="thumb">
-            <img src="images/thumb-1.png" alt="">
+            <img src="{{asset('images/thumb-1.png')}}" alt="">
             <span>10 videos</span>
          </div>
          <h3 class="title">complete HTML tutorial</h3>
@@ -165,14 +170,14 @@ body.active{
 
       <div class="box">
          <div class="tutor">
-            <img src="images/pic-3.jpg" alt="">
+            <img src="{{asset('images/pic-3.jpg')}}" alt="">
             <div class="info">
                <h3>john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
          <div class="thumb">
-            <img src="images/thumb-2.png" alt="">
+            <img src="{{asset('images/thumb-2.png')}}" alt="">
             <span>10 videos</span>
          </div>
          <h3 class="title">complete CSS tutorial</h3>
@@ -181,14 +186,14 @@ body.active{
 
       <div class="box">
          <div class="tutor">
-            <img src="images/pic-4.jpg" alt="">
+            <img src="{{asset('images/pic-4.jpg')}}" alt="">
             <div class="info">
                <h3>john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
          <div class="thumb">
-            <img src="images/thumb-3.png" alt="">
+            <img src="{{asset('images/thumb-3.png')}}" alt="">
             <span>10 videos</span>
          </div>
          <h3 class="title">complete JS tutorial</h3>
@@ -197,14 +202,14 @@ body.active{
 
       <div class="box">
          <div class="tutor">
-            <img src="images/pic-5.jpg" alt="">
+            <img src="{{asset('images/pic-5.jpg')}}" alt="">
             <div class="info">
                <h3>john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
          <div class="thumb">
-            <img src="images/thumb-4.png" alt="">
+            <img src="{{asset('images/thumb-4.png')}}" alt="">
             <span>10 videos</span>
          </div>
          <h3 class="title">complete Boostrap tutorial</h3>
@@ -213,14 +218,14 @@ body.active{
 
       <div class="box">
          <div class="tutor">
-            <img src="images/pic-6.jpg" alt="">
+            <img src="{{asset('images/pic-6.jpg')}}" alt="">
             <div class="info">
                <h3>john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
          <div class="thumb">
-            <img src="images/thumb-5.png" alt="">
+            <img src="{{asset('images/thumb-5.png')}}" alt="">
             <span>10 videos</span>
          </div>
          <h3 class="title">complete JQuery tutorial</h3>
@@ -229,14 +234,14 @@ body.active{
 
       <div class="box">
          <div class="tutor">
-            <img src="images/pic-7.jpg" alt="">
+            <img src="{{asset('images/pic-7.jpg')}}" alt="">
             <div class="info">
                <h3>john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
          <div class="thumb">
-            <img src="images/thumb-6.png" alt="">
+            <img src="{{asset('images/thumb-6.png')}}" alt="">
             <span>10 videos</span>
          </div>
          <h3 class="title">complete SASS tutorial</h3>

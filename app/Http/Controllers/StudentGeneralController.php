@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
@@ -41,4 +42,14 @@ class StudentGeneralController extends Controller
     {
         return Auth::user()->name;
     }
+
+    public function deleteStudent($id)
+    {
+        $student = User::find($id);
+        if(!$student)
+            return 'Student Not Found';
+        $student->delete();
+        return redirect()->back()->with(['success' => 'Student deleted successfully']);
+    }
+
 }

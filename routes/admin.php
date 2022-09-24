@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\WaitingListController;
 use App\Http\Controllers\Student\AcademicFirstYear;
 use App\Http\Controllers\Student\AcademicSecondYear;
 use App\Http\Controllers\Student\AcademicThirdYear;
+use App\Http\Controllers\StudentGeneralController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
@@ -29,12 +30,12 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::post('admin/post/login', [AdminLoginController::class, 'login'])->name('signIn');
     });
 
-    Route::group(['middleware' => 'auth:admin'], function () {
-        Route::get('admin/logout', [AdminLoginController::class, 'logout']);
+    Route::group(['middleware' => 'auth:admin' , 'prefix' => 'admin'], function () {
+        Route::get('logout', [AdminLoginController::class, 'logout']);
 
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-        Route::get('admin/teachers', [DashboardController::class, 'showTeachers'])->name('teachers');
+        Route::get('teachers', [DashboardController::class, 'showTeachers'])->name('teachers');
 
         //View Students Who Have an Account
         Route::get('student_1st_year', [DashboardController::class, 'studentsFirstYear'])->name('student_1st_year');
@@ -53,8 +54,8 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
         //Academic First Year [add , edit , delete actions]
         Route::get('all/courses/1st/year', [AcademicFirstYear::class, 'showAllCourses']);
-        Route::get('admin/add/courses', [DashboardController::class, 'showCoursesAddForm']);
-        Route::post('admin/add/courses', [DashboardController::class, 'addCourses'])->name('store.courses');
+        Route::get('add/courses', [DashboardController::class, 'showCoursesAddForm']);
+        Route::post('add/courses', [DashboardController::class, 'addCourses'])->name('store.courses');
         Route::get('edit/courses/1st/year/{id}', [AcademicFirstYear::class, 'showCourseEditForm']);
         Route::post('edit/courses/1st/year/{id}', [AcademicFirstYear::class, 'updateCourse'])->name('edit.course.1st');
         Route::post('delete/courses/1st/year/{id}', [AcademicFirstYear::class, 'deleteCourse'])->name('delete.course.1st');
@@ -74,19 +75,32 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::post('delete/courses/3rd/year/{id}', [AcademicThirdYear::class, 'deleteCourse'])->name('delete.course.3rd');
 
         //Admin Profile
-        Route::get('admin/profile',[DashboardController::class,'showTeacherProfile'])->name('teacher.profile');
+        Route::get('profile',[DashboardController::class,'showTeacherProfile'])->name('teacher.profile');
+
+        //All Students
+        Route::get('all/students/1st/year',[AcademicFirstYear::class,'allStudents'])->name('all.students.1st');
+        Route::post('delete/student/{id}',[StudentGeneralController::class,'deleteStudent'])->name('delete.student');
+
+        Route::get('all/students/2nd/year',[AcademicSecondYear::class,'allStudents'])->name('all.students.2nd');
+
+        Route::get('all/students/3rd/year',[AcademicThirdYear::class,'allStudents'])->name('all.students.3rd');
+
 
 
         //Waiting List
         Route::get('view/list/1st',[WaitingListController::class,'waitingFirstYear'])->name('waiting.list.1st');
         Route::post('activate/waiting/list/1st/{id}' , [WaitingListController::class,'activateWaitingListFirstYear'])->name('activate.waiting.1st');
         Route::post('delete/waiting/list/1st/{id}' , [WaitingListController::class,'deleteWaitingListFirstYear'])->name('delete.waiting.1st');
-        Route::get('view/list/2nd',[WaitingListController::class,'waitingSecondYear'])->name('waiting.list.2nd');
-        Route::get('view/list/3rd',[WaitingListController::class,'waitingThirdYear'])->name('waiting.list.3rd');
 
-        Route::get('ssad',function (){
-            return 'sad';
-        });
+        Route::get('view/list/2nd',[WaitingListController::class,'waitingSecondYear'])->name('waiting.list.2nd');
+        Route::post('activate/waiting/list/2nd/{id}',[WaitingListController::class,'activateWaitingListSecondYear'])->name('activate.waiting.2nd');
+        Route::post('delete/waiting/list/2nd/{id}' , [WaitingListController::class,'deleteWaitingListSecondYear'])->name('delete.waiting.2nd');
+
+        Route::get('view/list/3rd',[WaitingListController::class,'waitingThirdYear'])->name('waiting.list.3rd');
+        Route::post('activate/waiting/list/3rd/{id}',[WaitingListController::class,'activateWaitingListThirdYear'])->name('activate.waiting.3rd');
+        Route::post('delete/waiting/list/3rd/{id}' , [WaitingListController::class,'deleteWaitingListThirdYear'])->name('delete.waiting.3rd');
+
+
     });
 
 });
