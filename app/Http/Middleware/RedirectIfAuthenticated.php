@@ -25,7 +25,14 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 if($guard === 'admin')
                     return redirect(RouteServiceProvider::ADMIN);
-                return redirect(RouteServiceProvider::HOME);
+                $academic_year = Auth::user()->academic_year;
+                if($academic_year == 1)
+                    return redirect(RouteServiceProvider::FIRST);
+                if($academic_year == 2)
+                    return redirect(RouteServiceProvider::SECOND);
+                if($academic_year == 3)
+                    return redirect(RouteServiceProvider::THIRD);
+                // return redirect(RouteServiceProvider::HOME);
             }
         }
 

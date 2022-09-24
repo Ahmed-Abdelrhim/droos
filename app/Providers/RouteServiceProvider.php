@@ -19,6 +19,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public const HOME = '/home';
     public const ADMIN = '/dashboard';
+    public const FIRST = '/secondary/first/year';
+    public const SECOND = '/secondary/second/year';
+    public const THIRD = '/secondary/third/year';
 
     /**
      * The controller namespace for the application.

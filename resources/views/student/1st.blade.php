@@ -201,14 +201,17 @@ body.active{
                 <img src="{{asset('images//pic-6.jpg')}}" alt="tutor">
                 <h3 class="name"> {{Auth::user()->name}}</h3>
                 <p class="role">student</p>
-                <a href="" class="btn">log out</a>
+                <form method="POST" action="{{route('student.logout')}}">
+                    @csrf
+                    <button class="btn" type="submit">log out</button>
+                </form>
             </div>
             <div class="tutor">
                 <div class="info">
                     <span>Welcome</span>
                     <h3>{{Auth::user()->name}}</h3>
                 </div>
-                <img src="{{asset('images//pic-6.jpg')}}" alt="tutor">
+                <img src="{{asset('images/studentImages/'.Auth::user()->avatar)}}" alt="tutor">
             </div>
     </section>
 </header>
