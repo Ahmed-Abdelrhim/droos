@@ -135,9 +135,9 @@ body.active{
        <a href="{{route('all.students.2nd')}}"><i class="fas fa-question"></i><span>All Students 2nd </span></a>
        <a href="{{route('all.students.3rd')}}"><i class="fas fa-question"></i><span>All Students 3rd</span></a>
 
-      <a href="{{url('view/list/1st')}}"><i class="fas fa-question"></i><span>Waiting list 1st</span></a>
-      <a href="{{url('view/list/2nd')}}"><i class="fas fa-question"></i><span>Waiting list 2nd</span></a>
-      <a href="{{url('view/list/3rd')}}"><i class="fas fa-question"></i><span>Waiting list 3rd</span></a>
+      <a href="{{route('waiting.list.1st')}}"><i class="fas fa-question"></i><span>Waiting list 1st</span></a>
+      <a href="{{url('waiting.list.2nd')}}"><i class="fas fa-question"></i><span>Waiting list 2nd</span></a>
+      <a href="{{url('waiting.list.3rd')}}"><i class="fas fa-question"></i><span>Waiting list 3rd</span></a>
       <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
 {{--      <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>--}}
 {{--      <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>--}}
