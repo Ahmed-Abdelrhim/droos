@@ -326,6 +326,50 @@ body.active{
          <a href="playlist.html" class="inline-btn">54</a>
       </div>
 
+            <div class="box">
+         <h3 class="title">الطلاب</h3>
+         <a href="playlist.html" class="inline-btn">1000</a>
+      </div>
+
+      <div class="box">
+         <h3 class="title">الطلاب المشتركين</h3>
+         <a href="playlist.html" class="inline-btn">635</a>
+      </div>
+
+      <div class="box">
+         <h3 class="title">قائمة الانتظار</h3>
+         <a href="playlist.html" class="inline-btn">54</a>
+      </div>
+
+      <div class="box">
+         <h3 class="title">الطلاب</h3>
+         <a href="playlist.html" class="inline-btn">1000</a>
+      </div>
+
+      <div class="box">
+         <h3 class="title">الطلاب المشتركين</h3>
+         <a href="playlist.html" class="inline-btn">635</a>
+      </div>
+
+      <div class="box">
+         <h3 class="title">قائمة الانتظار</h3>
+         <a href="playlist.html" class="inline-btn">54</a>
+      </div>
+
+      <div class="box">
+         <h3 class="title">الطلاب</h3>
+         <a href="playlist.html" class="inline-btn">1000</a>
+      </div>
+
+      <div class="box">
+         <h3 class="title">الطلاب المشتركين</h3>
+         <a href="playlist.html" class="inline-btn">635</a>
+      </div>
+
+      <div class="box">
+         <h3 class="title">قائمة الانتظار</h3>
+         <a href="playlist.html" class="inline-btn">54</a>
+      </div>
 </section>
 
 
