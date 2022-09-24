@@ -41,11 +41,6 @@
     <section class="section slide1 p-0" id="home">
         <div class="slider-area" id="slider-area">
             <div class="row align-items-center">
-                <div class="col-12 col-lg-6 image-order">
-                    <div class="slider-image imgbox">
-                        <img src="{{asset('images/logo.png')}}" alt="image">
-                    </div>
-                </div>
                 <div class="col-12 col-lg-6 text-md-center text-lg-left content">
                     <div class="slider-content heading">
                         <h1 class="main-font text-uppercase"><span class="slider-text px-2">م/علاء الدين</h1>
@@ -57,10 +52,13 @@
                         </p>
                     </div>
                 </div>
+                <div class="col-12 col-lg-6 image-order">
+                    <div class="slider-image imgbox">
+                        <img src="{{asset('images/logo.png')}}" alt="image">
+                    </div>
+                </div>
             </div>
-            <a href="#cards" class="go-down">
-                <i class="fas fa-angle-double-down fa-2x"></i>
-            </a>
+
             <!-- Circle-One -->
             <div class="circle-one">
                  <span data-tootik="About" data-tootik-conf="right dark square shadow">
@@ -102,14 +100,17 @@
                   </span>
             </div>
         </div>
+        <a href="#cards" class="go-down">
+                <i class="fas fa-angle-double-down fa-2x"></i>
+            </a>
     </section>
 
 <!-- END BANNER -->
 
 
 
-<h2 class="main-title">الصفوف الدراسية</h2>
 <div class="card-container" id="cards">
+    <h2 class="main-title">الصفوف الدراسية</h2>
     <div class="card">
         <span></span>
         <span></span>

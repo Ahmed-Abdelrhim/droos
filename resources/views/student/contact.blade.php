@@ -1,39 +1,40 @@
 @extends('layouts.design')
 @section('content')
 
-    <header class="header">
+<header class="header">
 
-        <img id="back-ground" src="{{asset('images/back-ground.png')}}">
-        <section class="flex">
+    <img id="back-ground" src="{{asset('images/back-ground.png')}}">
+    <section class="flex">
 
-            <div class="icons">
-                <div id="menu-bars" class="fas fa-bars"></div>
-                <div id="toggle-btn" class="fas fa-sun"></div>
-                <div id="user-btn" class="fas fa-user"></div>
+        <div class="icons">
+            <div id="menu-bars" class="fas fa-bars"></div>
+            <div id="toggle-btn" class="fas fa-sun"></div>
+            <div id="user-btn" class="fas fa-user"></div>
+        </div>
+
+        <nav class="navbar">
+            <a href="{{asset('home')}}" class="active"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+            <a href="{{asset('about')}}" class="active"><i class="fas fa-question"></i><span>من نحن</span></a>
+            <a href="{{asset('courses')}}" class="active"><i class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
+            <a href="{{asset('contact')}}" class="active"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
+        </nav>
+
+
+
+        <div class="profile">
+            <img src="{{asset('images/pic-1.jpg')}}" class="image" alt="">
+            <h3 class="name">Welcome</h3>
+            <p class="role">student</p>
+            <div class="flex-btn">
+                <a href="{{route('student.login')}}" class="option-btn">login</a>
+                <a href="{{route('student.register')}}" class="option-btn">register</a>
             </div>
+        </div>
+        <!-- <img id="logo-background" src="{{asset('images/splash.png')}}"> -->
+        <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
+    </section>
 
-            <nav class="navbar">
-                <a href="{{asset('home')}}" class="active"><i class="fas fa-home"></i><span>الرئيسية</span></a>
-                <a href="{{asset('about')}}" class="active"><i class="fas fa-question"></i><span>من نحن</span></a>
-                <a href="{{asset('courses')}}" class="active"><i class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
-                <a href="{{asset('contact')}}" class="active"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
-            </nav>
-
-
-            <div class="profile">
-                <img src="{{asset('images/pic-1.jpg')}}" class="image" alt="">
-                <h3 class="name">Welcome</h3>
-                <p class="role">studen</p>
-                <div class="flex-btn">
-                    <a href="{{route('student.login')}}" class="option-btn">login</a>
-                    <a href="{{route('student.register')}}" class="option-btn">register</a>
-                </div>
-            </div>
-            <img id="logo-background" src="{{asset('images/splash.png')}}">
-            <a href="home.html" class="logo"><img src="{{asset('images/logo.png')}}"></a>
-        </section>
-
-    </header>
+</header>
 
 
     <section class="contact">

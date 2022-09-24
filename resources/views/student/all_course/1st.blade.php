@@ -199,24 +199,20 @@ body.active{
                 <div id="user-btn" class="fas fa-user"></div>
             </div>
             <div class="profile">
-            <img src="{{asset('images/pic-1.jpg')}}" class="image" alt="">
-            <h3 class="name">Welcome</h3>
-            <p class="role">student</p>
-            <div class="flex-btn">
-                <a href="{{route('student.login')}}" class="option-btn">login</a>
-                <a href="{{route('student.register')}}" class="option-btn">register</a>
+                <img src="{{asset('images//pic-6.jpg')}}" alt="tutor">
+                <h3 class="name"> {{Auth::user()->name}}</h3>
+                <p class="role">student</p>
+                <a href="" class="btn">log out</a>
             </div>
-        </div>
             <div class="tutor">
                 <div class="info">
                     <span>Welcome</span>
-                    <h3>student</h3>
+                    <h3>{{Auth::user()->name}}</h3>
                 </div>
                 <img src="{{asset('images//pic-6.jpg')}}" alt="tutor">
             </div>
     </section>
 </header>
-
 
 <div class="side-bar">
 
