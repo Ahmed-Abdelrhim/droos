@@ -279,30 +279,30 @@ body.active{
             <i class="fa fa-caret-down"></i>
         </button>
     <div class="dropdown-container">
-        <a href="{{url('view/list/1st')}}"><i class="fas fa-question"></i><span>قائمة الانتظار الصف الاول</span></a>
-        <a href="{{url('view/list/2nd')}}"><i class="fas fa-question"></i><span>قائمة الانتظار الصف الثاني</span></a>
-        <a href="{{url('view/list/3rd')}}"><i class="fas fa-question"></i><span>قائمة الانتظار الصف الثالث</span></a>
+        <a href="{{route('waiting.list.1st')}}"><i class="fas fa-question"></i><span>قائمة الانتظار الصف الاول</span></a>
+        <a href="{{route('waiting.list.2nd')}}"><i class="fas fa-question"></i><span>قائمة الانتظار الصف الثاني</span></a>
+        <a href="{{route('waiting.list.3rd')}}"><i class="fas fa-question"></i><span>قائمة الانتظار الصف الثالث</span></a>
     </div>
 
-<<<<<<< HEAD
+        <button class="dropdown-btn"> قائمة المشتركين
+            <i class="fa fa-caret-down"></i>
+        </button>
+    <div class="dropdown-container">
+        <a href="#"><i class="fas fa-question"></i><span>قائمة المشتركين الصف الاول</span></a>
+        <a href="#"><i class="fas fa-question"></i><span>قائمة المشتركين الصف الثاني</span></a>
+        <a href="#"><i class="fas fa-question"></i><span>قائمة المشتركين الصف الثالث</span></a>
+    </div>
+
+        <button class="dropdown-btn"> test
+            <i class="fa fa-caret-down"></i>
+        </button>
+    <div class="dropdown-container">
+        <a href="#"><i class="fas fa-question"></i><span>قائمة الانتظار الصف الاول</span></a>
+        <a href="#"><i class="fas fa-question"></i><span>قائمة الانتظار الصف الثاني</span></a>
+        <a href="#"><i class="fas fa-question"></i><span>قائمة الانتظار الصف الثالث</span></a>
+    </div>
+
     </nav>
-=======
-
-{{--      <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>--}}
-{{--       all/students/1st/year --}}
-       <a href="{{route('all.students.1st')}}"><i class="fas fa-question"></i><span>All Students 1st</span></a>
-       <a href="{{route('all.students.2nd')}}"><i class="fas fa-question"></i><span>All Students 2nd </span></a>
-       <a href="{{route('all.students.3rd')}}"><i class="fas fa-question"></i><span>All Students 3rd</span></a>
-
-      <a href="{{route('waiting.list.1st')}}"><i class="fas fa-question"></i><span>Waiting list 1st</span></a>
-      <a href="{{url('waiting.list.2nd')}}"><i class="fas fa-question"></i><span>Waiting list 2nd</span></a>
-      <a href="{{url('waiting.list.3rd')}}"><i class="fas fa-question"></i><span>Waiting list 3rd</span></a>
-      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
-{{--      <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>--}}
-{{--      <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>--}}
-   </nav>
->>>>>>> 35dc691df182c82e0ad79e403b72ccda05848713
-
 </div>
 
 <section class="courses">
@@ -312,50 +312,20 @@ body.active{
    <div class="box-container">
 
       <div class="box">
-         <h3 class="title">complete HTML tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
+         <h3 class="title">الطلاب</h3>
+         <a href="playlist.html" class="inline-btn">1000</a>
       </div>
 
       <div class="box">
-         <h3 class="title">complete CSS tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
+         <h3 class="title">الطلاب المشتركين</h3>
+         <a href="playlist.html" class="inline-btn">635</a>
       </div>
 
       <div class="box">
-         <h3 class="title">complete JS tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
+         <h3 class="title">قائمة الانتظار</h3>
+         <a href="playlist.html" class="inline-btn">54</a>
       </div>
 
-      <div class="box">
-         <h3 class="title">complete Boostrap tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div>
-
-      <div class="box">
-         <h3 class="title">complete Boostrap tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div>
-
-      <div class="box">
-         <h3 class="title">complete Boostrap tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div>
-
-      <div class="box">
-         <h3 class="title">complete Boostrap tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div>
-
-      <div class="box">
-         <h3 class="title">complete Boostrap tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div>
-
-      <div class="box">
-         <h3 class="title">complete Boostrap tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div>
-      
 </section>
 
 
