@@ -225,7 +225,6 @@ body.active{
    </div>
 
    <nav class="navbar">
-      <a href="home.html"><i class="fas fa-home"></i><span>الصفحة الرئيسية</span></a>
       <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
       <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>المميزات</span></a>
       <a href="contact.html"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>

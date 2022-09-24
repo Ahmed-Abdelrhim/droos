@@ -31,27 +31,28 @@ class AcademicFirstYear extends Controller
             $academic_year = Auth::user()->academic_year;
             if(!Gate::allows('view-courses',1))
                 return view('student.access_denied',compact('academic_year'));
-            //If Student Already Subscribed In The Course
+
             $subscribed = SubscribedFirstYear::where('student_id',$id)->get();
-            if(count($subscribed) > 0)
+            $waitingList =  WaitingListFirstYear::where('student_id',$id)->get();
+
+            if(count($subscribed) > 0 || count($waitingList) > 0)
             {
+                //If Student Already Subscribed In The Course
                 foreach ($subscribed as $sub)
                 {
                     $serials[] = $sub->serial_number;
                 }
-                return view('student.all_course.1st',compact('courses','serials'));
-            }
 
-            // If Student In The Waiting List Of The Course
-            $waitingList =  WaitingListFirstYear::where('student_id',$id)->get();
-            if(count($waitingList) > 0)
-            {
+                // If Student In The Waiting List Of The Course
                 foreach ($waitingList as $waiting)
                 {
                     $serials[] = $waiting->serial_number;
                 }
+
                 return view('student.all_course.1st',compact('courses','serials'));
             }
+            //Student Authenticated and not waiting or subscribed in any course
+            return view('student.all_course.1st',compact('courses'));
         }
         return view('student.all_course.1st',compact('courses'));
     }
