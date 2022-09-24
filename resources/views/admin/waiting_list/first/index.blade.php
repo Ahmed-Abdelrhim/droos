@@ -13,30 +13,39 @@
             <table class="table table-dark" id="table_id">
                 <thead>
                 <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">student_id</th>
-                    <th scope="col">serial_number</th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Student email</th>
+                    <th scope="col">Student phone</th>
+                    <th scope="col">Course Month</th>
                     <th scope="col">action</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($student_names as $name)
+                    <th>{{$name}}</th>
+                @endforeach
+                @foreach($student_emails as $email)
+                    <th>{{$email}}</th>
+                @endforeach
+                @foreach($student_phones as $phone)
+                    <th>{{$phone}}</th>
+                @endforeach
                 @foreach($allData as $data)
                     <tr>
-                        <th scope="row">{{$data->id}}</th>
-                        <th>{{$data->student_id}}</th>
+                        {{--<th scope="row">{{$data->id}}</th>--}}
+                        {{--<th>{{$data->student_id}}</th>--}}
                         <th scope="row">{{$data->serial_number}}</th>
-                        <th>
+                        <th style="width: 130px; height: 30px">
                             <form action="{{route('activate.waiting.1st',$data->id)}}" method="POST">
                                 @csrf
-                                <button class="btn btn-primary" style="background-color: #dc3545;border-color: #dc3545">
+                                <button class="btn btn-primary" style="background-color: #007bff;border-color: #007bff">
                                     activate
                                 </button>
                             </form>
                             <form action="{{route('delete.waiting.1st',$data->id)}}" method="POST">
                                 @csrf
-                                <button class="btn btn-danger" style="background-color: #007bff;">delete</button>
+                                <button class="btn btn-danger" style="background-color: #dc3545;">delete</button>
                             </form>
-
 
                         </th>
                     </tr>

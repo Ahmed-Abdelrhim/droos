@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\SubscribedFirstYear;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\WaitingListFirstYear;
 use App\Models\WaitingListSecondtYear;
@@ -17,14 +18,25 @@ class WaitingListController extends Controller
     public function waitingFirstYear(Request $request)
     {
         $allData = WaitingListFirstYear::get();
-        $all = DataTables::of($allData)->addIndexColumn()->addColumn('action', function () {
-            return $btn = "
-            <a id='editBtn' class='edit btn btn-primary btn-sm'  href='#'></a>
-            <a id='deleteBtn' class='edit btn btn-danger btn-sm' href='#' ></a>
-            ";
-        })->rawColumns(['action'])->make(true);
-        return view('admin.waiting_list.first.index',compact('allData'));
-//        return view('admin.waiting_list.first.index')->with(['allData'=>$allData]);
+        $student_names = [];
+        $student_emails = [];
+        $student_phones = [];
+        foreach ($allData as $student)
+        {
+            $student = User::find($student->student_id);
+            $student_names[] = $student->name;
+            $student_emails[] = $student->email;
+            $student_phones[] = $student->phone_number;
+        }
+
+//        $all = DataTables::of($allData)->addIndexColumn()->addColumn('action', function () {
+//            return $btn = "
+//            <a id='editBtn' class='edit btn btn-primary btn-sm'  href='#'></a>
+//            <a id='deleteBtn' class='edit btn btn-danger btn-sm' href='#' ></a>
+//            ";
+//        })->rawColumns(['action'])->make(true);
+//        return view('admin.waiting_list.first.index',compact('allData') );
+        return view('admin.waiting_list.first.index',compact('allData','student_names','student_emails','student_phones'));
 
     }
 
