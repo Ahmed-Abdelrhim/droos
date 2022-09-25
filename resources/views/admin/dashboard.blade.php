@@ -244,6 +244,7 @@ body.active{
                 <h3 class="name">{{Auth::guard('admin')->user()->name}}</h3>
                 <p class="role">Admin</p>
                 <a href="{{route('teacher.profile')}}" class="btn">view profile</a>
+                <a href="" class="btn">logout</a>
             </div>
             <div class="tutor">
                 <div class="info">
@@ -266,6 +267,7 @@ body.active{
    </div>
 
     <nav class="navbar">
+        <a href=""><i class="fas fa-home"></i><span> لوحة التحكم </span></a>
         <button class="dropdown-btn">جميع الطلاب
             <i class="fa fa-caret-down"></i>
         </button>

@@ -774,6 +774,13 @@ footer .container img {
 
 }
 
+@media (max-width: 768px) {
+
+    .row {
+        flex-direction: column-reverse;
+    }
+}
+
 
 .circle-one {
     position: absolute;
