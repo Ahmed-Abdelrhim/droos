@@ -246,13 +246,13 @@ tbody{
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid #fff;
   text-align: right;
   padding: 10px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #777;
 }
 
 
@@ -349,7 +349,8 @@ tr:nth-child(odd) {
 
    <div class="box-container">
         <table>
-                <thead>
+            {{--Start Table Head--}}
+                <thead class="scroll-horizontal">
                 <tr>
                     <th>اسم الطالب</th>
                     <th>اميل الطالب</th>
@@ -357,21 +358,26 @@ tr:nth-child(odd) {
                     <th>الاحداث</th>
                 </tr>
                 </thead>
+                {{--End Table Head--}}
+                {{--Start Table Head--}}
                 <tbody>
+
                 @foreach($students as $student)
                     <tr>
-                        <th>{{$student->name}}</th>
-                        <th>{{$student->email}}</th>
-                        <th>{{$student->phone}}</th>
-                        <th style="width: 130px; height: 30px">
+                        <td>{{$student->name}}</td>
+                        <td>{{$student->email}}</td>
+                        <td>{{$student->phone}}</td>
+                        <td style="width: 130px; height: 30px">
                             <form action="{{route('delete.student',$student->id)}}" method="POST">
                                 @csrf
                                 <button class="btn btn-danger" style="background-color: #dc3545;">delete</button>
                             </form>
-                        </th>
+                        </td>
                     </tr>
                 @endforeach
+            
                 </tbody>
+                {{--End Table Head--}}
         </table>
     </div>
 </section>

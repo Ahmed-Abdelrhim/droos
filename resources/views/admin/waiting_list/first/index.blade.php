@@ -246,15 +246,14 @@ tbody{
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid #fff;
   text-align: right;
   padding: 10px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #777;
 }
-
 
 tr:nth-child(odd) {
     background-color:var(--main-color);
@@ -360,17 +359,17 @@ tr:nth-child(odd) {
                 </thead>
                 <tbody>
                 @foreach($student_names as $name)
-                    <th>{{$name}}</th>
+                    <td>{{$name}}</td>
                 @endforeach
                 @foreach($student_emails as $email)
-                    <th>{{$email}}</th>
+                    <td>{{$email}}</td>
                 @endforeach
                 @foreach($student_phones as $phone)
-                    <th>{{$phone}}</th>
+                    <td>{{$phone}}</td>
                 @endforeach
                 @foreach($allData as $data)
-                    <th>{{$data->serial_number}}</th>
-                        <th style="width: 130px; height: 30px">
+                    <td>{{$data->serial_number}}</td>
+                        <td style="width: 130px; height: 30px">
                             <form action="{{route('activate.waiting.1st',$data->id)}}" method="POST">
                                 @csrf
                                 <button class="btn btn-primary" style="background-color: #007bff;border-color: #007bff">
@@ -381,8 +380,8 @@ tr:nth-child(odd) {
                                 @csrf
                                 <button class="btn btn-danger" style="background-color: #dc3545;">Delete</button>
                             </form>
-                        </th>
-                    </th>
+                        </td>
+
                 @endforeach
                 </tbody>
         </table>

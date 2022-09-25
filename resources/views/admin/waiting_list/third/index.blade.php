@@ -246,13 +246,13 @@ tbody{
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid #fff;
   text-align: right;
   padding: 10px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #777;
 }
 
 
