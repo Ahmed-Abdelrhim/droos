@@ -78,7 +78,7 @@ class WaitingListController extends Controller
 
     public function waitingThirdYear()
     {
-        $allData = WaitingListThirdYear::with('students')->get();
+        $allData = WaitingListThirdYear::with('students')->paginate(10);
 //        return $allData;
 //        foreach ($allData as $student)
 //        {
