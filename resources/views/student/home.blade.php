@@ -108,7 +108,6 @@
 <!-- END BANNER -->
 
 
-
 <div class="card-container" id="cards">
     <h2 class="main-title">الصفوف الدراسية</h2>
     <div class="card">
@@ -208,14 +207,7 @@
                 منصة علاء الدين لشرح منهج الفزياء للثانوية العامة
             </p>
         </div>
-        <div class="box">
-            <ul class="links">
-                <li><a href="home.html">الرئيسية</a></li>
-                <li><a href="about.html">من نحن</a></li>
-                <li><a href="contact.html">تواصل معنا</a></li>
-                <li><a href="courses.html">الكورسات</a></li>
-            </ul>
-        </div>
+
         <div class="box">
             <div class="line">
                 <i class="fas fa-map-marker-alt fa-fw"></i>
@@ -227,16 +219,14 @@
             </div>
             <div class="line">
                 <i class="fas fa-phone-volume fa-fw"></i>
-                <div class="info">
-                    <span>+201149596478</span>
-                </div>
+                <div class="info">+201149596478</div>
             </div>
         </div>
         <div class="box footer-gallery">
             <img src="{{asset('images/thumb-9.png')}}" alt="" />
             <img src="{{asset('images/thumb-8.png')}}" alt="" />
-            <img src="{{asset('images/thumb-7.png')}}" alt="" />
-            <img src="{{asset('images/thumb-6.png')}}" alt="" />
+            <img src="{{asset('images/year-2.jpeg')}}" alt="" />
+            <img src="{{asset('images/ph-1.jpg')}}" alt="" />
             <img src="{{asset('images/thumb-5.png')}}" alt="" />
             <img src="{{asset('images/thumb-4.png')}}" alt="" />
         </div>

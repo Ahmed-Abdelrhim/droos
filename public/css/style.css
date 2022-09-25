@@ -453,6 +453,8 @@ footer .container img {
     text-transform: uppercase;
     margin: 0 auto 80px;
     border: 2px solid black;
+    background:rgba(0, 0, 0, .2);
+    color: var(--black);
     padding: 10px 20px;
     font-size: 30px;
     width: fit-content;
@@ -559,6 +561,9 @@ footer .container img {
     padding: 2rem;
     margin: 50px auto;
     background-color: #f1c40f;
+    background-image: url(../images/thumb-.png);
+    background-position: right;
+    background-repeat: no-repeat;
 }
 
 .card-container .card {
@@ -2115,7 +2120,6 @@ footer .container img {
 .footer .box .line {
     display: flex;
     align-items: center;
-    color: #b9b9b9;
     margin-bottom: 30px;
 }
 
@@ -2162,6 +2166,11 @@ footer .container img {
 .footer .copyright i {
     color: var(--main-color);
 }
+
+.footer .copyright a {
+    color: var(--main-color);
+}
+
 
 /* End Footer */
 
