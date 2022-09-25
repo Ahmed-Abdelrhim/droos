@@ -128,65 +128,65 @@
 
 <!-- Start Footer -->
 <footer class="footer">
-   <div class="container">
-      <div class="box">
-         <a href="home.html" class="logo"><img src="images/logo.png"></a>
-         <ul class="social">
-            <li>
-               <a href="#" class="facebook">
-                  <i class="fab fa-facebook-f"></i>
-               </a>
-            </li>
-            <li>
-               <a href="#" class="twitter">
-                  <i class="fab fa-twitter"></i>
-               </a>
-            </li>
-            <li>
-               <a href="#" class="youtube">
-                  <i class="fab fa-youtube"></i>
-               </a>
-            </li>
-         </ul>
-         <p class="text">
-            منصة علاء الدين لشرح منهج الفزياء للثانوية العامة
-         </p>
-      </div>
-      <div class="box">
-         <ul class="links">
-            <li><a href="home.html">الرئيسية</a></li>
-            <li><a href="about.html">من نحن</a></li>
-            <li><a href="contact.html">تواصل معنا</a></li>
-            <li><a href="courses.html">الكورسات</a></li>
-         </ul>
-      </div>
-      <div class="box">
-         <div class="line">
-            <i class="fas fa-map-marker-alt fa-fw"></i>
-            <div class="info">مصر </div>
-         </div>
-         <div class="line">
-            <i class="far fa-clock fa-fw"></i>
-            <div class="info">24/7</div>
-         </div>
-         <div class="line">
-            <i class="fas fa-phone-volume fa-fw"></i>
-            <div class="info">
-               <span>+201149596478</span>
+    <div class="container">
+        <div class="box">
+            <a href="home.html" class="logo"><img src="{{asset('images/logo.png')}}"></a>
+            <ul class="social">
+                <li>
+                    <a href="#" class="facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </li>
+            </ul>
+            <p class="text">
+                منصة علاء الدين لشرح منهج الفزياء للثانوية العامة
+            </p>
+        </div>
+
+        <div class="box">
+            <ul class="links">
+                <li><a href="home.html">الرئيسية</a></li>
+                <li><a href="about.html">من نحن</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+                <li><a href="courses.html">الكورسات</a></li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <div class="line">
+                <i class="fas fa-map-marker-alt fa-fw"></i>
+                <div class="info">مصر </div>
             </div>
-         </div>
-      </div>
-      <div class="box footer-gallery">
-         <img src="images/thumb-9.png" alt="" />
-         <img src="images/thumb-8.png" alt="" />
-         <img src="images/thumb-7.png" alt="" />
-         <img src="images/thumb-6.png" alt="" />
-         <img src="images/thumb-5.png" alt="" />
-         <img src="images/thumb-4.png" alt="" />
-      </div>
-   </div>
-   <p class="copyright">Developed By <a href="#" class="fas fa-heart"></a> By Anas , Ahmed</p>
-   &copy; copyright @ 2022 | all rights reserved!
+            <div class="line">
+                <i class="far fa-clock fa-fw"></i>
+                <div class="info">24/7</div>
+            </div>
+            <div class="line">
+                <i class="fas fa-phone-volume fa-fw"></i>
+                <div class="info">+201149596478</div>
+            </div>
+        </div>
+        <div class="box footer-gallery">
+            <img src="{{asset('images/thumb-9.png')}}" alt="" />
+            <img src="{{asset('images/thumb-8.png')}}" alt="" />
+            <img src="{{asset('images/year-2.jpeg')}}" alt="" />
+            <img src="{{asset('images/ph-1.jpg')}}" alt="" />
+            <img src="{{asset('images/thumb-5.png')}}" alt="" />
+            <img src="{{asset('images/thumb-4.png')}}" alt="" />
+        </div>
+    </div>
+    <p class="copyright">Developed By <a href="#" class="fas fa-heart"></a> By Anas , Ahmed</p>
+    &copy; copyright @ 2022 | all rights reserved!
 </footer>
 
 <!-- scroll top button  -->

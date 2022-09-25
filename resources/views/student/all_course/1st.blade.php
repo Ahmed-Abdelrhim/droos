@@ -198,7 +198,7 @@ body.active{
                 <div id="toggle-btn" class="fas fa-sun"></div>
                 <div id="user-btn" class="fas fa-user"></div>
             </div>
-            <div class="profile">
+            <div class="image" class="profile">
                 <img src="@if(Auth::check())
                             {{asset('images/studentImages/'.Auth::user()->avatar)}}
                         @else
@@ -339,6 +339,7 @@ body.active{
                 منصة علاء الدين لشرح منهج الفزياء للثانوية العامة
             </p>
         </div>
+
         <div class="box">
             <ul class="links">
                 <li><a href="home.html">الرئيسية</a></li>
@@ -347,6 +348,7 @@ body.active{
                 <li><a href="courses.html">الكورسات</a></li>
             </ul>
         </div>
+
         <div class="box">
             <div class="line">
                 <i class="fas fa-map-marker-alt fa-fw"></i>
@@ -358,16 +360,14 @@ body.active{
             </div>
             <div class="line">
                 <i class="fas fa-phone-volume fa-fw"></i>
-                <div class="info">
-                    <span>+201149596478</span>
-                </div>
+                <div class="info">+201149596478</div>
             </div>
         </div>
         <div class="box footer-gallery">
             <img src="{{asset('images/thumb-9.png')}}" alt="" />
             <img src="{{asset('images/thumb-8.png')}}" alt="" />
-            <img src="{{asset('images/thumb-7.png')}}" alt="" />
-            <img src="{{asset('images/thumb-6.png')}}" alt="" />
+            <img src="{{asset('images/year-2.jpeg')}}" alt="" />
+            <img src="{{asset('images/ph-1.jpg')}}" alt="" />
             <img src="{{asset('images/thumb-5.png')}}" alt="" />
             <img src="{{asset('images/thumb-4.png')}}" alt="" />
         </div>

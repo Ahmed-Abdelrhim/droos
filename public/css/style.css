@@ -2101,11 +2101,11 @@ footer .container img {
 }
 
 .footer .box .links li:hover a {
-    color: white;
+    color: var(--main-color);
 }
 
 .footer .box .links li a {
-    color: #b9b9b9;
+    color: #fff;
     transition: var(--main-transition);
 }
 

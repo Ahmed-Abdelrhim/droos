@@ -339,7 +339,7 @@ body.active{
     </div>
     <p class="copyright">Developed By <a href="#" class="fas fa-heart"></a> By Anas , Ahmed</p>
     &copy; copyright @ 2022 | all rights reserved!
-</footer>
+</footer>>
 
 <!-- scroll top button  -->
 <a href="#" class="top">

@@ -209,6 +209,15 @@
         </div>
 
         <div class="box">
+            <ul class="links">
+                <li><a href="home.html">الرئيسية</a></li>
+                <li><a href="about.html">من نحن</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+                <li><a href="courses.html">الكورسات</a></li>
+            </ul>
+        </div>
+
+        <div class="box">
             <div class="line">
                 <i class="fas fa-map-marker-alt fa-fw"></i>
                 <div class="info">مصر </div>
@@ -233,7 +242,7 @@
     </div>
     <p class="copyright">Developed By <a href="#" class="fas fa-heart"></a> By Anas , Ahmed</p>
     &copy; copyright @ 2022 | all rights reserved!
-</footer>
+</footer>>
 
 <!-- scroll top button  -->
 <a href="#" class="top">
