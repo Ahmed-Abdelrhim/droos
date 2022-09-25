@@ -110,14 +110,16 @@ class WaitingListController extends Controller
         $student_names = [];
         $student_emails = [];
         $student_phones = [];
+        $student_parent_number = [];
         foreach ($allData as $student)
         {
             $student = User::find($student->student_id);
             $student_names[] = $student->name;
             $student_emails[] = $student->email;
             $student_phones[] = $student->phone_number;
+            $student_parent_number[] = $student->parent_phone;
         }
-        return view('admin.waiting_list.third.index',compact('allData','student_names','student_emails','student_phones'));
+        return view('admin.waiting_list.third.index',compact('allData','student_names','student_emails','student_phones','student_parent_number'));
     }
 
     public function activateWaitingListThirdYear($id)

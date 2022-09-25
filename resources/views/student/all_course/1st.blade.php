@@ -199,8 +199,18 @@ body.active{
                 <div id="user-btn" class="fas fa-user"></div>
             </div>
             <div class="profile">
-                <img src="{{asset('images//pic-6.jpg')}}" alt="tutor">
-                <h3 class="name"> {{Auth::user()->name}}</h3>
+                <img src="@if(Auth::check())
+                            {{asset('images/studentImages/'.Auth::user()->avatar)}}
+                        @else
+                            {{asset('images//pic-6.jpg')}}
+                        @endif" alt="tutor">
+                <h3 class="name">
+                    @if(Auth::check())
+                        {{Auth::user()->name}}
+                    @else
+                        1st Year Student
+                    @endif
+                </h3>
                 <p class="role">student</p>
                 <form method="POST" action="{{route('student.logout')}}">
                     @csrf
@@ -210,9 +220,19 @@ body.active{
             <div class="tutor">
                 <div class="info">
                     <span>Welcome</span>
-                    <h3>{{Auth::user()->name}}</h3>
+                    <h3>
+                        @if(Auth::check())
+                            {{Auth::user()->name}}
+                        @else
+                            1st Year Student
+                        @endif
+                    </h3>
                 </div>
-                <img src="{{asset('images//pic-6.jpg')}}" alt="tutor">
+                <img src="@if(Auth::check())
+                            {{asset('images/studentImages/'.Auth::user()->avatar)}}
+                        @else
+                            {{asset('images//pic-6.jpg')}}
+                        @endif" alt="tutor">
             </div>
     </section>
 </header>

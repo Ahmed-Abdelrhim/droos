@@ -52,15 +52,6 @@ class AcademicThirdYear extends Controller
             }
             //Student Authenticated and not waiting or subscribed in any course
             return view('student.all_course.3rd',compact('courses'));
-            // If Student In The Waiting List Of The Course
-//            if(count($waitingList) > 0)
-//            {
-//                foreach ($waitingList as $waiting)
-//                {
-//                    $serials[] = $waiting->serial_number;
-//                }
-//                return view('student.all_course.3rd',compact('courses','serials'));
-//            }
         }
         return view('student.all_course.3rd',compact('courses'));
     }
