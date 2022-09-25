@@ -47,13 +47,9 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
     Route::get('courses/2nd/year', [AcademicSecondYear::class, 'courses'])->name('courses.2nd.students');
     Route::get('courses/3rd/year', [AcademicThirdYear::class, 'courses'])->name('courses.3rd.students');
 
-
-
     Route::get('hash', function () {
         return bcrypt('12345678');
     });
-
-
 
     Route::group(['middleware' => 'auth:web'], function () {
 //        Route::get('logout', [CustomLoginController::class, 'logout'])->name('logout');

@@ -10,6 +10,9 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\WaitingListFirstYear;
 use App\Models\WaitingListSecondtYear;
 use App\Models\WaitingListThirdYear;
+use App\Models\SubscribedFirstYear;
+use App\Models\SubscribedSecondYear;
+use App\Models\SubscribedThirdYear;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -58,17 +61,35 @@ class User extends Authenticatable
     ############################################ Start Relations ############################################
     public function waitingListThirdYear(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(WaitingListThirdYear::class,'student_id','id');
+        return $this->hasMany(WaitingListThirdYear::class, 'student_id', 'id');
     }
 
     public function waitingListSecondYear(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(WaitingListSecondtYear::class,'student_id','id');
+        return $this->hasMany(WaitingListSecondtYear::class, 'student_id', 'id');
     }
 
     public function waitingListFirstYear(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(WaitingListFirstYear::class,'student_id','id');
+        return $this->hasMany(WaitingListFirstYear::class, 'student_id', 'id');
     }
+
+
+    ####### Start Subscribed #######
+    public function subscribedThirdYear(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(SubscribedThirdYear::class, 'student_id', 'id');
+    }
+
+    public function subscribedSecondYear(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(SubscribedSecondYear::class, 'student_id', 'id');
+    }
+
+    public function subscribedFirstYear(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(SubscribedFirstYear::class, 'student_id', 'id');
+    }
+    ####### End Subscribed #######
     ############################################ End Relations ##############################################
 }

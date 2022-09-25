@@ -146,7 +146,8 @@ class DashboardController extends Controller
 
     public function subscribedFirstYear()
     {
-        return SubscribedFirstYear::get();
+        SubscribedFirstYear::get();
+        return view();
     }
 
     public function subscribedSecondYear()

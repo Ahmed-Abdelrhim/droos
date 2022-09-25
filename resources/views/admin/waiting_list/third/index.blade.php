@@ -383,11 +383,13 @@ tr:nth-child(odd) {
 
                 @endforeach
                 </tbody>
-            {{ $allData->links() }}
         </table>
     </div>
 </section>
 
+<section>
+    {{ $allData->links() }}
+</section>
 
 
 

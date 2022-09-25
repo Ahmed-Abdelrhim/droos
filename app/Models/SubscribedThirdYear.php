@@ -12,4 +12,9 @@ class SubscribedThirdYear extends Model
     protected $fillable = ['student_id','serial_number','created_at','updated_at'];
     protected $hidden = ['created_at','updated_at'];
     public $timestamps = true;
+
+    ############################################ Start Relations ############################################
+    ############################################ End Relations ##############################################
+
+
 }
