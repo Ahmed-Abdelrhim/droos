@@ -290,9 +290,9 @@ body.active{
             <i class="fa fa-caret-down"></i>
         </button>
     <div class="dropdown-container">
-        <a href="#"><i class="fas fa-question"></i><span>قائمة المشتركين الصف الاول</span></a>
-        <a href="#"><i class="fas fa-question"></i><span>قائمة المشتركين الصف الثاني</span></a>
-        <a href="#"><i class="fas fa-question"></i><span>قائمة المشتركين الصف الثالث</span></a>
+        <a href="{{route('subscribed.1st.year')}}"><i class="fas fa-question"></i><span>قائمة المشتركين الصف الاول</span></a>
+        <a href="{{route('subscribed.2nd.year')}}"><i class="fas fa-question"></i><span>قائمة المشتركين الصف الثاني</span></a>
+        <a href="{{route('subscribed.3rd.year')}}"><i class="fas fa-question"></i><span>قائمة المشتركين الصف الثالث</span></a>
     </div>
 
         <button class="dropdown-btn"> test

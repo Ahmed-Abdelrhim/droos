@@ -43,14 +43,14 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('student_3rd_year', [DashboardController::class, 'studentsThirdYear'])->name('student_3rd_year');
 
         //View WaitingList Students
-        Route::get('waiting_list_1st_year', [DashboardController::class, 'waitingListFirstYear'])->name('waiting_list_1st_year');
-        Route::get('waiting_list_2nd_year', [DashboardController::class, 'waitingListSecondYear'])->name('waiting_list_2nd_year');
-        Route::get('waiting_list_3rd_year', [DashboardController::class, 'waitingListThirdYear'])->name('waiting_list_3rd_year');
+        Route::get('waiting/list/1st/year', [DashboardController::class, 'waitingListFirstYear'])->name('waiting_list_1st_year');
+        Route::get('waiting/list/2nd/year', [DashboardController::class, 'waitingListSecondYear'])->name('waiting_list_2nd_year');
+        Route::get('waiting/list/3rd/year', [DashboardController::class, 'waitingListThirdYear'])->name('waiting_list_3rd_year');
 
         //View Subscribed Students
-        Route::get('subscribed_1st_year', [DashboardController::class, 'subscribedFirstYear'])->name('subscribed_1st_year');
-        Route::get('subscribed_2nd_year', [DashboardController::class, 'subscribedSecondYear'])->name('subscribed_2nd_year');
-        Route::get('subscribed_3rd_year', [DashboardController::class, 'subscribedThirdYear'])->name('subscribed_3rd_year');
+        Route::get('subscribed/1st/year', [DashboardController::class, 'subscribedFirstYear'])->name('subscribed.1st.year');
+        Route::get('subscribed/2nd/year', [DashboardController::class, 'subscribedSecondYear'])->name('subscribed.2nd.year');
+        Route::get('subscribed/3rd/year', [DashboardController::class, 'subscribedThirdYear'])->name('subscribed.3rd.year');
 
         //Academic First Year [add , edit , delete actions]
         Route::get('all/courses/1st/year', [AcademicFirstYear::class, 'showAllCourses']);
