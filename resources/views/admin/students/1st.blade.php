@@ -296,7 +296,7 @@ tr:nth-child(odd) {
    </div>
 
     <nav class="navbar">
-        <a href=""><i class="fas fa-home"></i><span> لوحة التحكم </span></a>
+        <a href="{{route('dashboard')}}"><i class="fas fa-home"></i><span> لوحة التحكم </span></a>
         <button class="dropdown-btn">جميع الطلاب
             <i class="fa fa-caret-down"></i>
         </button>

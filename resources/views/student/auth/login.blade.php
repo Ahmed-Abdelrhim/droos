@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <a href="{{route('home')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
+            <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
         </section>
 
     </header>
@@ -51,7 +51,7 @@
                    class="box">
 
             <button type="submit" class="btn">Submit</button>
-            <small id="emailHelp" class="form-text text-muted mt-2">dont have an account <a href="{{route('student.register')}}">register now</a> </small>
+            <p id="emailHelp" class="form-text text-muted mt-2">dont have an account <a href="{{route('student.register')}}">register now</a> </p>
 
         </form>
 
