@@ -360,11 +360,12 @@ tr:nth-child(odd) {
                 </thead>
                 <tbody>
                 @foreach($allData as $data)
-                    <th>{{$data['students']->name}}</th>
-                    <th>{{$data['students']->email}}</th>
-                    <th>{{$data['students']->phone_number}}</th>
-                    <th>{{$data['students']->parent_number}}</th>
-                    <th>{{$data->serial_number}}</th>                        <th style="width: 130px; height: 30px">
+                    <tr>
+                        <th>{{$data['students']->name}}</th>
+                        <th>{{$data['students']->email}}</th>
+                        <th>{{$data['students']->phone_number}}</th>
+                        <th>{{$data['students']->parent_number}}</th>
+                        <th>{{$data->serial_number}}</th>                        <th style="width: 130px; height: 30px">
                             <form action="{{route('activate.waiting.2nd',$data->id)}}" method="POST">
                                 @csrf
                                 <button class="btn btn-primary" style="background-color: #007bff;border-color: #007bff">
@@ -376,7 +377,8 @@ tr:nth-child(odd) {
                                 <button class="btn btn-danger" style="background-color: #dc3545;">Delete</button>
                             </form>
                         </th>
-                    </th>
+                        </th>
+                    </tr>
                 @endforeach
                 </tbody>
         </table>
