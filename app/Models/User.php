@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
+use App\Models\WaitingListFirstYear;
+use App\Models\WaitingListSecondtYear;
+use App\Models\WaitingListThirdYear;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -51,4 +53,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    ############################################ Start Relations ############################################
+    public function waitingListThirdYear(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(WaitingListThirdYear::class,'student_id','id');
+    }
+
+    public function waitingListSecondYear(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(WaitingListSecondtYear::class,'student_id','id');
+    }
+
+    public function waitingListFirstYear(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(WaitingListFirstYear::class,'student_id','id');
+    }
+    ############################################ End Relations ##############################################
 }

@@ -88,15 +88,15 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
 
         //Waiting List
-        Route::get('view/list/1st',[WaitingListController::class,'waitingFirstYear'])->name('waiting.list.1st');
+        Route::get('view/waiting/list/1st',[WaitingListController::class,'waitingFirstYear'])->name('waiting.list.1st');
         Route::post('activate/waiting/list/1st/{id}' , [WaitingListController::class,'activateWaitingListFirstYear'])->name('activate.waiting.1st');
         Route::post('delete/waiting/list/1st/{id}' , [WaitingListController::class,'deleteWaitingListFirstYear'])->name('delete.waiting.1st');
 
-        Route::get('view/list/2nd',[WaitingListController::class,'waitingSecondYear'])->name('waiting.list.2nd');
+        Route::get('view/waiting/list/2nd',[WaitingListController::class,'waitingSecondYear'])->name('waiting.list.2nd');
         Route::post('activate/waiting/list/2nd/{id}',[WaitingListController::class,'activateWaitingListSecondYear'])->name('activate.waiting.2nd');
         Route::post('delete/waiting/list/2nd/{id}' , [WaitingListController::class,'deleteWaitingListSecondYear'])->name('delete.waiting.2nd');
 
-        Route::get('view/list/3rd',[WaitingListController::class,'waitingThirdYear'])->name('waiting.list.3rd');
+        Route::get('view/waiting/list/3rd',[WaitingListController::class,'waitingThirdYear'])->name('waiting.list.3rd');
         Route::post('activate/waiting/list/3rd/{id}',[WaitingListController::class,'activateWaitingListThirdYear'])->name('activate.waiting.3rd');
         Route::post('delete/waiting/list/3rd/{id}' , [WaitingListController::class,'deleteWaitingListThirdYear'])->name('delete.waiting.3rd');
 

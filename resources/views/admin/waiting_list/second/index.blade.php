@@ -350,26 +350,21 @@ tr:nth-child(odd) {
         <table>
                 <thead>
                 <tr>
-                    <th>اسم الطالب</th>
-                    <th>اميل الطالب</th>
-                    <th>رقم التليفون</th>
-                    <th>كورس شهر</th>
-                    <th>الاحداث</th>
+                    <th>Student Name</th>
+                    <th>Student Email</th>
+                    <th>Student Phone</th>
+                    <th>Student Parent Phone</th>
+                    <th>Course Month</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($student_names as $name)
-                    <th>{{$name}}</th>
-                @endforeach
-                @foreach($student_emails as $email)
-                    <th>{{$email}}</th>
-                @endforeach
-                @foreach($student_phones as $phone)
-                    <th>{{$phone}}</th>
-                @endforeach
                 @foreach($allData as $data)
-                    <th>{{$data->serial_number}}</th>
-                        <th style="width: 130px; height: 30px">
+                    <th>{{$data['students']->name}}</th>
+                    <th>{{$data['students']->email}}</th>
+                    <th>{{$data['students']->phone_number}}</th>
+                    <th>{{$data['students']->parent_number}}</th>
+                    <th>{{$data->serial_number}}</th>                        <th style="width: 130px; height: 30px">
                             <form action="{{route('activate.waiting.2nd',$data->id)}}" method="POST">
                                 @csrf
                                 <button class="btn btn-primary" style="background-color: #007bff;border-color: #007bff">

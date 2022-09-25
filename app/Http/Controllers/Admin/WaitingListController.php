@@ -19,27 +19,8 @@ class WaitingListController extends Controller
 {
     public function waitingFirstYear(Request $request)
     {
-        $allData = WaitingListFirstYear::get();
-        $student_names = [];
-        $student_emails = [];
-        $student_phones = [];
-        foreach ($allData as $student)
-        {
-            $student = User::find($student->student_id);
-            $student_names[] = $student->name;
-            $student_emails[] = $student->email;
-            $student_phones[] = $student->phone_number;
-        }
-
-//        $all = DataTables::of($allData)->addIndexColumn()->addColumn('action', function () {
-//            return $btn = "
-//            <a id='editBtn' class='edit btn btn-primary btn-sm'  href='#'></a>
-//            <a id='deleteBtn' class='edit btn btn-danger btn-sm' href='#' ></a>
-//            ";
-//        })->rawColumns(['action'])->make(true);
-//        return view('admin.waiting_list.first.index',compact('allData') );
-        return view('admin.waiting_list.first.index',compact('allData','student_names','student_emails','student_phones'));
-
+        $allData = WaitingListFirstYear::with('students')->get();
+        return view('admin.waiting_list.first.index',compact('allData'));
     }
 
     public function activateWaitingListFirstYear($id)
@@ -67,18 +48,9 @@ class WaitingListController extends Controller
 
     public function waitingSecondYear()
     {
-        $allData = WaitingListSecondtYear::get();
-        $student_names = [];
-        $student_emails = [];
-        $student_phones = [];
-        foreach ($allData as $student)
-        {
-            $student = User::find($student->student_id);
-            $student_names[] = $student->name;
-            $student_emails[] = $student->email;
-            $student_phones[] = $student->phone_number;
-        }
-        return view('admin.waiting_list.second.index',compact('allData','student_names','student_emails','student_phones'));
+        $allData = WaitingListSecondtYear::with('students')->get();
+        return view('admin.waiting_list.second.index',compact('allData'));
+
     }
 
     public function activateWaitingListSecondYear($id)
@@ -106,20 +78,28 @@ class WaitingListController extends Controller
 
     public function waitingThirdYear()
     {
-        $allData = WaitingListThirdYear::get();
-        $student_names = [];
-        $student_emails = [];
-        $student_phones = [];
-        $student_parent_number = [];
-        foreach ($allData as $student)
-        {
-            $student = User::find($student->student_id);
-            $student_names[] = $student->name;
-            $student_emails[] = $student->email;
-            $student_phones[] = $student->phone_number;
-            $student_parent_number[] = $student->parent_phone;
-        }
-        return view('admin.waiting_list.third.index',compact('allData','student_names','student_emails','student_phones','student_parent_number'));
+        $allData = WaitingListThirdYear::with('students')->get();
+//        return $allData;
+//        foreach ($allData as $student)
+//        {
+//
+//        }
+//        $student_names = [];
+//        $student_emails = [];
+//        $student_phones = [];
+//        $student_parent_number = [];
+//        $serials = [];
+//        foreach ($allData as $student)
+//        {
+//            $student = User::find($student->student_id);
+//            $student_names[] = $student->name;
+//            $student_emails[] = $student->email;
+//            $student_phones[] = $student->phone_number;
+//            $student_parent_number[] = $student->parent_phone;
+//            $serials[] = $student->serial_number;
+//        }
+        return view('admin.waiting_list.third.index',compact('allData'));
+        // return view('admin.waiting_list.third.index',compact('allData','student_names','student_emails','student_phones','student_parent_number'));
     }
 
     public function activateWaitingListThirdYear($id)
