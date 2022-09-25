@@ -14,6 +14,10 @@ class SubscribedThirdYear extends Model
     public $timestamps = true;
 
     ############################################ Start Relations ############################################
+    public function students(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(User::class,'student_id','id');
+    }
     ############################################ End Relations ##############################################
 
 

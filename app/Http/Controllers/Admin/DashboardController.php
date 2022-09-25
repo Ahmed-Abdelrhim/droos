@@ -146,18 +146,21 @@ class DashboardController extends Controller
 
     public function subscribedFirstYear()
     {
-        SubscribedFirstYear::get();
-        return view();
+        $allData = SubscribedFirstYear::with('students')->paginate(10);
+        return view('admin.subscribed.1st',compact('allData'));
     }
 
     public function subscribedSecondYear()
     {
-        return SubscribedSecondYear::get();
+        $allData = SubscribedSecondYear::with('students')->paginate(10);
+        return view('admin.subscribed.2nd',compact('allData'));
+
     }
 
     public function subscribedThirdYear()
     {
-        return SubscribedThirdYear::get();
+        $allData = SubscribedThirdYear::with('students')->paginate(10);
+        return view('admin.subscribed.3rd',compact('allData'));
     }
 
 
