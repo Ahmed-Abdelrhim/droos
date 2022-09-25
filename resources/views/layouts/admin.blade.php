@@ -242,6 +242,36 @@
         float: left;
         padding-left: 8px;
     }
+
+    table {
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+thead{
+    font-size: 25px;
+    font-weight: bold;
+    }
+
+
+tbody{
+    font-size: 20px;
+    }
+
+td, th {
+    border: 1px solid #fff;
+    text-align: right;
+    padding: 10px;
+    }
+
+tr:nth-child(even) {
+    background-color: #777;
+    }
+
+
+tr:nth-child(odd) {
+    background-color:var(--main-color);
+}
 </style>
 
 <header class="header">

@@ -23,7 +23,6 @@
         </div>
 
     </section>
-<<<<<<< HEAD
 </header>
 
 <div class="side-bar">
@@ -202,8 +201,6 @@ for (i = 0; i < dropdown.length; i++) {
 </script>
 
 
-=======
->>>>>>> a7281f572c70d3378c0c4f5fef68296ca15a4e3c
 @endsection
 
 
