@@ -2,7 +2,7 @@
 @section('content')
 
     <section class="courses">
-        <h1 class="heading">كورسات الصف الثاني الثانوي</h1>
+        <h1 class="heading">الكورسات المشتركة الصف الثاني الثانوي</h1>
         @if(\Session::get('success'))
             <div class="row mr-2 ml-2">
                 <button type="text" class="btn btn-lg btn-block btn-outline-success mb-2"
@@ -23,7 +23,6 @@
                             <h2>02</h2>
                             <h3>الصف الثاني الثانوي</h3>
                             <p style="margin-top: 5px">{{$course->name}}</p>
-                            <p style="margin-top: 5px">السعر : {{$course->price}}</p>
                             <a href="#">اذهب للكورس</a>
 
                         </div>
