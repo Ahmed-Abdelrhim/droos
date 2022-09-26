@@ -224,7 +224,7 @@ body.active{
                         @if(Auth::check())
                             {{Auth::user()->name}}
                         @else
-                            3rd Year Student
+                            2nd Year Student
                         @endif
                     </h3>
                 </div>
