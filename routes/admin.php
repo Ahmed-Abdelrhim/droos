@@ -86,8 +86,6 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
         Route::get('all/students/3rd/year',[AcademicThirdYear::class,'allStudents'])->name('all.students.3rd');
 
-
-
         //Waiting List
         Route::get('view/waiting/list/1st',[WaitingListController::class,'waitingFirstYear'])->name('waiting.list.1st');
         Route::post('activate/waiting/list/1st/{id}' , [WaitingListController::class,'activateWaitingListFirstYear'])->name('activate.waiting.1st');
@@ -101,6 +99,9 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::post('activate/waiting/list/3rd/{id}',[WaitingListController::class,'activateWaitingListThirdYear'])->name('activate.waiting.3rd');
         Route::post('delete/waiting/list/3rd/{id}' , [WaitingListController::class,'deleteWaitingListThirdYear'])->name('delete.waiting.3rd');
 
+        //Adding New Lectures
+        Route::get('add/new/lecture',[DashboardController::class,'showAddNewLectureForm'])->name('add.new.lec');
+        Route::post('add/new/lecture',[DashboardController::class,'addNewLecture'])->name('store.new.lec');
 
     });
 

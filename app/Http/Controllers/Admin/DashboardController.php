@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddCoursesRequest;
+use App\Http\Requests\LecturesRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -21,7 +22,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-//        return $students = Auth::user();
         return view('admin.dashboard');
     }
 
@@ -175,6 +175,16 @@ class DashboardController extends Controller
     public function showTeacherProfile()
     {
         return view('admin.teacher_profile');
+    }
+
+    public function showAddNewLectureForm()
+    {
+        return view('admin.lectures.add');
+    }
+
+    public function addNewLecture(LecturesRequest $request)
+    {
+        return $request;
     }
 
     public function handleImage($folder, $request): ?string

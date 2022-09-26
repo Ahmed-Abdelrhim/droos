@@ -1,7 +1,6 @@
-@extends('layouts.design')
+@extends('layouts.admin')
 @section('content')
     <section class="form-container">
-
         <form action="{{route('store.courses')}}" method="POST" enctype="multipart/form-data">
             @csrf
             @if(\Session::get('success'))
@@ -41,7 +40,7 @@
 
             <button type="submit" class="btn">Submit</button>
         </form>
-
     </section>
-
 @endsection
+
+

@@ -296,17 +296,17 @@
             <a href="home.html" class="logo"><img src="{{asset('images/logo.png')}}"></a>
             <ul class="social">
                 <li>
-                    <a href="#" class="facebook">
+                    <a href="https://web.facebook.com/profile.php?id=100009262544420" class="facebook">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="twitter">
+                    <a href="https://web.facebook.com/profile.php?id=100009262544420" class="twitter">
                         <i class="fab fa-twitter"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="youtube">
+                    <a href="https://web.facebook.com/profile.php?id=100009262544420" class="youtube">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </li>
@@ -338,7 +338,7 @@
             <div class="line">
                 <i class="fas fa-phone-volume fa-fw"></i>
                 <div class="info">+201149596478</div>
-=======
+
             <div class="box">
                 <div class="line">
                     <i class="fas fa-map-marker-alt fa-fw"></i>
@@ -362,7 +362,6 @@
                 <img src="{{asset('images/thumb-6.png')}}" alt=""/>
                 <img src="{{asset('images/thumb-5.png')}}" alt=""/>
                 <img src="{{asset('images/thumb-4.png')}}" alt=""/>
->>>>>>> c895661d2fc102474541938b587ee3db1b0a53cb
             </div>
         </div>
         <div class="box footer-gallery">
