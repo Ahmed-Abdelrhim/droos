@@ -151,35 +151,10 @@ class AcademicFirstYear extends Controller
         return redirect()->route('courses.1st.students')->with(['success' => ' تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
     }
 
-
-
-//    public function addedCourses(Request $request)
-//    {
-//        if ($request->ajax()) {
-//            $data = CourseFirstYear::select('*');
-//            return DataTables::of($data)->addIndexColumn()->addColumn('action', function () {
-//                return $btn = "
-//            <a id='editBtn' class='edit btn btn-primary'  href='" . route('edit.1st.course') . "'></a>
-//            <a id='deleteBtn' class='delete btn btn-danger '  href='" . route('delete.1st.course') . "'></a>
-//            ";
-//            })->rawColumns(['action'])->make(true);
-//        }
-//    }
-
-
-//    function uploadImage($folder, $image): string
-//    {
-//        $image_name = time() . '.' . $image->extension();
-//        $image->move('images/' . $folder, $image_name);
-//        return $image_name;
-//    }
-//
-//    public function handleImage($folder, $request): ?string
-//    {
-//        if ($request->has('cover'))
-//            return uploadImage($folder, $request->cover);
-//        return $image_name = null;
-//    }
+    public function enrolledCoursesView()
+    {
+        return view('student.');
+    }
 
 }
 // data-target='#exampleModal' data-toggle='modal'

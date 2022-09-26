@@ -94,6 +94,15 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('subscribe/3rd/year/{id}',[AcademicThirdYear::class,'toSubscribeCourse'])->name('to.subscribe.3rd');
         Route::post('subscribe/course/3rd/{id}',[AcademicThirdYear::class,'subscribeCourseNow'])->name('subscribe.3rd');
 
+        //My Courses
+        Route::get('enrolled/courses/1st',[AcademicFirstYear::class,'enrolledCoursesView'])->name('my.courses.1st');
+
+
+        Route::get('enrolled/courses/2nd',[AcademicSecondYear::class,'enrolledCoursesView'])->name('my.courses.2nd');
+
+
+        Route::get('enrolled/courses/3rd',[AcademicThirdYear::class,'enrolledCoursesView'])->name('my.courses.3rd');
+
 
 
     });

@@ -65,6 +65,7 @@
 
 </head>
 <body>
+
 @yield('content')
 
 <!-- custom js file link  -->
