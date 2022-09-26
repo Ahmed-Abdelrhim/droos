@@ -111,7 +111,7 @@ class AcademicSecondYear extends Controller
         $cover = $course->cover;
         if($request->has('cover'))
         {
-            $cover = $this->handleImage('courses_second_year',$request);
+            $cover = handleImage('courses_second_year',$request);
         }
 
         $course->update([
@@ -159,19 +159,19 @@ class AcademicSecondYear extends Controller
     }
 
 
-    function uploadImage($folder, $image): string
-    {
-        $image_name = time() . '.' . $image->extension();
-        $image->move('images/' . $folder, $image_name);
-        return $image_name;
-    }
-
-    public function handleImage($folder, $request): ?string
-    {
-        if ($request->has('cover'))
-            return $this->uploadImage($folder, $request->cover);
-        return $image_name = null;
-    }
+//    function uploadImage($folder, $image): string
+//    {
+//        $image_name = time() . '.' . $image->extension();
+//        $image->move('images/' . $folder, $image_name);
+//        return $image_name;
+//    }
+//
+//    public function handleImage($folder, $request): ?string
+//    {
+//        if ($request->has('cover'))
+//            return uploadImage($folder, $request->cover);
+//        return $image_name = null;
+//    }
 
 
 

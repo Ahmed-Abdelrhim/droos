@@ -62,7 +62,7 @@ class DashboardController extends Controller
                 $price = $request->price - $dis;
             }
             if ($academic_year == 1) {
-                $cover = $this->handleImage('courses_first_year', $request);
+                $cover = handleImage('courses_first_year', $request);
                 CourseFirstYear::create([
                     'name' => $request->name,
                     'serial_number' => $request->serial_number,
@@ -75,7 +75,7 @@ class DashboardController extends Controller
             }
 
             if ($academic_year == 2) {
-                $cover = $this->handleImage('courses_second_year', $request);
+                $cover = handleImage('courses_second_year', $request);
                 CourseSecondYear::create([
                     'name' => $request->name,
                     'serial_number' => $request->serial_number,
@@ -88,7 +88,7 @@ class DashboardController extends Controller
             }
 
             if ($academic_year == 3) {
-                $cover = $this->handleImage('courses_third_year', $request);
+                $cover = handleImage('courses_third_year', $request);
                 CourseThirdYear::create([
                     'name' => $request->name,
                     'serial_number' => $request->serial_number,
@@ -165,12 +165,12 @@ class DashboardController extends Controller
     }
 
 
-    function uploadImage($folder, $image): string
-    {
-        $image_name = time() . '.' . $image->extension();
-        $image->move('images/' . $folder, $image_name);
-        return $image_name;
-    }
+//    function uploadImage($folder, $image): string
+//    {
+//        $image_name = time() . '.' . $image->extension();
+//        $image->move('images/' . $folder, $image_name);
+//        return $image_name;
+//    }
 
     public function showTeacherProfile()
     {
@@ -182,14 +182,13 @@ class DashboardController extends Controller
         return view('admin.lectures.add');
     }
 
-    public function addNewLecture(LecturesRequest $request)
+    public function addNewLecture(LecturesRequest $request): \Illuminate\Http\RedirectResponse
     {
-//        return $request;
         $academic_year = $request->academic_year;
 
         //Lectures First Year
         if ($academic_year == 1) {
-            $video_name = $this->uploadLecture('first',$request->lec);
+            $video_name = uploadLecture('first',$request->lec);
             LecturesFirstYear::create([
                 'name' => $request->name,
                 'lec' => $video_name,
@@ -201,7 +200,7 @@ class DashboardController extends Controller
 
         //Lectures Second Year
         if ($academic_year == 2) {
-            $video_name = $this->uploadLecture('first',$request->lec);
+            $video_name = uploadLecture('first',$request->lec);
             LecturesSecondYear::create([
                 'name' => $request->name,
                 'lec' => $video_name,
@@ -213,7 +212,7 @@ class DashboardController extends Controller
 
         //Lectures Third Year
         if ($academic_year == 3) {
-            $video_name = $this->uploadLecture('first',$request->lec);
+            $video_name = uploadLecture('first',$request->lec);
             LecturesThirdYear::create([
                 'name' => $request->name,
                 'lec' => $video_name,
@@ -226,44 +225,27 @@ class DashboardController extends Controller
 
     }
 
-    public function uploadLecture($folder, $video): string
-    {
-        $video_name = time() . '.' . $video->extension();
-        $video->move('lectures/' . $folder, $video_name);
-        return $video_name;
-    }
-
-//    public function validateVideo($value)
+//    public function uploadLecture($folder, $video): string
 //    {
-//        $is_video = Validator::make(
-//            ['upload' => $value],
-//            ['upload' => 'mimetypes:video/mp4']
-//        )->passes();
-//
-//        if ($is_video) {
-//            $validator = Validator::make(
-//                ['video' => $value],
-//                ['video' => "max:102400"]
-//            );
-//            return true;
-//        }
-//        return false;
+//        $video_name = time() . '.' . $video->extension();
+//        $video->move('lectures/' . $folder, $video_name);
+//        return $video_name;
 //    }
-
-    public function handleImage($folder, $request): ?string
-    {
-        if ($request->has('cover'))
-            return $this->uploadImage($folder, $request->cover);
-        return $image_name = null;
-    }
-
-    public function handleUpdateImage($folder, $request, $model): string
-    {
-        if ($request->has('image')) {
-            return $image_name = $this->uploadImage($folder, $request->image);
-        } else {
-            return $image_name = $model->photo;
-        }
-    }
+//
+//    public function handleImage($folder, $request): ?string
+//    {
+//        if ($request->has('cover'))
+//            return uploadImage($folder, $request->cover);
+//        return $image_name = null;
+//    }
+//
+//    public function handleUpdateImage($folder, $request, $model): string
+//    {
+//        if ($request->has('image')) {
+//            return $image_name = uploadImage($folder, $request->image);
+//        } else {
+//            return $image_name = $model->photo;
+//        }
+//    }
 
 }

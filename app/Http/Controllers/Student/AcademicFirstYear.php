@@ -105,7 +105,7 @@ class AcademicFirstYear extends Controller
         $cover = $course->cover;
         if($request->has('cover'))
         {
-            $cover = $this->handleImage('courses_first_year',$request);
+            $cover = handleImage('courses_first_year',$request);
         }
         $course->update([
             'name' => $request->name,
@@ -167,18 +167,19 @@ class AcademicFirstYear extends Controller
 //    }
 
 
-    function uploadImage($folder, $image): string
-    {
-        $image_name = time() . '.' . $image->extension();
-        $image->move('images/' . $folder, $image_name);
-        return $image_name;
-    }
+//    function uploadImage($folder, $image): string
+//    {
+//        $image_name = time() . '.' . $image->extension();
+//        $image->move('images/' . $folder, $image_name);
+//        return $image_name;
+//    }
+//
+//    public function handleImage($folder, $request): ?string
+//    {
+//        if ($request->has('cover'))
+//            return uploadImage($folder, $request->cover);
+//        return $image_name = null;
+//    }
 
-    public function handleImage($folder, $request): ?string
-    {
-        if ($request->has('cover'))
-            return $this->uploadImage($folder, $request->cover);
-        return $image_name = null;
-    }
 }
 // data-target='#exampleModal' data-toggle='modal'
