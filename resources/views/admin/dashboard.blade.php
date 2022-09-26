@@ -13,22 +13,23 @@
                 </a>
             </div>
 
+{{--            <i class="fa-solid fa-user" style="color: #007bff"></i>--}}
             <div class="box">
-                <h3 class="title"><i class="fa-solid fa-user" style="color: #007bff"></i> المشتركين أولي ثانوي</h3>
+                <h3 class="title"><i class="fas fa-user-graduate" style="color: #007bff"></i> المشتركين أولي ثانوي</h3>
                 <a href="#" class="inline-btn">
                     {{\App\Models\SubscribedFirstYear::count() }}
                 </a>
             </div>
 
             <div class="box">
-                <h3 class="title"><i class="fa-solid fa-user" style="color: #007bff"></i> المشتركين ثانية ثانوي</h3>
+                <h3 class="title"><i class="fas fa-user-graduate" style="color: #007bff"></i> المشتركين ثانية ثانوي</h3>
                 <a href="#" class="inline-btn">
                     {{\App\Models\SubscribedSecondYear::count() }}
                 </a>
             </div>
 
             <div class="box">
-                <h3 class="title"><i class="fa-solid fa-user" style="color: #007bff"></i> المشتركين ثالثة ثانوي</h3>
+                <h3 class="title"><i class="fas fa-user-graduate" style="color: #007bff"></i> المشتركين ثالثة ثانوي</h3>
                 <a href="#" class="inline-btn">
                     {{\App\Models\SubscribedThirdYear::count() }}
                 </a>
