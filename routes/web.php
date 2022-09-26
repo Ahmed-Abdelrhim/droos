@@ -72,6 +72,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('course', function () {
             return view('student.courses');
         })->name('course');
+
         Route::post('message', [StudentGeneralController::class, 'storeMessage'])->name('msg');
 
         Route::get('first/year', [AcademicFirstYear::class, 'index'])->name('1st.year');

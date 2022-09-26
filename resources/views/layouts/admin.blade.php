@@ -368,6 +368,11 @@
             <a href="{{route('add.new.lec')}}"><i class="fas fa-question"></i><span>أضافة محاضرة</span></a>
         </div>
 
+        <a href="{{route('view.msg')}}"><i class="fas fa-question"></i><span>الرسائل</span></a>
+{{--        <button class="dropdown-btn"> الرسائل--}}
+{{--            <i class="fa fa-caret-down"></i>--}}
+{{--        </button>--}}
+
     </nav>
 </div>
 

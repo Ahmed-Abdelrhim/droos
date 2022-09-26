@@ -11,7 +11,7 @@ use PHPUnit\Exception;
 
 class StudentGeneralController extends Controller
 {
-    public function storeMessage(Request $request)
+    public function storeMessage(Request $request): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
             'msg' => 'required | min:4'

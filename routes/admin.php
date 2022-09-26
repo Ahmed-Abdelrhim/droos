@@ -103,6 +103,11 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('add/new/lecture',[DashboardController::class,'showAddNewLectureForm'])->name('add.new.lec');
         Route::post('add/new/lecture',[DashboardController::class,'addNewLecture'])->name('store.new.lec');
 
+        //Messages
+        Route::get('student/messages',[DashboardController::class,'viewMessages'])->name('view.msg');
+        Route::post('delete/message/{id}',[DashboardController::class,'deleteMessage'])->name('delete.msg');
+
+
     });
 
 });

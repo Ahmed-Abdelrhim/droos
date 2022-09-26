@@ -8,6 +8,7 @@ use App\Http\Requests\LecturesRequest;
 use App\Models\LecturesFirstYear;
 use App\Models\LecturesSecondYear;
 use App\Models\LecturesThirdYear;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -216,6 +217,21 @@ class DashboardController extends Controller
         }
         return redirect()->route('add.new.lec')->with(['success' => 'Lecture Uploaded Successfully']);
 
+    }
+
+    public function viewMessages()
+    {
+        $messages = Message::paginate(10);
+        return view('admin.messages',compact('messages'));
+    }
+
+    public function deleteMessage($id)
+    {
+        $msg = Message::find($id);
+        if(!$msg)
+            return 'Message Not Found';
+        $msg->delete();
+        return redirect()->back()->with(['success' => 'Message Deleted Successfully']);
     }
 
     public function features()
