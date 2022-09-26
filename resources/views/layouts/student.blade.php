@@ -276,11 +276,23 @@
                 @endif
                 @else #
                 @endif
-        "><i class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
+        "><i class="fas fa-graduation-cap"></i><span>جميع الكورسات</span></a>
 {{--        <a href="{{route('features')}}"><i class="fas fa-chalkboard-user"></i><span>المميزات</span></a>--}}
         <a href="{{route('contact')}}"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
         <a href="{{route('about')}}"><i class="fas fa-question"></i><span>من نحن</span></a>
         <a href="{{route('features')}}"><i class="fas fa-question"></i><span>المميزات </span></a>
+
+        <a href="
+                @if(Auth::check())
+                @if(Auth::user()->academic_year == 1) {{route('my.courses.1st')}}
+                @endif
+                @if(Auth::user()->academic_year == 2) {{route('my.courses.2nd')}}
+                @endif
+                @if(Auth::user()->academic_year == 3) {{route('my.courses.3rd')}}
+                @endif
+                @else #
+                @endif
+        "><i class="fas fa-question"></i><span>كورساتي </span></a>
     </nav>
 
 </div>

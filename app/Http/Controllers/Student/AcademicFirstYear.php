@@ -153,7 +153,8 @@ class AcademicFirstYear extends Controller
 
     public function enrolledCoursesView()
     {
-        return view('student.');
+        $enrolled = SubscribedFirstYear::where('student_id',Auth::id())->get();
+        return view('student.enrolled.first.index',compact('enrolled'));
     }
 
 }

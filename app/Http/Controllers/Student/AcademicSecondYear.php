@@ -160,7 +160,8 @@ class AcademicSecondYear extends Controller
 
     public function enrolledCoursesView()
     {
-        return view('student.');
+        $courses = SubscribedSecondYear::where('student_id',Auth::id())->get();
+        return view('student.enrolled.second.index',compact('courses'));
     }
 
 
