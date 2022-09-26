@@ -8,6 +8,13 @@
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+    {{--    Font Aweasome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css" integrity="sha512-RvQxwf+3zJuNwl4e0sZjQeX7kUa3o82bDETpgVCH2RiwYSZVDdFJ7N/woNigN/ldyOOoKw8584jM4plQdt8bhA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 </head>
 <body>
@@ -244,34 +251,34 @@
     }
 
     table {
-    border-collapse: collapse;
-    width: 100%;
+        border-collapse: collapse;
+        width: 100%;
     }
 
-thead{
-    font-size: 25px;
-    font-weight: bold;
-    }
-
-
-tbody{
-    font-size: 20px;
-    }
-
-td, th {
-    border: 1px solid #fff;
-    text-align: right;
-    padding: 10px;
-    }
-
-tr:nth-child(even) {
-    background-color: #777;
+    thead {
+        font-size: 25px;
+        font-weight: bold;
     }
 
 
-tr:nth-child(odd) {
-    background-color:var(--main-color);
-}
+    tbody {
+        font-size: 20px;
+    }
+
+    td, th {
+        border: 1px solid #fff;
+        text-align: right;
+        padding: 10px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #777;
+    }
+
+
+    tr:nth-child(odd) {
+        background-color: var(--main-color);
+    }
 </style>
 
 <header class="header">
@@ -339,9 +346,12 @@ tr:nth-child(odd) {
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="{{route('subscribed.1st.year')}}"><i class="fas fa-question"></i><span>قائمة المشتركين الصف الاول</span></a>
-            <a href="{{route('subscribed.2nd.year')}}"><i class="fas fa-question"></i><span>قائمة المشتركين الصف الثاني</span></a>
-            <a href="{{route('subscribed.3rd.year')}}"><i class="fas fa-question"></i><span>قائمة المشتركين الصف الثالث</span></a>
+            <a href="{{route('subscribed.1st.year')}}"><i
+                    class="fas fa-question"></i><span>قائمة المشتركين الصف الاول</span></a>
+            <a href="{{route('subscribed.2nd.year')}}"><i
+                    class="fas fa-question"></i><span>قائمة المشتركين الصف الثاني</span></a>
+            <a href="{{route('subscribed.3rd.year')}}"><i
+                    class="fas fa-question"></i><span>قائمة المشتركين الصف الثالث</span></a>
         </div>
 
         <button class="dropdown-btn"> الكورسات
@@ -420,7 +430,8 @@ tr:nth-child(odd) {
     </div>
     <p class="copyright">Developed By <a href="#" class="fas fa-heart"></a> By Anas , Ahmed</p>
     &copy; copyright @ 2022 | all rights reserved!
-</footer>>
+</footer>
+>
 
 <!-- scroll top button  -->
 <a href="#" class="top">

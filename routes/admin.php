@@ -33,6 +33,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
     Route::group(['middleware' => 'auth:admin' , 'prefix' => 'admin'], function () {
         Route::get('logout', [AdminLoginController::class, 'logout']);
 
+        //go-to-dashboard
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::get('teachers', [DashboardController::class, 'showTeachers'])->name('teachers');
