@@ -250,20 +250,17 @@
         </div>
 
         <nav class="navbar">
+            <a href="{{route('home')}}"><i class="fas fa-home"></i><span>الصفحة الرئيسية</span></a>
             <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
             <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>المميزات</span></a>
             <a href="contact.html"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
             <a href="about.html"><i class="fas fa-question"></i><span>من نحن</span></a>
         </nav>
-
     </div>
 
     <section class="courses">
-
         <h1 class="heading">كورسات الصف الثالث الثانوي</h1>
-
         <div class="box-container">
-
             <div class="card-container" id="cards">
                 @if(\Session::get('success'))
                     <div class="row mr-2 ml-2">
@@ -290,7 +287,6 @@
                                 @else
                                     <a href="{{route('to.subscribe.3rd',$course->id)}}">اشترك الأن</a>
                                 @endif
-
                             @else
                                 <a href="{{route('to.subscribe.3rd',$course->id)}}">اشترك الأن</a>
                             @endif
@@ -298,21 +294,15 @@
                     </div>
                 @endforeach
             </div>
-
-
         </div>
-
-
     </section>
-
-
 
 
 <!-- Start Footer -->
 <footer class="footer">
     <div class="container">
         <div class="box">
-            <a href="home.html" class="logo"><img src="{{asset('images/logo.png')}}"></a>
+            <a href="{{route('home')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
             <ul class="social">
                 <li>
                     <a href="#" class="facebook">
@@ -337,7 +327,7 @@
 
         <div class="box">
             <ul class="links">
-                <li><a href="home.html">الرئيسية</a></li>
+                <li><a href="{{route('home')}}">الرئيسية</a></li>
                 <li><a href="about.html">من نحن</a></li>
                 <li><a href="contact.html">تواصل معنا</a></li>
                 <li><a href="courses.html">الكورسات</a></li>
