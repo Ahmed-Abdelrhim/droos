@@ -256,12 +256,8 @@
     </section>
 
 
-    <div class="features" id="features">
-        <div class="container">
-            <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
-        </div>
-    </div>
-    <!-- End Features -->
+    <div class="fas fa-cog nut3"></div>
+    <div class="fas fa-cog nut4"></div>
 
     <div class="features" id="features">
         <div class="container">

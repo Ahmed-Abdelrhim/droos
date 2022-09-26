@@ -99,6 +99,10 @@
                   </span>
             </div>
         </div>
+
+        <div class="fas fa-cog nut1"></div>
+        <div class="fas fa-cog nut2"></div>
+
         <a href="#cards" class="go-down">
                 <i class="fas fa-angle-double-down fa-2x"></i>
             </a>

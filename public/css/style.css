@@ -2275,4 +2275,42 @@ footer .container img {
 
 
 
+.fa-cog {
+    position: fixed;
+    font-size: 20rem;
+    opacity: .15;
+    color: #fff;
+    animation: rotate-cog 10s linear infinite;
+}
 
+.nut1 {
+    top: 15%;
+    left: -8rem;
+}
+
+.nut2 {
+    bottom: 23%;
+    right: -8rem;
+    animation-direction: reverse;
+}
+
+.nut3 {
+    top: 7%;
+    left: -8rem;
+    color: var(--main-color);
+    z-index: 1000;
+}
+
+.nut4 {
+    top: 80%;
+    right: 20rem;
+    color: var(--main-color);
+    animation-direction: reverse;
+    z-index: 1000;
+}
+
+@keyframes rotate-cog {
+    100% {
+        transform: rotate(360deg);
+    }
+}
