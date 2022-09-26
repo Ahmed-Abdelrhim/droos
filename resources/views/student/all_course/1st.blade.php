@@ -247,9 +247,6 @@ body.active{
       <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
    </div>
 
-    <a href="{{route('features')}}"><i class="fas fa-chalkboard-user"></i><span>المميزات</span></a>
-    <a href="{{route('contact')}}"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
-    <a href="{{route('about')}}"><i class="fas fa-question"></i><span>من نحن</span></a>
 
     <nav class="navbar">
       <a href="{{route('home')}}"><i class="fas fa-home"></i><span>الصفحة الرئيسية</span></a>

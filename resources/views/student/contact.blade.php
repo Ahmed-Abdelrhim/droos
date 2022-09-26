@@ -15,7 +15,7 @@
 
         <nav class="navbar">
             <a href="{{asset('home')}}" class="active"><i class="fas fa-home"></i><span>الرئيسية</span></a>
-            <a href="{{route('about')}}"><i class="fas fa-question"></i><span>من نحن</span></a>
+            <a href="{{route('about')}}" class="active"><i class="fas fa-question"></i><span>من نحن</span></a>
             <a href="#" class="active"><i class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
         </nav>
 
