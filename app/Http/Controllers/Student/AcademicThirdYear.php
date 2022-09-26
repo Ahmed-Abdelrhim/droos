@@ -145,19 +145,10 @@ class AcademicThirdYear extends Controller
         return redirect()->route('courses.3rd.students')->with(['success' => ' تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
     }
 
-//    function uploadImage($folder, $image): string
-//    {
-//        $image_name = time() . '.' . $image->extension();
-//        $image->move('images/' . $folder, $image_name);
-//        return $image_name;
-//    }
-//
-//    public function handleImage($folder, $request): ?string
-//    {
-//        if ($request->has('cover'))
-//            return uploadImage($folder, $request->cover);
-//        return $image_name = null;
-//    }
-
+    public function enrolledCoursesView()
+    {
+        $enrolled = SubscribedThirdYear::where('student_id',Auth::id())->get();
+        return view('student.enrolled.third.index',compact('enrolled'));
+    }
 
 }
