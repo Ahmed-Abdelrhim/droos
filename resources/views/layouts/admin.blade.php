@@ -275,7 +275,7 @@
 
 
     tr:nth-child(odd) {
-        background-color: var(--main-color);
+        background-color: #999;
     }
 </style>
 
