@@ -59,6 +59,8 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         return view('student.contact');
     })->name('contact');
 
+    Route::get('features',[DashboardController::class,'features'])->name('features');
+
 
     Route::group(['middleware' => 'auth:web'], function () {
 //        Route::get('logout', [CustomLoginController::class, 'logout'])->name('logout');

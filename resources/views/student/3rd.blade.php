@@ -231,9 +231,9 @@ body.active{
    <nav class="navbar">
       <a href="{{route('home')}}"><i class="fas fa-home"></i><span>الصفحة الرئيسية</span></a>
       <a href="{{route('courses.3rd.students')}}"><i class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
-      <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>المميزات</span></a>
-      <a href="contact.html"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
-      <a href="about.html"><i class="fas fa-question"></i><span>من نحن</span></a>
+      <a href="{{route('features')}}"><i class="fas fa-chalkboard-user"></i><span>المميزات</span></a>
+      <a href="{{route('contact')}}"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
+      <a href="{{route('about')}}"><i class="fas fa-question"></i><span>من نحن</span></a>
     </nav>
 
 </div>
@@ -314,9 +314,9 @@ body.active{
         <div class="box">
             <ul class="links">
                 <li><a href="{{route('home')}}">الرئيسية</a></li>
-                <li><a href="about.html">من نحن</a></li>
-                <li><a href="contact.html">تواصل معنا</a></li>
-                <li><a href="courses.html">الكورسات</a></li>
+                <li><a href="{{route('about')}}">من نحن</a></li>
+                <li><a href="{{route('contact')}}">تواصل معنا</a></li>
+                <li><a href="#">الكورسات</a></li>
             </ul>
         </div>
 
