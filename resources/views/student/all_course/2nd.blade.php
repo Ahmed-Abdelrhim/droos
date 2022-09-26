@@ -259,15 +259,15 @@ body.active{
 
 <section class="courses">
 <h1 class="heading">كورسات الصف الثاني الثانوي</h1>
+@if(\Session::get('success'))
+    <div class="row mr-2 ml-2">
+        <button type="text" class="btn btn-lg btn-block btn-outline-success mb-2"
+                id="type-error">{{\Session::get('success')}}
+        </button>
+    </div>
+@endif
 <div class="box-container">
         <div class="card-container" id="cards">
-        @if(\Session::get('success'))
-            <div class="row mr-2 ml-2">
-                <button type="text" class="btn btn-lg btn-block btn-outline-success mb-2"
-                        id="type-error">{{\Session::get('success')}}
-                </button>
-            </div>
-        @endif
         @foreach($courses as $course)
             <div class="card">
                 <span></span>
