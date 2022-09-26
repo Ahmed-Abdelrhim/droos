@@ -13,10 +13,10 @@
         </div>
 
         <nav class="navbar">
-            <a href="{{asset('home')}}" class="active"><i class="fas fa-home"></i><span>الرئيسية</span></a>
-            <a href="{{asset('about')}}" class="active"><i class="fas fa-question"></i><span>من نحن</span></a>
+            <a href="{{route('home')}}" class="active"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+            <a href="{{route('about')}}" class="active"><i class="fas fa-question"></i><span>من نحن</span></a>
             <a href="{{asset('courses')}}" class="active"><i class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
-            <a href="{{asset('contact')}}" class="active"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
+            <a href="{{route('contact')}}" class="active"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
         </nav>
 
 
@@ -116,7 +116,8 @@
         <span></span>
         <span></span>
         <div class="card-content">
-            <img src="{{asset('images/year-1.jpeg')}}">
+{{--            <img src="{{asset('images/ph-15.jpeg')}}">--}}
+            <img src="{{asset('images/ph-15.jpg')}}">
             <h2>01</h2>
             <h3>الصف الدراسي الأول</h3>
             <p>جميع كورسات الصف الأول الثانوي</p>
@@ -129,7 +130,7 @@
         <span></span>
         <span></span>
         <div class="card-content">
-            <img src="{{asset('images/year-2.jpeg')}}">
+            <img src="{{asset('images/ph-18.jpg')}}">
             <h2>02</h2>
             <h3>الصف الدراسي الثاني</h3>
             <p>جميع كورسات الصف الثاني الثانوي</p>
@@ -142,7 +143,7 @@
         <span></span>
         <span></span>
         <div class="card-content">
-            <img src="{{asset('images/year-3.jpeg')}}">
+            <img src="{{asset('images/ph-17.jpg')}}">
             <h2>03</h2>
             <h3>الصف الدراسي الثالث</h3>
             <p>جميع كورسات الصف الثالث الثانوي</p>

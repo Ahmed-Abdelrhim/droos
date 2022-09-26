@@ -47,9 +47,18 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
     Route::get('courses/2nd/year', [AcademicSecondYear::class, 'courses'])->name('courses.2nd.students');
     Route::get('courses/3rd/year', [AcademicThirdYear::class, 'courses'])->name('courses.3rd.students');
 
-    Route::get('hash', function () {
-        return bcrypt('12345678');
-    });
+//    Route::get('hash', function () {
+//        return bcrypt('12345678');
+//    });
+
+    Route::get('about', function () {
+        return view('student.about');
+    })->name('about');
+
+    Route::get('contact', function () {
+        return view('student.contact');
+    })->name('contact');
+
 
     Route::group(['middleware' => 'auth:web'], function () {
 //        Route::get('logout', [CustomLoginController::class, 'logout'])->name('logout');
@@ -57,14 +66,6 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('secondary/first/year', [AcademicFirstYear::class, 'index'])->name('academic_first_years');
         Route::get('secondary/second/year', [AcademicSecondYear::class, 'index'])->name('academic_second_years');
         Route::get('secondary/third/year', [AcademicThirdYear::class, 'index'])->name('academic_third_years');
-
-        Route::get('about', function () {
-            return view('student.about');
-        })->name('about');
-
-        Route::get('contact', function () {
-            return view('student.contact');
-        })->name('contact');
 
         Route::get('course', function () {
             return view('student.courses');
