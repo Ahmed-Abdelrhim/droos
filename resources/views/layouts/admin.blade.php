@@ -348,9 +348,10 @@ tr:nth-child(odd) {
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#"><i class="fas fa-question"></i><span>كورسات الصف الاول</span></a>
-            <a href="#"><i class="fas fa-question"></i><span>كورسات الصف الثاني</span></a>
-            <a href="#"><i class="fas fa-question"></i><span>كورسات الصف الثالث</span></a>
+            <a href="{{route('add.course')}}"><i class="fas fa-question"></i><span>أضافة كورس جديد</span></a>
+            <a href="{{route('all.courses.1st')}}"><i class="fas fa-question"></i><span>كورسات الصف الاول</span></a>
+            <a href="{{route('all.courses.2nd')}}"><i class="fas fa-question"></i><span>كورسات الصف الثاني</span></a>
+            <a href="{{route('all.courses.3rd')}}"><i class="fas fa-question"></i><span>كورسات الصف الثالث</span></a>
         </div>
 
     </nav>

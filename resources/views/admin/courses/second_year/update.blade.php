@@ -35,7 +35,7 @@
 
             <p>Course discount if exists<span>*</span></p>
             <input type="number" name="discount" placeholder="خصم علي الكورس اذ يوجد"  maxlength="50" class="box"
-                   value="{{$course->discount}}">
+                  >
 
             <p>Course cover<span>*</span></p>
             <input type="file" name="cover" placeholder="صورة كوفر الكورس"  class="box">

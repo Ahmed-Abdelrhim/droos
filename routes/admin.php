@@ -53,8 +53,8 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('subscribed/3rd/year', [DashboardController::class, 'subscribedThirdYear'])->name('subscribed.3rd.year');
 
         //Academic First Year [add , edit , delete actions]
-        Route::get('all/courses/1st/year', [AcademicFirstYear::class, 'showAllCourses']);
-        Route::get('add/courses', [DashboardController::class, 'showCoursesAddForm']);
+        Route::get('all/courses/1st/year', [AcademicFirstYear::class, 'showAllCourses'])->name('all.courses.1st');
+        Route::get('add/courses', [DashboardController::class, 'showCoursesAddForm'])->name('add.course');
         Route::post('add/courses', [DashboardController::class, 'addCourses'])->name('store.courses');
         Route::get('edit/courses/1st/year/{id}', [AcademicFirstYear::class, 'showCourseEditForm']);
         Route::post('edit/courses/1st/year/{id}', [AcademicFirstYear::class, 'updateCourse'])->name('edit.course.1st');
@@ -62,14 +62,14 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
 
         //Academic Second Year [add , edit , delete actions]
-        Route::get('all/courses/2nd/year', [AcademicSecondYear::class, 'showAllCourses']);
+        Route::get('all/courses/2nd/year', [AcademicSecondYear::class, 'showAllCourses'])->name('all.courses.2nd');
         Route::get('edit/courses/2nd/year/{id}', [AcademicSecondYear::class, 'showCourseEditForm']);
         Route::post('edit/courses/2nd/year/{id}', [AcademicSecondYear::class, 'updateCourse'])->name('edit.course.2nd');
         Route::post('delete/courses/2nd/year/{id}', [AcademicSecondYear::class, 'deleteCourse'])->name('delete.course.2nd');
 
 
         //Academic Third Year [add , edit , delete actions]
-        Route::get('all/courses/3rd/year', [AcademicThirdYear::class, 'showAllCourses']);
+        Route::get('all/courses/3rd/year', [AcademicThirdYear::class, 'showAllCourses'])->name('all.courses.3rd');
         Route::get('edit/courses/3rd/year/{id}', [AcademicThirdYear::class, 'showCourseEditForm']);
         Route::post('edit/courses/3rd/year/{id}', [AcademicThirdYear::class, 'updateCourse'])->name('edit.course.3rd');
         Route::post('delete/courses/3rd/year/{id}', [AcademicThirdYear::class, 'deleteCourse'])->name('delete.course.3rd');

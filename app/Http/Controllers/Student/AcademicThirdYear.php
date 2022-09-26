@@ -80,7 +80,7 @@ class AcademicThirdYear extends Controller
     public function updateCourse(Request $request, $id)
     {
         //|unique:course_first_years,name'.$id
-        $course = CourseThirdYear::findOrFail($id);
+        $course = CourseThirdYear::find($id);
         if(!$course)
             return redirect()->back()->with(['errors' => 'Course Not Found']);
         $this->validate($request, [

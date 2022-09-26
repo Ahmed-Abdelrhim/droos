@@ -10,10 +10,10 @@
                 <div class="card-content">
                     <img src="{{asset('images/courses_third_year/'.$course->cover)}}">
                     <h2>01</h2>
-                    <h3>الصف الأول الثانوي</h3>
+                    <h3>الصف الثالث الثانوي</h3>
                     <p style="margin-top: 5px">{{$course->name}}</p>
                     <p style="margin-top: 5px">السعر : {{$course->price}}</p>
-                    <a href="{{route('edit.course.2nd',$course->id)}}" class="btn btn-primary" >edit course</a>
+                    <a href="{{route('edit.course.3rd',$course->id)}}" class="btn btn-primary" >edit course</a>
                     <form action="{{route('delete.course.3rd',$course->id)}}" method="POST">
                         @csrf
                         <button class="btn btn-danger">delete course</button>
