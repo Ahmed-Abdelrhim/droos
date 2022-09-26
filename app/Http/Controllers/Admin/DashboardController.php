@@ -17,6 +17,7 @@ use App\Models\SubscribedThirdYear;
 use App\Models\CourseFirstYear;
 use App\Models\CourseSecondYear;
 use App\Models\CourseThirdYear;
+use Illuminate\Support\Facades\Validator;
 
 class DashboardController extends Controller
 {
@@ -52,15 +53,13 @@ class DashboardController extends Controller
             $discount = null;
             $oldPrice = $request->price;
             $price = $request->price;
-            if ($request->discount != null)
-            {
+            if ($request->discount != null) {
                 $dis = ($request->discount / 100) * ($request->price);
                 $discount = $request->discount;
                 $price = $request->price - $dis;
             }
-            if ($academic_year == 1)
-            {
-                $cover = $this->handleImage('courses_first_year',$request);
+            if ($academic_year == 1) {
+                $cover = $this->handleImage('courses_first_year', $request);
                 CourseFirstYear::create([
                     'name' => $request->name,
                     'serial_number' => $request->serial_number,
@@ -72,9 +71,8 @@ class DashboardController extends Controller
                 ]);
             }
 
-            if ($academic_year == 2)
-            {
-                $cover = $this->handleImage('courses_second_year',$request);
+            if ($academic_year == 2) {
+                $cover = $this->handleImage('courses_second_year', $request);
                 CourseSecondYear::create([
                     'name' => $request->name,
                     'serial_number' => $request->serial_number,
@@ -86,9 +84,8 @@ class DashboardController extends Controller
                 ]);
             }
 
-            if ($academic_year == 3)
-            {
-                $cover = $this->handleImage('courses_third_year',$request);
+            if ($academic_year == 3) {
+                $cover = $this->handleImage('courses_third_year', $request);
                 CourseThirdYear::create([
                     'name' => $request->name,
                     'serial_number' => $request->serial_number,
@@ -148,20 +145,20 @@ class DashboardController extends Controller
     public function subscribedFirstYear()
     {
         $allData = SubscribedFirstYear::with('students')->paginate(10);
-        return view('admin.subscribed.1st',compact('allData'));
+        return view('admin.subscribed.1st', compact('allData'));
     }
 
     public function subscribedSecondYear()
     {
         $allData = SubscribedSecondYear::with('students')->paginate(10);
-        return view('admin.subscribed.2nd',compact('allData'));
+        return view('admin.subscribed.2nd', compact('allData'));
 
     }
 
     public function subscribedThirdYear()
     {
         $allData = SubscribedThirdYear::with('students')->paginate(10);
-        return view('admin.subscribed.3rd',compact('allData'));
+        return view('admin.subscribed.3rd', compact('allData'));
     }
 
 
@@ -186,6 +183,23 @@ class DashboardController extends Controller
     {
         return $request;
     }
+
+//    public function validateVideo($value)
+//    {
+//        $is_video = Validator::make(
+//            ['upload' => $value],
+//            ['upload' => 'mimetypes:video/mp4']
+//        )->passes();
+//
+//        if ($is_video) {
+//            $validator = Validator::make(
+//                ['video' => $value],
+//                ['video' => "max:102400"]
+//            );
+//            return true;
+//        }
+//        return false;
+//    }
 
     public function handleImage($folder, $request): ?string
     {

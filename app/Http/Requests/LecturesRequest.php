@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\LectureUploading;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LecturesRequest extends FormRequest
@@ -24,7 +25,12 @@ class LecturesRequest extends FormRequest
     public function rules()
     {
         return [
-
+//            'lec' => 'mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime'
+            'lec' => 'mimetypes:video/mp4,video/mpeg,video/quicktime',
+            'name' => 'string|min:4|max:250',
+            'academic_year' => 'between:1,3',
+            'month' => [new LectureUploading($this->month)],
+            'week' => 'between:1,4',
         ];
     }
 }
