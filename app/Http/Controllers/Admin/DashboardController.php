@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddCoursesRequest;
 use App\Http\Requests\LecturesRequest;
+use App\Models\LecturesFirstYear;
+use App\Models\LecturesSecondYear;
+use App\Models\LecturesThirdYear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -181,7 +184,53 @@ class DashboardController extends Controller
 
     public function addNewLecture(LecturesRequest $request)
     {
-        return $request;
+//        return $request;
+        $academic_year = $request->academic_year;
+
+        //Lectures First Year
+        if ($academic_year == 1) {
+            $video_name = $this->uploadLecture('first',$request->lec);
+            LecturesFirstYear::create([
+                'name' => $request->name,
+                'lec' => $video_name,
+                'serial_number' => $request->month,
+                'week' => $request->week,
+                'created_at' => now(),
+                'updated_at' => now(),]);
+        }
+
+        //Lectures Second Year
+        if ($academic_year == 2) {
+            $video_name = $this->uploadLecture('first',$request->lec);
+            LecturesSecondYear::create([
+                'name' => $request->name,
+                'lec' => $video_name,
+                'serial_number' => $request->month,
+                'week' => $request->week,
+                'created_at' => now(),
+                'updated_at' => now(),]);
+        }
+
+        //Lectures Third Year
+        if ($academic_year == 3) {
+            $video_name = $this->uploadLecture('first',$request->lec);
+            LecturesThirdYear::create([
+                'name' => $request->name,
+                'lec' => $video_name,
+                'serial_number' => $request->month,
+                'week' => $request->week,
+                'created_at' => now(),
+                'updated_at' => now(),]);
+        }
+        return redirect()->route('add.new.lec')->with(['success' => 'Lecture Uploaded Successfully']);
+
+    }
+
+    public function uploadLecture($folder, $video): string
+    {
+        $video_name = time() . '.' . $video->extension();
+        $video->move('lectures/' . $folder, $video_name);
+        return $video_name;
     }
 
 //    public function validateVideo($value)
