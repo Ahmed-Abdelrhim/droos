@@ -45,7 +45,6 @@
                 <h3 class="title"><i class="fa-solid fa-user" style="color: #dc3545"></i> قائمة الانتظار ثانية ثانوي</h3>
                 <a href="#" class="inline-btn">
                     {{\App\Models\WaitingListSecondtYear::count() }}
-
                 </a>
             </div>
 
@@ -53,16 +52,10 @@
                 <h3 class="title"><i class="fa-solid fa-user" style="color: #dc3545"></i> قائمة الانتظار ثالثة ثانوي</h3>
                 <a href="#" class="inline-btn">
                     {{\App\Models\WaitingListThirdYear::count() }}
-
                 </a>
             </div>
 
-            {{--            <div class="box">--}}
-            {{--                <h3 class="title"><i class="fas fa-question"></i> الطلاب في قائمة الانتظار</h3>--}}
-            {{--                <a href="#" class="inline-btn">54</a>--}}
-            {{--            </div>--}}
 
-        </div>
 
     </section>
     </header>

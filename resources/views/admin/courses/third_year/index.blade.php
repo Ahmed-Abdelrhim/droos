@@ -1,4 +1,4 @@
-@extends('layouts.design')
+@extends('layouts.admin')
 @section('content')
     <div class="card-container" id="cards">
         @foreach($courses as $course)
@@ -9,7 +9,7 @@
                 <span></span>
                 <div class="card-content">
                     <img src="{{asset('images/courses_third_year/'.$course->cover)}}">
-                    <h2>01</h2>
+                    <h2>03</h2>
                     <h3>الصف الثالث الثانوي</h3>
                     <p style="margin-top: 5px">{{$course->name}}</p>
                     <p style="margin-top: 5px">السعر : {{$course->price}}</p>

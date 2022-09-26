@@ -280,7 +280,6 @@
 </style>
 
 <header class="header">
-    <!-- <img id="back-ground" src="{{asset('images/back-ground.png')}}"> -->
     <section class="flex">
         <div class="icons">
             <div id="menu-btn" class="fas fa-bars"></div>

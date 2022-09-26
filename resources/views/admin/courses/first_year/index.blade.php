@@ -1,4 +1,4 @@
-@extends('layouts.design')
+@extends('layouts.admin')
 @section('content')
     <div class="card-container" id="cards">
         @foreach($courses as $course)

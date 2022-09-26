@@ -1,4 +1,4 @@
-@extends('layouts.design')
+@extends('layouts.admin')
 @section('content')
     <section class="form-container">
 
