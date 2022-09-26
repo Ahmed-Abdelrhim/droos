@@ -36,9 +36,7 @@
 
    </div>
 
-   <div class="more-btn">
-      <a href="courses.html" class="inline-option-btn">view all courses</a>
-   </div>
+
 
 </section>
 
