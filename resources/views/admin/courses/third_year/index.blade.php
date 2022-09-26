@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 @section('content')
+<section class="courses">
+
+<h1 class="heading">كورسات الصف الأول الثانوي</h1>
+
+<div class="box-container">
     <div class="card-container" id="cards">
         @foreach($courses as $course)
             <div class="card">
@@ -18,12 +23,16 @@
                         @csrf
                         <button class="btn btn-danger">delete course</button>
                     </form>
-
                 </div>
             </div>
         @endforeach
-
     </div>
-    <div class="spikes"></div>
+</div>
+
+   <div class="more-btn">
+      <a href="courses.html" class="inline-option-btn">view all courses</a>
+   </div>
+
+</section>
 
 @endsection
