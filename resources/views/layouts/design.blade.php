@@ -90,6 +90,8 @@
 
 {{--Custom JavaScript--}}
 <script src="{{asset('js/script.js')}}"></script>
+<script src="{{asset('js/sweetalert.min.js')}}"></script>
+
 
 
 @stack('javascript')
