@@ -535,7 +535,11 @@ footer .container img {
 
 }
 
-
+@media(max-width:768px) {
+    #home .content .heading h1 {
+        font-size: 70px!important;
+    }
+}
 
 #home .content .heading p {
     line-height: 1.6;
@@ -753,12 +757,7 @@ footer .container img {
 }
 
 
-@media(max-width:768px) {
-    .content .heading h1 {
-        font-size: 70px;
-        font-weight: 400;
-    }
-}
+
 
 /* ===================================
     Banner

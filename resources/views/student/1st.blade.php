@@ -341,8 +341,6 @@ body.active{
             <img src="{{asset('images/thumb-8.png')}}" alt="" />
             <img src="{{asset('images/year-2.jpeg')}}" alt="" />
             <img src="{{asset('images/ph-1.jpg')}}" alt="" />
-            <img src="{{asset('images/thumb-7.jpg')}}" alt="" />
-            <img src="{{asset('images/thumb-6.png')}}" alt="" />
             <img src="{{asset('images/thumb-5.png')}}" alt="" />
             <img src="{{asset('images/thumb-4.png')}}" alt="" />
         </div>

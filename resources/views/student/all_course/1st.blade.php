@@ -198,8 +198,8 @@ body.active{
                 <div id="toggle-btn" class="fas fa-sun"></div>
                 <div id="user-btn" class="fas fa-user"></div>
             </div>
-            <div class="image" class="profile">
-                <img src="@if(Auth::check())
+            <div class="profile">
+                <img class="image" src="@if(Auth::check())
                             {{asset('images/studentImages/'.Auth::user()->avatar)}}
                         @else
                             {{asset('images//pic-6.jpg')}}

@@ -10,11 +10,12 @@
                     </button>
                 </div>
             @endif
+            
+            <h3>Add New Lecture </h3>
 
             <p>Upload Lecture <span>*</span></p>
             <input type="file"  required class="box" name="lec">
 
-            <h3>Add New Lecture </h3>
 
             <p>Lecture Name <span>*</span></p>
             <input type="text" name="name" placeholder="enter lec name" required class="box" value="{{old('name')}}">

@@ -148,7 +148,7 @@ class AcademicFirstYear extends Controller
             'updated_at' => now(),
         ]);
         //view(all_course.1st)
-        return redirect()->route('courses.1st.students')->with(['success' => 'تم تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
+        return redirect()->route('courses.1st.students')->with(['success' => ' تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
     }
 
 

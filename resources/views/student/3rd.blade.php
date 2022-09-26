@@ -340,13 +340,8 @@ body.active{
         <div class="box footer-gallery">
             <img src="{{asset('images/thumb-9.png')}}" alt="" />
             <img src="{{asset('images/thumb-8.png')}}" alt="" />
-<<<<<<< HEAD
             <img src="{{asset('images/year-2.jpeg')}}" alt="" />
             <img src="{{asset('images/ph-1.jpg')}}" alt="" />
-=======
-            <img src="{{asset('images/thumb-7.jpg')}}" alt="" />
-            <img src="{{asset('images/thumb-6.png')}}" alt="" />
->>>>>>> c895661d2fc102474541938b587ee3db1b0a53cb
             <img src="{{asset('images/thumb-5.png')}}" alt="" />
             <img src="{{asset('images/thumb-4.png')}}" alt="" />
         </div>

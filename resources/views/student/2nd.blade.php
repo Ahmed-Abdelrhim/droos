@@ -289,6 +289,7 @@
 
 
 
+
 <!-- Start Footer -->
 <footer class="footer">
     <div class="container">
@@ -334,34 +335,9 @@
                 <i class="far fa-clock fa-fw"></i>
                 <div class="info">24/7</div>
             </div>
-<<<<<<< HEAD
             <div class="line">
                 <i class="fas fa-phone-volume fa-fw"></i>
                 <div class="info">+201149596478</div>
-
-            <div class="box">
-                <div class="line">
-                    <i class="fas fa-map-marker-alt fa-fw"></i>
-                    <div class="info">مصر</div>
-                </div>
-                <div class="line">
-                    <i class="far fa-clock fa-fw"></i>
-                    <div class="info">24/7</div>
-                </div>
-                <div class="line">
-                    <i class="fas fa-phone-volume fa-fw"></i>
-                    <div class="info">
-                        <span>+201149596478</span>
-                    </div>
-                </div>
-            </div>
-            <div class="box footer-gallery">
-                <img src="{{asset('images/thumb-9.png')}}" alt=""/>
-                <img src="{{asset('images/thumb-8.png')}}" alt=""/>
-                <img src="{{asset('images/thumb-7.jpg')}}" alt="" />
-                <img src="{{asset('images/thumb-6.png')}}" alt=""/>
-                <img src="{{asset('images/thumb-5.png')}}" alt=""/>
-                <img src="{{asset('images/thumb-4.png')}}" alt=""/>
             </div>
         </div>
         <div class="box footer-gallery">
@@ -376,7 +352,6 @@
     <p class="copyright">Developed By <a href="#" class="fas fa-heart"></a> By Anas , Ahmed</p>
     &copy; copyright @ 2022 | all rights reserved!
 </footer>
-
     <!-- scroll top button  -->
     <a href="#" class="top">
         <img src="{{asset('images/scroll-top-img.png')}}">

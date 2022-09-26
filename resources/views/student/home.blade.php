@@ -30,7 +30,6 @@
                 <a href="{{route('student.register')}}" class="option-btn">register</a>
             </div>
         </div>
-        <!-- <img id="logo-background" src="{{asset('images/splash.png')}}"> -->
         <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
     </section>
 
@@ -41,6 +40,11 @@
     <section class="section slide1 p-0" id="home">
         <div class="slider-area" id="slider-area">
             <div class="row align-items-center">
+                <div class="col-12 col-lg-6 image-order">
+                    <div class="slider-image imgbox">
+                        <img src="{{asset('images/logo.png')}}" alt="image">
+                    </div>
+                </div>
                 <div class="col-12 col-lg-6 text-md-center text-lg-left content">
                     <div class="slider-content heading">
                         <h1 class="main-font text-uppercase"><span class="slider-text px-2">م/علاء الدين</h1>
@@ -50,11 +54,6 @@
                             لشرح منهج الفزياء
                             <span class="nd-span">للثانوية العامة</span>
                         </p>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 image-order">
-                    <div class="slider-image imgbox">
-                        <img src="{{asset('images/logo.png')}}" alt="image">
                     </div>
                 </div>
             </div>

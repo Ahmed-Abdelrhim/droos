@@ -139,6 +139,9 @@
         background-color: var(--black);
     }
 
+    .box i {
+        margin-left: 10px;
+    }
 
     .tutor {
         font-size: 1.8rem;
@@ -433,7 +436,7 @@
     <p class="copyright">Developed By <a href="#" class="fas fa-heart"></a> By Anas , Ahmed</p>
     &copy; copyright @ 2022 | all rights reserved!
 </footer>
->
+
 
 <!-- scroll top button  -->
 <a href="#" class="top">
