@@ -20,7 +20,7 @@
                         <span></span>
                         <div class="card-content">
                             <img src="{{asset('images/courses_first_year/'.$course->cover)}}">
-                            <h2>02</h2>
+                            <h2>01</h2>
                             <h3>الصف الأول الثانوي</h3>
                             <p style="margin-top: 5px">{{$course->name}}</p>
                             <a href="#">اذهب للكورس</a>

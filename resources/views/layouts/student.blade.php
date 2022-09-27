@@ -200,6 +200,18 @@
             }
 
         }
+
+.card-container .card .card-content form input {
+    display: inline-block;
+    font-size: 1.5em;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #f3f4f6;
+    color: #06285f;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+}
     </style>
 
 
@@ -448,12 +460,29 @@
         });
     };
 
+function submitForm(form) {
+        swal({
+            title: "هل انت متأكد من شراء الكورس",
+            text: "تأكيد الاشتراك",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then(function (isOkay) {
+            if (isOkay) {
+                form.submit();
+            }
+        });
+        return false;
+    }
+
 </script>
 
 
 
 {{--Custom JavaScript--}}
 <script src="{{asset('js/script.js')}}"></script>
+<script src="{{asset('js/sweetalert.min.js')}}"></script>
 
 
 @stack('javascript')
