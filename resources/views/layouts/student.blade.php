@@ -466,7 +466,6 @@ function submitForm(form) {
             text: "تأكيد الاشتراك",
             icon: "warning",
             buttons: true,
-            dangerMode: true,
         })
         .then(function (isOkay) {
             if (isOkay) {
