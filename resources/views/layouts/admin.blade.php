@@ -315,6 +315,12 @@
 
     <nav class="navbar">
         <a href="{{route('dashboard')}}"><i class="fas fa-home"></i><span> لوحة التحكم </span></a>
+
+        <a href="{{route('view.msg')}}"><i class="fa-solid fa-message"></i><span>الرسائل</span></a>
+{{--        <button class="dropdown-btn"> الرسائل--}}
+{{--            <i class="fa fa-caret-down"></i>--}}
+{{--        </button>--}}
+
         <button class="dropdown-btn">جميع الطلاب
             <i class="fa fa-caret-down"></i>
         </button>
@@ -367,11 +373,6 @@
         <div class="dropdown-container">
             <a href="{{route('add.new.lec')}}"><i class="fas fa-question"></i><span>أضافة محاضرة</span></a>
         </div>
-
-        <a href="{{route('view.msg')}}"><i class="fas fa-question"></i><span>الرسائل</span></a>
-{{--        <button class="dropdown-btn"> الرسائل--}}
-{{--            <i class="fa fa-caret-down"></i>--}}
-{{--        </button>--}}
 
     </nav>
 </div>

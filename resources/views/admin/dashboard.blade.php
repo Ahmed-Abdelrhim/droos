@@ -56,7 +56,12 @@
                 </a>
             </div>
 
-
+            <div class="box">
+                <h3 class="title"><i class="fa-solid fa-message" style="color: #007bff"></i> الرسائل </h3>
+                <a href="#" class="inline-btn">
+                    {{\App\Models\Message::count() }}
+                </a>
+            </div>
 
     </section>
     </header>
