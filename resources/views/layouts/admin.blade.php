@@ -270,12 +270,12 @@
     }
 
     tr:nth-child(even) {
-        background-color: #777;
+        background-color: #5ac8fa;
     }
 
 
     tr:nth-child(odd) {
-        background-color: #999;
+        background-color: #34aadc;
     }
 </style>
 
