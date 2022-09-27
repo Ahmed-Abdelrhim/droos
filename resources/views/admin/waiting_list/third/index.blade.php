@@ -11,7 +11,7 @@
 
         <h1 class="heading">Waiting List Secondary Third Year</h1>
 
-        <div class="box-container">
+        <div class="box-container" style="overflow-x:auto;">
             <table>
                 <thead>
                 <tr>

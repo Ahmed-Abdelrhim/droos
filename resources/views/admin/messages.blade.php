@@ -8,10 +8,8 @@
                 </button>
             </div>
         @endif
-
         <h1 class="heading">Students Messages</h1>
-
-        <div class="box-container">
+        <div class="box-container" style="overflow-x:auto;">
             <table>
                 {{--Start Table Head--}}
                 <thead class="scroll-horizontal">
@@ -26,7 +24,6 @@
                 {{--End Table Head--}}
                 {{--Start Table Head--}}
                 <tbody>
-
                 @foreach($messages as $msg)
                     <tr>
                         <td>{{$msg->msg}}</td>
@@ -41,7 +38,6 @@
                         </td>
                     </tr>
                 @endforeach
-
                 </tbody>
                 {{$messages->links()}}
                 {{--End Table Head--}}

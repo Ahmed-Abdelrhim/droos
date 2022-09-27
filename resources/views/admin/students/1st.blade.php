@@ -11,7 +11,7 @@
 
         <h1 class="heading">All Students Secondary First Year</h1>
 
-        <div class="box-container">
+        <div class="box-container" style="overflow-x:auto;">
             <table>
                 {{--Start Table Head--}}
                 <thead class="scroll-horizontal">

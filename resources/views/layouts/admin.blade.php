@@ -231,7 +231,7 @@
 
     /* Add an active class to the active dropdown button */
     .active {
-        background-color: var(--main-color);
+        /* background-color: var(--main-color); */
         color: white;
     }
 
@@ -316,7 +316,7 @@
     <nav class="navbar">
         <a href="{{route('dashboard')}}"><i class="fas fa-home"></i><span> لوحة التحكم </span></a>
 
-        <a href="{{route('view.msg')}}"><i class="fa-solid fa-message"></i><span>الرسائل</span></a>
+        <a href="{{route('view.msg')}}"><i class="fas fa-envelope"></i><span>الرسائل</span></a>
 {{--        <button class="dropdown-btn"> الرسائل--}}
 {{--            <i class="fa fa-caret-down"></i>--}}
 {{--        </button>--}}
