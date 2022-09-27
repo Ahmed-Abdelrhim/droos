@@ -161,6 +161,7 @@ class AcademicSecondYear extends Controller
     public function enrolledCoursesView()
     {
         $courses = SubscribedSecondYear::where('student_id',Auth::id())->get();
+//        $image = CourseSecondYear::find()
         return view('student.enrolled.second.index',compact('courses'));
     }
 
