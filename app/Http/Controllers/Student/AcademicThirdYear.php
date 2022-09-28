@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\CourseThirdYear;
+use App\Models\LecturesThirdYear;
 use App\Models\SubscribedThirdYear;
 use App\Models\User;
 use App\Models\WaitingListSecondtYear;
@@ -146,10 +147,25 @@ class AcademicThirdYear extends Controller
         return redirect()->route('courses.3rd.students')->with(['success' => ' تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
     }
 
+    public function deleteSubscription($id)
+    {
+        $subscription = SubscribedThirdYear::find($id);
+        if(!$subscription)
+            return 'Subscription Not Found';
+        $subscription->delete();
+        return redirect()->back()->with(['success' => 'subscription deleted successfully']);
+    }
+
     public function enrolledCoursesView()
     {
         $courses = SubscribedThirdYear::where('student_id',Auth::id())->with('course')->get();
         return view('student.enrolled.third.index',compact('courses'));
+    }
+
+    public function getLectures()
+    {
+        $lectures = LecturesThirdYear::paginate(10);
+        return view('admin.lectures.3rd',compact('lectures'));
     }
 
     public function viewWeeksPage()

@@ -44,17 +44,17 @@ class CustomLoginController extends Controller
 
     public function login(Request $request)
     {
+//        if (Auth::user()->mac_address == substr(exec('getmac'), 0, 17)) {}
+//        return $this->logout();
         if (Auth::attempt($this->credentials($request))) {
-            if(Auth::user()->mac_address == substr(exec('getmac'), 0, 17))
-            {
+
                 $academic_year = Auth::user()->academic_year;
                 if($academic_year === 1 )
                     return redirect()->route('academic_first_years');
                 if($academic_year === 2 )
                     return redirect()->route('academic_second_years');
                 return redirect()->route('academic_third_years');
-            }
-            return $this->logout();
+
         }
         return redirect()->back()->withErrors([
             'errors' => 'Email Or Password Is Incorrect',

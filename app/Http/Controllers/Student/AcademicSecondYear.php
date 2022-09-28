@@ -159,11 +159,24 @@ class AcademicSecondYear extends Controller
         return redirect()->route('courses.2nd.students')->with(['success' => ' تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
     }
 
+    public function deleteSubscription($id)
+    {
+        $subscription = SubscribedSecondYear::find($id);
+        if(!$subscription)
+            return 'Subscription Not Found';
+        $subscription->delete();
+        return redirect()->back()->with(['success' => 'subscription deleted successfully']);
+    }
+
     public function enrolledCoursesView()
     {
         $courses = SubscribedSecondYear::where('student_id',Auth::id())->get();
-//        $image = CourseSecondYear::find()
         return view('student.enrolled.second.index',compact('courses'));
+    }
+
+    public function getLectures()
+    {
+        return view('admin.lectures.2nd');
     }
 
     public function viewWeeksPage()

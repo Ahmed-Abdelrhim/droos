@@ -248,6 +248,8 @@ class DashboardController extends Controller
 
     }
 
+
+
     public function viewMessages()
     {
         $messages = Message::paginate(10);

@@ -152,10 +152,24 @@ class AcademicFirstYear extends Controller
         return redirect()->route('courses.1st.students')->with(['success' => ' تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
     }
 
+    public function deleteSubscription($id)
+    {
+        $subscription = SubscribedFirstYear::find($id);
+        if(!$subscription)
+            return 'Subscription Not Found';
+        $subscription->delete();
+        return redirect()->back()->with(['success' => 'subscription deleted successfully']);
+    }
+
     public function enrolledCoursesView()
     {
         $enrolled = SubscribedFirstYear::where('student_id',Auth::id())->get();
         return view('student.enrolled.first.index',compact('enrolled'));
+    }
+
+    public function getLectures()
+    {
+        return view('admin.lectures.1st');
     }
 
     public function viewWeeksPage()

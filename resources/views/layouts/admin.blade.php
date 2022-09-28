@@ -310,7 +310,7 @@
     </div>
 
     <div class="logo">
-        <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
+        <a href="{{route('dashboard')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
     </div>
 
     <nav class="navbar">
@@ -372,6 +372,9 @@
         </button>
         <div class="dropdown-container">
             <a href="{{route('add.new.lec')}}"><i class="fas fa-question"></i><span>أضافة محاضرة</span></a>
+            <a href="{{route('get.lec.1st.year')}}"><i class="fas fa-question"></i><span> محاضرات الصف الأول الثانوي</span></a>
+            <a href="{{route('get.lec.2nd.year')}}"><i class="fas fa-question"></i><span> محاضرات الصف الثاني الثانوي</span></a>
+            <a href="{{route('get.lec.3rd.year')}}"><i class="fas fa-question"></i><span>محاضرات الصف الثالث الثانوي</span></a>
         </div>
 
     </nav>
