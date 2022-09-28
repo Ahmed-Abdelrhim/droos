@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateFirstYearCourseRrquest;
+use App\Models\LecturesFirstYear;
 use App\Models\SubscribedFirstYear;
 use App\Models\User;
 use App\Models\WaitingListFirstYear;
@@ -169,7 +170,17 @@ class AcademicFirstYear extends Controller
 
     public function getLectures()
     {
-        return view('admin.lectures.1st');
+        $allData = LecturesFirstYear::paginate(10);
+        return view('admin.lectures.1st',compact('allData'));
+    }
+
+    public function deleteLecture($id)
+    {
+        $lec = LecturesFirstYear::find($id);
+        if(!$lec)
+            return 'Lecture Not Found';
+        $lec->delete();
+        return redirect()->back()->with(['success' => 'Lecture deleted successfully']);
     }
 
     public function viewWeeksPage()

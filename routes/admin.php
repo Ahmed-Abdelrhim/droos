@@ -113,8 +113,14 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::post('add/new/lecture',[DashboardController::class,'addNewLecture'])->name('store.new.lec');
 
         Route::get('view/lectures/1st/year',[AcademicFirstYear::class,'getLectures'])->name('get.lec.1st.year');
+        Route::post('delete/lectures/1st/year/{id}',[AcademicFirstYear::class,'deleteLecture'])->name('delete.lec.1st');
+
         Route::get('view/lectures/2nd/year',[AcademicSecondYear::class,'getLectures'])->name('get.lec.2nd.year');
+        Route::post('delete/lectures/2nd/year/{id}',[AcademicSecondYear::class,'deleteLecture'])->name('delete.lec.2nd');
+
         Route::get('view/lectures/3rd/year',[AcademicThirdYear::class,'getLectures'])->name('get.lec.3rd.year');
+        Route::post('delete/lectures/3rd/year/{id}',[AcademicThirdYear::class,'deleteLecture'])->name('delete.lec.3rd');
+
 
 
         //Messages

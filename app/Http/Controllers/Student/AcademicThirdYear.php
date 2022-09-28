@@ -164,8 +164,17 @@ class AcademicThirdYear extends Controller
 
     public function getLectures()
     {
-        $lectures = LecturesThirdYear::paginate(10);
-        return view('admin.lectures.3rd',compact('lectures'));
+        $allData = LecturesThirdYear::paginate(10);
+        return view('admin.lectures.3rd',compact('allData'));
+    }
+
+    public function deleteLecture($id)
+    {
+        $lec = LecturesThirdYear::find($id);
+        if(!$lec)
+            return 'Lecture Not Found';
+        $lec->delete();
+        return redirect()->back()->with(['success' => 'Lecture deleted successfully']);
     }
 
     public function viewWeeksPage()
