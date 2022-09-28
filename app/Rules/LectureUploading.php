@@ -25,11 +25,12 @@ class LectureUploading implements Rule
      * @param mixed $value
      * @return bool
      */
+    //            if(in_array($this->month,[1,2,3,4,5,6,7,8,9,10,11,12]))
+//                return true;
     public function passes($attribute, $value)
     {
         if (is_numeric($this->month))
-            if(in_array($this->month,[1,2,3,4,5,6,7,8,9,10,11,12]))
-                return true;
+            return true;
         return false;
     }
 

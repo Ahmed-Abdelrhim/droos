@@ -21,6 +21,7 @@ class CustomLoginController extends Controller
         $image_name = null;
         if ($request->has('avatar'))
             $image_name = $this->handleImage($request->avatar, 'studentImages');
+        $mac_address = substr(exec('getmac'), 0, 17);
         DB::beginTransaction();
         User::create([
             'name' => $request->input('name'),
@@ -29,6 +30,7 @@ class CustomLoginController extends Controller
             'parent_number' => $request->input('parent_number'),
             'academic_year' => $request->input('academic_year'),
             'password' => bcrypt($request->input('password')),
+            'mac_address' => $mac_address,
             'avatar' => $image_name,
         ]);
         DB::commit();

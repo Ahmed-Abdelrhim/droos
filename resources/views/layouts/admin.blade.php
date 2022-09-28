@@ -544,6 +544,8 @@
 
 <script src="{{asset('js/script.js')}}"></script>
 
+
+
 @stack('javascript')
 @yield('script')
 </body>

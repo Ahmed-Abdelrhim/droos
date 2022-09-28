@@ -10,11 +10,11 @@
                     </button>
                 </div>
             @endif
-            
+
             <h3>Add New Lecture </h3>
 
             <p>Upload Lecture <span>*</span></p>
-            <input type="file"  required class="box" name="lec">
+            <input type="file" required class="box" name="lec">
 
 
             <p>Lecture Name <span>*</span></p>
@@ -24,17 +24,20 @@
             @enderror
 
             <p>Academic year <span>*</span></p>
-            <select class="custom-select" name="academic_year" required>
+            <select class="custom-select" name="academic_year" required id="academic_year">
                 <option value="1">الصف الأول الثانوي</option>
                 <option value="2">الصف الثاني الثانوي</option>
                 <option value="3">الصف الثالث الثانوي</option>
             </select>
 
             <p>Lecture Month <span>*</span></p>
-            <input type="number" name="month" placeholder="enter lec month " required maxlength="2" class="box" value="{{old('month')}}">
-            @error('month')
-            <span class="text-danger" style="color: white">{{$message}}</span>
-            @enderror
+            <select class="custom-select" name="month" id="month">
+            </select>
+            {{--            <input type="number" name="month" placeholder="enter lec month " required maxlength="2" class="box"--}}
+            {{--                   value="{{old('month')}}">--}}
+            {{--            @error('month')--}}
+            {{--            <span class="text-danger" style="color: white">{{$message}}</span>--}}
+            {{--            @enderror--}}
 
             <p>Lecture Week <span>*</span></p>
             <select class="custom-select" name="week" required>
@@ -51,4 +54,36 @@
         </form>
 
     </section>
+
+@endsection
+@section('script')
+{{--        <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"--}}
+{{--                integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>--}}
+    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"--}}
+{{--            integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="--}}
+{{--            crossorigin="anonymous" referrerpolicy="no-referrer"></script>--}}
+    <script>
+        $(document).ready(function () {
+            console.log('asdasdasdas');
+            $('#academic_year').on('change', function () {
+                let id = $(this).val();
+                $('#month').empty();
+                $('#month').append('<option value="0" disabled selected>processing ...</option>');
+                $.ajax({
+                    type: 'GET',
+                    url: 'getCourseMonths/' + id,
+                    success: function (response){
+                        console.log(response);
+                        response = JSON.parse(response);
+                        $('#month').empty();
+                        $('#month').append('<option value="0" disabled selected>select month</option>');
+                        response.forEach(el => {
+                            $('#month').append(`<option value="${el['id']}" >${el['name']}</option>`);
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

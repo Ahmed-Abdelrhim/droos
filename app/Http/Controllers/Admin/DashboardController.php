@@ -176,17 +176,36 @@ class DashboardController extends Controller
         return view('admin.lectures.add');
     }
 
-    public function addNewLecture(LecturesRequest $request): \Illuminate\Http\RedirectResponse
+    public function getCourseMonths($id)
+    {
+        if ($id == 1)
+            return json_encode(CourseFirstYear::get());
+
+        if ($id == 2)
+            return json_encode(CourseSecondYear::get());
+
+        if ($id == 3)
+            return json_encode(CourseThirdYear::get());
+
+        return json_encode('not-found');
+    }
+
+    public function addNewLecture(LecturesRequest $request)
     {
         $academic_year = $request->academic_year;
 
         //Lectures First Year
         if ($academic_year == 1) {
-            $video_name = uploadLecture('first',$request->lec);
+            $course = CourseFirstYear::find($request->month);
+            if(!$course)
+                return 'course name you have chosen not exist';
+
+            $video_name = uploadLecture('first', $request->lec);
             LecturesFirstYear::create([
                 'name' => $request->name,
                 'lec' => $video_name,
-                'serial_number' => $request->month,
+                'course_id' => $course->id,
+                'serial_number' => $course->serial_number,
                 'week' => $request->week,
                 'created_at' => now(),
                 'updated_at' => now(),]);
@@ -194,11 +213,16 @@ class DashboardController extends Controller
 
         //Lectures Second Year
         if ($academic_year == 2) {
-            $video_name = uploadLecture('second',$request->lec);
+            $course = CourseSecondYear::find($request->month);
+            if(!$course)
+                return 'course name you have chosen not exist';
+            $video_name = uploadLecture('second', $request->lec);
             LecturesSecondYear::create([
                 'name' => $request->name,
                 'lec' => $video_name,
-                'serial_number' => $request->month,
+                'course_id' => $course->id,
+                'serial_number' => $course->serial_number,
+                //'serial_number' => $request->month,
                 'week' => $request->week,
                 'created_at' => now(),
                 'updated_at' => now(),]);
@@ -206,11 +230,16 @@ class DashboardController extends Controller
 
         //Lectures Third Year
         if ($academic_year == 3) {
-            $video_name = uploadLecture('third',$request->lec);
+            $course = CourseThirdYear::find($request->month);
+            if(!$course)
+                return 'course name you have chosen not exist';
+            $video_name = uploadLecture('third', $request->lec);
             LecturesThirdYear::create([
                 'name' => $request->name,
                 'lec' => $video_name,
-                'serial_number' => $request->month,
+                'course_id' => $course->id,
+                'serial_number' => $course->serial_number,
+                //'serial_number' => $request->month,
                 'week' => $request->week,
                 'created_at' => now(),
                 'updated_at' => now(),]);
@@ -222,13 +251,13 @@ class DashboardController extends Controller
     public function viewMessages()
     {
         $messages = Message::paginate(10);
-        return view('admin.messages',compact('messages'));
+        return view('admin.messages', compact('messages'));
     }
 
     public function deleteMessage($id)
     {
         $msg = Message::find($id);
-        if(!$msg)
+        if (!$msg)
             return 'Message Not Found';
         $msg->delete();
         return redirect()->back()->with(['success' => 'Message Deleted Successfully']);

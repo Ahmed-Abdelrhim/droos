@@ -100,13 +100,18 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::post('delete/waiting/list/3rd/{id}' , [WaitingListController::class,'deleteWaitingListThirdYear'])->name('delete.waiting.3rd');
 
         //Adding New Lectures
+        Route::group(['prefix' => 'add/new'],function (){
+            Route::get('getCourseMonths/{id}',[DashboardController::class,'getCourseMonths'])->name('new.lec');
+        });
         Route::get('add/new/lecture',[DashboardController::class,'showAddNewLectureForm'])->name('add.new.lec');
         Route::post('add/new/lecture',[DashboardController::class,'addNewLecture'])->name('store.new.lec');
+
 
         //Messages
         Route::get('student/messages',[DashboardController::class,'viewMessages'])->name('view.msg');
         Route::post('delete/message/{id}',[DashboardController::class,'deleteMessage'])->name('delete.msg');
 
+        Route::get('vvv/{id}',[DashboardController::class,'getCourseMonths']);
 
     });
 
