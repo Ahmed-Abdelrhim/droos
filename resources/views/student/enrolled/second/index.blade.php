@@ -12,7 +12,7 @@
         @endif
         <div class="box-container">
             <div class="card-container" id="cards">
-                @foreach($courses as $course)
+                @if(isset($courses))                @foreach($courses as $course)
                     <div class="card">
                         <span></span>
                         <span></span>
@@ -28,6 +28,9 @@
                         </div>
                     </div>
                 @endforeach
+                @else
+                    <button class="btn btn-primary">لا توجد اشتراكات حتي الأن</button>
+                @endif
             </div>
         </div>
     </section>

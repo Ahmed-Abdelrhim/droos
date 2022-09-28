@@ -194,7 +194,7 @@ class DashboardController extends Controller
 
         //Lectures Second Year
         if ($academic_year == 2) {
-            $video_name = uploadLecture('first',$request->lec);
+            $video_name = uploadLecture('second',$request->lec);
             LecturesSecondYear::create([
                 'name' => $request->name,
                 'lec' => $video_name,
@@ -206,7 +206,7 @@ class DashboardController extends Controller
 
         //Lectures Third Year
         if ($academic_year == 3) {
-            $video_name = uploadLecture('first',$request->lec);
+            $video_name = uploadLecture('third',$request->lec);
             LecturesThirdYear::create([
                 'name' => $request->name,
                 'lec' => $video_name,
