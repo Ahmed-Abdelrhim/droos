@@ -155,8 +155,31 @@
     </div>
 
 </div>
-<div class="spikes"></div>
 
+
+<div class="container-line">
+    <div class="upperpart" >
+        <img src="{{asset('images/pngwing.png')}}">
+		<div class="first">
+			<div class="linee"></div>
+			<div class="balle"></div>
+		</div>
+		<div class="second">
+			<div class="linee"></div>
+			<div class="balle"></div>
+		</div>
+		<div class="third">
+			<div class="linee"></div>
+			<div class="balle"></div>
+		</div>
+		<div class="fifth">
+			<div class="linee"></div>
+			<div class="balle"></div>
+		</div>
+	</div>
+</div>
+
+<div class="spikes"></div>
 
 <!-- Start Features -->
     <div class="features" id="features">

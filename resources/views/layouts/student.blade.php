@@ -212,6 +212,116 @@
     text-transform: uppercase;
     font-weight: 600;
 }
+
+.container-line {
+    border: 5px solid var(--black);
+    width: 100%;
+    height: 500px;
+    border-radius: 100% 100% 0 0;
+    margin: auto;
+}
+
+
+.upperpart{
+    position: relative;
+	width: 200px;
+	height: 400px;
+	border-top: 16px solid var(--main-color);
+	margin: auto;
+	margin-top: 15%;
+}
+
+.upperpart img {
+    width: 150px;
+    position: absolute;
+    left: 13%;
+    top: -144px;
+
+
+}
+
+.linee{
+	width: 3px;
+	height: 200px;
+	background: var(--main-color);
+	margin: auto;
+}
+.balle{
+	width: 50px;
+	height: 50px;
+	background: var(--main-color);
+	border-radius: 100%;
+}
+
+.first,
+.second,
+.third,
+.fourth,
+.fifth{
+	width: 50px;
+	height: 250px;
+	float: left;
+}
+
+.first{
+	-webkit-animation: move 3s linear infinite;
+}
+
+.fifth{
+	-webkit-animation: moveback 3s linear infinite;
+}
+
+@media(max-width:768px) {
+    .upperpart{
+	margin-top: 40%;
+    }
+}
+
+@-webkit-keyframes move {
+  0% {
+    transform: rotate(30deg);
+  	transform-origin: top;
+  }
+	25% {
+		transform: rotate(0deg);
+  	transform-origin: top;
+  }
+	50% {
+		transform: rotate(0deg);
+  	transform-origin: top;
+  }
+  75% {
+    transform: rotate(0deg);
+  	transform-origin: top;
+  }
+	100% {
+    transform: rotate(30deg);
+  	transform-origin: top;
+  }
+}
+
+@-webkit-keyframes moveback {
+  0% {
+    transform: rotate(0deg);
+  	transform-origin: top;
+  }
+	25% {
+		transform: rotate(0deg);
+  	transform-origin: top;
+  }
+	50% {
+		transform: rotate(-30deg);
+  	transform-origin: top;
+  }
+	75% {
+		transform: rotate(0deg);
+  	transform-origin: top;
+  }
+  100% {
+    transform: rotate(0deg);
+  	transform-origin: top;
+  }
+}
     </style>
 
 
@@ -463,7 +573,7 @@
 function submitForm(form) {
         swal({
             title: "هل انت متأكد من شراء الكورس",
-            text: "تأكيد الاشتراك",
+            text: "لتأكيد الاشتراك",
             text: "قم بتحويل الفلوس بفودافون كاش علي الأرقام: 01025642978",
             icon: "warning",
             buttons: true,

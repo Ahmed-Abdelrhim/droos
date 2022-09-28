@@ -10,13 +10,34 @@
             <div class="column">
                 <div class="thumb">
                     <video src="{{asset('images/vid-1.mp4')}}" controls poster="{{asset('images/post-1-1.png')}}"
-                           id="video"></video>
+                            id="video"></video>
                 </div>
             </div>
         </div>
 
     </section>
 
+<div class="container-line">
+    <div class="upperpart" >
+        <img src="{{asset('images/pngwing.png')}}">
+		<div class="first">
+			<div class="linee"></div>
+			<div class="balle"></div>
+		</div>
+		<div class="second">
+			<div class="linee"></div>
+			<div class="balle"></div>
+		</div>
+		<div class="third">
+			<div class="linee"></div>
+			<div class="balle"></div>
+		</div>
+		<div class="fifth">
+			<div class="linee"></div>
+			<div class="balle"></div>
+		</div>
+	</div>
+</div>
 
     <div class="fas fa-cog nut3"></div>
     <div class="fas fa-cog nut4"></div>
