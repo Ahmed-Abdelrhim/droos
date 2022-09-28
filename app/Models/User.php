@@ -32,6 +32,7 @@ class User extends Authenticatable
         'academic_year',
         'avatar',
         'password',
+        'mac_address',
         'created_at',
         'updated_at',
     ];

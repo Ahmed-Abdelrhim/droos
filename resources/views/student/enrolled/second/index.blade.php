@@ -12,22 +12,23 @@
         @endif
         <div class="box-container">
             <div class="card-container" id="cards">
-                @if(isset($courses))                @foreach($courses as $course)
-                    <div class="card">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <div class="card-content">
-                            <img src="{{asset('images/courses_second_year/'.$course->cover)}}">
-                            <h2>02</h2>
-                            <h3>الصف الثاني الثانوي</h3>
-                            <p style="margin-top: 5px">{{$course->name}}</p>
-                            <a href="#">اذهب للكورس</a>
+                @if(isset($courses))
+                    @foreach($courses as $course)
+                        <div class="card">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <div class="card-content">
+                                <img src="{{asset('images/courses_second_year/'.$course->cover)}}">
+                                <h2>02</h2>
+                                <h3>الصف الثاني الثانوي</h3>
+                                <p style="margin-top: 5px">{{$course->name}}</p>
+                                <a href="#">اذهب للكورس</a>
 
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
                 @else
                     <button class="btn btn-primary">لا توجد اشتراكات حتي الأن</button>
                 @endif
