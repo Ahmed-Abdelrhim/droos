@@ -291,7 +291,12 @@
             <h3 class="name">{{Auth::guard('admin')->user()->name}}</h3>
             <p class="role">Admin</p>
             <a href="{{route('teacher.profile')}}" class="btn">view profile</a>
-            <a href="" class="btn">logout</a>
+            <form method="POST" action="{{route('admin.logout')}}" id="logout-form">
+                @csrf
+                <a  class="btn" onclick="event.preventDefault();
+                   document.getElementById('logout-form').submit();"
+                >logout</a>
+            </form>
         </div>
         <div class="tutor">
             <div class="info">

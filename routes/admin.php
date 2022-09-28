@@ -31,7 +31,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
     });
 
     Route::group(['middleware' => 'auth:admin' , 'prefix' => 'admin'], function () {
-        Route::get('logout', [AdminLoginController::class, 'logout']);
+        Route::post('logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
 
         //go-to-dashboard
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -113,6 +113,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::post('add/new/lecture',[DashboardController::class,'addNewLecture'])->name('store.new.lec');
 
         Route::get('view/lectures/1st/year',[AcademicFirstYear::class,'getLectures'])->name('get.lec.1st.year');
+        Route::post('delete/lectures/1st/year/{id}',[AcademicFirstYear::class,'deleteLecture'])->name('delete.lec.1st');
         Route::post('delete/lectures/1st/year/{id}',[AcademicFirstYear::class,'deleteLecture'])->name('delete.lec.1st');
 
         Route::get('view/lectures/2nd/year',[AcademicSecondYear::class,'getLectures'])->name('get.lec.2nd.year');
