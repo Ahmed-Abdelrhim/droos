@@ -86,10 +86,10 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
         ####### To Subscribe First Year Course ##########
         Route::get('subscribe/1st/year/{id}',[AcademicFirstYear::class,'toSubscribeCourse'])->name('to.subscribe.1st');
-        Route::get('subscribe/course/1st/{id}',[AcademicFirstYear::class,'subscribeCourseNow'])->name('subscribe.1st');
+        Route::post('subscribe/course/1st/{id}',[AcademicFirstYear::class,'subscribeCourseNow'])->name('subscribe.1st');
         ####### To Subscribe Second Year Course ##########
         Route::get('subscribe/2nd/year/{id}',[AcademicSecondYear::class,'toSubscribeCourse'])->name('to.subscribe.2nd');
-        Route::get('subscribe/course/2nd/{id}',[AcademicSecondYear::class,'subscribeCourseNow'])->name('subscribe.2nd');
+        Route::post('subscribe/course/2nd/{id}',[AcademicSecondYear::class,'subscribeCourseNow'])->name('subscribe.2nd');
         ####### To Subscribe Third Year Course ##########
         Route::get('subscribe/3rd/year/{id}',[AcademicThirdYear::class,'toSubscribeCourse'])->name('to.subscribe.3rd');
         Route::post('subscribe/course/3rd/{id}',[AcademicThirdYear::class,'subscribeCourseNow'])->name('subscribe.3rd');
