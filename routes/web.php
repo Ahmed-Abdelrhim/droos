@@ -103,6 +103,10 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
         Route::get('enrolled/courses/3rd',[AcademicThirdYear::class,'enrolledCoursesView'])->name('my.courses.3rd');
 
+        Route::get('weeks/page/1st/year',[AcademicFirstYear::class,'viewWeeksPage'])->name('view.course.weeks.1st');
+        Route::get('weeks/page/2nd/year',[AcademicSecondYear::class,'viewWeeksPage'])->name('view.course.weeks.2nd');
+        Route::get('weeks/page/3rd/year',[AcademicThirdYear::class,'viewWeeksPage'])->name('view.course.weeks.3rd');
+
 
     });
 

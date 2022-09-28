@@ -166,6 +166,8 @@ class AcademicSecondYear extends Controller
         return view('student.enrolled.second.index',compact('courses'));
     }
 
-
-
+    public function viewWeeksPage()
+    {
+        return view('student.enrolled.second.week');
+    }
 }

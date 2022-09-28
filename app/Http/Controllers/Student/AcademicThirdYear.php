@@ -157,4 +157,10 @@ class AcademicThirdYear extends Controller
         return view('student.enrolled.third.index',compact('courses'));
     }
 
+    public function viewWeeksPage()
+    {
+        return view('student.enrolled.third.week');
+
+    }
+
 }

@@ -158,5 +158,10 @@ class AcademicFirstYear extends Controller
         return view('student.enrolled.first.index',compact('enrolled'));
     }
 
+    public function viewWeeksPage()
+    {
+        return view('student.enrolled.first.week');
+    }
+
 }
 // data-target='#exampleModal' data-toggle='modal'
