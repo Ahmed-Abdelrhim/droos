@@ -30,6 +30,7 @@ class WaitingListController extends Controller
             return 'Student Not Found';
         SubscribedFirstYear::create([
             'student_id' => $wait->student_id,
+            'course_id' => $wait->course_id,
             'serial_number' => $wait->serial_number,
             'created_at' => now(),
             'updated_at' => now(),
@@ -60,6 +61,7 @@ class WaitingListController extends Controller
             return 'Student Not Found';
         SubscribedSecondYear::create([
             'student_id' => $wait->student_id,
+            'course_id' => $wait->course_id,
             'serial_number' => $wait->serial_number,
             'created_at' => now(),
             'updated_at' => now(),
@@ -79,27 +81,7 @@ class WaitingListController extends Controller
     public function waitingThirdYear()
     {
         $allData = WaitingListThirdYear::with('students')->paginate(10);
-//        return $allData;
-//        foreach ($allData as $student)
-//        {
-//
-//        }
-//        $student_names = [];
-//        $student_emails = [];
-//        $student_phones = [];
-//        $student_parent_number = [];
-//        $serials = [];
-//        foreach ($allData as $student)
-//        {
-//            $student = User::find($student->student_id);
-//            $student_names[] = $student->name;
-//            $student_emails[] = $student->email;
-//            $student_phones[] = $student->phone_number;
-//            $student_parent_number[] = $student->parent_phone;
-//            $serials[] = $student->serial_number;
-//        }
         return view('admin.waiting_list.third.index',compact('allData'));
-        // return view('admin.waiting_list.third.index',compact('allData','student_names','student_emails','student_phones','student_parent_number'));
     }
 
     public function activateWaitingListThirdYear($id)
@@ -109,6 +91,7 @@ class WaitingListController extends Controller
             return 'Student Not Found';
         SubscribedThirdYear::create([
             'student_id' => $wait->student_id,
+            'course_id' => $wait->course_id,
             'serial_number' => $wait->serial_number,
             'created_at' => now(),
             'updated_at' => now(),

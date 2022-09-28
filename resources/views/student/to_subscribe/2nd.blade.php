@@ -25,7 +25,8 @@
                     <h3>الصف الثاني الثانوي</h3>
                     <p style="margin-top: 5px"> شراء {{$course->name}}</p>
                     <p style="margin-top: 5px">السعر : {{$course->price}}</p>
-                    <form action="{{route('subscribe.2nd',$course->id)}}" onsubmit="return submitForm(this);">
+                    <form action="{{route('subscribe.2nd',$course->id)}}" onsubmit="return submitForm(this);" method="POST">
+                        @csrf
                         <input type="submit" style="cursor: pointer"/>
                     </form>
                 </div>

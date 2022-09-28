@@ -111,3 +111,6 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
 });
 
+Route::get('hash',function (){
+    return bcrypt('123456');
+});

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Admin;
+use App\Models\User;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -42,5 +43,6 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
     }
 }

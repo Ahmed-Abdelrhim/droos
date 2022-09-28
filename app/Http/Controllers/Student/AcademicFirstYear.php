@@ -143,6 +143,7 @@ class AcademicFirstYear extends Controller
         $serial_number = $course->serial_number;
         WaitingListFirstYear::create([
             'student_id' => $student_id,
+            'course_id' => $course->id,
             'serial_number' => $serial_number,
             'created_at' => now(),
             'updated_at' => now(),

@@ -9,7 +9,7 @@ class LecturesThirdYear extends Model
 {
     use HasFactory;
     protected $table = 'lectures_third_years';
-    protected $fillable = ['name','lec' , 'serial_number', 'week','created_at','updated_at'];
+    protected $fillable = ['course_id','name','lec' , 'serial_number', 'week','created_at','updated_at'];
     protected $hidden = ['created_at','updated_at'];
     public $timestamps = true;
 }

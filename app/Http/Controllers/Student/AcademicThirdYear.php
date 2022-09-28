@@ -137,6 +137,7 @@ class AcademicThirdYear extends Controller
         $serial_number = $course->serial_number;
         WaitingListThirdYear::create([
             'student_id' => $student_id,
+            'course_id' => $course->id,
             'serial_number' => $serial_number,
             'created_at' => now(),
             'updated_at' => now(),
@@ -147,8 +148,8 @@ class AcademicThirdYear extends Controller
 
     public function enrolledCoursesView()
     {
-        $enrolled = SubscribedThirdYear::where('student_id',Auth::id())->get();
-        return view('student.enrolled.third.index',compact('enrolled'));
+        $courses = SubscribedThirdYear::where('student_id',Auth::id())->get();
+        return view('student.enrolled.third.index',compact('courses'));
     }
 
 }
