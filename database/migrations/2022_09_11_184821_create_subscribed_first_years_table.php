@@ -17,8 +17,13 @@ class CreateSubscribedFirstYearsTable extends Migration
             $table->id();
             $table->unsignedInteger('student_id');
             $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->unsignedInteger('course_id');
+            $table->foreign('course_id')->references('id')->on('course_first_years')->onDelete('cascade');
+
             $table->unsignedInteger('serial_number');
             $table->foreign('serial_number')->references('id')->on('course_first_years')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

@@ -104,15 +104,10 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('enrolled/courses/3rd',[AcademicThirdYear::class,'enrolledCoursesView'])->name('my.courses.3rd');
 
 
-
     });
 
     Route::get('aaa', [StudentGeneralController::class, 'play']);
     Route::get('admin/play', [DashboardController::class, 'play']);
-//    Route::get('view/list/1st',[WaitingListController::class,'waitingFirstYear'])->name('waiting.list.1st');
-
-
-
 
 });
 

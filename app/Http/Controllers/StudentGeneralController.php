@@ -30,23 +30,23 @@ class StudentGeneralController extends Controller
                 'updated_at' => now(),
             ]);
             DB::commit();
-            return redirect()->back()->with(['success'=>'تم ارسال الرسالة الي مستر علاء الدين']);
-        } catch (Exception $e)
-        {
-            return redirect()->back()->withErrors(['errors'=> 'حدث خطأ أثناء ارسال الرسالة']);
+            return redirect()->back()->with(['success' => 'تم ارسال الرسالة الي مستر علاء الدين']);
+        } catch (Exception $e) {
+            return redirect()->back()->withErrors(['errors' => 'حدث خطأ أثناء ارسال الرسالة']);
         }
 
     }
 
     public function play()
     {
-        return Auth::user()->name;
+        return substr(exec('getmac'), 0, 17);
+        // return substr(shell_exec('getmac'), 159,20);
     }
 
     public function deleteStudent($id)
     {
         $student = User::find($id);
-        if(!$student)
+        if (!$student)
             return 'Student Not Found';
         $student->delete();
         return redirect()->back()->with(['success' => 'Student deleted successfully']);

@@ -4,7 +4,8 @@
 
 <section class="courses">
 
-   <h1 class="heading">شراء الكورس </h1>
+{{--   <h1 class="heading">شراء الكورس </h1>--}}
+    <h1 class="heading"> لشراء الكورس <span style="font-size: 18px;">قم بتحويل الفلوس بفودافون كاش علي الأرقام: 01025642978</span>  </h1>
 
     <div class="card-container" id="cards">
         @if(\Session::get('success'))

@@ -464,6 +464,7 @@ function submitForm(form) {
         swal({
             title: "هل انت متأكد من شراء الكورس",
             text: "تأكيد الاشتراك",
+            text: "قم بتحويل الفلوس بفودافون كاش علي الأرقام: 01025642978",
             icon: "warning",
             buttons: true,
         })

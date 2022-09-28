@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use App\Models\Admin;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,5 +14,33 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        Admin::create([
+            'name' => 'Ahmed Abdelrhim',
+            'email' => 'abdelrhim.admin@gmail.com',
+            'phone_number' => '01152067271',
+            'password' => '$2y$10$eDZh5aAN34kfTMOxrLaXmu/NIbQJrI//Yqi9IHDhu0CRELLo7Amke',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        Admin::create([
+            'name' => 'Aladdin Muhammed',
+            'email' => 'aladdin.admin@gmail.com',
+            'phone_number' => '01023435023',
+            'password' => '$2y$10$eDZh5aAN34kfTMOxrLaXmu/NIbQJrI//Yqi9IHDhu0CRELLo7Amke',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+
+
+        Admin::create([
+            'name' => 'Anas Rabea',
+            'email' => 'aladdin.admin@gmail.com',
+            'phone_number' => '01014012312',
+            'password' => '$2y$10$eDZh5aAN34kfTMOxrLaXmu/NIbQJrI//Yqi9IHDhu0CRELLo7Amke',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }

@@ -28,7 +28,7 @@
                     <p style="margin-top: 5px">السعر : {{$course->price}}</p>
                     @if(isset($serials))
                         @if(in_array($course->serial_number,$serials))
-                            <a>عرض الكورس</a>
+                            <a > عرض الكورس</a>
                         @else
                             <a href="{{route('to.subscribe.1st',$course->id)}}">اشترك الأن</a>
                         @endif
