@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\CourseFirstYear;
 class SubscribedFirstYear extends Model
 {
     use HasFactory;
@@ -17,6 +17,11 @@ class SubscribedFirstYear extends Model
     public function students(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class,'student_id','id');
+    }
+
+    public function course(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(CourseFirstYear::class,'course_id','id');
     }
     ############################################ End Relations ##############################################
 }

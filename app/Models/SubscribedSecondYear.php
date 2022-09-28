@@ -18,5 +18,10 @@ class SubscribedSecondYear extends Model
     {
         return $this->belongsTo(User::class,'student_id','id');
     }
+
+    public function course(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(CourseSecondYear::class,'course_id','id');
+    }
     ############################################ End Relations ##############################################
 }

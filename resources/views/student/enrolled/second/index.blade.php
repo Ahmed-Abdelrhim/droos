@@ -20,10 +20,10 @@
                             <span></span>
                             <span></span>
                             <div class="card-content">
-                                <img src="{{asset('images/courses_second_year/'.$course->cover)}}">
+                                <img src="{{asset('images/courses_second_year/'.$course['course']->cover)}}">
                                 <h2>02</h2>
                                 <h3>الصف الثاني الثانوي</h3>
-                                <p style="margin-top: 5px">{{$course->name}}</p>
+                                <p style="margin-top: 5px">{{$course['course']->name}}</p>
                                 <a href="{{route('view.course.weeks.2nd')}}">اذهب للكورس</a>
 
                             </div>
