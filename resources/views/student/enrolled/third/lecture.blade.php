@@ -36,13 +36,13 @@
 
       <div class="box">
          <div class="user">
-            <img src="images/pic-1.jpg" alt="">
+            <img src="{{asset('images/pic-1.jpg')}}" alt="">
             <div>
-               <h3> anas</h3>
+               <h3>Created By Ahmed Abdelrhim & Anas Rabea</h3>
                <span>22-10-2022</span>
             </div>
          </div>
-         <div class="comment-box">this is a comment form  anas</div>
+         <div class="comment-box">this is a comment form  Anas & Ahmed</div>
          <form action="" class="flex-btn">
             <input type="submit" value="edit comment" name="edit_comment" class="inline-option-btn">
             <input type="submit" value="delete comment" name="delete_comment" class="inline-delete-btn">
@@ -51,7 +51,7 @@
 
       <div class="box">
          <div class="user">
-            <img src="images/pic-2.jpg" alt="">
+            <img src="{{asset('images/pic-2.jpg')}}" alt="">
             <div>
                <h3>john deo</h3>
                <span>22-10-2022</span>
@@ -63,7 +63,7 @@
 
       <div class="box">
          <div class="user">
-            <img src="images/pic-3.jpg" alt="">
+            <img src="{{asset('images/pic-3.jpg')}}" alt="">
             <div>
                <h3>john deo</h3>
                <span>22-10-2022</span>
@@ -76,7 +76,7 @@
 
       <div class="box">
          <div class="user">
-            <img src="images/pic-4.jpg" alt="">
+            <img src="{{asset('images/pic-4.jpg')}}" alt="">
             <div>
                <h3>john deo</h3>
                <span>22-10-2022</span>
@@ -87,7 +87,7 @@
 
       <div class="box">
          <div class="user">
-            <img src="images/pic-5.jpg" alt="">
+            <img src="{{asset('images/pic-5.jpg')}}" alt="">
             <div>
                <h3>john deo</h3>
                <span>22-10-2022</span>
@@ -98,7 +98,7 @@
 
       <div class="box">
          <div class="user">
-            <img src="images/pic-2.jpg" alt="">
+            <img src="{{asset('images/pic-2.jpg')}}" alt="">
             <div>
                <h3>john deo</h3>
                <span>22-10-2022</span>
