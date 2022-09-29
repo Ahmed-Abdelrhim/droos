@@ -130,6 +130,10 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
         Route::get('vvv/{id}',[DashboardController::class,'getCourseMonths']);
 
+        //Add New Feature
+        Route::get('add/feature',[DashboardController::class,'addNewFeatureForm'])->name('add.feature');
+        Route::post('add/new/feature',[DashboardController::class,'storeNewFeature'])->name('store.feature');
+
     });
 
 });

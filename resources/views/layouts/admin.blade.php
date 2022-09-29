@@ -382,6 +382,9 @@
             <a href="{{route('get.lec.3rd.year')}}"><i class="fas fa-question"></i><span>محاضرات الصف الثالث الثانوي</span></a>
         </div>
 
+        <a href="{{route('add.feature')}}"><i class="fas fa-question"></i><span>المميزات</span></a>
+
+
     </nav>
 </div>
 

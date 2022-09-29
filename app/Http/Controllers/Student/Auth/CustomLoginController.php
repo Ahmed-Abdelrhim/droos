@@ -30,7 +30,7 @@ class CustomLoginController extends Controller
             'parent_number' => $request->input('parent_number'),
             'academic_year' => $request->input('academic_year'),
             'password' => bcrypt($request->input('password')),
-            'mac_address' => $mac_address,
+            // 'mac_address' => $mac_address,
             'avatar' => $image_name,
         ]);
         DB::commit();
