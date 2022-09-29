@@ -102,43 +102,106 @@
         </div>
 
         {{--Third Week--}}
+        <div class="select-box">
+            <div class="options-container">
+                @foreach($course['lectures'] as $lec)
+                    @if($lec->serial_number == 1 && $lec->week == 3)
+                        <div class="option">
+                            <a><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-book"></i><span>واجب : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-book-open"></i><span>حل واجب : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> كويز : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> حل كويز : {{$lec->name}}</span></a>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+            <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
+                الاسبوع الثالث
+                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الثالث</span>
+            </div>
+        </div>
+
         {{--Fourth Week--}}
+        <div class="select-box">
+            <div class="options-container">
+                @foreach($course['lectures'] as $lec)
+                    @if($lec->serial_number == 1 && $lec->week == 4)
+                        <div class="option">
+                            <a><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-book"></i><span>واجب : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-book-open"></i><span>حل واجب : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> كويز : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> حل كويز : {{$lec->name}}</span></a>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+            <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
+                الاسبوع الرابع
+                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع ارابع</span>
+            </div>
+        </div>
 
 
     </section>
 @endsection
 
-{{--@section('script')--}}
-{{--    <script>--}}
-{{--        var message = "This function has been disabled!";--}}
+@section('script')
+    <script>
+        var message = "This function has been disabled!";
 
-{{--        ///////////////////////////////////--}}
+        ///////////////////////////////////
 
-{{--        function clickIE4() {--}}
-{{--            if (event.button == 2) {--}}
-{{--                alert(message);--}}
-{{--                return false;--}}
-{{--            }--}}
-{{--        }--}}
+        function clickIE4() {
+            if (event.button == 2) {
+                alert(message);
+                return false;
+            }
+        }
 
-{{--        function clickNS4(e) {--}}
-{{--            if (document.layers || document.getElementById && !document.all) {--}}
-{{--                if (e.which == 2 || e.which == 3) {--}}
-{{--                    alert(message);--}}
-{{--                    return false;--}}
-{{--                }--}}
-{{--            }--}}
-{{--        }--}}
+        function clickNS4(e) {
+            if (document.layers || document.getElementById && !document.all) {
+                if (e.which == 2 || e.which == 3) {
+                    alert(message);
+                    return false;
+                }
+            }
+        }
 
-{{--        if (document.layers) {--}}
-{{--            document.captureEvents(Event.MOUSEDOWN);--}}
-{{--            document.onmousedown = clickNS4;--}}
-{{--        } else if (document.all && !document.getElementById) {--}}
-{{--            document.onmousedown = clickIE4;--}}
-{{--        }--}}
+        if (document.layers) {
+            document.captureEvents(Event.MOUSEDOWN);
+            document.onmousedown = clickNS4;
+        } else if (document.all && !document.getElementById) {
+            document.onmousedown = clickIE4;
+        }
 
-{{--        document.oncontextmenu = new Function("alert(message);return false")--}}
+        document.oncontextmenu = new Function("alert(message);return false")
 
-{{--    </script>--}}
+    </script>
 
-{{--@endsection--}}
+@endsection
