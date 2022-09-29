@@ -31,40 +31,42 @@
 
 <section class="playlist-details">
 
-   <h2 class="heading">محتوى الكورس</h2>
+   <h2 class="heading"> كورس الباب الأول </h2>
 
       <div class="select-box">
-        <div class="options-container">
-          <div class="option">
-            <a><i class="fa-solid fa-video"></i><span>فيديو المحاضرة الاولي</span></a>
-          </div>
-
-          <div class="option">
-            <a><i class="fa-solid fa-book"></i><span>واجب المحاضرة الاولي</span></a>
-          </div>
-
-          <div class="option">
-            <a><i class="fa-solid fa-book-open"></i><span>حل واجب المحاضرة الاولي</span></a>
-          </div>
-
-          <div class="option">
-            <a><i class="fa-solid fa-chalkboard-user"></i><span> كويز المحاضرة الاولي</span></a>
-          </div>
-
-          <div class="option">
-            <a><i class="fa-brands fa-leanpub"></i><span> حل كويز المحاضرة الاولي</span></a>
-          </div>
-
-          <div class="option">
-            <a><i class="fa-solid fa-book-open-reader"></i><span> ملزمة المحاضرة الاولي</span></a>
-          </div>
-
-        </div>
 
         <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
-          الاسبوع الاول
-          <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الاول</span>
+           محتوى الكورس
+          <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى كورس الباب الأول</span>
         </div>
+
+        <div class="options-container">
+          <div class="option">
+            <a><i class="fa-solid fa-video"></i><span> قائمة الفديوهات </span></a>
+          </div>
+
+          <div class="option">
+            <a><i class="fa-solid fa-book"></i><span>قائمة الواجبات</span></a>
+          </div>
+
+          <div class="option">
+            <a><i class="fa-solid fa-book-open"></i><span>حلول الواجب  </span></a>
+          </div>
+
+          <div class="option">
+            <a><i class="fa-solid fa-chalkboard-user"></i><span> كويزات  </span></a>
+          </div>
+
+          <div class="option">
+            <a><i class="fa-brands fa-leanpub"></i><span> حلول كويزات </span></a>
+          </div>
+
+          <div class="option">
+            <a><i class="fa-solid fa-book-open-reader"></i><span> الملازم </span></a>
+          </div>
+
+        </div>
+
       </div>
 
 
