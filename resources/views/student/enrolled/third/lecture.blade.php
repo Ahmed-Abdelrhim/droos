@@ -14,7 +14,7 @@
          <p class="date"><i class="fas fa-heart"></i><span>44 likes</span></p>
       </div>
 
-      <form action="" method="post" class="flex">
+      <form action="#" method="get" class="flex">
          <a href="playlist.html" class="inline-btn">view playlist</a>
          <button><i class="far fa-heart"></i><span>like</span></button>
       </form>
@@ -116,54 +116,57 @@
 
 
 @endsection
-@section('script')
-    <script language=JavaScript>
-        var message="This function has been disabled!";
 
-        ///////////////////////////////////
 
-        function clickIE4(){
 
-            if (event.button==2){
+{{--@section('script')--}}
+{{--    <script language=JavaScript>--}}
+{{--        var message="This function has been disabled!";--}}
 
-                alert(message);
+{{--        ///////////////////////////////////--}}
 
-                return false;
+{{--        function clickIE4(){--}}
 
-            }
+{{--            if (event.button==2){--}}
 
-        }
+{{--                alert(message);--}}
 
-        function clickNS4(e){
+{{--                return false;--}}
 
-            if (document.layers||document.getElementById&&!document.all){
+{{--            }--}}
 
-                if (e.which==2||e.which==3){
+{{--        }--}}
 
-                    alert(message);
+{{--        function clickNS4(e){--}}
 
-                    return false;
+{{--            if (document.layers||document.getElementById&&!document.all){--}}
 
-                }
+{{--                if (e.which==2||e.which==3){--}}
 
-            }
+{{--                    alert(message);--}}
 
-        }
+{{--                    return false;--}}
 
-        if (document.layers){
+{{--                }--}}
 
-            document.captureEvents(Event.MOUSEDOWN);
+{{--            }--}}
 
-            document.onmousedown=clickNS4;
+{{--        }--}}
 
-        }
+{{--        if (document.layers){--}}
 
-        else if (document.all&&!document.getElementById){
+{{--            document.captureEvents(Event.MOUSEDOWN);--}}
 
-            document.onmousedown=clickIE4;
+{{--            document.onmousedown=clickNS4;--}}
 
-        }
-        document.oncontextmenu=new Function("alert(message);return false")
-    </script>
-@endsection
+{{--        }--}}
+
+{{--        else if (document.all&&!document.getElementById){--}}
+
+{{--            document.onmousedown=clickIE4;--}}
+
+{{--        }--}}
+{{--        document.oncontextmenu=new Function("alert(message);return false")--}}
+{{--    </script>--}}
+{{--@endsection--}}
 

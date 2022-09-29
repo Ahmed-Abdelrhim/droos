@@ -14,7 +14,7 @@
          <p class="date"><i class="fas fa-heart"></i><span>44 likes</span></p>
       </div>
 
-      <form action="" method="post" class="flex">
+      <form action="#" method="get" class="flex">
          <a href="playlist.html" class="inline-btn">view playlist</a>
          <button><i class="far fa-heart"></i><span>like</span></button>
       </form>
