@@ -37,6 +37,7 @@
 
 
 <div class="select-box">
+    <!-- first week -->
     <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الاول
         <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الاول</span>
         <i class="fa fa-caret-down"></i>
@@ -61,7 +62,7 @@
 
     </div>
 
-    Second Week
+    <!-- Second Week -->
     <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثاني
         <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">
                 محتوى الاسبوع الثاني</span>
@@ -86,7 +87,7 @@
 
     </div>
 
-    Third Week
+    <!-- Third Week -->
     <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثالث
         <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">
                 محتوى الاسبوع الثالث</span>
@@ -111,7 +112,7 @@
 
     </div>
 
-    Fourth Week
+    <!-- Fourth Week -->
     <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الرابع
         <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">
                 محتوى الاسبوع الرابع</span>
