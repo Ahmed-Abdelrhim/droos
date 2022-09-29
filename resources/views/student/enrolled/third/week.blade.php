@@ -35,112 +35,19 @@
 
         <h2 class="heading">محتوى الكورس</h2>
 
-        {{--First Week--}}
-
         <div class="select-box">
-        <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الاول
+
+            {{--First Week--}}
+            <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الاول
                 <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الاول</span>
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="#">
-                <i class="fa-solid fa-video"></i>
-                <span>ppppppppppp</span></a>
-
-            <a href="#">
-                <i class="fa-solid fa-book-open"></i>
-                <span>ppppppppppp</span></a>
-
-            <a href="#">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <span>ppppppppppp</span></a>
-
-            <a href="#">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <span>ppppppppppp</span></a>
-
-        </div>
-
-        {{--Second Week--}}
-        <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثاني
-                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">
-                محتوى الاسبوع الثاني</span>
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="#">
-                <i class="fa-solid fa-video"></i>
-                <span>ppppppppppp</span></a>
-
-            <a href="#">
-                <i class="fa-solid fa-book-open"></i>
-                <span>ppppppppppp</span></a>
-
-            <a href="#">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <span>ppppppppppp</span></a>
-
-            <a href="#">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <span>ppppppppppp</span></a>
-
-        </div>
-
-        {{--Third Week--}}
-        <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثالث
-                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">
-                محتوى الاسبوع الثالث</span>
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="#">
-                <i class="fa-solid fa-video"></i>
-                <span>ppppppppppp</span></a>
-
-            <a href="#">
-                <i class="fa-solid fa-book-open"></i>
-                <span>ppppppppppp</span></a>
-
-            <a href="#">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <span>ppppppppppp</span></a>
-
-            <a href="#">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <span>ppppppppppp</span></a>
-
-        </div>
-
-        {{--Fourth Week--}}
-        <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الرابع
-                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">
-                محتوى الاسبوع الرابع</span>
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="#">
-                <i class="fa-solid fa-video"></i>
-                <span>ppppppppppp</span></a>
-
-            <a href="#">
-                <i class="fa-solid fa-book-open"></i>
-                <span>ppppppppppp</span></a>
-
-            <a href="#">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <span>ppppppppppp</span></a>
-
-            <a href="#">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <span>ppppppppppp</span></a>
-
-        </div>
-
-            <!-- <div class="options-container">
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
                 @foreach($course['lectures'] as $lec)
-                    @if($lec->week == 1)
+                    @if( $lec->week == 1)
                         <div class="option">
-                            <a href="{{route('view.enrolled.lecture.3rd',$lec->id)}}"><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                            <a href="{{route('view.enrolled.lecture.3rd',$lec->id)}}"><i
+                                    class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
                         </div>
 
                         <div class="option">
@@ -160,21 +67,21 @@
                         </div>
                     @endif
                 @endforeach
-            </div>
-            <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
-                الاسبوع الاول
-                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الاول</span>
-            </div> -->
-        </div>
-<!--
-        {{--Second Week--}}
 
-        <div class="select-box">
-            <div class="options-container">
+            </div>
+
+            {{--Second Week--}}
+            <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثاني
+                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">
+                محتوى الاسبوع الثاني</span>
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
                 @foreach($course['lectures'] as $lec)
                     @if( $lec->week == 2)
                         <div class="option">
-                            <a><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                            <a href="{{route('view.enrolled.lecture.3rd',$lec->id)}}"><i
+                                    class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
                         </div>
 
                         <div class="option">
@@ -195,20 +102,19 @@
                     @endif
                 @endforeach
             </div>
-            <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
-                الاسبوع الثاني
-                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الثاني</span>
-            </div>
-        </div>
 
-        {{--Third Week--}}
-
-        <div class="select-box">
-            <div class="options-container">
+            {{--Third Week--}}
+            <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثالث
+                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">
+                محتوى الاسبوع الثالث</span>
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
                 @foreach($course['lectures'] as $lec)
                     @if( $lec->week == 3)
                         <div class="option">
-                            <a><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                            <a href="{{route('view.enrolled.lecture.3rd',$lec->id)}}"><i
+                                    class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
                         </div>
 
                         <div class="option">
@@ -229,20 +135,19 @@
                     @endif
                 @endforeach
             </div>
-            <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
-                الاسبوع الثالث
-                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الثالث</span>
-            </div>
-        </div>
 
-        {{--Fourth Week--}}
-
-        <div class="select-box">
-            <div class="options-container">
+            {{--Fourth Week--}}
+            <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الرابع
+                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">
+                محتوى الاسبوع الرابع</span>
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
                 @foreach($course['lectures'] as $lec)
-                    @if($lec->week == 4)
+                    @if( $lec->week == 4)
                         <div class="option">
-                            <a><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                            <a href="{{route('view.enrolled.lecture.3rd',$lec->id)}}"><i
+                                    class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
                         </div>
 
                         <div class="option">
@@ -263,11 +168,8 @@
                     @endif
                 @endforeach
             </div>
-            <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
-                الاسبوع الرابع
-                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع ارابع</span>
-            </div> -->
         </div>
+
 
 
     </section>
@@ -306,5 +208,107 @@
 
     </script>
 
-
 @endsection
+
+
+{{--<div class="select-box">--}}
+{{--    <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الاول--}}
+{{--        <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الاول</span>--}}
+{{--        <i class="fa fa-caret-down"></i>--}}
+{{--    </button>--}}
+{{--    <div class="dropdown-container">--}}
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-video"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-book-open"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--    </div>--}}
+
+{{--    --}}{{--Second Week--}}
+{{--    <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثاني--}}
+{{--        <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">--}}
+{{--                محتوى الاسبوع الثاني</span>--}}
+{{--        <i class="fa fa-caret-down"></i>--}}
+{{--    </button>--}}
+{{--    <div class="dropdown-container">--}}
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-video"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-book-open"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--    </div>--}}
+
+{{--    --}}{{--Third Week--}}
+{{--    <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثالث--}}
+{{--        <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">--}}
+{{--                محتوى الاسبوع الثالث</span>--}}
+{{--        <i class="fa fa-caret-down"></i>--}}
+{{--    </button>--}}
+{{--    <div class="dropdown-container">--}}
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-video"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-book-open"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--    </div>--}}
+
+{{--    --}}{{--Fourth Week--}}
+{{--    <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الرابع--}}
+{{--        <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">--}}
+{{--                محتوى الاسبوع الرابع</span>--}}
+{{--        <i class="fa fa-caret-down"></i>--}}
+{{--    </button>--}}
+{{--    <div class="dropdown-container">--}}
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-video"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-book-open"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--        <a href="#">--}}
+{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
+{{--            <span>ppppppppppp</span></a>--}}
+
+{{--    </div>--}}
+
+{{--</div>--}}
+
