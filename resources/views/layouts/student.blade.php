@@ -14,19 +14,20 @@
 
     <style>
 
-        body{
+        body {
             background-color: var(--light-bg);
             padding-right: 30rem;
         }
 
-        body.active{
+        body.active {
             padding-right: 0;
         }
 
 
-        .side-bar{
+        .side-bar {
             position: fixed;
-            top: 0; right: 0;
+            top: 0;
+            right: 0;
             width: 30rem;
             background-color: var(--white);
             height: 100vh;
@@ -35,18 +36,18 @@
             transition: .2s linear;
         }
 
-        .side-bar #close-btn{
+        .side-bar #close-btn {
             text-align: left;
             padding: 2rem;
             display: none;
         }
 
-        .side-bar #close-btn i{
+        .side-bar #close-btn i {
             text-align: left;
             font-size: 2.5rem;
-            background:var(--red);
+            background: var(--red);
             border-radius: .5rem;
-            color:var(--white);
+            color: var(--white);
             cursor: pointer;
             height: 4.5rem;
             width: 4.5rem;
@@ -54,16 +55,16 @@
             text-align: center;
         }
 
-        .side-bar #close-btn i:hover{
+        .side-bar #close-btn i:hover {
             background-color: var(--black);
         }
 
-        .side-bar .profile{
-            padding:3rem 2rem;
+        .side-bar .profile {
+            padding: 3rem 2rem;
             text-align: center;
         }
 
-        .side-bar .profile .image{
+        .side-bar .profile .image {
             height: 10rem;
             width: 10rem;
             border-radius: 50%;
@@ -71,60 +72,60 @@
             margin-bottom: 1rem;
         }
 
-        .side-bar .profile .name{
+        .side-bar .profile .name {
             font-size: 2rem;
-            color:var(--black);
+            color: var(--black);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
 
-        .side-bar .profile .role{
+        .side-bar .profile .role {
             font-size: 1.8rem;
             color: var(--light-color);
         }
 
-        .side-bar .navbar a{
+        .side-bar .navbar a {
             display: block;
             padding: 2rem;
             font-size: 2rem;
         }
 
-        .side-bar .navbar a i{
+        .side-bar .navbar a i {
             margin-left: 1.5rem;
-            color:var(--main-color);
+            color: var(--main-color);
             transition: .2s linear;
         }
 
-        .side-bar .navbar a span{
-            color:var(--light-color);
+        .side-bar .navbar a span {
+            color: var(--light-color);
         }
 
-        .side-bar .navbar a:hover{
+        .side-bar .navbar a:hover {
             background-color: var(--light-bg);
         }
 
-        .side-bar .navbar a:hover i{
+        .side-bar .navbar a:hover i {
             margin-right: 2.5rem;
         }
 
-        .side-bar.active{
+        .side-bar.active {
             right: -30rem;
         }
 
 
-        .side-bar #close-btn{
+        .side-bar #close-btn {
             text-align: left;
             padding: 2rem;
             display: none;
         }
 
-        .side-bar #close-btn i{
+        .side-bar #close-btn i {
             text-align: left;
             font-size: 2.5rem;
-            background:var(--red);
+            background: var(--red);
             border-radius: .5rem;
-            color:var(--white);
+            color: var(--white);
             cursor: pointer;
             height: 4.5rem;
             width: 4.5rem;
@@ -132,7 +133,7 @@
             text-align: center;
         }
 
-        .side-bar #close-btn i:hover{
+        .side-bar #close-btn i:hover {
             background-color: var(--black);
         }
 
@@ -140,7 +141,7 @@
         .tutor {
             font-size: 1.8rem;
             color: var(--light-color);
-            display:flex;
+            display: flex;
         }
 
         .tutor img {
@@ -168,160 +169,161 @@
 
         .thumb #video {
             width: 100%;
-            height:500px;
+            height: 500px;
             border-radius: 5px;
         }
 
-        @media (max-width: 767px){
+        @media (max-width: 767px) {
             .thumb #video {
                 width: 100%;
             }
         }
 
-        @media (max-width:1200px){
+        @media (max-width: 1200px) {
 
-            body{
+            body {
                 padding-right: 0;
             }
 
-            .side-bar{
+            .side-bar {
                 right: -30rem;
                 transition: .2s linear;
             }
 
-            .side-bar #close-btn{
+            .side-bar #close-btn {
                 display: block;
             }
 
-            .side-bar.active{
+            .side-bar.active {
                 right: 0;
-                box-shadow: 0 0 0 100vw rgba(0,0,0,.8);
+                box-shadow: 0 0 0 100vw rgba(0, 0, 0, .8);
                 border-right: 0;
             }
 
         }
 
-.card-container .card .card-content form input {
-    display: inline-block;
-    font-size: 1.5em;
-    margin-top: 15px;
-    padding: 8px 15px;
-    background-color: #f3f4f6;
-    color: #06285f;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 600;
-}
+        .card-container .card .card-content form input {
+            display: inline-block;
+            font-size: 1.5em;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: #f3f4f6;
+            color: #06285f;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
 
-.container-line {
-    border: 5px solid var(--black);
-    width: 100%;
-    height: 500px;
-    border-radius: 100% 100% 0 0;
-    margin: auto;
-}
-
-
-.upperpart{
-    position: relative;
-	width: 200px;
-	height: 400px;
-	border-top: 16px solid var(--main-color);
-	margin: auto;
-	margin-top: 15%;
-}
-
-.upperpart img {
-    width: 150px;
-    position: absolute;
-    left: 13%;
-    top: -144px;
+        .container-line {
+            border: 5px solid var(--black);
+            width: 100%;
+            height: 500px;
+            border-radius: 100% 100% 0 0;
+            margin: auto;
+        }
 
 
-}
+        .upperpart {
+            position: relative;
+            width: 200px;
+            height: 400px;
+            border-top: 16px solid var(--main-color);
+            margin: auto;
+            margin-top: 15%;
+        }
 
-.linee{
-	width: 3px;
-	height: 200px;
-	background: var(--main-color);
-	margin: auto;
-}
-.balle{
-	width: 50px;
-	height: 50px;
-	background: var(--main-color);
-	border-radius: 100%;
-}
+        .upperpart img {
+            width: 150px;
+            position: absolute;
+            left: 13%;
+            top: -144px;
 
-.first,
-.second,
-.third,
-.fourth,
-.fifth{
-	width: 50px;
-	height: 250px;
-	float: left;
-}
 
-.first{
-	-webkit-animation: move 3s linear infinite;
-}
+        }
 
-.fifth{
-	-webkit-animation: moveback 3s linear infinite;
-}
+        .linee {
+            width: 3px;
+            height: 200px;
+            background: var(--main-color);
+            margin: auto;
+        }
 
-@media(max-width:768px) {
-    .upperpart{
-	margin-top: 40%;
-    }
-}
+        .balle {
+            width: 50px;
+            height: 50px;
+            background: var(--main-color);
+            border-radius: 100%;
+        }
 
-@-webkit-keyframes move {
-  0% {
-    transform: rotate(30deg);
-  	transform-origin: top;
-  }
-	25% {
-		transform: rotate(0deg);
-  	transform-origin: top;
-  }
-	50% {
-		transform: rotate(0deg);
-  	transform-origin: top;
-  }
-  75% {
-    transform: rotate(0deg);
-  	transform-origin: top;
-  }
-	100% {
-    transform: rotate(30deg);
-  	transform-origin: top;
-  }
-}
+        .first,
+        .second,
+        .third,
+        .fourth,
+        .fifth {
+            width: 50px;
+            height: 250px;
+            float: left;
+        }
 
-@-webkit-keyframes moveback {
-  0% {
-    transform: rotate(0deg);
-  	transform-origin: top;
-  }
-	25% {
-		transform: rotate(0deg);
-  	transform-origin: top;
-  }
-	50% {
-		transform: rotate(-30deg);
-  	transform-origin: top;
-  }
-	75% {
-		transform: rotate(0deg);
-  	transform-origin: top;
-  }
-  100% {
-    transform: rotate(0deg);
-  	transform-origin: top;
-  }
-}
+        .first {
+            -webkit-animation: move 3s linear infinite;
+        }
+
+        .fifth {
+            -webkit-animation: moveback 3s linear infinite;
+        }
+
+        @media (max-width: 768px) {
+            .upperpart {
+                margin-top: 40%;
+            }
+        }
+
+        @-webkit-keyframes move {
+            0% {
+                transform: rotate(30deg);
+                transform-origin: top;
+            }
+            25% {
+                transform: rotate(0deg);
+                transform-origin: top;
+            }
+            50% {
+                transform: rotate(0deg);
+                transform-origin: top;
+            }
+            75% {
+                transform: rotate(0deg);
+                transform-origin: top;
+            }
+            100% {
+                transform: rotate(30deg);
+                transform-origin: top;
+            }
+        }
+
+        @-webkit-keyframes moveback {
+            0% {
+                transform: rotate(0deg);
+                transform-origin: top;
+            }
+            25% {
+                transform: rotate(0deg);
+                transform-origin: top;
+            }
+            50% {
+                transform: rotate(-30deg);
+                transform-origin: top;
+            }
+            75% {
+                transform: rotate(0deg);
+                transform-origin: top;
+            }
+            100% {
+                transform: rotate(0deg);
+                transform-origin: top;
+            }
+        }
     </style>
 
 
@@ -355,23 +357,68 @@
                 <button class="btn" type="submit">log out</button>
             </form>
         </div>
+{{--        <div style="color: white">--}}
+{{--            <h2 style="margin-left: -300px; width: fit-content" >--}}
+{{--                @if(Auth::check())--}}
+{{--                    @if(Auth::user()->academic_year == 1)--}}
+{{--                        الصف الأول الثانوي--}}
+{{--                    @endif--}}
+{{--                    @if(Auth::user()->academic_year == 2)--}}
+{{--                        الصف الثاني الثانوي--}}
+{{--                    @endif--}}
+{{--                    @if(Auth::user()->academic_year == 3)--}}
+{{--                        الصف الثالث الثانوي--}}
+{{--                    @endif--}}
+
+{{--                @endif--}}
+{{--            </h2>--}}
+{{--        </div>--}}
+
         <div class="tutor">
             <div class="info">
                 <span>Welcome</span>
                 <h3>
                     @if(Auth::check())
+                        <span style="margin-left: 10px; width: fit-content" >
+                                @if(Auth::user()->academic_year == 1)
+                                    الصف الأول الثانوي
+                                @endif
+                                @if(Auth::user()->academic_year == 2)
+                                    الصف الثاني الثانوي
+                                @endif
+                                @if(Auth::user()->academic_year == 3)
+                                    الصف الثالث الثانوي
+                                @endif
+                        </span>
                         {{Auth::user()->name}}
+
                     @else
                         1st Year Student
                     @endif
                 </h3>
             </div>
+
             <img src="@if(Auth::check())
                             {{asset('images/studentImages/'.Auth::user()->avatar)}}
                         @else
                             {{asset('images//pic-6.jpg')}}
                         @endif" alt="tutor">
         </div>
+        {{--        <h2 style="margin-left: 10px;">--}}
+        {{--            @if(Auth::check())--}}
+        {{--                @if(Auth::user()->academic_year == 1)--}}
+        {{--                    الصف الأول الثانوي--}}
+        {{--                @endif--}}
+        {{--                @if(Auth::user()->academic_year == 2)--}}
+        {{--                    الصف الثاني الثانوي--}}
+        {{--                @endif--}}
+        {{--                @if(Auth::user()->academic_year == 3)--}}
+        {{--                    الصف الثالث الثانوي--}}
+        {{--                @endif--}}
+
+        {{--            @endif--}}
+        {{--        </h2>--}}
+
     </section>
 </header>
 
@@ -399,7 +446,7 @@
                 @else #
                 @endif
         "><i class="fas fa-graduation-cap"></i><span>جميع الكورسات</span></a>
-{{--        <a href="{{route('features')}}"><i class="fas fa-chalkboard-user"></i><span>المميزات</span></a>--}}
+        {{--        <a href="{{route('features')}}"><i class="fas fa-chalkboard-user"></i><span>المميزات</span></a>--}}
         <a href="{{route('contact')}}"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
         <a href="{{route('about')}}"><i class="fas fa-question"></i><span>من نحن</span></a>
         <a href="{{route('features')}}"><i class="fas fa-question"></i><span>المميزات </span></a>
@@ -465,7 +512,7 @@
         <div class="box">
             <div class="line">
                 <i class="fas fa-map-marker-alt fa-fw"></i>
-                <div class="info">مصر </div>
+                <div class="info">مصر</div>
             </div>
             <div class="line">
                 <i class="far fa-clock fa-fw"></i>
@@ -477,12 +524,12 @@
             </div>
         </div>
         <div class="box footer-gallery">
-            <img src="{{asset('images/thumb-9.png')}}" alt="" />
-            <img src="{{asset('images/thumb-8.png')}}" alt="" />
-            <img src="{{asset('images/year-2.jpeg')}}" alt="" />
-            <img src="{{asset('images/ph-1.jpg')}}" alt="" />
-            <img src="{{asset('images/thumb-5.png')}}" alt="" />
-            <img src="{{asset('images/thumb-4.png')}}" alt="" />
+            <img src="{{asset('images/thumb-9.png')}}" alt=""/>
+            <img src="{{asset('images/thumb-8.png')}}" alt=""/>
+            <img src="{{asset('images/year-2.jpeg')}}" alt=""/>
+            <img src="{{asset('images/ph-1.jpg')}}" alt=""/>
+            <img src="{{asset('images/thumb-5.png')}}" alt=""/>
+            <img src="{{asset('images/thumb-4.png')}}" alt=""/>
         </div>
     </div>
     <p class="copyright">Developed By <a href="#" class="fas fa-heart"></a> By Anas , Ahmed</p>
@@ -499,37 +546,37 @@
     let body = document.body;
     let darkMode = localStorage.getItem('dark-mode');
 
-    const enableDarkMode = () =>{
+    const enableDarkMode = () => {
         toggleBtn.classList.replace('fa-sun', 'fa-moon');
         body.classList.add('dark');
         localStorage.setItem('dark-mode', 'enabled');
     }
 
-    const disableDarkMode = () =>{
+    const disableDarkMode = () => {
         toggleBtn.classList.replace('fa-moon', 'fa-sun');
         body.classList.remove('dark');
         localStorage.setItem('dark-mode', 'disabled');
     }
 
-    if(darkMode === 'enabled'){
+    if (darkMode === 'enabled') {
         enableDarkMode();
     }
 
-    toggleBtn.onclick = (e) =>{
+    toggleBtn.onclick = (e) => {
         darkMode = localStorage.getItem('dark-mode');
-        if(darkMode === 'disabled'){
+        if (darkMode === 'disabled') {
             enableDarkMode();
-        }else{
+        } else {
             disableDarkMode();
         }
     }
     let sideBar = document.querySelector('.side-bar');
-    document.querySelector('#menu-btn').onclick = () =>{
+    document.querySelector('#menu-btn').onclick = () => {
         sideBar.classList.toggle('active');
         body.classList.toggle('active');
     }
 
-    document.querySelector('#close-btn').onclick = () =>{
+    document.querySelector('#close-btn').onclick = () => {
         sideBar.classList.remove('active');
         body.classList.remove('active');
     }
@@ -537,13 +584,13 @@
 
     let profile = document.querySelector('.header .flex .profile');
 
-    document.querySelector('#user-btn').onclick = () =>{
+    document.querySelector('#user-btn').onclick = () => {
         profile.classList.toggle('active');
         search.classList.remove('active');
     }
-    window.onscroll = () =>{
+    window.onscroll = () => {
         profile.classList.remove('active');
-        if(window.innerWidth < 1200){
+        if (window.innerWidth < 1200) {
             sideBar.classList.remove('active');
             body.classList.remove('active');
         }
@@ -570,7 +617,7 @@
         });
     };
 
-function submitForm(form) {
+    function submitForm(form) {
         swal({
             title: "هل انت متأكد من شراء الكورس",
             text: "لتأكيد الاشتراك",
@@ -578,16 +625,15 @@ function submitForm(form) {
             icon: "warning",
             buttons: true,
         })
-        .then(function (isOkay) {
-            if (isOkay) {
-                form.submit();
-            }
-        });
+            .then(function (isOkay) {
+                if (isOkay) {
+                    form.submit();
+                }
+            });
         return false;
     }
 
 </script>
-
 
 
 {{--Custom JavaScript--}}

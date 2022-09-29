@@ -13,7 +13,7 @@
 
             <h3>Add Website Feature</h3>
 
-            <p>المميزات <span>*</span></p>
+            <p>Features <span>*</span></p>
             <textarea name="feature" required class="box" style="height: 300px">
                 @if(isset($features))
                     @foreach($features as $feat)

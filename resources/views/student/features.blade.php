@@ -9,7 +9,7 @@
             </div>
 
             <div class="content">
-                <h3>Features</h3>
+                <h3>المميزات</h3>
                 @if(isset($features))
                     @foreach($features as $feat)
                         <p>
