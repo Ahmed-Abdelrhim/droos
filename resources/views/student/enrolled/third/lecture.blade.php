@@ -15,7 +15,7 @@
       </div>
 
       <form action="#" method="get" class="flex">
-         <a href="playlist.html" class="inline-btn">view playlist</a>
+         <a href="#" class="inline-btn">view playlist</a>
          <button><i class="far fa-heart"></i><span>like</span></button>
       </form>
    </div>
