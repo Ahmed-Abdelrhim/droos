@@ -30,7 +30,9 @@
                         <th>{{$data['students']->email}}</th>
                         <th>{{$data['students']->phone_number}}</th>
                         <th>{{$data['students']->parent_number}}</th>
-                        <th>{{$data->serial_number}}</th>                        <td style="width: 130px; height: 30px">
+                        <th>{{$data->serial_number}}</th>
+{{--                        <th>{{$data->name}}</th>--}}
+                        <td style="width: 130px; hei    ght: 30px">
                             <form action="{{route('activate.waiting.1st',$data->id)}}" method="POST">
                                 @csrf
                                 <button class="btn btn-primary" style="background-color: #007bff;border-color: #007bff">

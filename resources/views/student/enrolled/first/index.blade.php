@@ -12,8 +12,8 @@
         @endif
         <div class="box-container">
             <div class="card-container" id="cards">
-                @if(isset($courses))
-                    @foreach($courses as $course)
+                @if(isset($enrolled))
+                    @foreach($enrolled as $course)
                         <div class="card">
                             <span></span>
                             <span></span>

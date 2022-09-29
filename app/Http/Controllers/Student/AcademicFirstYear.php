@@ -134,7 +134,7 @@ class AcademicFirstYear extends Controller
         return view('student.to_subscribe.1st',compact('course'));
     }
 
-    public function subscribeCourseNow($id)
+    public function subscribeCourseNow($id): \Illuminate\Http\RedirectResponse
     {
         $student = Auth::user();
         $student_id = $student->id;
@@ -150,7 +150,8 @@ class AcademicFirstYear extends Controller
             'updated_at' => now(),
         ]);
         //view(all_course.1st)
-        return redirect()->route('courses.1st.students')->with(['success' => ' تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
+        // في الكورس
+        return redirect()->route('courses.1st.students')->with(['success' => ' تم الأضافة الي قائمة الأنتظار سيتم تفعيل الكورس عند الدفع ']);
     }
 
     public function deleteSubscription($id)
