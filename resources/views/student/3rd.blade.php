@@ -3,7 +3,7 @@
 
 
 <section class="playlist-details">
-   <h2 class="heading">فديو تعريفي </h2>
+   <h2 class="heading">فيديو تعريفي </h2>
    <div class="row">
       <div class="column">
          <div class="thumb">

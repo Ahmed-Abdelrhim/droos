@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateFirstYearCourseRrquest;
+use App\Models\LecturesFirstYear;
 use App\Models\SubscribedFirstYear;
 use App\Models\User;
 use App\Models\WaitingListFirstYear;
@@ -133,7 +134,7 @@ class AcademicFirstYear extends Controller
         return view('student.to_subscribe.1st',compact('course'));
     }
 
-    public function subscribeCourseNow($id)
+    public function subscribeCourseNow($id): \Illuminate\Http\RedirectResponse
     {
         $student = Auth::user();
         $student_id = $student->id;
@@ -149,7 +150,17 @@ class AcademicFirstYear extends Controller
             'updated_at' => now(),
         ]);
         //view(all_course.1st)
-        return redirect()->route('courses.1st.students')->with(['success' => ' تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
+        // في الكورس
+        return redirect()->route('courses.1st.students')->with(['success' => 'تم الأضافة الي قائمة الأنتظار سيتم تفعيل الكورس عند الدفع']);
+    }
+
+    public function deleteSubscription($id)
+    {
+        $subscription = SubscribedFirstYear::find($id);
+        if(!$subscription)
+            return 'Subscription Not Found';
+        $subscription->delete();
+        return redirect()->back()->with(['success' => 'subscription deleted successfully']);
     }
 
     public function enrolledCoursesView()
@@ -158,9 +169,32 @@ class AcademicFirstYear extends Controller
         return view('student.enrolled.first.index',compact('enrolled'));
     }
 
+    public function getLectures()
+    {
+        $allData = LecturesFirstYear::paginate(10);
+        return view('admin.lectures.1st',compact('allData'));
+    }
+
+    public function deleteLecture($id)
+    {
+        $lec = LecturesFirstYear::find($id);
+        if(!$lec)
+            return 'Lecture Not Found';
+        $lec->delete();
+        return redirect()->back()->with(['success' => 'Lecture deleted successfully']);
+    }
+
     public function viewWeeksPage()
     {
         return view('student.enrolled.first.week');
+    }
+
+    public function viewEnrolledCourse($id)
+    {
+        $lec = LecturesFirstYear::with('course')->find($id);
+        if(!$lec)
+            return view('student.access_denied');
+        return view('student.enrolled.first.lecture',compact('lec'));
     }
 
 }

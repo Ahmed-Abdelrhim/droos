@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddCoursesRequest;
 use App\Http\Requests\LecturesRequest;
+use App\Models\Feature;
 use App\Models\LecturesFirstYear;
 use App\Models\LecturesSecondYear;
 use App\Models\LecturesThirdYear;
@@ -21,6 +22,7 @@ use App\Models\SubscribedThirdYear;
 use App\Models\CourseFirstYear;
 use App\Models\CourseSecondYear;
 use App\Models\CourseThirdYear;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class DashboardController extends Controller
@@ -248,6 +250,8 @@ class DashboardController extends Controller
 
     }
 
+
+
     public function viewMessages()
     {
         $messages = Message::paginate(10);
@@ -265,7 +269,38 @@ class DashboardController extends Controller
 
     public function features()
     {
-        return view('student.features');
+        $features = Feature::get();
+        return view('student.features',compact('features'));
+    }
+
+    public function addNewFeatureForm()
+    {
+        $features = Feature::get();
+        return view('admin.feature',compact('features'));
+    }
+
+    public function storeNewFeature(Request $request): \Illuminate\Http\RedirectResponse
+    {
+        $request->validate(['feature' => 'string|min:50']);
+        DB::beginTransaction();
+        if(Feature::count() > 0 )
+        {
+            $feature = Feature::first();
+            $feature->update([
+                'text' => $request->feature,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            DB::commit();
+            return redirect()->back()->with(['success' => 'Website Features updated successfully']);
+        }
+        Feature::create([
+            'text' => $request->feature,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::commit();
+        return redirect()->back()->with(['success' => 'Website Features updated successfully']);
     }
 
 

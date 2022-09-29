@@ -31,7 +31,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
     });
 
     Route::group(['middleware' => 'auth:admin' , 'prefix' => 'admin'], function () {
-        Route::get('logout', [AdminLoginController::class, 'logout']);
+        Route::post('logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
 
         //go-to-dashboard
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -50,8 +50,14 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
         //View Subscribed Students
         Route::get('subscribed/1st/year', [DashboardController::class, 'subscribedFirstYear'])->name('subscribed.1st.year');
+        Route::post('delete/subscribed/1st/{id}',[AcademicFirstYear::class,'deleteSubscription'])->name('delete.subscribed.1st');
+
         Route::get('subscribed/2nd/year', [DashboardController::class, 'subscribedSecondYear'])->name('subscribed.2nd.year');
+        Route::post('delete/subscribed/2nd/{id}',[AcademicSecondYear::class,'deleteSubscription'])->name('delete.subscribed.2nd');
+
         Route::get('subscribed/3rd/year', [DashboardController::class, 'subscribedThirdYear'])->name('subscribed.3rd.year');
+        Route::post('delete/subscribed/3rd/{id}',[AcademicThirdYear::class,'deleteSubscription'])->name('delete.subscribed.3rd');
+
 
         //Academic First Year [add , edit , delete actions]
         Route::get('all/courses/1st/year', [AcademicFirstYear::class, 'showAllCourses'])->name('all.courses.1st');
@@ -106,12 +112,27 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('add/new/lecture',[DashboardController::class,'showAddNewLectureForm'])->name('add.new.lec');
         Route::post('add/new/lecture',[DashboardController::class,'addNewLecture'])->name('store.new.lec');
 
+        Route::get('view/lectures/1st/year',[AcademicFirstYear::class,'getLectures'])->name('get.lec.1st.year');
+        Route::post('delete/lectures/1st/year/{id}',[AcademicFirstYear::class,'deleteLecture'])->name('delete.lec.1st');
+        Route::post('delete/lectures/1st/year/{id}',[AcademicFirstYear::class,'deleteLecture'])->name('delete.lec.1st');
+
+        Route::get('view/lectures/2nd/year',[AcademicSecondYear::class,'getLectures'])->name('get.lec.2nd.year');
+        Route::post('delete/lectures/2nd/year/{id}',[AcademicSecondYear::class,'deleteLecture'])->name('delete.lec.2nd');
+
+        Route::get('view/lectures/3rd/year',[AcademicThirdYear::class,'getLectures'])->name('get.lec.3rd.year');
+        Route::post('delete/lectures/3rd/year/{id}',[AcademicThirdYear::class,'deleteLecture'])->name('delete.lec.3rd');
+
+
 
         //Messages
         Route::get('student/messages',[DashboardController::class,'viewMessages'])->name('view.msg');
         Route::post('delete/message/{id}',[DashboardController::class,'deleteMessage'])->name('delete.msg');
 
         Route::get('vvv/{id}',[DashboardController::class,'getCourseMonths']);
+
+        //Add New Feature
+        Route::get('add/feature',[DashboardController::class,'addNewFeatureForm'])->name('add.feature');
+        Route::post('add/new/feature',[DashboardController::class,'storeNewFeature'])->name('store.feature');
 
     });
 

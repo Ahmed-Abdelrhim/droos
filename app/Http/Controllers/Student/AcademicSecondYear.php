@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\CourseSecondYear;
+use App\Models\LecturesSecondYear;
 use App\Models\SubscribedSecondYear;
 use App\Models\User;
 use App\Models\WaitingListSecondtYear;
@@ -156,18 +157,49 @@ class AcademicSecondYear extends Controller
             'updated_at' => now(),
         ]);
         //view(all_course.2nd)
-        return redirect()->route('courses.2nd.students')->with(['success' => ' تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
+        return redirect()->route('courses.2nd.students')->with(['success' => 'تم الأضافة الي قائمة الأنتظار سيتم تفعيل الكورس عند الدفع']);
+    }
+
+    public function deleteSubscription($id)
+    {
+        $subscription = SubscribedSecondYear::find($id);
+        if(!$subscription)
+            return 'Subscription Not Found';
+        $subscription->delete();
+        return redirect()->back()->with(['success' => 'subscription deleted successfully']);
     }
 
     public function enrolledCoursesView()
     {
         $courses = SubscribedSecondYear::where('student_id',Auth::id())->get();
-//        $image = CourseSecondYear::find()
         return view('student.enrolled.second.index',compact('courses'));
+    }
+
+    public function getLectures()
+    {
+        $allData = LecturesSecondYear::paginate(10);
+        return view('admin.lectures.2nd',compact('allData'));
+    }
+
+    public function deleteLecture($id)
+    {
+        $lec = LecturesSecondYear::find($id);
+        if(!$lec)
+            return 'Lecture Not Found';
+        $lec->delete();
+        return redirect()->back()->with(['success' => 'Lecture deleted successfully']);
     }
 
     public function viewWeeksPage()
     {
         return view('student.enrolled.second.week');
+    }
+
+    public function viewEnrolledCourse($id)
+    {
+        $lec = LecturesSecondYear::with('course')->find($id);
+        if(!$lec)
+            return view('student.access_denied');
+        return view('student.enrolled.second.lecture',compact('lec'));
     }
 }

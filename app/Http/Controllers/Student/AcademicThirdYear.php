@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\CourseThirdYear;
+use App\Models\LecturesThirdYear;
 use App\Models\SubscribedThirdYear;
 use App\Models\User;
 use App\Models\WaitingListSecondtYear;
@@ -143,7 +144,16 @@ class AcademicThirdYear extends Controller
             'updated_at' => now(),
         ]);
         //view(all_course.3rd)
-        return redirect()->route('courses.3rd.students')->with(['success' => ' تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
+        return redirect()->route('courses.3rd.students')->with(['success' => 'تم الأضافة الي قائمة الأنتظار سيتم تفعيل الكورس عند الدفع']);
+    }
+
+    public function deleteSubscription($id)
+    {
+        $subscription = SubscribedThirdYear::find($id);
+        if(!$subscription)
+            return 'Subscription Not Found';
+        $subscription->delete();
+        return redirect()->back()->with(['success' => 'subscription deleted successfully']);
     }
 
     public function enrolledCoursesView()
@@ -152,10 +162,33 @@ class AcademicThirdYear extends Controller
         return view('student.enrolled.third.index',compact('courses'));
     }
 
+    public function getLectures()
+    {
+        $allData = LecturesThirdYear::paginate(10);
+        return view('admin.lectures.3rd',compact('allData'));
+    }
+
+    public function deleteLecture($id)
+    {
+        $lec = LecturesThirdYear::find($id);
+        if(!$lec)
+            return 'Lecture Not Found';
+        $lec->delete();
+        return redirect()->back()->with(['success' => 'Lecture deleted successfully']);
+    }
+
     public function viewWeeksPage()
     {
         return view('student.enrolled.third.week');
 
+    }
+
+    public function viewEnrolledCourse($id)
+    {
+        $lec = LecturesThirdYear::with('course')->find($id);
+        if(!$lec)
+            return view('student.access_denied');
+        return view('student.enrolled.third.lecture',compact('lec'));
     }
 
 }

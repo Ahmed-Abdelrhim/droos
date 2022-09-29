@@ -9,10 +9,15 @@
             </div>
 
             <div class="content">
-                <h3>Features</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut dolorum quasi illo? Distinctio expedita
-                    commodi, nemo a quam error repellendus sint, fugiat quis numquam eum eveniet sequi aspernatur
-                    quaerat tenetur.</p>
+                <h3>المميزات</h3>
+                @if(isset($features))
+                    @foreach($features as $feat)
+                        <p>
+                            {{$feat->text}}
+                        </p>
+                    @endforeach
+                @endif
+
                 <a href="
                 @if(Auth::check())
                 @if(Auth::user()->academic_year == 1) courses/1st/year

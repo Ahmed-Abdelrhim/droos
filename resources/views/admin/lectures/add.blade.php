@@ -57,12 +57,7 @@
 
 @endsection
 @section('script')
-{{--        <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"--}}
-{{--                integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>--}}
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
-{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"--}}
-{{--            integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="--}}
-{{--            crossorigin="anonymous" referrerpolicy="no-referrer"></script>--}}
     <script>
         $(document).ready(function () {
             console.log('asdasdasdas');

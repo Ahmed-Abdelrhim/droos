@@ -13,7 +13,6 @@
                 </a>
             </div>
 
-{{--            <i class="fa-solid fa-user" style="color: #007bff"></i>--}}
             <div class="box">
                 <h3 class="title"><i class="fas fa-user-graduate" style="color: #007bff"></i> المشتركين أولي ثانوي</h3>
                 <a href="#" class="inline-btn">

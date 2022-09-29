@@ -32,13 +32,13 @@
                         <th>{{$data['students']->parent_number}}</th>
                         <th>{{$data->serial_number}}</th>
                         <td style="width: 130px; height: 30px">
-                            <form action="{{route('activate.waiting.1st',$data->id)}}" method="POST">
-                                @csrf
-                                <button class="btn btn-primary" style="background-color: #007bff;border-color: #007bff">
-                                    Activate
-                                </button>
-                            </form>
-                            <form action="{{route('delete.waiting.1st',$data->id)}}" method="POST">
+{{--                            <form action="{{route('activate.waiting.2nd',$data->id)}}" method="POST">--}}
+{{--                                @csrf--}}
+{{--                                <button class="btn btn-primary" style="background-color: #007bff;border-color: #007bff">--}}
+{{--                                    Activate--}}
+{{--                                </button>--}}
+{{--                            </form>--}}
+                            <form action="{{route('delete.subscribed.2nd',$data->id)}}" method="POST">
                                 @csrf
                                 <button class="btn btn-danger" style="background-color: #dc3545;">Delete</button>
                             </form>
