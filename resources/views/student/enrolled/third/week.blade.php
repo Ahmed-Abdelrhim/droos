@@ -206,7 +206,7 @@
                         </div>
                     @endif
                 @endforeach -->
-            </div>
+            <!-- </div>
 
             {{--Third Week--}}
             <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثالث
@@ -272,8 +272,8 @@
                         </div>
                     @endif
                 @endforeach
-            </div>
-        </div>
+            </div> -->
+        <!-- </div> -->
 
 
 
