@@ -530,7 +530,7 @@
         {{--        <a href="{{route('features')}}"><i class="fas fa-chalkboard-user"></i><span>المميزات</span></a>--}}
         <a href="{{route('contact')}}"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
         <a href="{{route('about')}}"><i class="fas fa-question"></i><span>من نحن</span></a>
-        <a href="{{route('features')}}"><i class="fas fa-question"></i><span>المميزات </span></a>
+        <a href="{{route('features')}}"><i class="fa-solid fa-gift"></i><span>المميزات </span></a>
 
         <a href="
                 @if(Auth::check())
@@ -542,7 +542,7 @@
                 @endif
                 @else #
                 @endif
-        "><i class="fas fa-question"></i><span>كورساتي </span></a>
+        "><i class="fas fa-graduation-cap"></i><span>كورساتي </span></a>
     </nav>
 
 </div>

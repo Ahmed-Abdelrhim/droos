@@ -36,7 +36,19 @@
         border-right: var(--border);
         z-index: 1200;
         transition: .2s linear;
+        overflow-y: scroll;
     }
+
+.side-bar::-webkit-scrollbar {
+  width: 8px;
+  background: #0d141f;
+  border-radius: 0 8px 8px 0;
+}
+
+.side-bar::-webkit-scrollbar-thumb {
+  background: #525861;
+  border-radius: 0 8px 8px 0;
+}
 
     .side-bar #close-btn {
         text-align: left;
@@ -221,13 +233,20 @@
         text-align: right;
         cursor: pointer;
         outline: none;
+        margin-bottom:5%;
+        border-bottom: 2px solid var(--black);
     }
 
     /* On mouse-over */
     .dropdown-btn:hover {
-        color: #f1f1f1;
+        color: var(--black);
     }
 
+    /* On mouse-over */
+    .dropdown-btn i:hover {
+        transform: rotateX(180deg);
+        top: -6px;
+    }
 
     /* Add an active class to the active dropdown button */
     .active {
@@ -322,9 +341,8 @@
         <a href="{{route('dashboard')}}"><i class="fas fa-home"></i><span> لوحة التحكم </span></a>
 
         <a href="{{route('view.msg')}}"><i class="fas fa-envelope"></i><span>الرسائل</span></a>
-{{--        <button class="dropdown-btn"> الرسائل--}}
-{{--            <i class="fa fa-caret-down"></i>--}}
-{{--        </button>--}}
+
+        <a href="{{route('add.feature')}}"><i class="fa-solid fa-gift"></i><span>المميزات</span></a>
 
         <button class="dropdown-btn">جميع الطلاب
             <i class="fa fa-caret-down"></i>
@@ -381,8 +399,6 @@
             <a href="{{route('get.lec.2nd.year')}}"><i class="fas fa-question"></i><span> محاضرات الصف الثاني الثانوي</span></a>
             <a href="{{route('get.lec.3rd.year')}}"><i class="fas fa-question"></i><span>محاضرات الصف الثالث الثانوي</span></a>
         </div>
-
-        <a href="{{route('add.feature')}}"><i class="fas fa-question"></i><span>المميزات</span></a>
 
 
     </nav>
