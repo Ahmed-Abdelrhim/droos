@@ -177,9 +177,12 @@ class AcademicThirdYear extends Controller
         return redirect()->back()->with(['success' => 'Lecture deleted successfully']);
     }
 
-    public function viewWeeksPage()
+    public function viewWeeksPage($id)
     {
-        return view('student.enrolled.third.week');
+        $course= CourseThirdYear::with('lectures')->find($id);
+        if(!$course)
+            return view('student.access_denied');
+        return view('student.enrolled.third.week',compact('course'));
 
     }
 

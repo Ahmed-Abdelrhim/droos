@@ -24,7 +24,7 @@
                                 <h2>03</h2>
                                 <h3>الصف الثالث الثانوي</h3>
                                 <p style="margin-top: 5px">{{$course['course']->name}}</p>
-                                <a href="{{route('view.course.weeks.3rd')}}">اذهب للكورس</a>
+                                <a href="{{route('view.course.weeks.3rd',$course->id)}}">اذهب للكورس</a>
 
                             </div>
                         </div>

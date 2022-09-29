@@ -7,19 +7,19 @@
 
             <div class="column">
                 <div class="thumb">
-                    <img src="{{asset('images/ph-18.jpg')}}" alt="">
-                    <span>10 videos</span>
+                    <img src="{{asset('images/courses_third_year/'.$course->cover)}}" alt="not-found">
+                    <span>videos : {{count($course['lectures'])}} </span>
                 </div>
             </div>
             <div class="column">
 
                 <div class="details">
-                    <h3>كورس الباب الأول</h3>
+                    <h3>{{$course->name}}</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum minus reiciendis, error sunt
                         veritatis exercitationem deserunt velit doloribus itaque voluptate.</p>
                 </div>
                 <div class="tutor">
-                    <img src="{{asset('images/ph-18.jpg')}}" alt="">
+                    <img src="{{asset('images/courses_third_year/'.$course->cover)}}" alt="not-found">
                     <div class="detales">
                         <span> <i class="fas fa-book"></i> + 299   سؤال </span>
                         <span> <i class="fas fa-clock"></i> + 15   ساعة </span>
@@ -34,76 +34,111 @@
     <section class="playlist-details">
 
         <h2 class="heading">محتوى الكورس</h2>
-
+        {{--First Week--}}
         <div class="select-box">
             <div class="options-container">
-                <div class="option">
-                    <a><i class="fa-solid fa-video"></i><span>فيديو المحاضرة الاولي</span></a>
-                </div>
+                @foreach($course['lectures'] as $lec)
+                    @if($lec->serial_number == 1 && $lec->week == 1)
+                        <div class="option">
+                            <a href="{{route('view.enrolled.course.3rd',$lec->id)}}"><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                        </div>
 
-                <div class="option">
-                    <a><i class="fa-solid fa-book"></i><span>واجب المحاضرة الاولي</span></a>
-                </div>
+                        <div class="option">
+                            <a><i class="fa-solid fa-book"></i><span>واجب : {{$lec->name}}</span></a>
+                        </div>
 
-                <div class="option">
-                    <a><i class="fa-solid fa-book-open"></i><span>حل واجب المحاضرة الاولي</span></a>
-                </div>
+                        <div class="option">
+                            <a><i class="fa-solid fa-book-open"></i><span>حل واجب : {{$lec->name}}</span></a>
+                        </div>
 
-                <div class="option">
-                    <a><i class="fa-solid fa-chalkboard-user"></i><span> كويز المحاضرة الاولي</span></a>
-                </div>
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> كويز : {{$lec->name}}</span></a>
+                        </div>
 
-                <div class="option">
-                    <a><i class="fa-brands fa-leanpub"></i><span> حل كويز المحاضرة الاولي</span></a>
-                </div>
-
-                <div class="option">
-                    <a><i class="fa-solid fa-book-open-reader"></i><span> ملزمة المحاضرة الاولي</span></a>
-                </div>
-
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> حل كويز : {{$lec->name}}</span></a>
+                        </div>
+                    @endif
+                @endforeach
             </div>
-
             <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
                 الاسبوع الاول
                 <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الاول</span>
             </div>
         </div>
+        {{--Second Week--}}
+
+
+        <div class="select-box">
+            <div class="options-container">
+                @foreach($course['lectures'] as $lec)
+                    @if($lec->serial_number == 1 && $lec->week == 2)
+                        <div class="option">
+                            <a><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-book"></i><span>واجب : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-book-open"></i><span>حل واجب : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> كويز : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> حل كويز : {{$lec->name}}</span></a>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+            <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
+                الاسبوع الثاني
+                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الثاني</span>
+            </div>
+        </div>
+
+        {{--Third Week--}}
+        {{--Fourth Week--}}
 
 
     </section>
 @endsection
 
-@section('script')
-    <script>
-        var message = "This function has been disabled!";
+{{--@section('script')--}}
+{{--    <script>--}}
+{{--        var message = "This function has been disabled!";--}}
 
-        ///////////////////////////////////
+{{--        ///////////////////////////////////--}}
 
-        function clickIE4() {
-            if (event.button == 2) {
-                alert(message);
-                return false;
-            }
-        }
+{{--        function clickIE4() {--}}
+{{--            if (event.button == 2) {--}}
+{{--                alert(message);--}}
+{{--                return false;--}}
+{{--            }--}}
+{{--        }--}}
 
-        function clickNS4(e) {
-            if (document.layers || document.getElementById && !document.all) {
-                if (e.which == 2 || e.which == 3) {
-                    alert(message);
-                    return false;
-                }
-            }
-        }
+{{--        function clickNS4(e) {--}}
+{{--            if (document.layers || document.getElementById && !document.all) {--}}
+{{--                if (e.which == 2 || e.which == 3) {--}}
+{{--                    alert(message);--}}
+{{--                    return false;--}}
+{{--                }--}}
+{{--            }--}}
+{{--        }--}}
 
-        if (document.layers) {
-            document.captureEvents(Event.MOUSEDOWN);
-            document.onmousedown = clickNS4;
-        } else if (document.all && !document.getElementById) {
-            document.onmousedown = clickIE4;
-        }
+{{--        if (document.layers) {--}}
+{{--            document.captureEvents(Event.MOUSEDOWN);--}}
+{{--            document.onmousedown = clickNS4;--}}
+{{--        } else if (document.all && !document.getElementById) {--}}
+{{--            document.onmousedown = clickIE4;--}}
+{{--        }--}}
 
-        document.oncontextmenu = new Function("alert(message);return false")
+{{--        document.oncontextmenu = new Function("alert(message);return false")--}}
 
-    </script>
+{{--    </script>--}}
 
-@endsection
+{{--@endsection--}}

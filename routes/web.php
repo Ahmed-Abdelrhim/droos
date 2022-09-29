@@ -105,13 +105,13 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
         Route::get('weeks/page/1st/year',[AcademicFirstYear::class,'viewWeeksPage'])->name('view.course.weeks.1st');
         Route::get('weeks/page/2nd/year',[AcademicSecondYear::class,'viewWeeksPage'])->name('view.course.weeks.2nd');
-        Route::get('weeks/page/3rd/year',[AcademicThirdYear::class,'viewWeeksPage'])->name('view.course.weeks.3rd');
+        Route::get('weeks/page/3rd/year/{id}',[AcademicThirdYear::class,'viewWeeksPage'])->name('view.course.weeks.3rd');
 
 
         //view video courses
-        Route::get('view/enrolled/course/1st/year/{id}',[AcademicFirstYear::class,'viewEnrolledCourse'])->name('view.enrolled.course.1st');
-        Route::get('view/enrolled/course/2nd/year/{id}',[AcademicSecondYear::class,'viewEnrolledCourse'])->name('view.enrolled.course.2nd');
-        Route::get('view/enrolled/course/3rd/year/{id}',[AcademicThirdYear::class,'viewEnrolledCourse'])->name('view.enrolled.course.3rd');
+        Route::get('view/enrolled/course/lecture/1st/year/{id}',[AcademicFirstYear::class,'viewEnrolledCourse'])->name('view.enrolled.course.1st');
+        Route::get('view/enrolled/course/lecture/2nd/year/{id}',[AcademicSecondYear::class,'viewEnrolledCourse'])->name('view.enrolled.course.2nd');
+        Route::get('view/enrolled/course/lecture/3rd/year/{id}',[AcademicThirdYear::class,'viewEnrolledCourse'])->name('view.enrolled.course.3rd');
 
 
     });
