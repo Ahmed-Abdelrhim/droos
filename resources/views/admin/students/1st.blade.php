@@ -8,7 +8,6 @@
                 </button>
             </div>
         @endif
-
         <h1 class="heading">All Students Secondary First Year</h1>
 
         <div class="box-container" style="overflow-x:auto;">

@@ -18,8 +18,8 @@ class CourseSecondYear extends Model
         return $this->hasOne(SubscribedSecondYear::class,'course_id','id');
     }
 
-    public function lectures(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function lectures(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasOne(LecturesSecondYear::class,'course_id','id');
+        return $this->hasMany(LecturesSecondYear::class,'course_id','id');
     }
 }
