@@ -101,17 +101,17 @@
             <a href="{{route('home')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
             <ul class="social">
                 <li>
-                    <a href="#" class="facebook">
+                    <a href="https://web.facebook.com/profile.php?id=100009262544420" class="facebook" target="_blank">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="twitter">
+                    <a href="https://web.facebook.com/profile.php?id=100009262544420" class="twitter" target="_blank">
                         <i class="fab fa-twitter"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="youtube">
+                    <a href="https://www.youtube.com/channel/UCXrIOiXRybTNagbllgISrDQ" class="youtube" target="_blank">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </li>
