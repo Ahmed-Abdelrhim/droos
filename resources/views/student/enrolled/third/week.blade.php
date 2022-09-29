@@ -211,104 +211,104 @@
 @endsection
 
 
-{{--<div class="select-box">--}}
-{{--    <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الاول--}}
-{{--        <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الاول</span>--}}
-{{--        <i class="fa fa-caret-down"></i>--}}
-{{--    </button>--}}
-{{--    <div class="dropdown-container">--}}
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-video"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+<div class="select-box">
+    <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الاول
+        <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الاول</span>
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+        <a href="#">
+            <i class="fa-solid fa-video"></i>
+            <span>ppppppppppp</span></a>
 
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-book-open"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+        <a href="#">
+            <i class="fa-solid fa-book-open"></i>
+            <span>ppppppppppp</span></a>
 
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+        <a href="#">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>ppppppppppp</span></a>
 
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+        <a href="#">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>ppppppppppp</span></a>
 
-{{--    </div>--}}
+    </div>
 
-{{--    --}}{{--Second Week--}}
-{{--    <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثاني--}}
-{{--        <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">--}}
-{{--                محتوى الاسبوع الثاني</span>--}}
-{{--        <i class="fa fa-caret-down"></i>--}}
-{{--    </button>--}}
-{{--    <div class="dropdown-container">--}}
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-video"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+    Second Week
+    <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثاني
+        <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">
+                محتوى الاسبوع الثاني</span>
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+        <a href="#">
+            <i class="fa-solid fa-video"></i>
+            <span>ppppppppppp</span></a>
 
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-book-open"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+        <a href="#">
+            <i class="fa-solid fa-book-open"></i>
+            <span>ppppppppppp</span></a>
 
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+        <a href="#">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>ppppppppppp</span></a>
 
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+        <a href="#">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>ppppppppppp</span></a>
 
-{{--    </div>--}}
+    </div>
 
-{{--    --}}{{--Third Week--}}
-{{--    <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثالث--}}
-{{--        <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">--}}
-{{--                محتوى الاسبوع الثالث</span>--}}
-{{--        <i class="fa fa-caret-down"></i>--}}
-{{--    </button>--}}
-{{--    <div class="dropdown-container">--}}
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-video"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+    Third Week
+    <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثالث
+        <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">
+                محتوى الاسبوع الثالث</span>
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+        <a href="#">
+            <i class="fa-solid fa-video"></i>
+            <span>ppppppppppp</span></a>
 
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-book-open"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+        <a href="#">
+            <i class="fa-solid fa-book-open"></i>
+            <span>ppppppppppp</span></a>
 
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+        <a href="#">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>ppppppppppp</span></a>
 
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+        <a href="#">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>ppppppppppp</span></a>
 
-{{--    </div>--}}
+    </div>
 
-{{--    --}}{{--Fourth Week--}}
-{{--    <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الرابع--}}
-{{--        <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">--}}
-{{--                محتوى الاسبوع الرابع</span>--}}
-{{--        <i class="fa fa-caret-down"></i>--}}
-{{--    </button>--}}
-{{--    <div class="dropdown-container">--}}
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-video"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+    Fourth Week
+    <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الرابع
+        <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">
+                محتوى الاسبوع الرابع</span>
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+        <a href="#">
+            <i class="fa-solid fa-video"></i>
+            <span>ppppppppppp</span></a>
 
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-book-open"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+        <a href="#">
+            <i class="fa-solid fa-book-open"></i>
+            <span>ppppppppppp</span></a>
 
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+        <a href="#">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>ppppppppppp</span></a>
 
-{{--        <a href="#">--}}
-{{--            <i class="fa-solid fa-chalkboard-user"></i>--}}
-{{--            <span>ppppppppppp</span></a>--}}
+        <a href="#">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>ppppppppppp</span></a>
 
-{{--    </div>--}}
+    </div>
 
-{{--</div>--}}
+</div>
 
