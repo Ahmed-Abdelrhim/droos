@@ -34,11 +34,13 @@
     <section class="playlist-details">
 
         <h2 class="heading">محتوى الكورس</h2>
+
         {{--First Week--}}
+
         <div class="select-box">
             <div class="options-container">
                 @foreach($course['lectures'] as $lec)
-                    @if($lec->serial_number == 1 && $lec->week == 1)
+                    @if($lec->week == 1)
                         <div class="option">
                             <a href="{{route('view.enrolled.lecture.3rd',$lec->id)}}"><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
                         </div>
@@ -66,13 +68,13 @@
                 <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الاول</span>
             </div>
         </div>
-        {{--Second Week--}}
 
+        {{--Second Week--}}
 
         <div class="select-box">
             <div class="options-container">
                 @foreach($course['lectures'] as $lec)
-                    @if($lec->serial_number == 1 && $lec->week == 2)
+                    @if( $lec->week == 2)
                         <div class="option">
                             <a><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
                         </div>
@@ -102,10 +104,11 @@
         </div>
 
         {{--Third Week--}}
+
         <div class="select-box">
             <div class="options-container">
                 @foreach($course['lectures'] as $lec)
-                    @if($lec->serial_number == 1 && $lec->week == 3)
+                    @if( $lec->week == 3)
                         <div class="option">
                             <a><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
                         </div>
@@ -135,10 +138,11 @@
         </div>
 
         {{--Fourth Week--}}
+
         <div class="select-box">
             <div class="options-container">
                 @foreach($course['lectures'] as $lec)
-                    @if($lec->serial_number == 1 && $lec->week == 4)
+                    @if($lec->week == 4)
                         <div class="option">
                             <a><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
                         </div>
@@ -203,5 +207,6 @@
         document.oncontextmenu = new Function("alert(message);return false")
 
     </script>
+
 
 @endsection

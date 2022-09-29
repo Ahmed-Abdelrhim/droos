@@ -184,9 +184,12 @@ class AcademicFirstYear extends Controller
         return redirect()->back()->with(['success' => 'Lecture deleted successfully']);
     }
 
-    public function viewWeeksPage()
+    public function viewWeeksPage($id)
     {
-        return view('student.enrolled.first.week');
+        $course= CourseFirstYear::with('lectures')->find($id);
+        if(!$course)
+            return view('student.access_denied');
+        return view('student.enrolled.first.week',compact('course'));
     }
 
     public function viewEnrolledCourse($id)

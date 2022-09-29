@@ -7,18 +7,18 @@
 
       <div class="column">
          <div class="thumb">
-            <img src="{{asset('images/ph-18.jpg')}}" alt="">
-            <span>10 videos</span>
+            <img src="{{asset('images/courses_second_year/'.$course->cover)}}" alt="not-found">
+            <span>videos : {{count($course['lectures'])}}</span>
          </div>
       </div>
       <div class="column">
 
           <div class="details">
-              <h3>كورس الباب الأول</h3>
+              <h3>{{$course->name}}</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum minus reiciendis, error sunt veritatis exercitationem deserunt velit doloribus itaque voluptate.</p>
             </div>
             <div class="tutor">
-                <img src="{{asset('images/ph-18.jpg')}}" alt="">
+                <img src="{{asset('images/courses_second_year/'.$course->cover)}}" alt="not-found">
                 <div class="detales">
                     <span> <i class="fas fa-book"></i> + 299   سؤال </span>
                     <span> <i class="fas fa-clock"></i> + 15   ساعة </span>
@@ -33,40 +33,141 @@
 
    <h2 class="heading">محتوى الكورس</h2>
 
-      <div class="select-box">
+    {{--First Week--}}
+
+    <div class="select-box">
         <div class="options-container">
-          <div class="option">
-            <a><i class="fa-solid fa-video"></i><span>فيديو المحاضرة الاولي</span></a>
-          </div>
+            @foreach($course['lectures'] as $lec)
+                @if( $lec->week == 1)
+                    <div class="option">
+                        <a href="{{route('view.enrolled.lecture.2nd',$lec->id)}}"><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                    </div>
 
-          <div class="option">
-            <a><i class="fa-solid fa-book"></i><span>واجب المحاضرة الاولي</span></a>
-          </div>
+                    <div class="option">
+                        <a><i class="fa-solid fa-book"></i><span>واجب : {{$lec->name}}</span></a>
+                    </div>
 
-          <div class="option">
-            <a><i class="fa-solid fa-book-open"></i><span>حل واجب المحاضرة الاولي</span></a>
-          </div>
+                    <div class="option">
+                        <a><i class="fa-solid fa-book-open"></i><span>حل واجب : {{$lec->name}}</span></a>
+                    </div>
 
-          <div class="option">
-            <a><i class="fa-solid fa-chalkboard-user"></i><span> كويز المحاضرة الاولي</span></a>
-          </div>
+                    <div class="option">
+                        <a><i class="fa-solid fa-chalkboard-user"></i><span> كويز : {{$lec->name}}</span></a>
+                    </div>
 
-          <div class="option">
-            <a><i class="fa-brands fa-leanpub"></i><span> حل كويز المحاضرة الاولي</span></a>
-          </div>
-
-          <div class="option">
-            <a><i class="fa-solid fa-book-open-reader"></i><span> ملزمة المحاضرة الاولي</span></a>
-          </div>
-
+                    <div class="option">
+                        <a><i class="fa-solid fa-chalkboard-user"></i><span> حل كويز : {{$lec->name}}</span></a>
+                    </div>
+                @endif
+            @endforeach
         </div>
-
         <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
-          الاسبوع الاول
-          <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الاول</span>
+            الاسبوع الاول
+            <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الاول</span>
         </div>
-      </div>
+    </div>
 
+    {{--Second Week--}}
+
+    <div class="select-box">
+        <div class="options-container">
+            @foreach($course['lectures'] as $lec)
+                @if( $lec->week == 2)
+                    <div class="option">
+                        <a href="{{route('view.enrolled.lecture.2nd',$lec->id)}}"><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                    </div>
+
+                    <div class="option">
+                        <a><i class="fa-solid fa-book"></i><span>واجب : {{$lec->name}}</span></a>
+                    </div>
+
+                    <div class="option">
+                        <a><i class="fa-solid fa-book-open"></i><span>حل واجب : {{$lec->name}}</span></a>
+                    </div>
+
+                    <div class="option">
+                        <a><i class="fa-solid fa-chalkboard-user"></i><span> كويز : {{$lec->name}}</span></a>
+                    </div>
+
+                    <div class="option">
+                        <a><i class="fa-solid fa-chalkboard-user"></i><span> حل كويز : {{$lec->name}}</span></a>
+                    </div>
+                @endif
+            @endforeach
+        </div>
+        <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
+            الاسبوع الثاني
+            <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الثاني</span>
+        </div>
+    </div>
+
+    {{--Third Week--}}
+
+    <div class="select-box">
+        <div class="options-container">
+            @foreach($course['lectures'] as $lec)
+                @if( $lec->week == 3)
+                    <div class="option">
+                        <a href="{{route('view.enrolled.lecture.2nd',$lec->id)}}"><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                    </div>
+
+                    <div class="option">
+                        <a><i class="fa-solid fa-book"></i><span>واجب : {{$lec->name}}</span></a>
+                    </div>
+
+                    <div class="option">
+                        <a><i class="fa-solid fa-book-open"></i><span>حل واجب : {{$lec->name}}</span></a>
+                    </div>
+
+                    <div class="option">
+                        <a><i class="fa-solid fa-chalkboard-user"></i><span> كويز : {{$lec->name}}</span></a>
+                    </div>
+
+                    <div class="option">
+                        <a><i class="fa-solid fa-chalkboard-user"></i><span> حل كويز : {{$lec->name}}</span></a>
+                    </div>
+                @endif
+            @endforeach
+        </div>
+        <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
+            الاسبوع الثالث
+            <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الثالث</span>
+        </div>
+    </div>
+
+    {{--Fourth Week--}}
+
+    <div class="select-box" >
+        <div class="options-container">
+            @foreach($course['lectures'] as $lec)
+                @if( $lec->week == 4)
+                    <div class="option">
+                        <a href="{{route('view.enrolled.lecture.2nd',$lec->id)}}"><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                    </div>
+
+                    <div class="option">
+                        <a><i class="fa-solid fa-book"></i><span>واجب : {{$lec->name}}</span></a>
+                    </div>
+
+                    <div class="option">
+                        <a><i class="fa-solid fa-book-open"></i><span>حل واجب : {{$lec->name}}</span></a>
+                    </div>
+
+                    <div class="option">
+                        <a><i class="fa-solid fa-chalkboard-user"></i><span> كويز : {{$lec->name}}</span></a>
+                    </div>
+
+                    <div class="option">
+                        <a><i class="fa-solid fa-chalkboard-user"></i><span> حل كويز : {{$lec->name}}</span></a>
+                    </div>
+                @endif
+            @endforeach
+        </div>
+        <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
+            الاسبوع الرابع
+            <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع ارابع</span>
+        </div>
+    </div>
 
 
 </section>
