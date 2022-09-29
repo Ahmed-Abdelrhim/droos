@@ -12,4 +12,9 @@ class LecturesFirstYear extends Model
     protected $fillable = ['course_id','name','lec', 'serial_number', 'week','created_at','updated_at'];
     protected $hidden = ['created_at','updated_at'];
     public $timestamps = true;
+
+    public function course(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(CourseFirstYear::class,'course_id','id');
+    }
 }

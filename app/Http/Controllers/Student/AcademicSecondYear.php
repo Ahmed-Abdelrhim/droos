@@ -194,4 +194,12 @@ class AcademicSecondYear extends Controller
     {
         return view('student.enrolled.second.week');
     }
+
+    public function viewEnrolledCourse($id)
+    {
+        $lec = LecturesSecondYear::with('course')->find($id);
+        if(!$lec)
+            return view('student.access_denied');
+        return view('student.enrolled.second.lecture',compact('lec'));
+    }
 }

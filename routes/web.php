@@ -108,6 +108,12 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('weeks/page/3rd/year',[AcademicThirdYear::class,'viewWeeksPage'])->name('view.course.weeks.3rd');
 
 
+        //view video courses
+        Route::get('view/enrolled/course/1st/year/{id}',[AcademicFirstYear::class,'viewEnrolledCourse'])->name('view.enrolled.course.1st');
+        Route::get('view/enrolled/course/2nd/year/{id}',[AcademicSecondYear::class,'viewEnrolledCourse'])->name('view.enrolled.course.2nd');
+        Route::get('view/enrolled/course/3rd/year/{id}',[AcademicThirdYear::class,'viewEnrolledCourse'])->name('view.enrolled.course.3rd');
+
+
     });
 
     Route::get('aaa', [StudentGeneralController::class, 'play']);

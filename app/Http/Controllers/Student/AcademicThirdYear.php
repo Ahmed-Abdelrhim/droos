@@ -183,4 +183,12 @@ class AcademicThirdYear extends Controller
 
     }
 
+    public function viewEnrolledCourse($id)
+    {
+        $lec = LecturesThirdYear::with('course')->find($id);
+        if(!$lec)
+            return view('student.access_denied');
+        return view('student.enrolled.third.lecture',compact('lec'));
+    }
+
 }

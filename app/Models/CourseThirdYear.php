@@ -18,4 +18,9 @@ class CourseThirdYear extends Model
     {
         return $this->hasOne(SubscribedThirdYear::class,'course_id','id');
     }
+
+    public function lectures(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(LecturesThirdYear::class,'course_id','id');
+    }
 }

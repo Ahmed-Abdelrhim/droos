@@ -188,5 +188,13 @@ class AcademicFirstYear extends Controller
         return view('student.enrolled.first.week');
     }
 
+    public function viewEnrolledCourse($id)
+    {
+        $lec = LecturesFirstYear::with('course')->find($id);
+        if(!$lec)
+            return view('student.access_denied');
+        return view('student.enrolled.first.lecture',compact('lec'));
+    }
+
 }
 // data-target='#exampleModal' data-toggle='modal'
