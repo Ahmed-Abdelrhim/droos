@@ -1,110 +1,214 @@
 @extends('layouts.student')
 @section('content')
 
-<section class="playlist-details">
+    <section class="playlist-details">
 
-   <div class="row">
+        <div class="row">
 
-      <div class="column">
-         <div class="thumb">
-            <img src="{{asset('images/ph-18.jpg')}}" alt="">
-            <span>10 videos</span>
-         </div>
-      </div>
-      <div class="column">
-
-          <div class="details">
-              <h3>كورس الباب الأول</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum minus reiciendis, error sunt veritatis exercitationem deserunt velit doloribus itaque voluptate.</p>
-            </div>
-            <div class="tutor">
-                <img src="{{asset('images/ph-18.jpg')}}" alt="">
-                <div class="detales">
-                    <span> <i class="fas fa-book"></i> + 299   سؤال </span>
-                    <span> <i class="fas fa-clock"></i> + 15   ساعة </span>
+            <div class="column">
+                <div class="thumb">
+                    <img src="{{asset('images/courses_first_year/'.$course->cover)}}" alt="">
+                    <span>10 videos</span>
                 </div>
             </div>
-            <a href="#" class="inline-btn"><i style="margin-left:15px;" class="fa-brands fa-youtube"></i>مشاهدة الفديوهات</a>
+            <div class="column">
+
+                <div class="details">
+                    <h3>{{$course->name}}</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum minus reiciendis, error sunt
+                        veritatis exercitationem deserunt velit doloribus itaque voluptate.</p>
+                </div>
+                <div class="tutor">
+                    <img src="{{asset('images/courses_first_year/'.$course->cover)}}" alt="">
+                    <div class="detales">
+                        <span> <i class="fas fa-book"></i> + 299   سؤال </span>
+                        <span> <i class="fas fa-clock"></i> + 15   ساعة </span>
+                    </div>
+                </div>
+                <a href="#" class="inline-btn"><i style="margin-left:15px;" class="fa-brands fa-youtube"></i>مشاهدة
+                    الفديوهات</a>
+            </div>
         </div>
-   </div>
-</section>
+    </section>
 
-<section class="playlist-details">
+    <section class="playlist-details">
 
-   <h2 class="heading"> كورس الباب الأول </h2>
+        <h2 class="heading"> محتوي الكورس </h2>
 
-      <div class="select-box">
+        {{--First Week--}}
 
-        <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
-           محتوى الكورس
-          <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى كورس الباب الأول</span>
+        <div class="select-box">
+            <div class="options-container">
+                @foreach($course['lectures'] as $lec)
+                    @if( $lec->week == 1)
+                        <div class="option">
+                            <a href="{{route('view.enrolled.lecture.1St',$lec->id)}}"><i
+                                    class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-book"></i><span>واجب : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-book-open"></i><span>حل واجب : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> كويز : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> حل كويز : {{$lec->name}}</span></a>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+            <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
+                الاسبوع الاول
+                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الاول</span>
+            </div>
         </div>
 
-        <div class="options-container">
-          <div class="option">
-            <a><i class="fa-solid fa-video"></i><span> قائمة الفديوهات </span></a>
-          </div>
+        {{--Second Week--}}
 
-          <div class="option">
-            <a><i class="fa-solid fa-book"></i><span>قائمة الواجبات</span></a>
-          </div>
+        <div class="select-box">
+            <div class="options-container">
+                @foreach($course['lectures'] as $lec)
+                    @if( $lec->week == 2)
+                        <div class="option">
+                            <a href="{{route('view.enrolled.lecture.1st',$lec->id)}}"><i
+                                    class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                        </div>
 
-          <div class="option">
-            <a><i class="fa-solid fa-book-open"></i><span>حلول الواجب  </span></a>
-          </div>
+                        <div class="option">
+                            <a><i class="fa-solid fa-book"></i><span>واجب : {{$lec->name}}</span></a>
+                        </div>
 
-          <div class="option">
-            <a><i class="fa-solid fa-chalkboard-user"></i><span> كويزات  </span></a>
-          </div>
+                        <div class="option">
+                            <a><i class="fa-solid fa-book-open"></i><span>حل واجب : {{$lec->name}}</span></a>
+                        </div>
 
-          <div class="option">
-            <a><i class="fa-brands fa-leanpub"></i><span> حلول كويزات </span></a>
-          </div>
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> كويز : {{$lec->name}}</span></a>
+                        </div>
 
-          <div class="option">
-            <a><i class="fa-solid fa-book-open-reader"></i><span> الملازم </span></a>
-          </div>
-
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> حل كويز : {{$lec->name}}</span></a>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+            <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
+                الاسبوع الثاني
+                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الثاني</span>
+            </div>
         </div>
 
-      </div>
+        {{--Third Week--}}
 
+        <div class="select-box">
+            <div class="options-container">
+                @foreach($course['lectures'] as $lec)
+                    @if( $lec->week == 3)
+                        <div class="option">
+                            <a href="{{route('view.enrolled.lecture.1st',$lec->id)}}"><i
+                                    class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                        </div>
 
+                        <div class="option">
+                            <a><i class="fa-solid fa-book"></i><span>واجب : {{$lec->name}}</span></a>
+                        </div>
 
-</section>
+                        <div class="option">
+                            <a><i class="fa-solid fa-book-open"></i><span>حل واجب : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> كويز : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> حل كويز : {{$lec->name}}</span></a>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+            <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
+                الاسبوع الثالث
+                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الثالث</span>
+            </div>
+        </div>
+
+        {{--Fourth Week--}}
+
+        <div class="select-box">
+            <div class="options-container">
+                @foreach($course['lectures'] as $lec)
+                    @if( $lec->week == 4)
+                        <div class="option">
+                            <a href="{{route('view.enrolled.lecture.1st',$lec->id)}}"><i
+                                    class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-book"></i><span>واجب : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-book-open"></i><span>حل واجب : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> كويز : {{$lec->name}}</span></a>
+                        </div>
+
+                        <div class="option">
+                            <a><i class="fa-solid fa-chalkboard-user"></i><span> حل كويز : {{$lec->name}}</span></a>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+            <div class="selected"><i class="fa-solid fa-arrows-to-circle"></i>
+                الاسبوع الرابع
+                <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الرابع</span>
+            </div>
+        </div>
+
+    </section>
 @endsection
 
 @section('script')
-<script>
-    var message="This function has been disabled!";
+    <script>
+        var message = "This function has been disabled!";
 
-///////////////////////////////////
+        ///////////////////////////////////
 
-function clickIE4(){
-    if (event.button==2){
-    alert(message);
-    return false;
-    }
-}
-
-function clickNS4(e){
-    if (document.layers||document.getElementById&&!document.all){
-        if (e.which==2||e.which==3){
-        alert(message);
-        return false;
+        function clickIE4() {
+            if (event.button == 2) {
+                alert(message);
+                return false;
+            }
         }
-    }
-}
 
-if (document.layers){
-    document.captureEvents(Event.MOUSEDOWN);
-    document.onmousedown=clickNS4;
-    } else if (document.all&&!document.getElementById){
-    document.onmousedown=clickIE4;
-}
+        function clickNS4(e) {
+            if (document.layers || document.getElementById && !document.all) {
+                if (e.which == 2 || e.which == 3) {
+                    alert(message);
+                    return false;
+                }
+            }
+        }
 
-document.oncontextmenu=new Function("alert(message);return false")
+        if (document.layers) {
+            document.captureEvents(Event.MOUSEDOWN);
+            document.onmousedown = clickNS4;
+        } else if (document.all && !document.getElementById) {
+            document.onmousedown = clickIE4;
+        }
 
-</script>
+        document.oncontextmenu = new Function("alert(message);return false")
+
+    </script>
 
 @endsection

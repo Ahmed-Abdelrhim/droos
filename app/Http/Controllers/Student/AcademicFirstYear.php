@@ -165,7 +165,7 @@ class AcademicFirstYear extends Controller
 
     public function enrolledCoursesView()
     {
-        $enrolled = SubscribedFirstYear::orderBy('serial_number','asc')->where('student_id',Auth::id())->get();
+        $enrolled = SubscribedFirstYear::orderBy('serial_number','asc')->where('student_id',Auth::id())->with('course')->get();
         return view('student.enrolled.first.index',compact('enrolled'));
     }
 

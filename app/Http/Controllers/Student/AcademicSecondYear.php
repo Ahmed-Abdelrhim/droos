@@ -171,7 +171,7 @@ class AcademicSecondYear extends Controller
 
     public function enrolledCoursesView()
     {
-        $courses = SubscribedSecondYear::orderBy('serial_number','asc')->where('student_id',Auth::id())->get();
+        $courses = SubscribedSecondYear::orderBy('serial_number','asc')->where('student_id',Auth::id())->with('course')->get();
         return view('student.enrolled.second.index',compact('courses'));
     }
 
