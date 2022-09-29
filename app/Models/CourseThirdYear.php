@@ -14,9 +14,9 @@ class CourseThirdYear extends Model
     public $timestamps = true;
 
 
-    public function subscribed(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function subscribed(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasOne(SubscribedThirdYear::class,'course_id','id');
+        return $this->hasMany(SubscribedThirdYear::class,'course_id','id');
     }
 
     public function lectures(): \Illuminate\Database\Eloquent\Relations\HasMany

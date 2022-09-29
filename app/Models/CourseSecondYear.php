@@ -13,9 +13,9 @@ class CourseSecondYear extends Model
     protected $hidden = ['created_at','updated_at'];
     public $timestamps = true;
 
-    public function subscribed(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function subscribed(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasOne(SubscribedSecondYear::class,'course_id','id');
+        return $this->hasMany(SubscribedSecondYear::class,'course_id','id');
     }
 
     public function lectures(): \Illuminate\Database\Eloquent\Relations\HasMany
