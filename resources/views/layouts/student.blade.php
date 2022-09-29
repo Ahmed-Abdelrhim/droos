@@ -457,10 +457,9 @@
 
         <div class="tutor">
             <div class="info">
-                <span>Welcome</span>
                 <h3>
                     @if(Auth::check())
-                        <span style="margin-left: 10px; width: fit-content" >
+                        <span style="margin-left: 10px; width: fit-content; display:block;" >Welcome_
                                 @if(Auth::user()->academic_year == 1)
                                     الصف الأول الثانوي
                                 @endif
@@ -470,9 +469,8 @@
                                 @if(Auth::user()->academic_year == 3)
                                     الصف الثالث الثانوي
                                 @endif
-                        </span>
-                        {{Auth::user()->name}}
-
+                            </span>
+                            {{Auth::user()->name}}
                     @else
                         1st Year Student
                     @endif
