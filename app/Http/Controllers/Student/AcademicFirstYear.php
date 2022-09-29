@@ -33,8 +33,8 @@ class AcademicFirstYear extends Controller
             if(!Gate::allows('view-courses',1))
                 return view('student.access_denied',compact('academic_year'));
 
-            $subscribed = SubscribedFirstYear::where('student_id',$id)->get();
-            $waitingList =  WaitingListFirstYear::where('student_id',$id)->get();
+            $subscribed = SubscribedFirstYear::orderBy('id', 'asc')->where('student_id',$id)->get();
+            $waitingList =  WaitingListFirstYear::orderBy('id', 'asc')->where('student_id',$id)->get();
 
             if(count($subscribed) > 0 || count($waitingList) > 0)
             {
@@ -60,7 +60,7 @@ class AcademicFirstYear extends Controller
 
     public function allStudents()
     {
-        $students = User::where('academic_year', '=' ,1)->get();
+        $students = User::orderBy('id', 'asc')->where('academic_year', '=' ,1)->get();
         return view('admin.students.1st',compact('students'));
     }
 
@@ -68,13 +68,13 @@ class AcademicFirstYear extends Controller
     //Admin[only] View All Courses
     public function showAllCourses()
     {
-        $courses = CourseFirstYear::get();
+        $courses = CourseFirstYear::orderBy('id', 'asc')->get();
         return view('admin.courses.first_year.index', compact('courses'));
     }
 
     public function showCourseEditForm($id)
     {
-        $course = CourseFirstYear::findorFail($id);
+        $course = CourseFirstYear::find($id);
         if (!$course)
             return 'Course Not Found';
         return view('admin.courses.first_year.update', compact('course'));

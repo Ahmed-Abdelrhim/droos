@@ -30,8 +30,8 @@ class AcademicSecondYear extends Controller
             if(!Gate::allows('view-courses',2))
                 return view('student.access_denied',compact('academic_year'));
 
-            $subscribed = SubscribedSecondYear::where('student_id',$id)->get();
-            $waitingList =  WaitingListSecondtYear::where('student_id',$id)->get();
+            $subscribed = SubscribedSecondYear::orderBy('id', 'asc')->where('student_id',$id)->get();
+            $waitingList =  WaitingListSecondtYear::orderBy('id', 'asc')->where('student_id',$id)->get();
             if(count($subscribed) > 0 || count($waitingList) > 0)
             {
                 //If Student Already Subscribed In The Course
@@ -67,20 +67,20 @@ class AcademicSecondYear extends Controller
 
     public function allStudents()
     {
-        $students = User::where('academic_year',2)->get();
+        $students = User::orderBy('id', 'asc')->where('academic_year',2)->get();
         return view('admin.students.2nd',compact('students'));
     }
 
 
     public function showAllCourses()
     {
-        $courses = CourseSecondYear::get();
+        $courses = CourseSecondYear::orderBy('id', 'asc')->get();
         return view('admin.courses.second_year.index', compact('courses'));
     }
 
     public function showCourseEditForm($id)
     {
-        $course = CourseSecondYear::findorFail($id);
+        $course = CourseSecondYear::find($id);
         if (!$course)
             return 'Course Not Found';
         return view('admin.courses.second_year.update', compact('course'));
@@ -90,7 +90,7 @@ class AcademicSecondYear extends Controller
     public function updateCourse(Request $request, $id)
     {
         //|unique:course_first_years,name'.$id
-        $course = CourseSecondYear::findOrFail($id);
+        $course = CourseSecondYear::find($id);
         if(!$course)
             return redirect()->back()->with(['errors' => 'Course Not Found']);
         $this->validate($request, [

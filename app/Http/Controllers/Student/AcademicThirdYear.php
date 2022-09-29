@@ -33,8 +33,8 @@ class AcademicThirdYear extends Controller
             if(!Gate::allows('view-courses',3))
                 return view('student.access_denied',compact('academic_year'));
 
-            $subscribed = SubscribedThirdYear::where('student_id',$id)->get();
-            $waitingList =  WaitingListThirdYear::where('student_id',$id)->get();
+            $subscribed = SubscribedThirdYear::orderBy('id', 'asc')->where('student_id',$id)->get();
+            $waitingList =  WaitingListThirdYear::orderBy('id', 'asc')->where('student_id',$id)->get();
             if(count($subscribed) > 0 || count($waitingList) > 0)
             {
                 //If Student Already Subscribed In The Course
@@ -59,19 +59,19 @@ class AcademicThirdYear extends Controller
 
     public function allStudents()
     {
-        $students = User::where('academic_year',3)->get();
+        $students = User::orderBy('id', 'asc')->where('academic_year',3)->get();
         return view('admin.students.3rd',compact('students'));
     }
 
     public function showAllCourses()
     {
-        $courses = CourseThirdYear::get();
+        $courses = CourseThirdYear::orderBy('id', 'asc')->get();
         return view('admin.courses.third_year.index', compact('courses'));
     }
 
     public function showCourseEditForm($id)
     {
-        $course = CourseThirdYear::findorFail($id);
+        $course = CourseThirdYear::find($id);
         if (!$course)
             return 'Course Not Found';
         return view('admin.courses.third_year.update', compact('course'));
