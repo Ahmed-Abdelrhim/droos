@@ -144,7 +144,7 @@ class AcademicThirdYear extends Controller
             'updated_at' => now(),
         ]);
         //view(all_course.3rd)
-        return redirect()->route('courses.3rd.students')->with(['success' => ' تم الأشتراك في الكورس سيتم التفعيل عند الدفع ']);
+        return redirect()->route('courses.3rd.students')->with(['success' => 'تم الأضافة الي قائمة الأنتظار سيتم تفعيل الكورس عند الدفع']);
     }
 
     public function deleteSubscription($id)

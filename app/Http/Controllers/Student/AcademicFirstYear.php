@@ -151,7 +151,7 @@ class AcademicFirstYear extends Controller
         ]);
         //view(all_course.1st)
         // في الكورس
-        return redirect()->route('courses.1st.students')->with(['success' => ' تم الأضافة الي قائمة الأنتظار سيتم تفعيل الكورس عند الدفع ']);
+        return redirect()->route('courses.1st.students')->with(['success' => 'تم الأضافة الي قائمة الأنتظار سيتم تفعيل الكورس عند الدفع']);
     }
 
     public function deleteSubscription($id)
