@@ -317,11 +317,100 @@
   flex-direction: column;
   font-size: 24px;
   margin-bottom: 5%;
-  margin-top: 35px
+  margin-top: 35px;
+  transition: all 0.4s;
 }
 
 
-.select-box i {
+    /* Style the sidenav links and the dropdown button */
+    .dropdown-btn {
+        padding: 16px 16px 6px 16px;
+        text-decoration: none;
+        font-size: 24px;
+        display: block;
+        width: 100%;
+        text-align: right;
+        cursor: pointer;
+        outline: none;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        background: rgb(136 19 55);
+        border-radius: 8px;
+        color: #f5f6fa;
+        position: relative;
+    }
+
+    .dropdown-btn:hover {
+        background: #5ac8fa;
+    }
+
+    .dropdown-btn .maine {
+        margin-left: 15px;
+        color: var(--main-color);
+    }
+
+    /* On mouse-over */
+    .dropdown-btn:hover {
+        color: var(--black);
+    }
+
+    /* On mouse-over */
+    .dropdown-btn i:hover {
+        transform: rotateX(180deg);
+        top: -6px;
+    }
+
+    /* Add an active class to the active dropdown button */
+    .active {
+        /* background-color: var(--main-color); */
+        color: white;
+    }
+
+    /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+    .dropdown-container {
+        display: none;
+        background-color: #000;
+        padding-right: 8px;
+        overflow-y: scroll;
+    }
+
+    .dropdown-container a {
+        display: block;
+        max-height: 240px;
+        background: #414b57;
+        color: #f5f6fa;
+        width: 100%;
+        transition: all 0.4s;
+        padding: 12px 24px;
+    }
+
+    .dropdown-container a:hover {
+        background: #9ca3af;
+    }
+
+    .dropdown-container a i {
+        margin-left: 15px;
+        color: #bb86fc;
+    }
+    .dropdown-container::-webkit-scrollbar {
+        width: 8px;
+        background: #0d141f;
+        border-radius: 0 8px 8px 0;
+}
+
+    .dropdown-container::-webkit-scrollbar-thumb {
+        background: #525861;
+        border-radius: 0 8px 8px 0;
+}
+
+
+    /* Optional: Style the caret down icon */
+    .fa-caret-down {
+        float: left;
+        padding-left: 8px;
+    }
+
+/* .select-box i {
   margin-left: 15px;
   color: var(--main-color);
 }
@@ -403,7 +492,7 @@
 
 .select-box .option .radio {
   display: none;
-}
+} */
 
     </style>
 
@@ -711,20 +800,44 @@
         return false;
     }
 
-const selected = document.querySelector(".selected");
-const optionsContainer = document.querySelector(".options-container");
+// const selected = document.querySelector(".selected");
+// const optionsContainer = document.querySelector(".options-container");
 
-const optionsList = document.querySelectorAll(".option");
+// const optionsList = document.querySelectorAll(".option");
 
-selected.addEventListener("click", () => {
-  optionsContainer.classList.toggle("active");
-});
+// selected.addEventListener("click", () => {
+//   optionsContainer.classList.toggle("active");
+// });
 
-optionsList.forEach(o => {
-  o.addEventListener("click", () => {
-    optionsContainer.classList.remove("active");
-  });
-});
+// optionsList.forEach(o => {
+//   o.addEventListener("click", () => {
+//     optionsContainer.classList.remove("active");
+//   });
+// });
+
+
+    up.onclick = function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
+
+    //* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        });
+    }
 </script>
 
 
