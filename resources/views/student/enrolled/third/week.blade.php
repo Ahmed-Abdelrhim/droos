@@ -40,7 +40,7 @@
                 @foreach($course['lectures'] as $lec)
                     @if($lec->serial_number == 1 && $lec->week == 1)
                         <div class="option">
-                            <a href="{{route('view.enrolled.course.3rd',$lec->id)}}"><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
+                            <a href="{{route('view.enrolled.lecture.3rd',$lec->id)}}"><i class="fa-solid fa-video"></i><span>{{$lec->name}}</span></a>
                         </div>
 
                         <div class="option">
