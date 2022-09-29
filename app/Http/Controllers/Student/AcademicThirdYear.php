@@ -158,7 +158,7 @@ class AcademicThirdYear extends Controller
 
     public function enrolledCoursesView()
     {
-        $courses = SubscribedThirdYear::where('student_id',Auth::id())->with('course')->get();
+        $courses = SubscribedThirdYear::orderBy('serial_number','asc')->where('student_id',Auth::id())->with('course')->get();
         return view('student.enrolled.third.index',compact('courses'));
     }
 

@@ -23,7 +23,7 @@
                                 <img src="{{asset('images/courses_third_year/'.$course['course']->cover)}}">
                                 <h2>03</h2>
                                 <h3>الصف الثالث الثانوي</h3>
-                                <p style="margin-top: 5px">{{$course['course']->name}}</p>
+                                <p style="  margin-top: 5px">{{$course['course']->name}}</p>
                                 <a href="{{route('view.course.weeks.3rd',$course['course']->id)}}">اذهب للكورس</a>
 
                             </div>
