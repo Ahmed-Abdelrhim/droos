@@ -322,6 +322,15 @@
   	transform-origin: top;
   }
 }
+
+.column .tutor .detales span{
+    display:block;
+    margin : 15px auto;
+}
+.column .tutor .detales span i{
+    margin-left: 10px;
+}
+
     </style>
 
 
