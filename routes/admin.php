@@ -85,6 +85,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
         //Admin Profile
         Route::get('profile',[DashboardController::class,'showTeacherProfile'])->name('teacher.profile');
+        Route::post('update/admin/profile/{id}',[DashboardController::class,'updateAdminProfile'])->name('update.admin.profile');
 
         //All Students
         Route::get('all/students/1st/year',[AcademicFirstYear::class,'allStudents'])->name('all.students.1st');

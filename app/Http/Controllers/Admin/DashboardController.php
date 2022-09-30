@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddCoursesRequest;
 use App\Http\Requests\LecturesRequest;
+use App\Models\Admin;
 use App\Models\Demo;
 use App\Models\Feature;
 use App\Models\LecturesFirstYear;
@@ -173,6 +174,35 @@ class DashboardController extends Controller
     public function showTeacherProfile()
     {
         return view('admin.teacher_profile');
+    }
+
+    public function updateAdminProfile(Request $request , $id): \Illuminate\Http\RedirectResponse
+    {
+        // Auth::guard('admin')->user()->id
+        $request->validate([
+            'name' => 'required|min:4|string',
+            'email' => 'required|unique:admins,email,'.$id,
+            'phone_number' => 'required|min:10',
+            'password' => 'nullable|min:8|string|confirmed',
+            'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
+        ]);
+        $admin = Admin::find(Auth::guard('admin')->user()->id);
+        $password = $admin->password;
+        if($password != null )
+            $password = bcrypt($request->password);
+        $image_name  = $admin->avatar;
+        if($request->has('avatar'))
+            $image_name = uploadImage('adminImages',$request->avatar);
+        $admin->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+            'password' => $password,
+            'avatar' => $image_name,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        return redirect()->back()->with(['success' => 'admin profile updated successfully']);
     }
 
     public function showAddNewLectureForm()

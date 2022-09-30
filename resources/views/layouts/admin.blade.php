@@ -309,7 +309,11 @@
                 <span>Welcome</span>
                 <h3>{{Auth::guard('admin')->user()->name}}</h3>
             </div>
-            <img src="{{asset('images//pic-6.jpg')}}" alt="tutor">
+            @if(Auth::guard('admin')->user()->avatar != null)
+                <img src="{{asset('images/adminImages/'.Auth::guard('admin')->user()->avatar)}}" alt="tutor">
+            @else
+                <img src="{{asset('images/pic-6.jpg')}}" alt="tutor">
+            @endif
         </div>
     </section>
 </header>

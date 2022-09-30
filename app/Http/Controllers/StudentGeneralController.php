@@ -49,14 +49,15 @@ class StudentGeneralController extends Controller
         return view('student.profile');
     }
 
-    public function updateStudentProfile(Request $request)
+    public function updateStudentProfile(Request $request): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
             'name' => 'required|string|min:4',
             'email' => 'required|email|unique:users,email,'.Auth::id(),
             'password' => 'nullable|min:6|confirmed',
             'phone_number' => 'required|min:10|unique:users,phone_number,'.Auth::id(),
-            'parent_number' => 'required |min:10|unique:users,parent_number,'.Auth::id(),
+            'parent_number' => 'required|min:10|unique:users,parent_number,'.Auth::id(),
+            'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
         ]);
 
         $image_name = Auth::user()->avatar;
