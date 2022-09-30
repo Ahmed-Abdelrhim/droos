@@ -132,6 +132,10 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
         Route::get('vvv/{id}',[DashboardController::class,'getCourseMonths']);
 
+        //Who Are We
+        Route::get('who/are/we',[DashboardController::class,'whoAreWeForm'])->name('who.are.we');
+        Route::post('update/who/are/we',[DashboardController::class,'updateWhoAreWe'])->name('store.who.are.we');
+
         //Add New Feature
         Route::get('add/feature',[DashboardController::class,'addNewFeatureForm'])->name('add.feature');
         Route::post('add/new/feature',[DashboardController::class,'storeNewFeature'])->name('store.feature');

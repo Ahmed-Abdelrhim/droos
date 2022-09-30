@@ -50,9 +50,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 //        return bcrypt('12345678');
 //    });
 
-    Route::get('about', function () {
-        return view('student.about');
-    })->name('about');
+    Route::get('about', [StudentGeneralController::class,'aboutUs'])->name('about');
 
     Route::get('contact', function () {
         return view('student.contact');

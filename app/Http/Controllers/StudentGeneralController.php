@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\WhoAreWe;
 use Illuminate\Http\Request;
 use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
@@ -89,6 +90,12 @@ class StudentGeneralController extends Controller
             return 'Student Not Found';
         $student->delete();
         return redirect()->back()->with(['success' => 'Student deleted successfully']);
+    }
+
+    public function aboutUs()
+    {
+        $who_are_we = WhoAreWe::get();
+        return view('student.about',compact('who_are_we'));
     }
 
 }

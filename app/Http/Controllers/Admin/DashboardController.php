@@ -10,6 +10,7 @@ use App\Models\LecturesFirstYear;
 use App\Models\LecturesSecondYear;
 use App\Models\LecturesThirdYear;
 use App\Models\Message;
+use App\Models\WhoAreWe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -301,6 +302,36 @@ class DashboardController extends Controller
         ]);
         DB::commit();
         return redirect()->back()->with(['success' => 'Website Features updated successfully']);
+    }
+
+    public function whoAreWeForm()
+    {
+        $text = WhoAreWe::get();
+        return view('admin.who_are_we',compact('text'));
+    }
+
+    public function updateWhoAreWe(Request $request): \Illuminate\Http\RedirectResponse
+    {
+        $request->validate(['text' => 'string|min:50']);
+        DB::beginTransaction();
+        if(WhoAreWe::count() > 0 )
+        {
+            $who_are_we = WhoAreWe::first();
+            $who_are_we->update([
+                'text' => $request->text,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            DB::commit();
+            return redirect()->back()->with(['success' => 'Who are we updated successfully']);
+        }
+        WhoAreWe::create([
+            'text' => $request->text,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::commit();
+        return redirect()->back()->with(['success' => 'Who are we created successfully']);
     }
 
 
