@@ -338,7 +338,7 @@
       <footer class="footer">
          <div class="container">
             <div class="box">
-               <a href="{{route('home')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
+               <a href="{{route('dashboard')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
                <ul class="social">
                   <li>
                      <a href="https://web.facebook.com/profile.php?id=100009262544420" class="facebook" target="_blank">
@@ -379,7 +379,7 @@
                </div>
                <div class="line">
                   <i class="fas fa-phone-volume fa-fw"></i>
-                  <div class="info">+201149596478</div>
+                  <div class="info">01152067271</div>
                </div>
             </div>
             <div class="box footer-gallery">
@@ -391,7 +391,11 @@
                <img src="{{asset('images/thumb-4.png')}}" alt=""/>
             </div>
          </div>
-         <p class="copyright">Developed By <a href="#" class="fas fa-heart"></a> By Anas , Ahmed</p>
+         <p class="copyright">Developed By <a href="https://www.facebook.com/ahmed.abdalraheem.739" class="fas fa-heart" target="_blank"></a>
+             By
+             <a href="https://www.facebook.com/ahmed.abdalraheem.739" target="_blank">Ahmed Abdelrhim</a> ,
+             <a href="https://www.facebook.com/anas.rabea.35" target="_blank">Anas Rabea</a>
+         </p>
          &copy; copyright @ 2022 | all rights reserved!
       </footer>
       <!-- scroll top button  -->

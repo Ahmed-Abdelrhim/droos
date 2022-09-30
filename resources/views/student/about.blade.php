@@ -137,9 +137,9 @@
         <div class="box">
             <ul class="links">
                 <li><a href="{{route('home')}}">الرئيسية</a></li>
-                <li><a href="about.html">من نحن</a></li>
-                <li><a href="contact.html">تواصل معنا</a></li>
-                <li><a href="courses.html">الكورسات</a></li>
+                <li><a href="{{route('about')}}">من نحن</a></li>
+                <li><a href="{{route('contact')}}">تواصل معنا</a></li>
+                <li><a href="{{route('home')}}">الكورسات</a></li>
             </ul>
         </div>
 
@@ -154,7 +154,7 @@
             </div>
             <div class="line">
                 <i class="fas fa-phone-volume fa-fw"></i>
-                <div class="info">+201149596478</div>
+                <div class="info">+01152067271</div>
             </div>
         </div>
         <div class="box footer-gallery">
@@ -166,7 +166,10 @@
             <img src="{{asset('images/thumb-4.png')}}" alt="" />
         </div>
     </div>
-    <p class="copyright">Developed By <a href="#" class="fas fa-heart"></a> By Anas , Ahmed</p>
+    <p class="copyright">Developed By <a href="https://www.facebook.com/ahmed.abdalraheem.739" class="fas fa-heart" target="_blank"></a>
+        By
+        <a href="https://www.facebook.com/ahmed.abdalraheem.739" target="_blank">Ahmed Abdelrhim</a> ,
+        <a href="https://www.facebook.com/anas.rabea.35" target="_blank">Anas Rabea</a>    </p>
     &copy; copyright @ 2022 | all rights reserved!
 </footer>
 

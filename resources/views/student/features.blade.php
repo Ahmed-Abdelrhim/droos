@@ -5,7 +5,7 @@
         <div class="row">
 
             <div class="image">
-                <img src="images/about-img.svg" alt="">
+                <img src="{{asset('images/about-img.svg')}}" alt="">
             </div>
 
             <div class="content">

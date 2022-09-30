@@ -103,7 +103,7 @@
             </div>
             <div class="line">
                 <i class="fas fa-phone-volume fa-fw"></i>
-                <div class="info">+201149596478</div>
+                <div class="info">01152067271</div>
             </div>
         </div>
         <div class="box footer-gallery">
@@ -115,7 +115,7 @@
             <img src="{{asset('images/thumb-4.png')}}" alt="" />
         </div>
     </div>
-    <p class="copyright">Developed By <a href="#" class="fas fa-heart"></a> By Anas , Ahmed</p>
+    <p class="copyright">Developed By <a href="https://www.facebook.com/ahmed.abdalraheem.739" class="fas fa-heart" target="_blank"></a> By Anas , Ahmed</p>
     &copy; copyright @ 2022 | all rights reserved!
 </footer>
 

@@ -13,7 +13,7 @@
 
 
             <nav class="navbar">
-                <a href="{{asset('home')}}" class="active"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+                <a href="{{route('home')}}" class="active"><i class="fas fa-home"></i><span>الرئيسية</span></a>
                 <a href="{{route('about')}}" class="active"><i class="fas fa-question"></i><span>من نحن</span></a>
                 <a href="
                 @if(Auth::check())
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <!-- <img id="logo-background" src="{{asset('images/splash.png')}}"> -->
-            <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
+            <a href="{{route('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
         </section>
 
     </header>
@@ -89,20 +89,20 @@
             <div class="box">
                 <i class="fas fa-phone"></i>
                 <h3>phone number</h3>
-                <a href="tel:01149596478">01149596478</a>
+                <a href="tel:01152067271">01152067271</a>
             </div>
 
             <div class="box">
                 <i class="fas fa-envelope"></i>
                 <h3>email address</h3>
-                <a href="mailto:anas@gmail.com">anas@gmail.come</a>
+                <a href="mailto:aabdelrhim974@gmail.com">aabdelrhim974@gmail.come</a>
                 <a href="mailto:anas@gmail.com">anas@gmail.come</a>
             </div>
 
             <div class="box">
                 <i class="fas fa-map-marker-alt"></i>
                 <h3>office address</h3>
-                <a href="#">flat no. 1, a-1 building, jogeshwari, mumbai, india - 400104</a>
+                <a href="#">Cairo, Egypt</a>
             </div>
 
         </div>

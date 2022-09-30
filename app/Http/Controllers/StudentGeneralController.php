@@ -43,6 +43,45 @@ class StudentGeneralController extends Controller
         // return substr(shell_exec('getmac'), 159,20);
     }
 
+    public function viewProfileForm()
+    {
+        return view('student.profile');
+    }
+
+    public function updateStudentProfile(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|min:4',
+            'email' => 'required|email|unique:users,email,'.Auth::id(),
+            'password' => 'nullable|min:6|confirmed',
+            'phone_number' => 'required|min:10|unique:users,phone_number,'.Auth::id(),
+            'parent_number' => 'required |min:10|unique:users,parent_number,'.Auth::id(),
+        ]);
+
+        $image_name = Auth::user()->avatar;
+        if($request->has('avatar'))
+            $image_name = uploadImage('studentImages',$request->avatar);
+        $password = Auth::user()->password;
+        if($request->password != null )
+            $password = bcrypt($request->password);
+
+        $student = Auth::user();
+        DB::beginTransaction();
+        $student->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+            'parent_number' => $request->parent_number,
+            'avatar' => $image_name,
+            'password' => $password,
+            //'mac_address ' => $student->mac_address,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::commit();
+        return redirect()->back()->with(['success' => 'تم تحديث الأيميل بنجاح']);
+    }
+
     public function deleteStudent($id)
     {
         $student = User::find($id);

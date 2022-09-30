@@ -39,7 +39,6 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
             return view('student.home');
         })->name('home');
 
-
     });
 
     //View All Courses For anyone
@@ -112,6 +111,9 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('view/enrolled/course/lecture/1st/year/{id}',[AcademicFirstYear::class,'viewEnrolledCourse'])->name('view.enrolled.lecture.1st');
         Route::get('view/enrolled/course/lecture/2nd/year/{id}',[AcademicSecondYear::class,'viewEnrolledCourse'])->name('view.enrolled.lecture.2nd');
         Route::get('view/enrolled/course/lecture/3rd/year/{id}',[AcademicThirdYear::class,'viewEnrolledCourse'])->name('view.enrolled.lecture.3rd');
+
+        Route::get('view/student/profile',[StudentGeneralController::class,'viewProfileForm'])->name('view.student.profile');
+        Route::post('update/student/profile',[StudentGeneralController::class,'updateStudentProfile'])->name('update.student.profile');
 
 
     });
