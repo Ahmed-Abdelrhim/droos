@@ -384,6 +384,22 @@
             <a href="{{route('get.lec.3rd.year')}}"><i
                     class="fas fa-question"></i><span>محاضرات الصف الثالث الثانوي</span></a>
         </div>
+
+
+        <button class="dropdown-btn"> الواجب
+            <i class="fa fa-caret-down arrow"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="{{route('add.new.homework')}}"><i class="fas fa-question"></i><span>أضافة واجب</span></a>
+{{--            <a href="{{route('get.lec.1st.year')}}"><i--}}
+            {{--                    class="fas fa-question"></i><span> محاضرات الصف الأول الثانوي</span></a>--}}
+            {{--            <a href="{{route('get.lec.2nd.year')}}"><i--}}
+            {{--                    class="fas fa-question"></i><span> محاضرات الصف الثاني الثانوي</span></a>--}}
+            {{--            <a href="{{route('get.lec.3rd.year')}}"><i--}}
+            {{--                    class="fas fa-question"></i><span>محاضرات الصف الثالث الثانوي</span></a>--}}
+        </div>
+
+
     </nav>
 </div>
 @yield('content')

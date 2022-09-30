@@ -14,7 +14,7 @@
                 <a href="{{route('home')}}" class="active"><i
                         class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
                 <a href="{{route('contact')}}" class="active"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
-                <a href="#" class="active"><i class="fa-solid fa-database"></i><span>Control Panal</span></a>
+                <a href="{{route('admin.login.form')}}" class="active"><i class="fa-solid fa-database"></i><span>Control Panal</span></a>
             </nav>
             <div class="profile">
                 <img src="{{asset('images/pic-1.jpg')}}" class="image" alt="">

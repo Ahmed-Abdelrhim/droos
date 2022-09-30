@@ -420,4 +420,10 @@ class DashboardController extends Controller
     }
 
 
+    public function homeWorkForm()
+    {
+        return view('admin.');
+    }
+
+
 }

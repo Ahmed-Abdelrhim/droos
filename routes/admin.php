@@ -126,6 +126,10 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::post('delete/lectures/3rd/year/{id}',[AcademicThirdYear::class,'deleteLecture'])->name('delete.lec.3rd');
 
 
+        //HomeWork
+        Route::get('add/new/home/work',[DashboardController::class,'homeWorkForm'])->name('add.new.homework');
+
+
 
         //Messages
         Route::get('student/messages',[DashboardController::class,'viewMessages'])->name('view.msg');
