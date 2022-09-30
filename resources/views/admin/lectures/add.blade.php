@@ -44,7 +44,7 @@
                 <option value="1">week 1</option>
                 <option value="2">week 2</option>
                 <option value="3">week 3</option>
-                <option value="3">week 4</option>
+                <option value="4">week 4</option>
             </select>
             @error('week')
             <span class="text-danger" style="color: white">{{$message}}</span>

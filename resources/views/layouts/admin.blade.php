@@ -325,6 +325,7 @@
         <a href="{{route('view.msg')}}"><i class="fas fa-envelope"></i><span>الرسائل</span></a>
         <a href="{{route('add.feature')}}"><i class="fa-solid fa-gift"></i><span>المميزات</span></a>
         <a href="{{route('who.are.we')}}"><i class="fa-solid fa-gift"></i><span>من نحن</span></a>
+        <a href="{{route('demo.videos')}}"><i class="fa-solid fa-gift"></i><span>فيديوهات demo</span></a>
         <button class="dropdown-btn">جميع الطلاب
             <i class="fa fa-caret-down arrow"></i>
         </button>

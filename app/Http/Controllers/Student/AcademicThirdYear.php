@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\CourseThirdYear;
+use App\Models\Demo;
 use App\Models\LecturesThirdYear;
 use App\Models\SubscribedThirdYear;
 use App\Models\User;
@@ -17,7 +18,8 @@ class AcademicThirdYear extends Controller
 {
     public function index ()
     {
-        return view('student.3rd');
+        $demo = Demo::where('academic_year' , '=' ,3)->first();
+        return view('student.3rd',compact('demo'));
 
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateFirstYearCourseRrquest;
+use App\Models\Demo;
 use App\Models\LecturesFirstYear;
 use App\Models\SubscribedFirstYear;
 use App\Models\User;
@@ -18,7 +19,8 @@ class AcademicFirstYear extends Controller
 {
     public function index()
     {
-        return view('student.1st');
+        $demo = Demo::where('academic_year' , '=' ,1)->first();
+        return view('student.1st',compact('demo'));
     }
 
     //Student or anyone View All Courses

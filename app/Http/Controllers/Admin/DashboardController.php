@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddCoursesRequest;
 use App\Http\Requests\LecturesRequest;
+use App\Models\Demo;
 use App\Models\Feature;
 use App\Models\LecturesFirstYear;
 use App\Models\LecturesSecondYear;
@@ -200,7 +201,7 @@ class DashboardController extends Controller
         //Lectures First Year
         if ($academic_year == 1) {
             $course = CourseFirstYear::find($request->month);
-            if(!$course)
+            if (!$course)
                 return 'course name you have chosen not exist';
 
             $video_name = uploadLecture('first', $request->lec);
@@ -217,7 +218,7 @@ class DashboardController extends Controller
         //Lectures Second Year
         if ($academic_year == 2) {
             $course = CourseSecondYear::find($request->month);
-            if(!$course)
+            if (!$course)
                 return 'course name you have chosen not exist';
             $video_name = uploadLecture('second', $request->lec);
             LecturesSecondYear::create([
@@ -234,7 +235,7 @@ class DashboardController extends Controller
         //Lectures Third Year
         if ($academic_year == 3) {
             $course = CourseThirdYear::find($request->month);
-            if(!$course)
+            if (!$course)
                 return 'course name you have chosen not exist';
             $video_name = uploadLecture('third', $request->lec);
             LecturesThirdYear::create([
@@ -250,7 +251,6 @@ class DashboardController extends Controller
         return redirect()->route('add.new.lec')->with(['success' => 'Lecture Uploaded Successfully']);
 
     }
-
 
 
     public function viewMessages()
@@ -271,21 +271,20 @@ class DashboardController extends Controller
     public function features()
     {
         $features = Feature::get();
-        return view('student.features',compact('features'));
+        return view('student.features', compact('features'));
     }
 
     public function addNewFeatureForm()
     {
         $features = Feature::get();
-        return view('admin.feature',compact('features'));
+        return view('admin.feature', compact('features'));
     }
 
     public function storeNewFeature(Request $request): \Illuminate\Http\RedirectResponse
     {
         $request->validate(['feature' => 'string|min:50']);
         DB::beginTransaction();
-        if(Feature::count() > 0 )
-        {
+        if (Feature::count() > 0) {
             $feature = Feature::first();
             $feature->update([
                 'text' => $request->feature,
@@ -307,15 +306,14 @@ class DashboardController extends Controller
     public function whoAreWeForm()
     {
         $text = WhoAreWe::get();
-        return view('admin.who_are_we',compact('text'));
+        return view('admin.who_are_we', compact('text'));
     }
 
     public function updateWhoAreWe(Request $request): \Illuminate\Http\RedirectResponse
     {
         $request->validate(['text' => 'string|min:50']);
         DB::beginTransaction();
-        if(WhoAreWe::count() > 0 )
-        {
+        if (WhoAreWe::count() > 0) {
             $who_are_we = WhoAreWe::first();
             $who_are_we->update([
                 'text' => $request->text,
@@ -332,6 +330,63 @@ class DashboardController extends Controller
         ]);
         DB::commit();
         return redirect()->back()->with(['success' => 'Who are we created successfully']);
+    }
+
+    public function demoVideosForm()
+    {
+        return view('admin.demo');
+    }
+
+    public function addDemoVideo(Request $request)
+    {
+        $request->validate([
+            'demo' => 'mimetypes:video/mp4,video/mpeg,video/quicktime',
+            'academic_year' => 'between:1,3',
+        ]);
+        if ($request->academic_year == 1) {
+            $demo = uploadLecture('demo_first_year', $request->demo);
+            $demo_video = Demo::where('academic_year', '=', 1)->first();
+            if ($demo_video)
+                $demo_video->delete();
+            Demo::create([
+                'demo' => $demo,
+                'academic_year' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return redirect()->back()->with(['success' => 'demo video first year added successfully']);
+        }
+
+        if ($request->academic_year == 2) {
+            $demo = uploadLecture('demo_second_year', $request->demo);
+            $demo_video = Demo::where('academic_year', '=',2)->first();
+            if ($demo_video)
+                $demo_video->delete();
+            Demo::create([
+                'demo' => $demo,
+                'academic_year' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return redirect()->back()->with(['success' => 'demo video second year added successfully']);
+        }
+
+        if ($request->academic_year == 3) {
+            $demo = uploadLecture('demo_third_year', $request->demo);
+            $demo_video = Demo::where('academic_year','=', 3)->first();
+            if ($demo_video)
+                $demo_video->delete();
+            Demo::create([
+                'demo' => $demo,
+                'academic_year' => 3,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return redirect()->back()->with(['success' => 'demo video third year added successfully']);
+        }
+
+        return '';
+
     }
 
 

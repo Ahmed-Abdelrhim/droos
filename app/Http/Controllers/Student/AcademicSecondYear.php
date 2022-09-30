@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\CourseSecondYear;
+use App\Models\Demo;
 use App\Models\LecturesSecondYear;
 use App\Models\SubscribedSecondYear;
 use App\Models\User;
@@ -15,7 +16,8 @@ class AcademicSecondYear extends Controller
 {
     public function index ()
     {
-        return view('student.2nd');
+        $demo= Demo::where('academic_year' , '=' ,2)->first();
+        return view('student.2nd',compact('demo'));
     }
 
     public function courses()

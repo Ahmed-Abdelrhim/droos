@@ -4,7 +4,7 @@
    <div class="row">
       <div class="column">
          <div class="thumb">
-            <img src="{{asset('images/courses_fist_year/'.$course->cover)}}" alt="not-found">
+            <img src="{{asset('images/courses_first_year/'.$course->cover)}}" alt="not-found">
             <span>videos : {{count($course['lectures'])}} </span>
          </div>
       </div>

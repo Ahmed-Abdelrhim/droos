@@ -140,6 +140,10 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('add/feature',[DashboardController::class,'addNewFeatureForm'])->name('add.feature');
         Route::post('add/new/feature',[DashboardController::class,'storeNewFeature'])->name('store.feature');
 
+        //Add demo videos
+        Route::get('add/demo/video',[DashboardController::class,'demoVideosForm'])->name('demo.videos');
+        Route::post('store/demo/videos' , [DashboardController::class,'addDemoVideo'])->name('store.demo.videos');
+
     });
 
 });
