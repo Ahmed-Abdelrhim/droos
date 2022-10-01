@@ -310,12 +310,12 @@
         justify-content: space-between;
     }
 
-        .custom-pagination nav div a{
-            background-color: #5ac8fa;
-        }
+    .custom-pagination nav div a {
+        background-color: #5ac8fa;
+    }
 
     .custom-pagination svg {
-        display:none !important;
+        display: none !important;
     }
 </style>
 <header class="header">
@@ -424,12 +424,12 @@
         </button>
         <div class="dropdown-container">
             <a href="{{route('add.new.homework')}}"><i class="fas fa-question"></i><span>أضافة واجب</span></a>
-{{--            <a href="{{route('get.lec.1st.year')}}"><i--}}
-            {{--                    class="fas fa-question"></i><span> محاضرات الصف الأول الثانوي</span></a>--}}
-            {{--            <a href="{{route('get.lec.2nd.year')}}"><i--}}
-            {{--                    class="fas fa-question"></i><span> محاضرات الصف الثاني الثانوي</span></a>--}}
-            {{--            <a href="{{route('get.lec.3rd.year')}}"><i--}}
-            {{--                    class="fas fa-question"></i><span>محاضرات الصف الثالث الثانوي</span></a>--}}
+            <a href="{{route('get.homework.1st.year')}}"><i
+                    class="fas fa-question"></i><span> واجب الصف الأول الثانوي</span></a>
+            <a href="{{route('get.homework.2nd.year')}}"><i
+                    class="fas fa-question"></i><span> واجب الصف الثاني الثانوي</span></a>
+            <a href="{{route('get.homework.3rd.year')}}"><i
+                    class="fas fa-question"></i><span>واجب الصف الثالث الثانوي</span></a>
         </div>
 
 

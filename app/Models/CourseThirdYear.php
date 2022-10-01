@@ -23,4 +23,9 @@ class CourseThirdYear extends Model
     {
         return $this->hasMany(LecturesThirdYear::class,'course_id','id');
     }
+
+    public function homework(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(HomeWorkThirdYear::class,'course_id','id');
+    }
 }

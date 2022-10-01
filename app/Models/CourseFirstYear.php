@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\SubscribedFirstYear;
+use App\Models\HomeWorkFirstYear;
 class CourseFirstYear extends Model
 {
     use HasFactory;
@@ -23,5 +24,10 @@ class CourseFirstYear extends Model
     public function lectures(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(LecturesFirstYear::class,'course_id','id');
+    }
+
+    public function homework(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(HomeWorkFirstYear::class,'course_id','id');
     }
 }

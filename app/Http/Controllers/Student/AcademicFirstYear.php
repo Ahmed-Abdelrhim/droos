@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateFirstYearCourseRrquest;
 use App\Models\Demo;
+use App\Models\HomeWorkFirstYear;
 use App\Models\LecturesFirstYear;
 use App\Models\SubscribedFirstYear;
 use App\Models\User;
@@ -191,7 +192,11 @@ class AcademicFirstYear extends Controller
         $course= CourseFirstYear::with('lectures')->find($id);
         if(!$course)
             return view('student.access_denied');
-        return view('student.enrolled.first.week',compact('course'));
+        $week1 = $course['homework']->where('week',1);
+        $week2 = $course['homework']->where('week',2);
+        $week3 = $course['homework']->where('week',3);
+        $week4 = $course['homework']->where('week',4);
+        return view('student.enrolled.first.week',compact('course','week1','week2','week3','week4'));
     }
 
     public function viewEnrolledCourse($id)
@@ -200,6 +205,27 @@ class AcademicFirstYear extends Controller
         if(!$lec)
             return view('student.access_denied');
         return view('student.enrolled.first.lecture',compact('lec'));
+    }
+
+    public function getHomeWork()
+    {
+        $homeworks = HomeWorkFirstYear::with('course')->paginate(10);
+        return view('admin.homework.1st',compact('homeworks'));
+    }
+
+    public function deleteHomeWork($id)
+    {
+        $homework = HomeWorkFirstYear::find($id);
+        if(!$homework)
+            return 'Home Work Not Found';
+        $homework->delete();
+        return redirect()->back()->with(['success' => 'home work deleted successfully']);
+    }
+
+    public function viewStudentHomeWork($id)
+    {
+        $homework = HomeWorkFirstYear::find($id)->link;
+        return view('student.enrolled.first.homework',compact('homework'));
     }
 
 }

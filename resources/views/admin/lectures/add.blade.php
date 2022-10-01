@@ -25,6 +25,7 @@
 
             <p>Academic year <span>*</span></p>
             <select class="custom-select" name="academic_year" required id="academic_year">
+                <option selected>...Choose</option>
                 <option value="1">الصف الأول الثانوي</option>
                 <option value="2">الصف الثاني الثانوي</option>
                 <option value="3">الصف الثالث الثانوي</option>
@@ -60,11 +61,11 @@
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
     <script>
         $(document).ready(function () {
-            console.log('asdasdasdas');
+            console.log('Ahmed Abdelrhim');
             $('#academic_year').on('change', function () {
                 let id = $(this).val();
                 $('#month').empty();
-                $('#month').append('<option value="0" disabled selected>processing ...</option>');
+                // $('#month').append('<option value="0" disabled selected>processing ...</option>');
                 $.ajax({
                     type: 'GET',
                     url: 'getCourseMonths/' + id,

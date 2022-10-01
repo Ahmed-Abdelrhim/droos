@@ -15,4 +15,9 @@ class HomeWorkSecondYear extends Model
     protected $hidden = ['created_at', 'updated_at',];
 
     public $timestamps = true;
+
+    public function course(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(CourseSecondYear::class,'course_id','id');
+    }
 }

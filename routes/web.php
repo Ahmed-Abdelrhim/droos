@@ -113,6 +113,11 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('view/student/profile',[StudentGeneralController::class,'viewProfileForm'])->name('view.student.profile');
         Route::post('update/student/profile',[StudentGeneralController::class,'updateStudentProfile'])->name('update.student.profile');
 
+        //Student HomeWork
+        Route::get('view/homework/1st/year/{id}',[AcademicFirstYear::class,'viewStudentHomeWork'])->name('view.homework.link.1st');
+        Route::get('view/homework/2nd/year/{id}',[AcademicSecondYear::class,'viewStudentHomeWork'])->name('view.homework.link.2nd');
+        Route::get('view/homework/3rd/year/{id}',[AcademicThirdYear::class,'viewStudentHomeWork'])->name('view.homework.link.3rd');
+
 
     });
 

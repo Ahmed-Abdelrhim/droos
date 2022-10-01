@@ -8,6 +8,9 @@ use App\Http\Requests\LecturesRequest;
 use App\Models\Admin;
 use App\Models\Demo;
 use App\Models\Feature;
+use App\Models\HomeWorkFirstYear;
+use App\Models\HomeWorkSecondYear;
+use App\Models\HomeWorkThirdYear;
 use App\Models\LecturesFirstYear;
 use App\Models\LecturesSecondYear;
 use App\Models\LecturesThirdYear;
@@ -176,23 +179,23 @@ class DashboardController extends Controller
         return view('admin.teacher_profile');
     }
 
-    public function updateAdminProfile(Request $request , $id): \Illuminate\Http\RedirectResponse
+    public function updateAdminProfile(Request $request, $id): \Illuminate\Http\RedirectResponse
     {
         // Auth::guard('admin')->user()->id
         $request->validate([
             'name' => 'required|min:4|string',
-            'email' => 'required|unique:admins,email,'.$id,
+            'email' => 'required|unique:admins,email,' . $id,
             'phone_number' => 'required|min:10',
             'password' => 'nullable|min:8|string|confirmed',
             'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
         ]);
         $admin = Admin::find(Auth::guard('admin')->user()->id);
         $password = $admin->password;
-        if($password != null )
+        if ($password != null)
             $password = bcrypt($request->password);
-        $image_name  = $admin->avatar;
-        if($request->has('avatar'))
-            $image_name = uploadImage('adminImages',$request->avatar);
+        $image_name = $admin->avatar;
+        if ($request->has('avatar'))
+            $image_name = uploadImage('adminImages', $request->avatar);
         $admin->update([
             'name' => $request->name,
             'email' => $request->email,
@@ -389,7 +392,7 @@ class DashboardController extends Controller
 
         if ($request->academic_year == 2) {
             $demo = uploadLecture('demo_second_year', $request->demo);
-            $demo_video = Demo::where('academic_year', '=',2)->first();
+            $demo_video = Demo::where('academic_year', '=', 2)->first();
             if ($demo_video)
                 $demo_video->delete();
             Demo::create([
@@ -403,7 +406,7 @@ class DashboardController extends Controller
 
         if ($request->academic_year == 3) {
             $demo = uploadLecture('demo_third_year', $request->demo);
-            $demo_video = Demo::where('academic_year','=', 3)->first();
+            $demo_video = Demo::where('academic_year', '=', 3)->first();
             if ($demo_video)
                 $demo_video->delete();
             Demo::create([
@@ -428,10 +431,54 @@ class DashboardController extends Controller
     public function storeHomework(Request $request)
     {
         $request->validate([
-            'link' => '',
-            'academic_year' => '',
-            'month' => '',
-            'week' => '',
+            'link' => 'required|string',
+            'academic_year' => 'required|between:1,3',
+            'course_id' => 'required|numeric',
+            'week' => 'required|between:1,4',
         ]);
+        if ($request->academic_year == 1) {
+            $course = CourseFirstYear::find($request->course_id);
+            if (!$course)
+                return 'Course You Have Selected Not Found';
+            HomeWorkFirstYear::create([
+                'course_id' => $request->course_id,
+                'serial_number' => $course->serial_number,
+                'week' => $request->week,
+                'link' => $request->link,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return redirect()->back()->with(['success' => 'Home work first year added successfully']);
+        }
+
+        if ($request->academic_year == 2) {
+            $course = CourseSecondYear::find($request->course_id);
+            if (!$course)
+                return 'Course You Have Selected Not Found';
+            HomeWorkSecondYear::create([
+                'course_id' => $request->course_id,
+                'serial_number' => $course->serial_number,
+                'week' => $request->week,
+                'link' => $request->link,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return redirect()->back()->with(['success' => 'Home work second year added successfully']);
+        }
+
+        if ($request->academic_year == 3) {
+            $course = CourseThirdYear::find($request->course_id);
+            if (!$course)
+                return 'Course You Have Selected Not Found';
+            HomeWorkThirdYear::create([
+                'course_id' => $request->course_id,
+                'serial_number' => $course->serial_number,
+                'week' => $request->week,
+                'link' => $request->link,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return redirect()->back()->with(['success' => 'Home work third year added successfully']);
+        }
     }
 }

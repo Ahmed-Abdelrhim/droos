@@ -127,8 +127,17 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
 
         //HomeWork
-        Route::get('add/new/home/work',[DashboardController::class,'homeWorkForm'])->name('add.new.homework');
+        Route::get('add/new/homework',[DashboardController::class,'homeWorkForm'])->name('add.new.homework');
         Route::post('store/new/homework',[DashboardController::class,'storeHomework'])->name('store.new.homework');
+        Route::get('add/new/get/course/months/{id}',[DashboardController::class,'getCourseMonths'])->name('get.course.month');
+
+        Route::get('get/homework/1st/year',[AcademicFirstYear::class,'getHomeWork'])->name('get.homework.1st.year');
+        Route::get('get/homework/3rd/year',[AcademicSecondYear::class,'getHomeWork'])->name('get.homework.2nd.year');
+        Route::get('get/homework/2nd/year',[AcademicThirdYear::class,'getHomeWork'])->name('get.homework.3rd.year');
+
+        Route::post('delete/homework/1st/year/{id}',[AcademicFirstYear::class,'deleteHomeWork'])->name('delete.homework.1st');
+        Route::post('delete/homework/2nd/year/{id}',[AcademicSecondYear::class,'deleteHomeWork'])->name('delete.homework.2nd');
+        Route::post('delete/homework/3rd/year/{id}',[AcademicThirdYear::class,'deleteHomeWork'])->name('delete.homework.3rd');
 
 
 
