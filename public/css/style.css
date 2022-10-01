@@ -2099,6 +2099,7 @@ footer .container img {
     border-radius: .5rem;
     padding: 2rem;
     width: 50rem;
+    box-shadow: 5px 5px 8px 5px #aaaaaa;
 }
 
 .form-container form h3 {
