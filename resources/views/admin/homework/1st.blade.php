@@ -31,7 +31,7 @@
                         <td>{{$work['course']->name}}</td>
                         <td>{{$work->serial_number}}</td>
                         <td>{{$work->week}}</td>
-                        <td>{{$work->link}}</td>
+                        <td><a href="{{$work->link}}">homework link</a></td>
                         <td style="width: 130px; height: 30px">
                             <form action="{{route('delete.homework.1st',$work->id)}}" method="POST">
                                 @csrf
