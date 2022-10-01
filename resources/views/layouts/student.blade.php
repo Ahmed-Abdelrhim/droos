@@ -303,23 +303,22 @@
             width: 100%;
             flex-direction: column;
             font-size: 24px;
-            margin-bottom: 5%;
+            margin-bottom: 3%;
             margin-top: 35px;
             transition: all 0.4s;
         }
 
         /* Style the sidenav links and the dropdown button */
         .dropdown-btn {
-            padding: 16px 16px 6px 16px;
+            padding: 16px 16px 20px 16px;
             text-decoration: none;
-            font-size: 24px;
+            font-size: 30px;
             display: block;
             width: 100%;
             text-align: right;
             cursor: pointer;
             outline: none;
-            margin-bottom: 15px;
-            margin-top: 15px;
+            margin-bottom: 12px;
             background: rgb(136 19 55);
             border-radius: 8px;
             color: #f5f6fa;
