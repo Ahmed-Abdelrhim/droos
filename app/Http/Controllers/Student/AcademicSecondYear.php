@@ -181,6 +181,19 @@ class AcademicSecondYear extends Controller
         return view('admin.lectures.2nd', compact('allData'));
     }
 
+    public function updateLectureForm($id)
+    {
+        $lec = LecturesSecondYear::find($id);
+        if(!$lec)
+            return 'Lecture Not Found To Be Updated';
+        return view('admin.lectures.2nd_update',compact('lec'));
+    }
+
+    public function updateLecture(Request $request , $id)
+    {
+
+    }
+
     public function deleteLecture($id)
     {
         $lec = LecturesSecondYear::find($id);

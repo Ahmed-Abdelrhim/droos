@@ -183,6 +183,19 @@ class AcademicFirstYear extends Controller
         return redirect()->back()->with(['success' => 'Lecture deleted successfully']);
     }
 
+    public function updateLectureForm($id)
+    {
+        $lec = LecturesFirstYear::find($id);
+        if(!$lec)
+            return 'Lecture Not Found To Be Updated';
+        return view('admin.lectures.1st_update',compact('lec'));
+    }
+
+    public function updateLecture(Request $request , $id)
+    {
+
+    }
+
     public function viewWeeksPage($id)
     {
         $course = CourseFirstYear::with('lectures')->find($id);

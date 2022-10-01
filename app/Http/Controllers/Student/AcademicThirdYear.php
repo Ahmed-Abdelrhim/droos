@@ -176,6 +176,19 @@ class AcademicThirdYear extends Controller
         return redirect()->back()->with(['success' => 'Lecture deleted successfully']);
     }
 
+    public function updateLectureForm($id)
+    {
+        $lec = LecturesThirdYear::find($id);
+        if(!$lec)
+            return 'Lecture Not Found To Be Updated';
+        return view('admin.lectures.3rd_update',compact('lec'));
+    }
+
+    public function updateLecture(Request $request , $id )
+    {
+
+    }
+
     public function viewWeeksPage($id)
     {
         $course = CourseThirdYear::with('lectures')->find($id);

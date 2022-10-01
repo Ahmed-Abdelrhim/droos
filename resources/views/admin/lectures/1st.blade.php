@@ -27,6 +27,7 @@
                         <th>{{$data->name}}</th>
                         <th>{{$data->serial_number}}</th>
                         <th>{{$data->week}}</th>
+                        <a href="{{route('update.lec.form.1st',$data->id)}}" class="btn btn-danger" style="background-color: #007bff;">update</a>
                         <td style="width: 130px; height: 30px">
                             <form action="{{route('delete.lec.1st',$data->id)}}" method="POST">
                                 @csrf

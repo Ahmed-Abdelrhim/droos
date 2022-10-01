@@ -117,13 +117,18 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
         Route::get('view/lectures/1st/year',[AcademicFirstYear::class,'getLectures'])->name('get.lec.1st.year');
         Route::post('delete/lectures/1st/year/{id}',[AcademicFirstYear::class,'deleteLecture'])->name('delete.lec.1st');
-        Route::post('delete/lectures/1st/year/{id}',[AcademicFirstYear::class,'deleteLecture'])->name('delete.lec.1st');
+        Route::get('update/lectures/1st/year/{id}',[AcademicFirstYear::class,'updateLectureForm'])->name('update.lec.form.1st');
+        Route::post('update/lectures/1st/year/{id}',[AcademicFirstYear::class,'updateLecture'])->name('update.lec.1st');
 
         Route::get('view/lectures/2nd/year',[AcademicSecondYear::class,'getLectures'])->name('get.lec.2nd.year');
         Route::post('delete/lectures/2nd/year/{id}',[AcademicSecondYear::class,'deleteLecture'])->name('delete.lec.2nd');
+        Route::get('update/lectures/2nd/year/{id}',[AcademicSecondYear::class,'updateLectureForm'])->name('update.lec.form.2nd');
+        Route::post('update/lectures/2nd/year/{id}',[AcademicSecondYear::class,'updateLecture'])->name('update.lec.2nd');
 
         Route::get('view/lectures/3rd/year',[AcademicThirdYear::class,'getLectures'])->name('get.lec.3rd.year');
         Route::post('delete/lectures/3rd/year/{id}',[AcademicThirdYear::class,'deleteLecture'])->name('delete.lec.3rd');
+        Route::get('update/lectures/3rd/year/{id}',[AcademicThirdYear::class,'updateLectureForm'])->name('update.lec.form.3rd');
+        Route::post('update/lectures/3rd/year/{id}',[AcademicThirdYear::class,'updateLecture'])->name('update.lec.3rd');
 
 
         //HomeWork
