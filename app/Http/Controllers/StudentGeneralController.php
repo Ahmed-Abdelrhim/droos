@@ -20,7 +20,7 @@ class StudentGeneralController extends Controller
         $name = Auth::user()->name;
         $email = Auth::user()->email;
         $phone_number = Auth::user()->phone_number;
-        try {
+//        try {
             DB::beginTransaction();
             Message::create([
                 'name' => $name,
@@ -32,9 +32,10 @@ class StudentGeneralController extends Controller
             ]);
             DB::commit();
             return redirect()->back()->with(['success' => 'تم ارسال الرسالة الي مستر علاء الدين']);
-        } catch (Exception $e) {
-            return redirect()->back()->withErrors(['errors' => 'حدث خطأ أثناء ارسال الرسالة']);
-        }
+//        }
+//        catch (Exception $e) {
+//            return redirect()->back()->with(['errors' => 'حدث خطأ أثناء ارسال الرسالة']);
+//        }
 
     }
 
