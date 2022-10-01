@@ -16,7 +16,7 @@
                     </p>
                 </div>
                 <div class="tutor">
-                    <img src="{{asset('images/courses_fist_year/'.$course->cover)}}" alt="not-found">
+                    <img src="{{asset('images/courses_first_year/'.$course->cover)}}" alt="not-found">
                     <div class="detales">
                         <span> <i class="fas fa-book"></i> + 299   سؤال </span>
                         <span> <i class="fas fa-clock"></i> + 15   ساعة </span>
