@@ -35,11 +35,10 @@
         <form action="{{route('signIn')}}" method="POST">
             @csrf
             @if(\Session::get('message'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <div class="alert-body">
-                        {{ \Session::get('message') }}
-                    </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="row mr-2 ml-2">
+                    <button type="text" class="btn btn-lg btn-block btn-outline-danger mb-2"
+                            id="type-error">{{\Session::get('message')}}
+                    </button>
                 </div>
             @endif
             <h3>Dashboard login</h3>
