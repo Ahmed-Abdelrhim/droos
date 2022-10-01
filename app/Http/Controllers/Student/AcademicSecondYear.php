@@ -69,7 +69,7 @@ class AcademicSecondYear extends Controller
 
     public function allStudents()
     {
-        $students = User::orderBy('id', 'asc')->where('academic_year',2)->get();
+        $students = User::orderBy('id', 'asc')->where('academic_year',2)->paginate(7);
         return view('admin.students.2nd',compact('students'));
     }
 

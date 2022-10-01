@@ -284,6 +284,39 @@
     tr:nth-child(odd) {
         background-color: #34aadc;
     }
+
+    .custom-pagination {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-size: 24px;
+        margin: 5% auto;
+        color: #fff;
+    }
+
+    .custom-pagination a {
+        color: var(--white);
+        padding: 0px 16px;
+        text-decoration: none;
+        transition: background-color .3s;
+    }
+
+    .custom-pagination nav div {
+        border: 1px solid #ddd;
+    }
+
+    .custom-pagination nav div:first-child {
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .custom-pagination nav div a{
+            background-color: #5ac8fa;
+        }
+
+    .custom-pagination svg {
+        display:none !important;
+    }
 </style>
 <header class="header">
     <section class="flex">

@@ -38,5 +38,6 @@
                 </tbody>
             </table>
         </div>
+        <div class="custom-pagination"> {{$students->links()}} </div>
     </section>
 @endsection

@@ -38,10 +38,12 @@
                         </td>
                     </tr>
                 @endforeach
+            </tbody>
+            {{--End Table Head--}}
+        </table>
+    </div>
 
-                </tbody>
-                {{--End Table Head--}}
-            </table>
-        </div>
+    <div class="custom-pagination"> {{$students->links()}} </div>
+
     </section>
 @endsection
