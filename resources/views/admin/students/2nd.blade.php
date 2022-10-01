@@ -26,7 +26,7 @@
                     <tr>
                         <th>{{$student->name}}</th>
                         <th>{{$student->email}}</th>
-                        <th>{{$student->phone}}</th>
+                        <th>{{$student->phone_number}}</th>
                         <th style="width: 130px; height: 30px">
                             <form action="{{route('delete.student',$student->id)}}" method="POST">
                                 @csrf

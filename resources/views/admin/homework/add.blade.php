@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <section class="form-container">
-        <form action="{{route('store.new.lec')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('store.new.homework')}}" method="POST" enctype="multipart/form-data">
             @csrf
             @if(\Session::get('success'))
                 <div class="row mr-2 ml-2">
@@ -11,15 +11,15 @@
                 </div>
             @endif
 
-            <h3>Add New Lecture </h3>
+            <h3>Add New HomeWork </h3>
 
-            <p>Upload Lecture <span>*</span></p>
-            <input type="file" required class="box" name="lec">
+{{--            <p>Upload Lecture <span>*</span></p>--}}
+{{--            <input type="file" required class="box" name="lec">--}}
 
 
-            <p>Lecture Name <span>*</span></p>
-            <input type="text" name="name" placeholder="enter lec name" required class="box" value="{{old('name')}}">
-            @error('name')
+            <p>HomeWork Link <span>*</span></p>
+            <input type="text" name="link" placeholder="enter homework link" required class="box" value="{{old('link')}}">
+            @error('link')
             <span class="text-danger" style="color: white">{{$message}}</span>
             @enderror
 
@@ -64,7 +64,7 @@
             $('#academic_year').on('change', function () {
                 let id = $(this).val();
                 $('#month').empty();
-                $('#month').append('<option value="0" disabled selected>processing ...</option>');
+                // $('#month').append('<option value="0" disabled selected>processing ...</option>');
                 $.ajax({
                     type: 'GET',
                     url: 'getCourseMonths/' + id,

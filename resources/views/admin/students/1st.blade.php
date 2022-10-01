@@ -29,7 +29,7 @@
                     <tr>
                         <td>{{$student->name}}</td>
                         <td>{{$student->email}}</td>
-                        <td>{{$student->phone}}</td>
+                        <td>{{$student->phone_number}}</td>
                         <td style="width: 130px; height: 30px">
                             <form action="{{route('delete.student',$student->id)}}" method="POST">
                                 @csrf

@@ -128,6 +128,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
         //HomeWork
         Route::get('add/new/home/work',[DashboardController::class,'homeWorkForm'])->name('add.new.homework');
+        Route::post('store/new/homework',[DashboardController::class,'storeHomework'])->name('store.new.homework');
 
 
 

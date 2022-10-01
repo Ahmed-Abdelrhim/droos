@@ -422,8 +422,16 @@ class DashboardController extends Controller
 
     public function homeWorkForm()
     {
-        return view('admin.');
+        return view('admin.homework.add');
     }
 
-
+    public function storeHomework(Request $request)
+    {
+        $request->validate([
+            'link' => '',
+            'academic_year' => '',
+            'month' => '',
+            'week' => '',
+        ]);
+    }
 }
