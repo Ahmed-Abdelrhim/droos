@@ -59,6 +59,10 @@
 
                         @endif
                     @endforeach
+                @else
+                    <a href="#">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>لايوجد محتوي حتي الأن</span></a>
                 @endif
             </div>
             <!-- Second Week -->
@@ -90,6 +94,10 @@
 
                         @endif
                     @endforeach
+                @else
+                    <a href="#">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>لايوجد محتوي حتي الأن</span></a>
                 @endif
             </div>
             <!-- Third Week -->
@@ -120,6 +128,10 @@
 
                         @endif
                     @endforeach
+                @else
+                    <a href="#">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>لايوجد محتوي حتي الأن</span></a>
                 @endif
             </div>
             <!-- Fourth Week -->
@@ -153,6 +165,10 @@
 
                         @endif
                     @endforeach
+                @else
+                    <a href="#">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>لايوجد محتوي حتي الأن</span></a>
                 @endif
             </div>
         </div>
