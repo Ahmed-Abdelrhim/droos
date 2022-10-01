@@ -47,7 +47,7 @@
                             <i class="fa-solid fa-book-open"></i>
                             <span>واجب : {{$lec->name}}</span></a>
 
-                        <a href="{{route('view.quiz.link.2nd',$week1[$key]->id)}}">
+                        <a href="{{route('view.quiz.link.2nd',$quiz1[$key]->id)}}">
                             <i class="fa-solid fa-chalkboard-user"></i>
                             <span> كويز : {{$lec->name}}</span></a>
 
@@ -71,7 +71,7 @@
                             <i class="fa-solid fa-book-open"></i>
                             <span>واجب : {{$lec->name}}</span></a>
 
-                        <a href="{{route('view.quiz.link.2nd',$week2[$key]->id)}}">
+                        <a href="{{route('view.quiz.link.2nd',$quiz2[$key]->id)}}">
                             <i class="fa-solid fa-chalkboard-user"></i>
                             <span> كويز : {{$lec->name}}</span></a>
 
@@ -95,7 +95,7 @@
                             <i class="fa-solid fa-book-open"></i>
                             <span>واجب : {{$lec->name}}</span></a>
 
-                        <a href="{{route('view.quiz.link.2nd',$week3[$key]->id)}}">
+                        <a href="{{route('view.quiz.link.2nd',$quiz3[$key]->id)}}">
                             <i class="fa-solid fa-chalkboard-user"></i>
                             <span> كويز : {{$lec->name}}</span></a>
 
@@ -121,7 +121,7 @@
 {{--                        <a href="#">--}}
 {{--                            <i class="fa-solid fa-chalkboard-user"></i>--}}
 {{--                            <span>حل واجب : {{$lec->name}}</span></a>--}}
-                        <a href="{{route('view.quiz.link.2nd',$week4[$key]->id)}}">
+                        <a href="{{route('view.quiz.link.2nd',$quiz4[$key]->id)}}">
                             <i class="fa-solid fa-chalkboard-user"></i>
                             <span> كويز : {{$lec->name}}</span></a>
 
