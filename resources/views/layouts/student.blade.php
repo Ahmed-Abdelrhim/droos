@@ -305,7 +305,7 @@
             font-size: 24px;
             margin-bottom: 3%;
             margin-top: 35px;
-            transition: all 0.4s;
+            transition: all .25s ease;
         }
 
         /* Style the sidenav links and the dropdown button */
@@ -323,7 +323,6 @@
             border-radius: 8px;
             color: #f5f6fa;
             position: relative;
-            transition: .2s linear;
         }
 
         .dropdown-btn:hover {
@@ -363,20 +362,16 @@
         /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
         .dropdown-container {
             display: none;
-            background-color: #000;
-            padding-right: 8px;
-            overflow-y: scroll;
-            transform: translateY(-2em);
-            transition: var(--main-transition);
+            transform: translateY(-1em);
+            transition: all 0.5s smooth;
         }
 
         .dropdown-container a {
             display: block;
-            max-height: 240px;
             background: #414b57;
             color: #f5f6fa;
             width: 100%;
-            transition: all 0.4s;
+            transition: all .25s ease;
             padding: 12px 24px;
         }
 
