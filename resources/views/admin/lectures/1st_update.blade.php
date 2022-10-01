@@ -11,7 +11,7 @@
                 </div>
             @endif
 
-            <h3>Update Lecture </h3>
+            <h3>Update Lecture First Year</h3>
 
             <p>Upload Lecture <span>*</span></p>
             <input type="file" class="box" name="lec">
