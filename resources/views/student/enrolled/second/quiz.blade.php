@@ -1,13 +1,13 @@
 @extends('layouts.student')
 @section('content')
-    @if(isset($homework))
+    @if(isset($quiz))
         <section class="playlist-details">
         <div class="row">
             <div class="column">
                 <div class="thumb">
-                    <img src="{{asset('images/aab.png')}}" alt="not-found">
-                    <a href="{{$homework}}" class="inline-btn"><i
-                        style="margin-left:15px;" class="fas fa-book"></i>الدخول الي الواجب</a>
+                    <img src="{{asset('images/ph-4.jpg')}}" alt="not-found">
+                    <a href="{{$quiz}}" class="inline-btn"><i
+                        style="margin-left:15px;" class="fas fa-clock"></i>الدخول الي الامتحان</a>
                 </div>
             </div>
         </div>
