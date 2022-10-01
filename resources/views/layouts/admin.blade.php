@@ -503,10 +503,10 @@
         </div>
         <div class="box">
             <ul class="links">
-                <li><a href="{{route('dashboard')}}">الرئيسية</a></li>
-                <li><a href="#">من نحن</a></li>
-                <li><a href="{{route('view.msg')}}">تواصل معنا</a></li>
-                <li><a href="#">الكورسات</a></li>
+                <li><a href="{{route('home')}}">الرئيسية</a></li>
+                <li><a href="{{route('about')}}">من نحن</a></li>
+                <li><a href="{{route('contact')}}">تواصل معنا</a></li>
+                <li><a href="{{route('home')}}">الكورسات</a></li>
             </ul>
         </div>
         <div class="box">

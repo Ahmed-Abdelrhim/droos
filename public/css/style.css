@@ -2212,7 +2212,7 @@ footer .container img {
 }
 
 .footer .box .links li {
-    padding: 15px 0;
+    padding-bottom: 10px;
     transition: var(--main-transition);
 }
 
@@ -2233,11 +2233,12 @@ footer .container img {
     transition: var(--main-transition);
 }
 
-.footer .box .links li a::before {
+.footer .box .links li::before {
     font-family: "Font Awesome 5 Free";
     content: "\F101";
     font-weight: 900;
-    margin-right: 10px;
+    display: flex;
+    justify-content: start;
     color: var(--main-color);
 }
 
