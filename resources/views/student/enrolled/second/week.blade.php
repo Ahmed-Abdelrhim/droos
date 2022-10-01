@@ -22,7 +22,7 @@
                         <span> <i class="fas fa-clock"></i> + 15   ساعة </span>
                     </div>
                 </div>
-                <a href="https://www.youtube.com/channel/UCXrIOiXRybTNagbllgISrDQ" class="inline-btn"><i
+                <a href="https://www.youtube.com/channel/UCXrIOiXRybTNagbllgISrDQ" class="inline-btn" target="_blank"><i
                         style="margin-left:15px;" class="fa-brands fa-youtube"></i>مشاهدة
                     الفديوهات</a>
             </div>
