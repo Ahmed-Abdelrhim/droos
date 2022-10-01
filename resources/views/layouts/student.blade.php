@@ -323,6 +323,7 @@
             border-radius: 8px;
             color: #f5f6fa;
             position: relative;
+            transition: .2s linear;
         }
 
         .dropdown-btn:hover {
@@ -337,11 +338,13 @@
         .dropdown-btn .maine {
             margin-left: 15px;
             color: var(--main-color);
+            transition: .2s linear;
         }
 
         /* On mouse-over */
         .dropdown-btn:hover {
             color: var(--black);
+            transition: .2s linear;
         }
 
         /* On mouse-over */
@@ -363,6 +366,8 @@
             background-color: #000;
             padding-right: 8px;
             overflow-y: scroll;
+            transform: translateY(-2em);
+            transition: var(--main-transition);
         }
 
         .dropdown-container a {
@@ -382,6 +387,11 @@
         .dropdown-container a i {
             margin-left: 15px;
             color: #bb86fc;
+            transition: .2s linear;
+        }
+
+        .dropdown-container a:hover i {
+            margin-right: 2.5rem;
         }
 
         .dropdown-container::-webkit-scrollbar {

@@ -244,13 +244,38 @@
         color: white;
     }
 
-    /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
-    .dropdown-container {
-        display: none;
-        background-color: #000;
-        padding-right: 8px;
-    }
+        /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+        .dropdown-container {
+            display: none;
+            background-color: #000;
+            padding-right: 8px;
+            transform: translateY(-2em);
+            transition: var(--main-transition);
+        }
 
+        .dropdown-container a {
+            display: block;
+            max-height: 240px;
+            background: #414b57;
+            color: #f5f6fa;
+            width: 100%;
+            transition: all 0.4s;
+            padding: 12px 24px;
+        }
+
+        .dropdown-container a:hover {
+            background: #9ca3af;
+        }
+
+        .dropdown-container a i {
+            margin-left: 15px;
+            color: #bb86fc;
+            transition: .2s linear;
+        }
+
+        .dropdown-container a:hover i {
+            margin-right: 2.5rem;
+        }
     /* Optional: Style the caret down icon */
     .fa-caret-down {
         float: left;
