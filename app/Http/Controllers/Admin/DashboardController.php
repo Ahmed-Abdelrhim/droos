@@ -15,6 +15,9 @@ use App\Models\LecturesFirstYear;
 use App\Models\LecturesSecondYear;
 use App\Models\LecturesThirdYear;
 use App\Models\Message;
+use App\Models\QuizFirstYear;
+use App\Models\QuizSecondYear;
+use App\Models\QuizThirdYear;
 use App\Models\WhoAreWe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -481,4 +484,65 @@ class DashboardController extends Controller
             return redirect()->back()->with(['success' => 'Home work third year added successfully']);
         }
     }
+
+    public function quizForm()
+    {
+        return view('admin.quiz.add');
+    }
+
+
+    public function storeQuiz(Request $request)
+    {
+        $request->validate([
+            'link' => 'required|string',
+            'academic_year' => 'required|between:1,3',
+            'course_id' => 'required|numeric',
+            'week' => 'required|between:1,4',
+        ]);
+        if ($request->academic_year == 1) {
+            $course = CourseFirstYear::find($request->course_id);
+            if (!$course)
+                return 'Course You Have Selected Not Found';
+            QuizFirstYear::create([
+                'course_id' => $request->course_id,
+                'serial_number' => $course->serial_number,
+                'week' => $request->week,
+                'link' => $request->link,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return redirect()->back()->with(['success' => 'quiz first year added successfully']);
+        }
+
+        if ($request->academic_year == 2) {
+            $course = CourseSecondYear::find($request->course_id);
+            if (!$course)
+                return 'Course You Have Selected Not Found';
+            QuizSecondYear::create([
+                'course_id' => $request->course_id,
+                'serial_number' => $course->serial_number,
+                'week' => $request->week,
+                'link' => $request->link,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return redirect()->back()->with(['success' => 'quiz second year added successfully']);
+        }
+
+        if ($request->academic_year == 3) {
+            $course = CourseThirdYear::find($request->course_id);
+            if (!$course)
+                return 'Course You Have Selected Not Found';
+            QuizThirdYear::create([
+                'course_id' => $request->course_id,
+                'serial_number' => $course->serial_number,
+                'week' => $request->week,
+                'link' => $request->link,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return redirect()->back()->with(['success' => 'quiz third year added successfully']);
+        }
+    }
+
 }

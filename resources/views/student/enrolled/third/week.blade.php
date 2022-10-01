@@ -47,7 +47,7 @@
                             <i class="fa-solid fa-book-open"></i>
                             <span>واجب : {{$lec->name}}</span></a>
 
-                        <a href="#">
+                        <a href="{{route('view.quiz.link.3rd',$week1[$key]->id)}}">
                             <i class="fa-solid fa-chalkboard-user"></i>
                             <span> كويز : {{$lec->name}}</span></a>
 
@@ -71,7 +71,7 @@
                             <i class="fa-solid fa-book-open"></i>
                             <span>واجب : {{$lec->name}}</span></a>
 
-                        <a href="#">
+                        <a href="{{route('view.quiz.link.3rd',$week2[$key]->id)}}">
                             <i class="fa-solid fa-chalkboard-user"></i>
                             <span> كويز : {{$lec->name}}</span></a>
 
@@ -95,7 +95,7 @@
                             <i class="fa-solid fa-book-open"></i>
                             <span>واجب : {{$lec->name}}</span></a>
 
-                        <a href="#">
+                        <a href="{{route('view.quiz.link.3rd',$week3[$key]->id)}}">
                             <i class="fa-solid fa-chalkboard-user"></i>
                             <span> كويز : {{$lec->name}}</span></a>
 
@@ -121,7 +121,7 @@
 {{--                        <a href="#">--}}
 {{--                            <i class="fa-solid fa-chalkboard-user"></i>--}}
 {{--                            <span>حل واجب : {{$lec->name}}</span></a>--}}
-                        <a href="#">
+                        <a href="{{route('view.quiz.link.3rd',$week4[$key]->id)}}">
                             <i class="fa-solid fa-chalkboard-user"></i>
                             <span> كويز : {{$lec->name}}</span></a>
 

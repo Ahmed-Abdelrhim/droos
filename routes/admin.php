@@ -140,6 +140,19 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::post('delete/homework/3rd/year/{id}',[AcademicThirdYear::class,'deleteHomeWork'])->name('delete.homework.3rd');
 
 
+        //Quiz
+        Route::get('add/new/quiz',[DashboardController::class,'quizForm'])->name('add.new.quiz');
+        Route::post('store/new/quiz',[DashboardController::class,'storeQuiz'])->name('store.new.quiz');
+
+        Route::get('view/quiz/1st/year',[AcademicFirstYear::class,'getQuiz'])->name('get.quiz.1st.year');
+        Route::get('view/quiz/2nd/year',[AcademicSecondYear::class,'getQuiz'])->name('get.quiz.2nd.year');
+        Route::get('view/quiz/3rd/year',[AcademicThirdYear::class,'getQuiz'])->name('get.quiz.3rd.year');
+
+        Route::post('delete/quiz/1st/year/{id}',[AcademicFirstYear::class,'deleteQuiz'])->name('delete.quiz.1st');
+        Route::post('delete/quiz/2nd/year/{id}',[AcademicSecondYear::class,'deleteQuiz'])->name('delete.quiz.2nd');
+        Route::post('delete/quiz/3rd/year/{id}',[AcademicThirdYear::class,'deleteQuiz'])->name('delete.quiz.3rd');
+
+
 
         //Messages
         Route::get('student/messages',[DashboardController::class,'viewMessages'])->name('view.msg');

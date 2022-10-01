@@ -118,6 +118,11 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('view/homework/2nd/year/{id}',[AcademicSecondYear::class,'viewStudentHomeWork'])->name('view.homework.link.2nd');
         Route::get('view/homework/3rd/year/{id}',[AcademicThirdYear::class,'viewStudentHomeWork'])->name('view.homework.link.3rd');
 
+        //Student Quiz
+        Route::get('view/quiz/1st/year/{id}',[AcademicFirstYear::class,'viewStudentQuiz'])->name('view.quiz.link.1st');
+        Route::get('view/quiz/2nd/year/{id}',[AcademicSecondYear::class,'viewStudentQuiz'])->name('view.quiz.link.2nd');
+        Route::get('view/quiz/3rd/year/{id}',[AcademicThirdYear::class,'viewStudentQuiz'])->name('view.quiz.link.3rd');
+
 
     });
 
