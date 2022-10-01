@@ -193,19 +193,31 @@ class AcademicSecondYear extends Controller
     public function viewWeeksPage($id)
     {
         $course = CourseSecondYear::with('lectures')->find($id);
+//        return $course['lectures'];
         if (!$course)
             return view('student.access_denied');
-        $week1 = $course['homework']->where('week', 1);
-        $week2 = $course['homework']->where('week', 2);
-        $week3 = $course['homework']->where('week', 3);
-        $week4 = $course['homework']->where('week', 4);
 
-        $quiz1 = $course['quiz']->where('week', 1);
-        $quiz2 = $course['quiz']->where('week', 2);
-        $quiz3 = $course['quiz']->where('week', 3);
-        $quiz4 = $course['quiz']->where('week', 4);
-        return view('student.enrolled.second.week', compact('course', 'week1', 'week2', 'week3', 'week4'
-            , 'quiz1', 'quiz2', 'quiz3', 'quiz4'));
+//        $lectures1 = $course['lectures']->where('week', 1);
+//        $lectures2 = $course['lectures']->where('week', 2);
+//        $lectures3 = $course['lectures']->where('week', 3);
+//        $lectures4 = $course['lectures']->where('week', 4);
+
+
+
+//        $week1 = $course['homework']->where('week', 1);
+//        $week2 = $course['homework']->where('week', 2);
+//        $week3 = $course['homework']->where('week', 3);
+//        $week4 = $course['homework']->where('week', 4);
+//
+//        $quiz1 = $course['quiz']->where('week', 1);
+//        $quiz2 = $course['quiz']->where('week', 2);
+//        $quiz3 = $course['quiz']->where('week', 3);
+//        $quiz4 = $course['quiz']->where('week', 4);
+
+
+        return view('student.enrolled.second.week', compact('course'));
+//        return view('student.enrolled.second.week', compact('course', 'week1', 'week2', 'week3', 'week4'
+//            , 'quiz1', 'quiz2', 'quiz3', 'quiz4', 'lectures1', 'lectures2', 'lectures3', 'lectures4'));
     }
 
     public function viewEnrolledCourse($id)
@@ -233,7 +245,7 @@ class AcademicSecondYear extends Controller
 
     public function viewStudentHomeWork($id)
     {
-        $homework = HomeWorkSecondYear::find($id)->link;
+        $homework = LecturesSecondYear::find($id)->homework;
         return view('student.enrolled.second.homework', compact('homework'));
     }
 
@@ -249,12 +261,12 @@ class AcademicSecondYear extends Controller
         if (!$quiz)
             return 'Home Work Not Found';
         $quiz->delete();
-        return redirect()->back()->with(['success' => 'home work deleted successfully']);
+        return redirect()->back()->with(['success' => 'quiz deleted successfully']);
     }
 
     public function viewStudentQuiz($id)
     {
-        $quiz = QuizSecondYear::find($id)->link;
+        $quiz = LecturesSecondYear::find($id)->quiz;
         return view('student.enrolled.second.quiz', compact('quiz'));
     }
 

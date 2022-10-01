@@ -244,6 +244,8 @@ class DashboardController extends Controller
             LecturesFirstYear::create([
                 'name' => $request->name,
                 'lec' => $video_name,
+                'homework' => $request->homework,
+                'quiz' => $request->quiz,
                 'course_id' => $course->id,
                 'serial_number' => $course->serial_number,
                 'week' => $request->week,
@@ -260,9 +262,10 @@ class DashboardController extends Controller
             LecturesSecondYear::create([
                 'name' => $request->name,
                 'lec' => $video_name,
+                'homework' => $request->homework,
+                'quiz' => $request->quiz,
                 'course_id' => $course->id,
                 'serial_number' => $course->serial_number,
-                //'serial_number' => $request->month,
                 'week' => $request->week,
                 'created_at' => now(),
                 'updated_at' => now(),]);
@@ -277,9 +280,10 @@ class DashboardController extends Controller
             LecturesThirdYear::create([
                 'name' => $request->name,
                 'lec' => $video_name,
+                'homework' => $request->homework,
+                'quiz' => $request->quiz,
                 'course_id' => $course->id,
                 'serial_number' => $course->serial_number,
-                //'serial_number' => $request->month,
                 'week' => $request->week,
                 'created_at' => now(),
                 'updated_at' => now(),]);

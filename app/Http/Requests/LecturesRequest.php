@@ -31,6 +31,8 @@ class LecturesRequest extends FormRequest
             'academic_year' => 'between:1,3',
             'month' => [new LectureUploading($this->month)],
             'week' => 'between:1,4',
+            'homework' => 'nullable|string',
+            'quiz' => 'nullable|string',
         ];
     }
 }

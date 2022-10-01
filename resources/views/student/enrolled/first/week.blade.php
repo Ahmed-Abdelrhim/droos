@@ -45,16 +45,24 @@
                                 <span>{{$lec->name}}</span>
                             </a>
 
-                            @if(isset($week1[$key]) && count($week1) > 0)
-                            <a href="{{route('view.homework.link.1st',$week1[$key]->id)}} ">
-                                <i class="fa-solid fa-book-open"></i>
-                                <span>واجب : {{$lec->name}}</span></a>
+                            @if($lec->homework != null)
+                                <a href="{{route('view.homework.link.1st',$lec->id)}}">
+                                    <i class="fa-solid fa-book-open"></i>
+                                    <span>واجب : {{$lec->name}}</span></a>
+                            @else
+                                <a href="#">
+                                    <i class="fa-solid fa-book-open"></i>
+                                    <span>لا يوجد واجب حتي الأن</span></a>
                             @endif
 
-                            @if(isset($quiz1[$key]) && count($quiz1) > 0)
-                            <a href="{{route('view.quiz.link.1st',$quiz1[$key]->id)}}">
-                                <i class="fa-solid fa-chalkboard-user"></i>
-                                <span> كويز : {{$lec->name}}</span></a>
+                            @if($lec->quiz != null)
+                                <a href="{{route('view.quiz.link.1st',$lec->id)}}">
+                                    <i class="fa-solid fa-chalkboard-user"></i>
+                                    <span> كويز : {{$lec->name}}</span></a>
+                            @else
+                                <a href="#">
+                                    <i class="fa-solid fa-chalkboard-user"></i>
+                                    <span>لا يوجد كويز حتي الأن</span></a>
                             @endif
 
                         @endif
@@ -80,16 +88,24 @@
                                 <span>{{$lec->name}}</span>
                             </a>
 
-                            @if(isset($week2[$key]) && count($week2) > 0)
-                            <a href="{{route('view.homework.link.1st',$week2[$key]->id)}}">
-                                <i class="fa-solid fa-book-open"></i>
-                                <span>واجب : {{$lec->name}}</span></a>
+                            @if($lec->homework != null)
+                                <a href="{{route('view.homework.link.1st',$lec->id)}}">
+                                    <i class="fa-solid fa-book-open"></i>
+                                    <span>واجب : {{$lec->name}}</span></a>
+                            @else
+                                <a href="#">
+                                    <i class="fa-solid fa-book-open"></i>
+                                    <span>لا يوجد واجب حتي الأن</span></a>
                             @endif
 
-                            @if(isset($quiz2[$key]) && count($quiz2) > 0)
-                            <a href=" {{route('view.quiz.link.1st',$quiz2[$key]->id)}}">
-                                <i class="fa-solid fa-chalkboard-user"></i>
-                                <span> كويز : {{$lec->name}}</span></a>
+                            @if($lec->quiz != null)
+                                <a href="{{route('view.quiz.link.1st',$lec->id)}}">
+                                    <i class="fa-solid fa-chalkboard-user"></i>
+                                    <span> كويز : {{$lec->name}}</span></a>
+                            @else
+                                <a href="#">
+                                    <i class="fa-solid fa-chalkboard-user"></i>
+                                    <span>لا يوجد كويز حتي الأن</span></a>
                             @endif
 
                         @endif
@@ -114,16 +130,26 @@
                                 <i class="fa-solid fa-video"></i>
                                 <span>{{$lec->name}}</span>
                             </a>
-                            @if(isset($week3[$key]) && count($week3) > 0)
-                            <a href="{{route('view.homework.link.1st',$week3[$key]->id)}}">
-                                <i class="fa-solid fa-book-open"></i>
-                                <span>واجب : {{$lec->name}}</span></a>
+
+
+                            @if($lec->homework != null)
+                                <a href="{{route('view.homework.link.1st',$lec->id)}}">
+                                    <i class="fa-solid fa-book-open"></i>
+                                    <span>واجب : {{$lec->name}}</span></a>
+                            @else
+                                <a href="#">
+                                    <i class="fa-solid fa-book-open"></i>
+                                    <span>لا يوجد واجب حتي الأن</span></a>
                             @endif
 
-                            @if(isset($quiz3[$key]) && count($quiz3) > 0)
-                            <a href="{{route('view.quiz.link.1st',$quiz3[$key]->id)}}">
-                                <i class="fa-solid fa-chalkboard-user"></i>
-                                <span> كويز : {{$lec->name}}</span></a>
+                            @if($lec->quiz != null)
+                                <a href="{{route('view.quiz.link.1st',$lec->id)}}">
+                                    <i class="fa-solid fa-chalkboard-user"></i>
+                                    <span> كويز : {{$lec->name}}</span></a>
+                            @else
+                                <a href="#">
+                                    <i class="fa-solid fa-chalkboard-user"></i>
+                                    <span>لا يوجد كويز حتي الأن</span></a>
                             @endif
 
                         @endif
@@ -149,17 +175,24 @@
                                 <span>{{$lec->name}}</span>
                             </a>
 
-                            @if(isset($week4[$key]) && count($week4) > 0 )
-                            <a href="{{route('view.homework.link.1st',$week4[$key]->id)}}">
-                                <i class="fa-solid fa-book-open"></i>
-                                <span>واجب : {{$lec->name}}</span></a>
+                            @if($lec->homework != null)
+                                <a href="{{route('view.homework.link.1st',$lec->id)}}">
+                                    <i class="fa-solid fa-book-open"></i>
+                                    <span>واجب : {{$lec->name}}</span></a>
+                            @else
+                                <a href="#">
+                                    <i class="fa-solid fa-book-open"></i>
+                                    <span>لا يوجد واجب حتي الأن</span></a>
                             @endif
 
-
-                            @if(isset($quiz4[$key]) && count($quiz4) > 0)
-                            <a href="{{route('view.quiz.link.1st',$quiz4[$key]->id)}}">
-                                <i class="fa-solid fa-chalkboard-user"></i>
-                                <span> كويز : {{$lec->name}}</span></a>
+                            @if($lec->quiz != null)
+                                <a href="{{route('view.quiz.link.1st',$lec->id)}}">
+                                    <i class="fa-solid fa-chalkboard-user"></i>
+                                    <span> كويز : {{$lec->name}}</span></a>
+                            @else
+                                <a href="#">
+                                    <<i class="fa-solid fa-chalkboard-user"></i>
+                                    <span>لا يوجد كويز حتي الأن</span></a>
                             @endif
 
 

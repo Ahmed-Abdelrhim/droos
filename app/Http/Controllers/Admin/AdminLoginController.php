@@ -18,18 +18,18 @@ class AdminLoginController extends Controller
     // Checks If Admin In Exists In Database Function
     public function login(Request $request)
     {
-       // return $request;
+        // return $request;
         if (Auth::guard('admin')->attempt($this->credentials($request))) {
-          return redirect()->route('dashboard');
+            return redirect()->route('dashboard');
             // return 'Admin';
         }
 //        $request->session()->flash('message', 'email or password is incorrect' );
-        return back()->withErrors([
-            'message ' => 'email or password is incorrect',
-            'email' => 'email or password is incorrect.',
-            'password' => 'wrong password'
-        ]);
-        // return back()->with('error', 'Email or password is wrong!');
+//        return back()->withErrors([
+//            'message ' => 'email or password is incorrect',
+//            'email' => 'email or password is incorrect.',
+//            'password' => 'wrong password'
+//        ]);
+        return back()->with(['message'=> 'Email or password is wrong!']);
 
     }
 

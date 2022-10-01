@@ -51,6 +51,18 @@
             <span class="text-danger" style="color: white">{{$message}}</span>
             @enderror
 
+            <p>Lecture HomeWork <span>*</span></p>
+            <input type="text" name="homework" placeholder="enter lec homework link" class="box" value="{{old('homework')}}">
+            @error('homework')
+            <span class="text-danger" style="color: white">{{$message}}</span>
+            @enderror
+
+            <p>Lecture Quiz <span>*</span></p>
+            <input type="text" name="quiz" placeholder="enter lec quiz link " class="box" value="{{old('quiz')}}">
+            @error('quiz')
+            <span class="text-danger" style="color: white">{{$message}}</span>
+            @enderror
+
             <button type="submit" class="btn " style="margin-top: 30px">submit</button>
         </form>
 

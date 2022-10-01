@@ -179,19 +179,22 @@ class AcademicThirdYear extends Controller
     public function viewWeeksPage($id)
     {
         $course = CourseThirdYear::with('lectures')->find($id);
+
         if (!$course)
             return view('student.access_denied');
-        $week1 = $course['homework']->where('week', 1);
-        $week2 = $course['homework']->where('week', 2);
-        $week3 = $course['homework']->where('week', 3);
-        $week4 = $course['homework']->where('week', 4);
+//        $week1 = $course['homework']->where('week', 1);
+//        $week2 = $course['homework']->where('week', 2);
+//        $week3 = $course['homework']->where('week', 3);
+//        $week4 = $course['homework']->where('week', 4);
+//
+//        $quiz1 = $course['quiz']->where('week', 1);
+//        $quiz2 = $course['quiz']->where('week', 2);
+//        $quiz3 = $course['quiz']->where('week', 3);
+//        $quiz4 = $course['quiz']->where('week', 4);
 
-        $quiz1 = $course['quiz']->where('week', 1);
-        $quiz2 = $course['quiz']->where('week', 2);
-        $quiz3 = $course['quiz']->where('week', 3);
-        $quiz4 = $course['quiz']->where('week', 4);
-        return view('student.enrolled.third.week', compact('course', 'week1', 'week2', 'week3', 'week4'
-            , 'quiz1', 'quiz2', 'quiz3', 'quiz4'));
+        return view('student.enrolled.third.week', compact('course'));
+//        return view('student.enrolled.third.week', compact('course', 'week1', 'week2', 'week3', 'week4'
+//            , 'quiz1', 'quiz2', 'quiz3', 'quiz4'));
 
     }
 
@@ -220,7 +223,7 @@ class AcademicThirdYear extends Controller
 
     public function viewStudentHomeWork($id)
     {
-        $homework = HomeWorkThirdYear::find($id)->link;
+        $homework = LecturesThirdYear::find($id)->homework;
         return view('student.enrolled.third.homework', compact('homework'));
     }
 
@@ -236,13 +239,13 @@ class AcademicThirdYear extends Controller
         if (!$quiz)
             return 'Home Work Not Found';
         $quiz->delete();
-        return redirect()->back()->with(['success' => 'home work deleted successfully']);
+        return redirect()->back()->with(['success' => 'quiz deleted successfully']);
     }
 
 
     public function viewStudentQuiz($id)
     {
-        $quiz = QuizThirdYear::find($id)->link;
+        $quiz = LecturesThirdYear::find($id)->quiz;
         return view('student.enrolled.third.quiz', compact('quiz'));
     }
 

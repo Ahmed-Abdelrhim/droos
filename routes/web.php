@@ -131,6 +131,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
 });
 
-Route::get('hash',function (){
-    return substr(exec('getmac'), 0, 17);
-});
+//Route::get('hash',function (){
+//    return bcrypt(12345678);
+//    return substr(exec('getmac'), 0, 17);
+//});
