@@ -29,7 +29,7 @@ l@extends('layouts.student')
         </div>
     </section>
     <section class="playlist-details">
-        <h2 class="heading">محتوى الكورس</h2>
+        <h2 class="heading"><span>محتوى</span>  الكورس</h2>
         <div class="select-box">
             <!-- first week -->
             <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الاول
