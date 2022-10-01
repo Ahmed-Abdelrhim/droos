@@ -444,32 +444,32 @@
         </div>
 
 
-        <button class="dropdown-btn"> الواجب
-            <i class="fa fa-caret-down arrow"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="{{route('add.new.homework')}}"><i class="fas fa-question"></i><span>أضافة واجب</span></a>
-            <a href="{{route('get.homework.1st.year')}}"><i
-                    class="fas fa-question"></i><span> واجب الصف الأول الثانوي</span></a>
-            <a href="{{route('get.homework.2nd.year')}}"><i
-                    class="fas fa-question"></i><span> واجب الصف الثاني الثانوي</span></a>
-            <a href="{{route('get.homework.3rd.year')}}"><i
-                    class="fas fa-question"></i><span>واجب الصف الثالث الثانوي</span></a>
-        </div>
+{{--        <button class="dropdown-btn"> الواجب--}}
+{{--            <i class="fa fa-caret-down arrow"></i>--}}
+{{--        </button>--}}
+{{--        <div class="dropdown-container">--}}
+{{--            <a href="{{route('add.new.homework')}}"><i class="fas fa-question"></i><span>أضافة واجب</span></a>--}}
+{{--            <a href="{{route('get.homework.1st.year')}}"><i--}}
+{{--                    class="fas fa-question"></i><span> واجب الصف الأول الثانوي</span></a>--}}
+{{--            <a href="{{route('get.homework.2nd.year')}}"><i--}}
+{{--                    class="fas fa-question"></i><span> واجب الصف الثاني الثانوي</span></a>--}}
+{{--            <a href="{{route('get.homework.3rd.year')}}"><i--}}
+{{--                    class="fas fa-question"></i><span>واجب الصف الثالث الثانوي</span></a>--}}
+{{--        </div>--}}
 
 
-        <button class="dropdown-btn"> الكويزات
-            <i class="fa fa-caret-down arrow"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="{{route('add.new.quiz')}}"><i class="fas fa-question"></i><span>أضافة كويز</span></a>
-            <a href="{{route('get.quiz.1st.year')}}"><i
-                    class="fas fa-question"></i><span> كويز الصف الأول الثانوي</span></a>
-            <a href="{{route('get.quiz.2nd.year')}}"><i
-                    class="fas fa-question"></i><span> كويز الصف الثاني الثانوي</span></a>
-            <a href="{{route('get.quiz.3rd.year')}}"><i
-                    class="fas fa-question"></i><span>كويز الصف الثالث الثانوي</span></a>
-        </div>
+{{--        <button class="dropdown-btn"> الكويزات--}}
+{{--            <i class="fa fa-caret-down arrow"></i>--}}
+{{--        </button>--}}
+{{--        <div class="dropdown-container">--}}
+{{--            <a href="{{route('add.new.quiz')}}"><i class="fas fa-question"></i><span>أضافة كويز</span></a>--}}
+{{--            <a href="{{route('get.quiz.1st.year')}}"><i--}}
+{{--                    class="fas fa-question"></i><span> كويز الصف الأول الثانوي</span></a>--}}
+{{--            <a href="{{route('get.quiz.2nd.year')}}"><i--}}
+{{--                    class="fas fa-question"></i><span> كويز الصف الثاني الثانوي</span></a>--}}
+{{--            <a href="{{route('get.quiz.3rd.year')}}"><i--}}
+{{--                    class="fas fa-question"></i><span>كويز الصف الثالث الثانوي</span></a>--}}
+{{--        </div>--}}
 
 
     </nav>
