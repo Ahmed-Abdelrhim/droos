@@ -53,22 +53,23 @@
 
             <form action="{{route('msg')}}" method="POST">
                 {{-- Success Message --}}
-                @if (Session::has('success'))
+                @if (\Session::has('success'))
                     <div class="row mr-2 ml-2">
                         <button type="text" class="btn btn-lg btn-block btn-outline-success mb-2"
-                                id="type-error">{{Session::get('success')}}
+                                id="type-error">{{\Session::get('success')}}
                         </button>
                     </div>
                 @endif
 
                 {{-- Error Message --}}
-                @if (Session::has('errors'))
-                    <div class="row mr-2 ml-2">
-                        <button type="text" class="btn btn-lg btn-block btn-outline-danger mb-2"
-                                id="type-error">{{Session::get('errors')}}
-                        </button>
-                    </div>
-                @endif
+{{--                @if (\Session::has('errors'))--}}
+{{--                    <div class="row mr-2 ml-2">--}}
+{{--                        <button type="text" class="btn btn-lg btn-block btn-outline-danger mb-2"--}}
+{{--                                id="type-error">{{\Session::get('errors')}}--}}
+{{--                        </button>--}}
+{{--                    </div>--}}
+{{--                @endif--}}
+
                 @csrf
                 <h3>get in touch</h3>
                 {{-- <input type="text" placeholder="enter your name" name="name" required maxlength="50" class="box">--}}
@@ -77,7 +78,7 @@
                 <textarea name="msg" class="box" placeholder="enter your message" required maxlength="1000" cols="30"
                           rows="10"></textarea>
                 @error('msg')
-                <span class="text-danger" style="font-size: 20px">{{$message}}</span>
+                <span class="text-danger" style="font-size: 20px; color: white">{{$message}}</span>
                 @enderror
                 <button type="submit" class="inline-btn">send message</button>
             </form>

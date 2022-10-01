@@ -11,15 +11,14 @@
                 </div>
             @endif
 
-            <h3>Update Lecture </h3>
+            <h3>Update Lecture First Year</h3>
 
             <p>Upload Lecture <span>*</span></p>
-            <input type="file" required class="box" name="lec">
+            <input type="file" class="box" name="lec">
 
 
             <p>Lecture Name <span>*</span></p>
-            <input type="text" name="name" placeholder="enter lec name" required class="box" value="{{old('name')}}"
-            value="{{$lec->name}}"
+            <input type="text" name="name" placeholder="enter lec name" class="box" value="{{$lec->name}}"
             >
             @error('name')
             <span class="text-danger" style="color: white">{{$message}}</span>
@@ -39,7 +38,7 @@
             @enderror
 
             <p>Lecture HomeWork <span>*</span></p>
-            <input type="text" name="homework" placeholder="enter lec homework link" class="box" value="{{old('homework')}}"
+            <input type="text" name="homework" placeholder="enter lec homework link" class="box"
             value="@if($lec->homework != null) {{$lec->homework}}@endif"
             >
             @error('homework')
@@ -47,7 +46,7 @@
             @enderror
 
             <p>Lecture Quiz <span>*</span></p>
-            <input type="text" name="quiz" placeholder="enter lec quiz link " class="box" value="{{old('quiz')}}"
+            <input type="text" name="quiz" placeholder="enter lec quiz link " class="box"
                    value="@if($lec->quiz != null) {{$lec->quiz}}@endif"
             >
             @error('quiz')
