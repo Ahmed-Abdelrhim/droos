@@ -48,6 +48,8 @@
                 </tbody>
             </table>
         </div>
+            <div class="custom-pagination"> {{$allData->links()}} </div>
+
     </section>
 @endsection
 

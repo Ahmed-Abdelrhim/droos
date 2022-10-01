@@ -19,7 +19,7 @@ class WaitingListController extends Controller
 {
     public function waitingFirstYear(Request $request)
     {
-        $allData = WaitingListFirstYear::with('students')->get();
+        $allData = WaitingListFirstYear::with('students')->paginate(10);
         return view('admin.waiting_list.first.index',compact('allData'));
     }
 
@@ -49,7 +49,7 @@ class WaitingListController extends Controller
 
     public function waitingSecondYear()
     {
-        $allData = WaitingListSecondtYear::with('students')->get();
+        $allData = WaitingListSecondtYear::with('students')->paginate(10);
         return view('admin.waiting_list.second.index',compact('allData'));
 
     }
