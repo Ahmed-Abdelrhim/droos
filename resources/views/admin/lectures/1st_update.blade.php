@@ -25,6 +25,8 @@
             <span class="text-danger" style="color: white">{{$message}}</span>
             @enderror
 
+
+
             <p>Lecture Week <span>*</span></p>
             <select class="custom-select" name="week" required>
                 <option value="1">week 1</option>

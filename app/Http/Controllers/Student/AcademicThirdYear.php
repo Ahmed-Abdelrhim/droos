@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LecturesRequest;
 use App\Models\CourseThirdYear;
 use App\Models\Demo;
 use App\Models\HomeWorkThirdYear;
@@ -184,9 +185,26 @@ class AcademicThirdYear extends Controller
         return view('admin.lectures.3rd_update',compact('lec'));
     }
 
-    public function updateLecture(Request $request , $id )
+    public function updateLecture(LecturesRequest $request , $id )
     {
+        $lecture = LecturesThirdYear::find($id);
+        if (!$lecture)
+            return 'lecture not found';
+        $video_name = $lecture->lec;
+        if($request->has('lec'))
+            $video_name = uploadLecture('third', $request->lec);
 
+        LecturesThirdYear::create([
+            'name' => $request->name,
+            'lec' => $video_name,
+            'homework' => $request->homework,
+            'quiz' => $request->quiz,
+            'course_id' => $lecture->course_id,
+            'serial_number' => $lecture->serial_number,
+            'week' => $request->week,
+            'created_at' => now(),
+            'updated_at' => now(),]);
+        return redirect()->back()->with(['success' => 'lecture updated successfully']);
     }
 
     public function viewWeeksPage($id)

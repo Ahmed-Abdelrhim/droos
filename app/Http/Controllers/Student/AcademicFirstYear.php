@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LecturesRequest;
 use App\Http\Requests\UpdateFirstYearCourseRrquest;
 use App\Models\Demo;
 use App\Models\HomeWorkFirstYear;
@@ -191,8 +192,27 @@ class AcademicFirstYear extends Controller
         return view('admin.lectures.1st_update',compact('lec'));
     }
 
-    public function updateLecture(Request $request , $id)
+    public function updateLecture(LecturesRequest $request , $id)
     {
+        $lecture = LecturesFirstYear::find($id);
+        if (!$lecture)
+            return 'lecture not found';
+        $video_name = $lecture->lec;
+        if($request->has('lec'))
+            $video_name = uploadLecture('first', $request->lec);
+
+        LecturesFirstYear::create([
+            'name' => $request->name,
+            'lec' => $video_name,
+            'homework' => $request->homework,
+            'quiz' => $request->quiz,
+            'course_id' => $lecture->course_id,
+            'serial_number' => $lecture->serial_number,
+            'week' => $request->week,
+            'created_at' => now(),
+            'updated_at' => now(),]);
+        return redirect()->back()->with(['success' => 'lecture updated successfully']);
+
 
     }
 
