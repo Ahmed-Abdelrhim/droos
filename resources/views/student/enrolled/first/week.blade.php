@@ -191,7 +191,7 @@
                                     <span> كويز : {{$lec->name}}</span></a>
                             @else
                                 <a href="#">
-                                    <<i class="fa-solid fa-chalkboard-user"></i>
+                                    <i class="fa-solid fa-chalkboard-user"></i>
                                     <span>لا يوجد كويز حتي الأن</span></a>
                             @endif
 
