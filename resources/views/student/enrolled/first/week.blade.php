@@ -29,7 +29,7 @@
         </div>
     </section>
     <section class="playlist-details">
-        <h2 class="heading"><span>محتوى</span>  الكورس</h2>
+        <h2 class="heading"><span>محتوى</span> الكورس</h2>
         <div class="select-box">
             <!-- first week -->
             <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الاول
@@ -37,22 +37,29 @@
                 <i class="fa fa-caret-down arrow"></i>
             </button>
             <div class="dropdown-container">
-                @foreach($course['lectures'] as $key => $lec)
-                    @if( $lec->week == 1)
-                        <a href="{{route('view.enrolled.lecture.1st',$lec->id)}}">
-                            <i class="fa-solid fa-video"></i>
-                            <span>{{$lec->name}}</span>
-                        </a>
-                        <a href="{{route('view.homework.link.1st',$week1[$key]->id)}}">
-                            <i class="fa-solid fa-book-open"></i>
-                            <span>واجب : {{$lec->name}}</span></a>
+                @if(isset($course['lectures']) && count($course['lectures']) > 0 )
+                    @foreach($course['lectures'] as $key => $lec)
+                        @if( $lec->week == 1)
+                            <a href="{{route('view.enrolled.lecture.1st',$lec->id)}}">
+                                <i class="fa-solid fa-video"></i>
+                                <span>{{$lec->name}}</span>
+                            </a>
 
-                        <a href="{{route('view.quiz.link.1st',$quiz1[$key]->id)}}">
-                            <i class="fa-solid fa-chalkboard-user"></i>
-                            <span> كويز : {{$lec->name}}</span></a>
+                            @if(isset($week1) && count($week1) > 0)
+                            <a href="{{route('view.homework.link.1st',$week1[$key]->id)}} ">
+                                <i class="fa-solid fa-book-open"></i>
+                                <span>واجب : {{$lec->name}}</span></a>
+                            @endif
 
-                    @endif
-                @endforeach
+                            @if(isset($quiz1) && count($quiz1) > 0)
+                            <a href="{{route('view.quiz.link.1st',$quiz1[$key]->id)}}">
+                                <i class="fa-solid fa-chalkboard-user"></i>
+                                <span> كويز : {{$lec->name}}</span></a>
+                            @endif
+
+                        @endif
+                    @endforeach
+                @endif
             </div>
             <!-- Second Week -->
             <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثاني
@@ -61,22 +68,29 @@
                 <i class="fa fa-caret-down arrow"></i>
             </button>
             <div class="dropdown-container">
-                @foreach($course['lectures'] as $key => $lec)
-                    @if( $lec->week == 2)
-                        <a href="{{route('view.enrolled.lecture.1st',$lec->id)}}">
-                            <i class="fa-solid fa-video"></i>
-                            <span>{{$lec->name}}</span>
-                        </a>
-                        <a href="{{route('view.homework.link.1st',$week2[$key]->id)}}">
-                            <i class="fa-solid fa-book-open"></i>
-                            <span>واجب : {{$lec->name}}</span></a>
+                @if(isset($course['lectures']) && count($course['lectures']) > 0)
+                    @foreach($course['lectures'] as $key => $lec)
+                        @if( $lec->week == 2)
+                            <a href="{{route('view.enrolled.lecture.1st',$lec->id)}}">
+                                <i class="fa-solid fa-video"></i>
+                                <span>{{$lec->name}}</span>
+                            </a>
 
-                        <a href="{{route('view.quiz.link.1st',$quiz2[$key]->id)}}">
-                            <i class="fa-solid fa-chalkboard-user"></i>
-                            <span> كويز : {{$lec->name}}</span></a>
+                            @if(isset($week2) && count($week2) > 0)
+                            <a href="{{route('view.homework.link.1st',$week2[$key]->id)}}">
+                                <i class="fa-solid fa-book-open"></i>
+                                <span>واجب : {{$lec->name}}</span></a>
+                            @endif
 
-                    @endif
-                @endforeach
+                            @if(isset($quiz2) && count($quiz2) > 0)
+                            <a href=" {{route('view.quiz.link.1st',$quiz2[$key]->id)}}">
+                                <i class="fa-solid fa-chalkboard-user"></i>
+                                <span> كويز : {{$lec->name}}</span></a>
+                            @endif
+
+                        @endif
+                    @endforeach
+                @endif
             </div>
             <!-- Third Week -->
             <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثالث
@@ -85,22 +99,28 @@
                 <i class="fa fa-caret-down arrow"></i>
             </button>
             <div class="dropdown-container">
-                @foreach($course['lectures'] as $key => $lec)
-                    @if( $lec->week == 3)
-                        <a href="{{route('view.enrolled.lecture.1st',$lec->id)}}">
-                            <i class="fa-solid fa-video"></i>
-                            <span>{{$lec->name}}</span>
-                        </a>
-                        <a href="{{route('view.homework.link.1st',$week3[$key]->id)}}">
-                            <i class="fa-solid fa-book-open"></i>
-                            <span>واجب : {{$lec->name}}</span></a>
+                @if(isset($course['lectures']) && count($course['lectures']) > 0)
+                    @foreach($course['lectures'] as $key => $lec)
+                        @if( $lec->week == 3)
+                            <a href="{{route('view.enrolled.lecture.1st',$lec->id)}}">
+                                <i class="fa-solid fa-video"></i>
+                                <span>{{$lec->name}}</span>
+                            </a>
+                            @if(isset($week3) && count($week3) > 0)
+                            <a href="{{route('view.homework.link.1st',$week3[$key]->id)}}">
+                                <i class="fa-solid fa-book-open"></i>
+                                <span>واجب : {{$lec->name}}</span></a>
+                            @endif
 
-                        <a href="{{route('view.quiz.link.1st',$quiz3[$key]->id)}}">
-                            <i class="fa-solid fa-chalkboard-user"></i>
-                            <span> كويز : {{$lec->name}}</span></a>
+                            @if(isset($quiz3) && count($quiz3) > 0)
+                            <a href="{{route('view.quiz.link.1st',$quiz3[$key]->id)}}">
+                                <i class="fa-solid fa-chalkboard-user"></i>
+                                <span> كويز : {{$lec->name}}</span></a>
+                            @endif
 
-                    @endif
-                @endforeach
+                        @endif
+                    @endforeach
+                @endif
             </div>
             <!-- Fourth Week -->
             <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الرابع
@@ -109,30 +129,31 @@
                 <i class="fa fa-caret-down arrow"></i>
             </button>
             <div class="dropdown-container">
-                @foreach($course['lectures'] as $key => $lec)
-                    @if( $lec->week == 4)
-                        <a href="{{route('view.enrolled.lecture.1st',$lec->id)}}">
-                            <i class="fa-solid fa-video"></i>
-                            <span>{{$lec->name}}</span>
-                        </a>
-                        <a href="{{route('view.homework.link.1st',$week4[$key]->id)}}">
-                            <i class="fa-solid fa-book-open"></i>
-                            <span>واجب : {{$lec->name}}</span></a>
-{{--                        <a href="#">--}}
-{{--                            <i class="fa-solid fa-chalkboard-user"></i>--}}
-{{--                            <span>حل واجب : {{$lec->name}}</span></a>--}}
-                        <a href="{{route('view.quiz.link.1st',$quiz4[$key]->id)}}">
-                            <i class="fa-solid fa-chalkboard-user"></i>
-                            <span> كويز : {{$lec->name}}</span></a>
+                @if(isset($course['lectures']) && count($course['lectures']) > 0)
+                    @foreach($course['lectures'] as $key => $lec)
+                        @if( $lec->week == 4)
+                            <a href="{{route('view.enrolled.lecture.1st',$lec->id)}}">
+                                <i class="fa-solid fa-video"></i>
+                                <span>{{$lec->name}}</span>
+                            </a>
+
+                            @if(isset($week4) && count($week4) > 0 )
+                            <a href="{{route('view.homework.link.1st',$week4[$key]->id)}}">
+                                <i class="fa-solid fa-book-open"></i>
+                                <span>واجب : {{$lec->name}}</span></a>
+                            @endif
 
 
+                            @if(isset($quiz4) && count($quiz4) > 0)
+                            <a href="{{route('view.quiz.link.1st',$quiz4[$key]->id)}}">
+                                <i class="fa-solid fa-chalkboard-user"></i>
+                                <span> كويز : {{$lec->name}}</span></a>
+                            @endif
 
 
-{{--                        <a href="#">--}}
-{{--                            <i class="fa-solid fa-chalkboard-user"></i>--}}
-{{--                            <span> حل كويز : {{$lec->name}}</span></a>--}}
-                    @endif
-                @endforeach
+                        @endif
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>
@@ -168,3 +189,13 @@
 
     </script>
 @endsection
+
+
+
+{{--                        <a href="#">--}}
+{{--                            <i class="fa-solid fa-chalkboard-user"></i>--}}
+{{--                            <span>حل واجب : {{$lec->name}}</span></a>--}}
+
+{{-- <a href="#">--}}
+{{-- <i class="fa-solid fa-chalkboard-user"></i>--}}
+{{-- <span> حل كويز : {{$lec->name}}</span></a>--}}
