@@ -194,12 +194,12 @@ class AcademicSecondYear extends Controller
     {
         $lecture = LecturesSecondYear::find($id);
         if (!$lecture)
-            return 'lecture not found';
+            return 'lecture not found to be updated';
         $video_name = $lecture->lec;
         if($request->has('lec'))
             $video_name = uploadLecture('second', $request->lec);
 
-        LecturesSecondYear::create([
+        $lecture->update([
             'name' => $request->name,
             'lec' => $video_name,
             'homework' => $request->homework,
