@@ -29,16 +29,17 @@
         </section>
     </header>
     <!-- START BANNER -->
-    <section class="section slide1 p-0" id="home">
+    <section class="section" id="home">
         <div class="slider-area" id="slider-area">
-            <div class="row align-items-center">
-                <div class="col-12 col-lg-6 image-order">
-                    <div class="slider-image imgbox">
-                        <img src="{{asset('images/logo.png')}}" alt="image">
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 text-md-center text-lg-left content">
+            <div class="row">
+
+
+
+
+
+
                     <div class="slider-content heading">
+                        <img src="{{asset('images/aladdin.png')}}" alt="image">
                         <h1 class="main-font text-uppercase"><span class="slider-text px-2">م/علاء الدين</h1>
                         <p class="main-text">
                             منصة

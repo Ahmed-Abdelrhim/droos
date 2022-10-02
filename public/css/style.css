@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
-
+/* ===================================
+    Global
+====================================== */
 
 :root {
     --main-color: #8e44ad;
@@ -150,6 +152,9 @@ section {
     gap: 1rem;
 }
 
+/* ===================================
+    Header
+====================================== */
 .header {
     position: sticky;
     top: 0;
@@ -323,6 +328,10 @@ footer .container img {
     font-size: 1.8rem;
     color: var(--light-color);
 }
+
+/* ===================================
+    Home
+====================================== */
 
 .home-grid .box-container {
     display: grid;
@@ -554,13 +563,17 @@ footer .container img {
     padding: 5px;
 }
 
-#home .content .heading p .st-span {
+#home .st-span {
     color: var(--main-color);
 }
 
-#home .content .heading p .nd-span {
+#home .nd-span {
     color: #1da1f2;
 }
+
+/* ===================================
+    cards
+====================================== */
 
 .card-container {
     display: flex;
@@ -769,37 +782,33 @@ footer .container img {
 ====================================== */
 
 
-.slider-image img {
-    position: relative;
-    width: 100%;
-    height: 290px;
-}
-
-
-.slider-area {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-
-}
+    .slider-content img {
+        z-index: 1000;
+        margin: -40px 50% 0px 0;
+    }
 
 @media (max-width: 768px) {
 
     .row {
         flex-direction: column-reverse;
     }
+    .slider-content img {
+        z-index: 1000;
+        width: 300px;
+        margin: 0px 0px 0px 0px;
+        }
 }
 
 
 .circle-one {
     position: absolute;
     top: 28%;
-    left: 47%;
+    left: 90%;
 }
 
 .circle-two {
     top: 14%;
-    left: 68%;
+    left: 50%;
     position: absolute;
 }
 
@@ -1027,9 +1036,9 @@ footer .container img {
     }
 }
 
-@-webkit-keyframes move {
+@keyframes move {
     0% {
-        transform: rotate(30deg);
+        transform: rotate(45deg);
         transform-origin: top;
     }
 
@@ -1049,7 +1058,7 @@ footer .container img {
     }
 
     100% {
-        transform: rotate(30deg);
+        transform: rotate(45deg);
         transform-origin: top;
     }
 }
@@ -1066,7 +1075,7 @@ footer .container img {
     }
 
     50% {
-        transform: rotate(-30deg);
+        transform: rotate(-45deg);
         transform-origin: top;
     }
 
@@ -1081,60 +1090,65 @@ footer .container img {
     }
 }
 
-@keyframes move {
-    0% {
-        transform: rotate(30deg);
-        transform-origin: top;
-    }
+@media(max-width: 767px){
+    @keyframes move {
+            0% {
+                transform: rotate(20deg);
+                transform-origin: top;
+            }
 
-    25% {
-        transform: rotate(0deg);
-        transform-origin: top;
-    }
+            25% {
+                transform: rotate(0deg);
+                transform-origin: top;
+            }
 
-    50% {
-        transform: rotate(0deg);
-        transform-origin: top;
-    }
+            50% {
+                transform: rotate(0deg);
+                transform-origin: top;
+            }
 
-    75% {
-        transform: rotate(0deg);
-        transform-origin: top;
-    }
+            75% {
+                transform: rotate(0deg);
+                transform-origin: top;
+            }
 
-    100% {
-        transform: rotate(30deg);
-        transform-origin: top;
-    }
+            100% {
+                transform: rotate(20deg);
+                transform-origin: top;
+            }
+        }
+
+        @keyframes moveback {
+            0% {
+                transform: rotate(0deg);
+                transform-origin: top;
+            }
+
+            25% {
+                transform: rotate(0deg);
+                transform-origin: top;
+            }
+
+            50% {
+                transform: rotate(-20deg);
+                transform-origin: top;
+            }
+
+            75% {
+                transform: rotate(0deg);
+                transform-origin: top;
+            }
+
+            100% {
+                transform: rotate(0deg);
+                transform-origin: top;
+            }
+        }
 }
 
-@-webkit-keyframes moveback {
-    0% {
-        transform: rotate(0deg);
-        transform-origin: top;
-    }
-
-    25% {
-        transform: rotate(0deg);
-        transform-origin: top;
-    }
-
-    50% {
-        transform: rotate(-30deg);
-        transform-origin: top;
-    }
-
-    75% {
-        transform: rotate(0deg);
-        transform-origin: top;
-    }
-
-    100% {
-        transform: rotate(0deg);
-        transform-origin: top;
-    }
-}
-
+/* ===================================
+    Features
+====================================== */
 .features {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -1289,7 +1303,9 @@ footer .container img {
 
 
 
-
+/* ===================================
+    About
+====================================== */
 
 
 .about .row {
@@ -1359,51 +1375,6 @@ footer .container img {
     color: var(--light-color);
 }
 
-.reviews .box-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap: 1.5rem;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.reviews .box-container .box {
-    border-radius: .5rem;
-    background-color: var(--white);
-    padding: 2rem;
-}
-
-.reviews .box-container .box p {
-    line-height: 1.7;
-    font-size: 1.7rem;
-    color: var(--light-color);
-}
-
-.reviews .box-container .box .student {
-    margin-top: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.reviews .box-container .box .student img {
-    height: 5rem;
-    width: 5rem;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.reviews .box-container .box .student h3 {
-    font-size: 2rem;
-    color: var(--black);
-    margin-bottom: .3rem;
-}
-
-.reviews .box-container .box .student .stars {
-    font-size: 1.5rem;
-    color: var(--orange);
-}
-
 .box-links {
     display: flex;
     justify-content: space-between;
@@ -1419,6 +1390,10 @@ footer .container img {
         width: 350px;
     }
 }
+
+/* ===================================
+    Courses
+====================================== */
 
 .courses .box-container {
     display: grid;
@@ -1493,6 +1468,9 @@ footer .container img {
     margin-top: 2rem;
 }
 
+/* ===================================
+    Courses playlist
+====================================== */
 .playlist-details .row {
     display: flex;
     align-items: flex-end;
@@ -2059,6 +2037,9 @@ footer .container img {
     font-size: 1.7rem;
 }
 
+/* ===================================
+    Contact
+====================================== */
 .contact .row {
     display: flex;
     align-items: center;
@@ -2143,6 +2124,10 @@ footer .container img {
     color: var(--black);
 }
 
+/* ===================================
+    Forms
+====================================== */
+
 .form-container {
     min-height: calc(100vh - 20rem);
     display: flex;
@@ -2213,7 +2198,9 @@ footer .container img {
 
 
 
-/* Start Footer */
+/* ===================================
+    Footer
+====================================== */
 
 .footer span {
     color: var(--main-color);
@@ -2495,13 +2482,15 @@ footer .container img {
 
 .nut1 {
     top: 15%;
-    left: -8rem;
+    left: -10rem;
+    z-index: -100;
 }
 
 .nut2 {
-    bottom: 23%;
-    right: -8rem;
+    bottom: 20%;
+    right: -10rem;
     animation-direction: reverse;
+    z-index: -100;
 }
 
 .nut3 {
