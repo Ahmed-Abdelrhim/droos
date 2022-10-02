@@ -41,18 +41,18 @@
                 </button>
             </div>
             @enderror
-            <h3>login now</h3>
-            <p>your email <span>*</span></p>
-            <input type="email" name="email" placeholder="enter your email" required maxlength="50" class="box"
+            <h3>تسجيل الدخول</h3>
+            <p>الأيميل <span>*</span></p>
+            <input type="email" name="email" placeholder="ادخل الأيميل" required maxlength="50" class="box"
                    value="{{old('email')}}">
 
-            <p>your password <span>*</span></p>
-            <input type="password" name="password" placeholder="enter your password" required maxlength="20"
+            <p>الباسورد <span>*</span></p>
+            <input type="password" name="password" placeholder=" ادخل الباسورد " required maxlength="20"
                    class="box">
 
-            <button type="submit" class="btn">Submit</button>
-            <p id="emailHelp" class="form-text text-muted mt-2">dont have an account <a
-                    href="{{route('student.register')}}">register now</a></p>
+            <button type="submit" class="btn">دخول</button>
+            <p id="emailHelp" class="form-text text-muted mt-2">ليس لديك حساب ؟ <a
+                    href="{{route('student.register')}}">سجل الاّن</a></p>
 
         </form>
 

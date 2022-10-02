@@ -2094,6 +2094,10 @@ footer .container img {
     justify-content: center;
 }
 
+.form-container .register {
+    width: 80rem;
+}
+
 .form-container form {
     background-color: var(--white);
     border-radius: .5rem;
@@ -2104,6 +2108,7 @@ footer .container img {
 
 .form-container form h3 {
     font-size: 2.5rem;
+    margin-bottom: 1rem;
     text-transform: capitalize;
     color: var(--main-color);
     text-align: center;
@@ -2119,6 +2124,15 @@ footer .container img {
     color: var(--red);
 }
 
+.form-container .link a {
+    color: var(--main-color);
+}
+
+.form-container .link a:hover {
+    color: var(--black);
+    text-decoration: underline;
+}
+
 .form-container form .box {
     font-size: 1.8rem;
     color: var(--black);
@@ -2129,12 +2143,25 @@ footer .container img {
     margin: 1rem 0;
 }
 
+.form-container .flex {
+    display: flex;
+    gap: 2rem;
+}
+
+.form-container .flex .col {
+    flex: 1 1 25rem;
+}
+
+
+
+
+
+
+/* Start Footer */
 
 .footer span {
     color: var(--main-color);
 }
-
-/* Start Footer */
 .footer {
     background-color: var(--light-color);
     border-top: var(--border);
