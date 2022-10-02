@@ -32,12 +32,6 @@
     <section class="section" id="home">
         <div class="slider-area" id="slider-area">
             <div class="row">
-
-
-
-
-
-
                     <div class="slider-content heading">
                         <img src="{{asset('images/aladdin.png')}}" alt="image">
                         <h1 class="main-font text-uppercase"><span class="slider-text px-2">م/علاء الدين</h1>
@@ -98,8 +92,8 @@
         </a>
     </section>
     <!-- END BANNER -->
+    <h2 class="main-title">الصفوف الدراسية</h2>
     <div class="card-container" id="cards">
-        <h2 class="main-title">الصفوف الدراسية</h2>
         <div class="card">
             <span></span>
             <span></span>
