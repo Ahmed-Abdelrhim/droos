@@ -1012,10 +1012,12 @@ footer .container img {
 }
 
 .first {
+    animation: move 3s linear infinite;
     -webkit-animation: move 3s linear infinite;
 }
 
 .fifth {
+    animation: moveback 3s linear infinite;
     -webkit-animation: moveback 3s linear infinite;
 }
 
@@ -1026,6 +1028,60 @@ footer .container img {
 }
 
 @-webkit-keyframes move {
+    0% {
+        transform: rotate(30deg);
+        transform-origin: top;
+    }
+
+    25% {
+        transform: rotate(0deg);
+        transform-origin: top;
+    }
+
+    50% {
+        transform: rotate(0deg);
+        transform-origin: top;
+    }
+
+    75% {
+        transform: rotate(0deg);
+        transform-origin: top;
+    }
+
+    100% {
+        transform: rotate(30deg);
+        transform-origin: top;
+    }
+}
+
+@keyframes moveback {
+    0% {
+        transform: rotate(0deg);
+        transform-origin: top;
+    }
+
+    25% {
+        transform: rotate(0deg);
+        transform-origin: top;
+    }
+
+    50% {
+        transform: rotate(-30deg);
+        transform-origin: top;
+    }
+
+    75% {
+        transform: rotate(0deg);
+        transform-origin: top;
+    }
+
+    100% {
+        transform: rotate(0deg);
+        transform-origin: top;
+    }
+}
+
+@keyframes move {
     0% {
         transform: rotate(30deg);
         transform-origin: top;
