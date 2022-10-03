@@ -47,18 +47,18 @@ class CustomLoginController extends Controller
 //        if (Auth::user()->mac_address == substr(exec('getmac'), 0, 17)) {}
 //        return $this->logout();
         if (Auth::attempt($this->credentials($request))) {
-//            if (Auth::user()->mac_address == substr(exec('getmac'), 0, 17)) {
+            if (Auth::user()->mac_address == substr(exec('getmac'), 0, 17)) {
                 $academic_year = Auth::user()->academic_year;
                 if($academic_year === 1 )
                     return redirect()->route('academic_first_years');
                 if($academic_year === 2 )
                     return redirect()->route('academic_second_years');
                 return redirect()->route('academic_third_years');
-//            } else {
-//                //$this->logout();
-//                Auth::logout();
-//                return redirect()->back()->with(['mac' => 'يجب فتح الأيميل من الجهاز الذي قمت بتسجيل الدخول فية لأول مرة']);
-//            }
+            } else {
+                //$this->logout();
+                Auth::logout();
+                return redirect()->back()->with(['mac' => 'يجب فتح الأيميل من الجهاز الذي قمت بتسجيل الدخول فية لأول مرة']);
+            }
         }
         return redirect()->back()->withErrors([
             'errors' => 'Email Or Password Is Incorrect',
