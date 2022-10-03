@@ -33,7 +33,7 @@
         <div class="slider-area" id="slider-area">
             <div class="row">
                     <div class="slider-content heading">
-                        <img src="{{asset('images/aladdin.png')}}" alt="image">
+                        <img src="{{asset('images/aladdin.png')}}" alt="image" style="width: 491px; height: 421px;">
                         <h1 class="main-font text-uppercase"><span class="slider-text px-2">م/علاء الدين</h1>
                         <p class="main-text">
                             منصة
