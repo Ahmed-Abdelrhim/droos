@@ -537,7 +537,7 @@
                @else #
                @endif
                "><i class="fas fa-graduation-cap"></i><span>كورساتي </span></a>
-        <!-- <a href="{{route('about')}}"><i class="fas fa-question"></i><span>من نحن</span></a> -->
+        <a href="{{route('about')}}"><i class="fas fa-question"></i><span>من نحن</span></a>
         <a href="{{route('features')}}"><i class="fa-solid fa-gift"></i><span>المميزات </span></a>
         <a href="{{route('contact')}}"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
     </nav>
@@ -600,7 +600,8 @@
             <img src="{{asset('images/thumb-4.png')}}" alt=""/>
         </div>
     </div>
-    <p class="copyright">Developed By <a href="https://www.facebook.com/ahmed.abdalraheem.739" class="fas fa-heart" target="_blank"></a>
+    <p class="copyright">Developed By <a href="https://www.facebook.com/ahmed.abdalraheem.739" class="fas fa-heart"
+                                         target="_blank"></a>
         By
         <a href="https://www.facebook.com/ahmed.abdalraheem.739" target="_blank">Ahmed Abdelrhim</a> ,
         <a href="https://www.facebook.com/anas.rabea.35" target="_blank">Anas Rabea</a>
