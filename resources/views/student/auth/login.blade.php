@@ -41,6 +41,16 @@
                 </button>
             </div>
             @enderror
+
+            {{-- Success Message --}}
+            @if (Session::has('mac'))
+                <div class="row mr-2 ml-2">
+                    <button type="text" class="btn btn-lg btn-block btn-outline-success mb-2"
+                            id="type-error">{{Session::get('mac')}}
+                    </button>
+                </div>
+            @endif
+
             <h3>تسجيل الدخول</h3>
             <p>الأيميل <span>*</span></p>
             <input type="email" name="email" placeholder="ادخل الأيميل" required maxlength="50" class="box"

@@ -30,7 +30,7 @@ class CustomLoginController extends Controller
             'parent_number' => $request->input('parent_number'),
             'academic_year' => $request->input('academic_year'),
             'password' => bcrypt($request->input('password')),
-            // 'mac_address' => $mac_address,
+            'mac_address' => $mac_address,
             'avatar' => $image_name,
         ]);
         DB::commit();
@@ -42,19 +42,23 @@ class CustomLoginController extends Controller
         return view('student.auth.login');
     }
 
-    public function login(Request $request)
+    public function login(Request $request): \Illuminate\Http\RedirectResponse
     {
 //        if (Auth::user()->mac_address == substr(exec('getmac'), 0, 17)) {}
 //        return $this->logout();
         if (Auth::attempt($this->credentials($request))) {
-
+            if (Auth::user()->mac_address == substr(exec('getmac'), 0, 17)) {
                 $academic_year = Auth::user()->academic_year;
                 if($academic_year === 1 )
                     return redirect()->route('academic_first_years');
                 if($academic_year === 2 )
                     return redirect()->route('academic_second_years');
                 return redirect()->route('academic_third_years');
-
+            } else {
+                //$this->logout();
+                Auth::logout();
+                return redirect()->back()->with(['mac' => 'يجب فتح الأيميل من الجهاز الذي قمت بتسجيل الدخول فية لأول مرة']);
+            }
         }
         return redirect()->back()->withErrors([
             'errors' => 'Email Or Password Is Incorrect',
@@ -71,13 +75,13 @@ class CustomLoginController extends Controller
         return 'email';
     }
 
-    public function logout()
+    public function logout(): \Illuminate\Http\RedirectResponse
     {
         Auth::logout();
         return redirect()->route('student.login');
     }
 
-    public function handleImage($image, $folder)
+    public function handleImage($image, $folder): string
     {
         $image_name = time() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('images/' . $folder), $image_name);
