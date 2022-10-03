@@ -45,7 +45,7 @@
             {{-- Success Message --}}
             @if (Session::has('mac'))
                 <div class="row mr-2 ml-2">
-                    <button type="text" class="btn btn-lg btn-block btn-outline-success mb-2"
+                    <button type="text" style="background-color: #dc3545;" class="btn btn-lg btn-block btn-outline-success mb-2"
                             id="type-error">{{Session::get('mac')}}
                     </button>
                 </div>
