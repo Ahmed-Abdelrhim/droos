@@ -6,7 +6,7 @@
             <div class="column">
                 <div class="thumb">
                     @if(isset($demo))
-                        <video src="{{asset('images/demo_third_year/'.$demo->demo)}}" controls controlsList="nodownload"
+                        <video src="{{asset('lectures/demo_third_year/'.$demo->demo)}}" controls controlsList="nodownload"
                                poster="{{asset('images/post-1-1.png')}}"
                                id="video">
                         </video>
