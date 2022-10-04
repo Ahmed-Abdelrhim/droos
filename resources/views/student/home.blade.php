@@ -30,10 +30,11 @@
     </header>
     <!-- START BANNER -->
     <section class="section" id="home">
-        <div class="slider-area" id="slider-area">
-            <div class="row">
+        <div class="row">
+                <img src="{{asset('images/aladdin.png')}}" alt="image" style="width: 350px; height: 450px; margin-top: -60px;">
+                <img src="{{asset('images/logo.png')}}" alt="image" style="width: 60%; margin-right: 60px;">
+
                     <div class="slider-content heading">
-                        <img src="{{asset('images/aladdin.png')}}" alt="image" style="width: 491px; height: 421px;">
                         <h1 class="main-font text-uppercase"><span class="slider-text px-2">م/علاء الدين</h1>
                         <p class="main-text">
                             منصة
@@ -44,45 +45,47 @@
                     </div>
                 </div>
             </div>
+        <div class="slider-area" id="slider-area">
+
             <!-- Circle-One -->
             <div class="circle-one">
-         <span data-tootik="About" data-tootik-conf="right dark square shadow">
-         <a href="#about">
-         <span class="animated-circle position-relative"></span>
-         </a>
-         </span>
+                <span data-tootik="About" data-tootik-conf="right dark square shadow">
+                <a href="#about">
+                <span class="animated-circle position-relative"></span>
+                </a>
+                </span>
             </div>
             <!-- Circle-Two -->
             <div class="circle-two">
-         <span data-tootik="Timeline" data-tootik-conf="left dark square shadow">
-         <a href="#timeline">
-         <span class="animated-circle position-relative"></span>
-         </a>
-         </span>
+                <span data-tootik="Timeline" data-tootik-conf="left dark square shadow">
+                <a href="#timeline">
+                <span class="animated-circle position-relative"></span>
+                </a>
+                </span>
             </div>
             <!-- Circle-Three -->
             <div class="circle-three">
-         <span data-tootik="Portfolio" data-tootik-conf="top dark square shadow">
-         <a href="#portfolio">
-         <span class="animated-circle position-relative"></span>
-         </a>
-         </span>
+                <span data-tootik="Portfolio" data-tootik-conf="top dark square shadow">
+                <a href="#portfolio">
+                <span class="animated-circle position-relative"></span>
+                </a>
+                </span>
             </div>
             <!-- Circle-Four -->
             <div class="circle-four">
-         <span data-tootik="Testimonials" data-tootik-conf="bottom dark square shadow">
-         <a href="#testimonial">
-         <span class="animated-circle position-relative"></span>
-         </a>
-         </span>
+                <span data-tootik="Testimonials" data-tootik-conf="bottom dark square shadow">
+                <a href="#testimonial">
+                <span class="animated-circle position-relative"></span>
+                </a>
+                </span>
             </div>
             <!-- Circle-Five -->
             <div class="circle-five">
-         <span data-tootik="Contact" data-tootik-conf="bottom dark square shadow">
-         <a href="#contact">
-         <span class="animated-circle position-relative"></span>
-         </a>
-         </span>
+                <span data-tootik="Contact" data-tootik-conf="bottom dark square shadow">
+                <a href="#contact">
+                <span class="animated-circle position-relative"></span>
+                </a>
+                </span>
             </div>
         </div>
         <div class="fas fa-cog nut1"></div>

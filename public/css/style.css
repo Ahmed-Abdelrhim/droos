@@ -782,45 +782,28 @@ footer .container img {
 ====================================== */
 
 
-    .slider-content img {
-        z-index: 1000;
-        margin: -40px 50% 0px 0;
-    }
-
-@media (max-width: 768px) {
-
-    .row {
-        flex-direction: column-reverse;
-    }
-    .slider-content img {
-        z-index: 1000;
-        width: 300px;
-        margin: 0px 0px 0px 0px;
-        }
-}
-
 
 .circle-one {
     position: absolute;
-    top: 28%;
+    top: 20%;
     left: 90%;
 }
 
 .circle-two {
     top: 14%;
-    left: 50%;
+    left: 35%;
     position: absolute;
 }
 
 .circle-three {
-    top: 38%;
+    top: 30%;
     left: 10%;
     position: absolute;
 }
 
 .circle-four {
     top: 80%;
-    left: 20%;
+    left: 15%;
     position: absolute;
 }
 
