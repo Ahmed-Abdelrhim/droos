@@ -2126,7 +2126,7 @@ footer .container img {
 
 .contact .box-container .box {
     text-align: center;
-    background-color: var(--white);
+    background-color: var(--light-bg);
     border-radius: .5rem;
     padding: 3rem;
 }
