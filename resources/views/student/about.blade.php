@@ -116,7 +116,7 @@
 
 <section class="reviews">
 
-   <h2 class="heading">student's reviews</h2>
+   <h2 class="heading"><i class="fa-regular fa-star" style="margin-left: 15px;"></i>اراء طلابنا</h2>
 
    <div class="box-container">
 
