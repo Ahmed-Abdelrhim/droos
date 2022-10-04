@@ -1335,7 +1335,7 @@ footer .container img {
 
 .about .box-container .box {
     border-radius: .5rem;
-    background-color: var(--white);
+    background-color: var(--light-color);
     padding: 2rem;
     display: flex;
     align-items: center;
@@ -1355,7 +1355,7 @@ footer .container img {
 
 .about .box-container .box p {
     font-size: 1.7rem;
-    color: var(--light-color);
+    color: var(--white);
 }
 
 .box-links {
@@ -1465,14 +1465,14 @@ footer .container img {
 
 .reviews .box-container .box {
     border-radius: .5rem;
-    background-color: var(--white);
+    background-color: var(--light-color);
     padding: 2rem;
 }
 
 .reviews .box-container .box p {
     line-height: 1.7;
     font-size: 1.7rem;
-    color: var(--light-color);
+    color: var(--white);
 }
 
 .reviews .box-container .box .student {
