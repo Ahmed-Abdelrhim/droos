@@ -45,6 +45,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
     Route::get('courses/1st/year', [AcademicFirstYear::class, 'courses'])->name('courses.1st.students');
     Route::get('courses/2nd/year', [AcademicSecondYear::class, 'courses'])->name('courses.2nd.students');
     Route::get('courses/3rd/year', [AcademicThirdYear::class, 'courses'])->name('courses.3rd.students');
+//    Route::get('students/openion',[StudentGeneralController::class,'']);
 
 //    Route::get('hash', function () {
 //        return bcrypt('12345678');
@@ -126,7 +127,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
     });
 
-    Route::get('aaa', [StudentGeneralController::class, 'play']);
+    Route::get('play', [StudentGeneralController::class, 'play']);
     Route::get('admin/play', [DashboardController::class, 'play']);
 
 });

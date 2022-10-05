@@ -35,31 +35,40 @@
     <section class="form-container">
 
         <form class="register" action="{{route('store.student')}}" method="POST" enctype="multipart/form-data">
+            {{-- Mac Address Message --}}
+            @if (Session::has('mac'))
+                <div class="row mr-2 ml-2">
+                    <a href="#" style="background-color: #dc3545;" class="btn btn-lg btn-block btn-outline-success mb-2"
+                       id="type-error">{{Session::get('mac')}}
+                    </a>
+                </div>
+            @endif
+
             @csrf
             <h3>سجل الاّن</h3>
             <div class="flex">
                 <div class="col">
-                    <p>أسم الطالب <span>*</span></p>
-                    <input type="text" name="name" placeholder="ادخل الاسم" required maxlength="50" class="box">
+                    <p>أسم الطالب (ثنائي) <span>*</span></p>
+                    <input type="text" name="name" placeholder="ادخل الاسم" required maxlength="30" class="box" value="{{old('name')}}">
                     @error('name')
                     <span class="text-danger" style="color: white">{{$message}}</span>
                     @enderror
                     <p>الأيميل <span>*</span></p>
-                    <input type="email" name="email" placeholder="ادخل الأيميل" required maxlength="50" class="box">
+                    <input type="email" name="email" placeholder="ادخل الأيميل" required maxlength="50" class="box" value="{{old('email')}}">
                     @error('email')
                     <span class="text-danger" style="color: white">{{$message}}</span>
                     @enderror
 
                     <p>رقم هاتف الطالب <span>*</span></p>
-                    <input type="text" name="phone_number" placeholder="ادخل رقم الهاتف" required maxlength="50"
-                            class="box">
+                    <input type="tel" name="phone_number" placeholder="ادخل رقم الهاتف" required  maxlength="11"
+                            class="box" value="{{old('phone_number')}}">
                     @error('phone_number')
                     <span class="text-danger" style="color: white">{{$message}}</span>
                     @enderror
 
                     <p>رقم هاتف ولي الأمر <span>*</span></p>
-                    <input type="text" name="parent_number" placeholder="ادخل رقم هاتف ولي الأمر" required
-                            maxlength="50" class="box">
+                    <input type="tel" name="parent_number" placeholder="ادخل رقم هاتف ولي الأمر" required
+                            maxlength="11" class="box" value="{{old('parent_number')}}">
                     @error('parent_number')
                     <span class="text-danger" style="color: white">{{$message}}</span>
                     @enderror
@@ -67,6 +76,7 @@
                 <div class="col">
                         <p>أختر السنة الدراسية <span>*</span></p>
                         <select class="custom-select box" name="academic_year">
+                            <option selected>اختر...</option>
                             <option value="1">الصف الأول الثانوي</option>
                             <option value="2">الصف الثاني الثانوي</option>
                             <option value="3">الصف الثالث الثانوي</option>

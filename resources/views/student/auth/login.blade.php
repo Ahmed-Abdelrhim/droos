@@ -36,18 +36,18 @@
             @csrf
             @error('errors')
             <div class="row mr-2 ml-2">
-                <button type="text" class="btn btn-lg btn-block btn-outline-danger mb-2"
+                <a  href="#" class="btn btn-lg btn-block btn-outline-danger mb-2"
                         id="type-error">{{$message}}
-                </button>
+                </a>
             </div>
             @enderror
 
-            {{-- Success Message --}}
+            {{-- Mac Address Message --}}
             @if (Session::has('mac'))
                 <div class="row mr-2 ml-2">
-                    <button type="text" style="background-color: #dc3545;" class="btn btn-lg btn-block btn-outline-success mb-2"
+                    <a href="#" style="background-color: #dc3545;" class="btn btn-lg btn-block btn-outline-success mb-2"
                             id="type-error">{{Session::get('mac')}}
-                    </button>
+                    </a>
                 </div>
             @endif
 

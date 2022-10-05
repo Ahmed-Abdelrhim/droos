@@ -31,13 +31,35 @@
 
 
             <div class="profile">
-                <img src="{{asset('images/pic-1.jpg')}}" class="image" alt="">
-                <h3 class="name">Welcome</h3>
+                <img class="image" src="@if(Auth::check())
+                  {{asset('images/studentImages/'.Auth::user()->avatar)}}
+                  @else
+                  {{asset('images//pic-6.jpg')}}
+                  @endif" alt="tutor">
+                <h3 class="name">
+                    @if(Auth::check())
+                        {{Auth::user()->name}}
+                    @else
+                        1st Year Student
+                    @endif
+                </h3>
                 <p class="role">student</p>
-                <div class="flex-btn">
-                    <a href="{{route('student.login')}}" class="option-btn">login</a>
-                    <a href="{{route('student.register')}}" class="option-btn">register</a>
-                </div>
+                <form method="GET" action="{{route('view.student.profile')}}">
+                    @csrf
+                    <button class="btn" type="submit">view profile</button>
+                </form>
+                <form method="POST" action="{{route('student.logout')}}">
+                    @csrf
+                    <button class="btn" type="submit">log out</button>
+                </form>
+
+                {{--                <img src="{{asset('images/pic-1.jpg')}}" class="image" alt="image-not-found">--}}
+                {{--                <h3 class="name">Welcome</h3>--}}
+                {{--                <p class="role">student</p>--}}
+                {{--                <div class="flex-btn">--}}
+                {{--                    <a href="{{route('student.login')}}" class="option-btn">login</a>--}}
+                {{--                    <a href="{{route('student.register')}}" class="option-btn">register</a>--}}
+                {{--                </div>--}}
             </div>
             <!-- <img id="logo-background" src="{{asset('images/splash.png')}}"> -->
             <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
@@ -114,117 +136,129 @@
     </section>
 
 
-<section class="reviews">
+    <section class="reviews">
 
-   <h2 class="heading"><i class="fa-regular fa-star" style="margin-left: 15px;"></i>اراء طلابنا</h2>
+        <h2 class="heading"><i class="fa-regular fa-star" style="margin-left: 15px;"></i>اراء طلابنا</h2>
 
-   <div class="box-container">
+        <div class="box-container">
 
-      <div class="box">
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam, dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis fuga. Eligendi eaque molestiae modi?</p>
-         <div class="student">
-            <img src="images/pic-2.jpg" alt="">
-            <div>
-               <h3>john deo</h3>
-               <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-               </div>
+            <div class="box">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,
+                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis
+                    fuga. Eligendi eaque molestiae modi?</p>
+                <div class="student">
+                    <img src="images/pic-2.jpg" alt="">
+                    <div>
+                        <h3>john deo</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
 
-      <div class="box">
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam, dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis fuga. Eligendi eaque molestiae modi?</p>
-         <div class="student">
-            <img src="images/pic-3.jpg" alt="">
-            <div>
-               <h3>john deo</h3>
-               <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-               </div>
+            <div class="box">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,
+                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis
+                    fuga. Eligendi eaque molestiae modi?</p>
+                <div class="student">
+                    <img src="images/pic-3.jpg" alt="">
+                    <div>
+                        <h3>john deo</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
 
-      <div class="box">
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam, dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis fuga. Eligendi eaque molestiae modi?</p>
-         <div class="student">
-            <img src="images/pic-4.jpg" alt="">
-            <div>
-               <h3>john deo</h3>
-               <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-               </div>
+            <div class="box">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,
+                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis
+                    fuga. Eligendi eaque molestiae modi?</p>
+                <div class="student">
+                    <img src="images/pic-4.jpg" alt="">
+                    <div>
+                        <h3>john deo</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
 
-      <div class="box">
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam, dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis fuga. Eligendi eaque molestiae modi?</p>
-         <div class="student">
-            <img src="images/pic-5.jpg" alt="">
-            <div>
-               <h3>john deo</h3>
-               <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-               </div>
+            <div class="box">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,
+                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis
+                    fuga. Eligendi eaque molestiae modi?</p>
+                <div class="student">
+                    <img src="images/pic-5.jpg" alt="">
+                    <div>
+                        <h3>john deo</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
 
-      <div class="box">
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam, dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis fuga. Eligendi eaque molestiae modi?</p>
-         <div class="student">
-            <img src="images/pic-6.jpg" alt="">
-            <div>
-               <h3>john deo</h3>
-               <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-               </div>
+            <div class="box">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,
+                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis
+                    fuga. Eligendi eaque molestiae modi?</p>
+                <div class="student">
+                    <img src="images/pic-6.jpg" alt="">
+                    <div>
+                        <h3>john deo</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
 
-      <div class="box">
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam, dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis fuga. Eligendi eaque molestiae modi?</p>
-         <div class="student">
-            <img src="images/pic-7.jpg" alt="">
-            <div>
-               <h3>john deo</h3>
-               <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-               </div>
+            <div class="box">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,
+                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis
+                    fuga. Eligendi eaque molestiae modi?</p>
+                <div class="student">
+                    <img src="images/pic-7.jpg" alt="">
+                    <div>
+                        <h3>john deo</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
 
-   </div>
+        </div>
 
-</section>
+    </section>
 
 
 

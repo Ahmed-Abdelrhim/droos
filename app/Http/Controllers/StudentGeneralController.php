@@ -39,9 +39,18 @@ class StudentGeneralController extends Controller
 
     }
 
-    public function play()
+    public function play(): array
     {
-        return substr(exec('getmac'), 0, 17);
+        $nums = [1,2,3,4];
+        $result = [];
+        $result[0] = $nums[0];
+        for ($i = 1 ; $i < count($nums); $i++ )
+        {
+            //Time Complexity is O(n) 
+            $result[$i] = $nums[$i] + $result[$i-1];
+        }
+        return $result;
+        //return substr(exec('getmac'), 0, 17);
         // return substr(shell_exec('getmac'), 159,20);
     }
 

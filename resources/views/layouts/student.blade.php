@@ -417,7 +417,7 @@
             <div id="user-btn" class="fas fa-user"></div>
         </div>
         <div class="profile">
-            <img class="image" src="@if(Auth::check())
+            <img class="image"  src="@if(Auth::check())
                   {{asset('images/studentImages/'.Auth::user()->avatar)}}
                   @else
                   {{asset('images//pic-6.jpg')}}
@@ -426,18 +426,24 @@
                 @if(Auth::check())
                     {{Auth::user()->name}}
                 @else
-                    1st Year Student
+                     <span style="margin-left: 5px;">Student</span>
                 @endif
             </h3>
-            <p class="role">student</p>
-            <form method="GET" action="{{route('view.student.profile')}}">
-                @csrf
-                <button class="btn" type="submit">view profile</button>
-            </form>
-            <form method="POST" action="{{route('student.logout')}}">
-                @csrf
-                <button class="btn" type="submit">log out</button>
-            </form>
+{{--            <p class="role">student</p>--}}
+            @if(Auth::check())
+                <form method="GET" action="{{route('view.student.profile')}}">
+                    @csrf
+                    <button class="btn" type="submit">view profile</button>
+                </form>
+                <form method="POST" action="{{route('student.logout')}}">
+                    @csrf
+                    <button class="btn" type="submit">log out</button>
+                </form>
+            @else
+
+                    <a href="{{route('student.login')}}" class="option-btn">login</a>
+                    <a href="{{route('student.register')}}" class="option-btn">register</a>
+            @endif
         </div>
         {{--
         <div style="color: white">
@@ -463,7 +469,7 @@
      --}}
         <div class="tutor">
             <div class="info">
-                <h3>
+                <h3 >
                     @if(Auth::check())
                         <span style="margin-left: 10px; width: fit-content; display:block;">Welcome_
                      @if(Auth::user()->academic_year == 1)
@@ -478,7 +484,7 @@
                      </span>
                         {{Auth::user()->name}}
                     @else
-                        1st Year Student
+                        Student
                     @endif
                 </h3>
             </div>
@@ -540,6 +546,7 @@
         <a href="{{route('about')}}"><i class="fas fa-question"></i><span>من نحن</span></a>
         <a href="{{route('features')}}"><i class="fa-solid fa-gift"></i><span>المميزات </span></a>
         <a href="{{route('contact')}}"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
+{{--        <a href="{{route('opnion')}}"><i class="fas fa-headset"></i><span>اراء طلابنا</span></a>--}}
     </nav>
 </div>
 @yield('content')
@@ -694,7 +701,7 @@
             title: "هل انت متأكد من شراء الكورس",
             // text: "لتأكيد الاشتراك",
             text: "قم بتحويل الفلوس بفودافون كاش علي الأرقام: 01025642978",
-            text: "ارسل رسالة الدفع مع و ايميلك في المنصة علي : 01149596478",
+            text: "ارسل رسالة الدفع و ايميلك في المنصة علي واتس  : 01149596478",
             icon: "warning",
             buttons: true,
         })

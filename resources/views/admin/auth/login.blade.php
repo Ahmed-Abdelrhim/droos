@@ -19,7 +19,7 @@
             <div class="profile">
                 <img src="{{asset('images/pic-1.jpg')}}" class="image" alt="">
                 <h3 class="name">Welcome</h3>
-                <p class="role">studen</p>
+                <p class="role">student</p>
                 <div class="flex-btn">
                     <a href="{{route('student.register')}}" class="option-btn">login</a>
                     <a href="{{route('student.register')}}" class="option-btn">register</a>

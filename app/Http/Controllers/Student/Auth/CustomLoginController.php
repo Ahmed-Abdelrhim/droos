@@ -18,10 +18,12 @@ class CustomLoginController extends Controller
 
     public function registerStudent(StudentLoginRequest $request): \Illuminate\Http\RedirectResponse
     {
+        $mac_address = substr(exec('getmac'), 0, 17);
+        if (User::where('mac_address' , '=' , $mac_address)->first() )
+            return redirect()->back()->with(['mac'=>'لقد قمت بعمل ايميل من هذا الجهاز سابقا']);
         $image_name = null;
         if ($request->has('avatar'))
             $image_name = $this->handleImage($request->avatar, 'studentImages');
-        $mac_address = substr(exec('getmac'), 0, 17);
         DB::beginTransaction();
         User::create([
             'name' => $request->input('name'),
