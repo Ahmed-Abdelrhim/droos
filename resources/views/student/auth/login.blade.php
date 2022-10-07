@@ -76,7 +76,7 @@
                 <a href="{{route('home')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
                 <ul class="social">
                     <li>
-                        <a href="https://web.facebook.com/profile.php?id=100009262544420" class="facebook"
+                        <a href="https://www.facebook.com/profile.php?id=100068906257005" class="facebook"
                            target="_blank">
                             <i class="fab fa-facebook-f"></i>
                         </a>
@@ -98,16 +98,14 @@
                     منصة علاء الدين لشرح منهج الفزياء للثانوية العامة
                 </p>
             </div>
-
             <div class="box">
                 <ul class="links">
                     <li><a href="{{route('home')}}">الرئيسية</a></li>
                     <li><a href="{{route('about')}}">من نحن</a></li>
                     <li><a href="{{route('contact')}}">تواصل معنا</a></li>
-                    {{--<li><a href="courses">الكورسات</a></li>--}}
+                    <li><a href="{{route('home')}}">الكورسات</a></li>
                 </ul>
             </div>
-
             <div class="box">
                 <div class="line">
                     <i class="fas fa-map-marker-alt fa-fw"></i>
@@ -119,7 +117,7 @@
                 </div>
                 <div class="line">
                     <i class="fas fa-phone-volume fa-fw"></i>
-                    <div class="info">01152067271</div>
+                    <div class="info">01149596478</div>
                 </div>
             </div>
             <div class="box footer-gallery">
@@ -130,8 +128,20 @@
                 <img src="{{asset('images/thumb-5.png')}}" alt=""/>
                 <img src="{{asset('images/thumb-4.png')}}" alt=""/>
             </div>
+            <div class="box">
+                <p class="text">
+                    للتواصل مع مطوري الموقع يرجي الاتصال علي الارقام التالية
+                </p>
+                <div class="line">
+                    <i class="fas fa-phone-volume fa-fw"></i>
+                    <div class="info">01152067271</div>
+                    <i class="fas fa-phone-volume fa-fw"></i>
+                    <div class="info">01014012312</div>
+                </div>
+            </div>
         </div>
-        <p class="copyright">Developed By <a href="https://www.facebook.com/ahmed.abdalraheem.739" class="fas fa-heart" target="_blank"></a>
+        <p class="copyright">Developed By <a href="https://www.facebook.com/ahmed.abdalraheem.739" class="fas fa-heart"
+                                             target="_blank"></a>
             By
             <a href="https://www.facebook.com/ahmed.abdalraheem.739" target="_blank">Ahmed Abdelrhim</a> ,
             <a href="https://www.facebook.com/anas.rabea.35" target="_blank">Anas Rabea</a>

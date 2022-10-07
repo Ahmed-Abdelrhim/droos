@@ -90,7 +90,7 @@
             <div class="box">
                 <i class="fas fa-phone"></i>
                 <h3>phone number</h3>
-                <a href="tel:01152067271">01152067271</a>
+                <a href="tel:01152067271">01149596478</a>
             </div>
 
             <div class="box">

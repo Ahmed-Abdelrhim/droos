@@ -1,7 +1,7 @@
 @extends('layouts.design')
 @section('content')
     <header class="header">
-        <img id="back-ground" src="{{asset('images/back-ground.png')}}">
+        <!-- <img id="back-ground" src="{{asset('images/back-ground.png')}}"> -->
         <section class="flex">
             <div class="icons">
                 <div id="menu-bars" class="fas fa-bars"></div>
@@ -191,7 +191,7 @@
                 <a href="{{route('home')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
                 <ul class="social">
                     <li>
-                        <a href="https://web.facebook.com/profile.php?id=100009262544420" class="facebook"
+                        <a href="https://www.facebook.com/profile.php?id=100068906257005" class="facebook"
                            target="_blank">
                             <i class="fab fa-facebook-f"></i>
                         </a>
@@ -232,7 +232,7 @@
                 </div>
                 <div class="line">
                     <i class="fas fa-phone-volume fa-fw"></i>
-                    <div class="info">01152067271</div>
+                    <div class="info">01149596478</div>
                 </div>
             </div>
             <div class="box footer-gallery">
@@ -242,6 +242,17 @@
                 <img src="{{asset('images/ph-1.jpg')}}" alt=""/>
                 <img src="{{asset('images/thumb-5.png')}}" alt=""/>
                 <img src="{{asset('images/thumb-4.png')}}" alt=""/>
+            </div>
+            <div class="box">
+                <p class="text">
+                    للتواصل مع مطوري الموقع يرجي الاتصال علي الارقام التالية
+                </p>
+                <div class="line">
+                    <i class="fas fa-phone-volume fa-fw"></i>
+                    <div class="info">01152067271</div>
+                    <i class="fas fa-phone-volume fa-fw"></i>
+                    <div class="info">01014012312</div>
+                </div>
             </div>
         </div>
         <p class="copyright">Developed By <a href="https://www.facebook.com/ahmed.abdalraheem.739" class="fas fa-heart"
