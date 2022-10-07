@@ -96,8 +96,7 @@
             <div class="box">
                 <i class="fas fa-envelope"></i>
                 <h3>email address</h3>
-                <a href="mailto:@gmail.com">@gmail.com</a>
-                <!-- <a href="mailto:anas.rabea1000@gmail.com">anas.rabea1000@gmail.com</a> -->
+                <a href="mailto:eldenalaa855@gmail.com">eldenalaa855@gmail.com</a>
             </div>
 
             <div class="box">
