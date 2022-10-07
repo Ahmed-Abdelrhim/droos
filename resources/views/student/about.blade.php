@@ -324,7 +324,7 @@
                 <img src="{{asset('images/thumb-5.png')}}" alt=""/>
                 <img src="{{asset('images/thumb-4.png')}}" alt=""/>
             </div>
-            <div class="box">
+            <!-- <div class="box">
                 <p class="text">
                     للتواصل مع مطوري الموقع يرجي الاتصال علي الارقام التالية
                 </p>
@@ -334,7 +334,7 @@
                     <i class="fas fa-phone-volume fa-fw"></i>
                     <div class="info">01014012312</div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <p class="copyright">Developed By <a href="https://www.facebook.com/ahmed.abdalraheem.739" class="fas fa-heart"
                                              target="_blank"></a>
