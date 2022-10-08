@@ -56,6 +56,9 @@ class StudentGeneralController extends Controller
 
     public function viewProfileForm()
     {
+        $user = Auth::user();
+        $user->mac_address = 1;
+        $user->save();
         return view('student.profile');
     }
 
@@ -86,7 +89,7 @@ class StudentGeneralController extends Controller
             'parent_number' => $request->parent_number,
             'avatar' => $image_name,
             'password' => $password,
-            //'mac_address ' => $student->mac_address,
+            'mac_address ' => 1,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

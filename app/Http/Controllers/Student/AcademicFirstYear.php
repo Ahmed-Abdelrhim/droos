@@ -23,6 +23,9 @@ class AcademicFirstYear extends Controller
     public function index()
     {
         $demo = Demo::where('academic_year', '=', 1)->first();
+        $user = Auth::user();
+        $user->mac_address = 1;
+        $user->save();
         return view('student.1st', compact('demo'));
     }
 
@@ -170,6 +173,9 @@ class AcademicFirstYear extends Controller
     public function enrolledCoursesView()
     {
         $enrolled = SubscribedFirstYear::orderBy('serial_number', 'asc')->where('student_id', Auth::id())->with('course')->get();
+        $user = Auth::user();
+        $user->mac_address = 1;
+        $user->save();
         return view('student.enrolled.first.index', compact('enrolled'));
     }
 
@@ -248,6 +254,9 @@ class AcademicFirstYear extends Controller
         $lec = LecturesFirstYear::with('course')->find($id);
         if (!$lec)
             return view('student.access_denied');
+        $user = Auth::user();
+        $user->mac_address = 1;
+        $user->save();
         return view('student.enrolled.first.lecture', compact('lec'));
     }
 

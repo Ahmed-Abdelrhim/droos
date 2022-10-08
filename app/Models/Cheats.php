@@ -10,7 +10,7 @@ class Cheats extends Model
     use HasFactory;
     protected $table = 'cheats';
 
-    protected $fillable = ['students_id','cheats_number','created_at', 'updated_at',];
+    protected $fillable = ['student_id','cheats_number','created_at', 'updated_at',];
 
     protected $hidden = ['created_at', 'updated_at',];
 

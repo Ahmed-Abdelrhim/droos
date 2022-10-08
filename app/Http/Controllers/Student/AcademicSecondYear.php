@@ -21,6 +21,9 @@ class AcademicSecondYear extends Controller
     public function index()
     {
         $demo = Demo::where('academic_year', '=', 2)->first();
+        $user = Auth::user();
+        $user->mac_address = 1;
+        $user->save();
         return view('student.2nd', compact('demo'));
     }
 
@@ -177,6 +180,9 @@ class AcademicSecondYear extends Controller
     public function enrolledCoursesView()
     {
         $courses = SubscribedSecondYear::orderBy('serial_number', 'asc')->where('student_id', Auth::id())->with('course')->get();
+        $user = Auth::user();
+        $user->mac_address = 1;
+        $user->save();
         return view('student.enrolled.second.index', compact('courses'));
     }
 
@@ -263,6 +269,9 @@ class AcademicSecondYear extends Controller
         $lec = LecturesSecondYear::with('course')->find($id);
         if (!$lec)
             return view('student.access_denied');
+        $user = Auth::user();
+        $user->mac_address = 1;
+        $user->save();
         return view('student.enrolled.second.lecture', compact('lec'));
     }
 

@@ -417,7 +417,7 @@
             <div id="user-btn" class="fas fa-user"></div>
         </div>
         <div class="profile">
-            <img class="image"  src="@if(Auth::check())
+            <img class="image"  src="@if(Auth::check() && Auth::user()->avatar != null)
                   {{asset('images/studentImages/'.Auth::user()->avatar)}}
                   @else
                   {{asset('images//pic-6.jpg')}}
@@ -429,8 +429,7 @@
                      <span style="margin-left: 5px;">Student</span>
                 @endif
             </h3>
-{{--            <p class="role">student</p>--}}
-            @if(Auth::check())
+            @if(Auth::check() )
                 <form method="GET" action="{{route('view.student.profile')}}">
                     @csrf
                     <button class="btn" type="submit">view profile</button>
@@ -440,7 +439,6 @@
                     <button class="btn" type="submit">log out</button>
                 </form>
             @else
-
                     <a href="{{route('student.login')}}" class="option-btn">login</a>
                     <a href="{{route('student.register')}}" class="option-btn">register</a>
             @endif
