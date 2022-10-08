@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Cheats;
+
 
 class CustomLoginController extends Controller
 {
@@ -55,7 +57,23 @@ class CustomLoginController extends Controller
             $logged_in = Auth::user()->mac_address;
             if($logged_in !=0 )
             {
-                // $user = Auth::user();
+                $user = Auth::user();
+                $cheated_before = Cheats::where('student_id' ,'=',$user->id)->first();
+                if($cheated_before) {
+                    $cheats = $cheated_before->cheats_number;
+                    if($cheats == 0) {
+                        $cheated_before ++;
+                        Auth::logout();
+                        return redirect()->back()->with(['mac' => 'اذا حاولت فتح الايميل تاني مش من علي تليفونك الايميل هيتمسح']);
+                    }
+
+                    if($cheated_before == 1) {
+                        $user->delete();
+                        Auth::logout();
+                        return redirect()->back()->with(['mac' => 'تم حذف الايميل لانك حاولت فتحه اكثر من مره مش من علي تليفونك']);
+                    }
+
+                }
                 Auth::logout();
                 return redirect()->back()->with(['mac' => 'هذا الايميل مفتوح بالفعل وبرجاء عدم فتح الأيميل مره مره اخري والا سيتم اعلام مستر علاء']);
             } else {
