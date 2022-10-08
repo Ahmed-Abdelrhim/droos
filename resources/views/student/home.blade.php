@@ -31,20 +31,21 @@
     <!-- START BANNER -->
     <section class="section" id="home">
         <div class="row">
-                <img src="{{asset('images/aladdin.png')}}" alt="image" style="width: 350px; height: 450px; margin-top: -60px;">
-                <img src="{{asset('images/logo.png')}}" alt="image" style="width: 60%; margin-right: 60px;">
+            <img src="{{asset('images/aladdin.png')}}" alt="image"
+                 style="width: 350px; height: 450px; margin-top: -60px;">
+            <img src="{{asset('images/logo.png')}}" alt="image" style="width: 60%; margin-right: 60px;">
 
-                    <div class="slider-content heading">
-                        <h1 class="main-font text-uppercase"><span class="slider-text px-2">م/علاء الدين</h1>
-                        <p class="main-text">
-                            منصة
-                            <span class="st-span">باشمهندس علاء الدين </span>
-                            لشرح منهج الفزياء
-                            <span class="nd-span">للثانوية العامة</span>
-                        </p>
-                    </div>
-                </div>
+            <div class="slider-content heading">
+                <h1 class="main-font text-uppercase"><span class="slider-text px-2">م/علاء الدين</h1>
+                <p class="main-text">
+                    منصة
+                    <span class="st-span">باشمهندس علاء الدين </span>
+                    لشرح منهج الفزياء
+                    <span class="nd-span">للثانوية العامة</span>
+                </p>
             </div>
+        </div>
+        </div>
         <div class="slider-area" id="slider-area">
 
             <!-- Circle-One -->
@@ -255,11 +256,18 @@
                 </div>
             </div> -->
         </div>
-        <p class="copyright">Developed By <a href="https://www.facebook.com/ahmed.abdalraheem.739" class="fas fa-heart"
+        <p class="copyright">Developed  <a href="https://www.facebook.com/ahmed.abdalraheem.739" class="fas fa-heart"
                                              target="_blank"></a>
             By
-            <a href="https://www.facebook.com/ahmed.abdalraheem.739" target="_blank">Ahmed Abdelrhim</a> ,
-            <a href="https://www.facebook.com/anas.rabea.35" target="_blank">Anas Rabea</a>
+            <a href="https://www.facebook.com/ahmed.abdalraheem.739" target="_blank">
+                <p>Ahmed Abdelrhim</p>
+                <p><a href="tel:01152067271" style="text-decoration: none; color: #8e44ad;">01152067271</a></p>
+            </a>
+        <br>
+            <a href="https://www.facebook.com/anas.rabea.35" target="_blank">
+                <p>Anas Rabea</p>
+                <p><a href="tel:01014012312" style="text-decoration: none; color: #8e44ad;">01014012312</a></p>
+            </a>
         </p>
         &copy; copyright @ 2022 | all rights reserved!
     </footer>

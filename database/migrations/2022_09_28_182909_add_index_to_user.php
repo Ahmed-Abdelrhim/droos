@@ -14,7 +14,7 @@ class AddIndexToUser extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unique('mac_address');
+//            $table->unique('mac_address');
         });
     }
 

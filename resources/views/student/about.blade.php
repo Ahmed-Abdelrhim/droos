@@ -107,7 +107,7 @@
             <div class="box">
                 <i class="fas fa-graduation-cap"></i>
                 <div>
-                    <h3>+30</h3>
+                    <h3>+50</h3>
                     <p>online courses</p>
                 </div>
             </div>
@@ -120,13 +120,13 @@
                 </div>
             </div>
 
-{{--            <div class="box">--}}
-{{--                <i class="fas fa-chalkboard-user"></i>--}}
-{{--                <div>--}}
-{{--                    <h3>+1k</h3>--}}
-{{--                    <p>expert tutors</p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            {{--            <div class="box">--}}
+            {{--                <i class="fas fa-chalkboard-user"></i>--}}
+            {{--                <div>--}}
+            {{--                    <h3>+1k</h3>--}}
+            {{--                    <p>expert tutors</p>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
 
             <div class="box">
                 <i class="fas fa-briefcase"></i>
@@ -141,129 +141,129 @@
     </section>
 
 
-{{--    <section class="reviews">--}}
+    {{--    <section class="reviews">--}}
 
-{{--        <h2 class="heading"><i class="fa-regular fa-star" style="margin-left: 15px;"></i>اراء طلابنا</h2>--}}
+    {{--        <h2 class="heading"><i class="fa-regular fa-star" style="margin-left: 15px;"></i>اراء طلابنا</h2>--}}
 
-{{--        <div class="box-container">--}}
+    {{--        <div class="box-container">--}}
 
-{{--            <div class="box">--}}
-{{--                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,--}}
-{{--                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis--}}
-{{--                    fuga. Eligendi eaque molestiae modi?</p>--}}
-{{--                <div class="student">--}}
-{{--                    <img src="images/pic-2.jpg" alt="">--}}
-{{--                    <div>--}}
-{{--                        <h3>john deo</h3>--}}
-{{--                        <div class="stars">--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star-half-alt"></i>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+    {{--            <div class="box">--}}
+    {{--                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,--}}
+    {{--                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis--}}
+    {{--                    fuga. Eligendi eaque molestiae modi?</p>--}}
+    {{--                <div class="student">--}}
+    {{--                    <img src="images/pic-2.jpg" alt="">--}}
+    {{--                    <div>--}}
+    {{--                        <h3>john deo</h3>--}}
+    {{--                        <div class="stars">--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star-half-alt"></i>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
 
-{{--            <div class="box">--}}
-{{--                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,--}}
-{{--                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis--}}
-{{--                    fuga. Eligendi eaque molestiae modi?</p>--}}
-{{--                <div class="student">--}}
-{{--                    <img src="images/pic-3.jpg" alt="">--}}
-{{--                    <div>--}}
-{{--                        <h3>john deo</h3>--}}
-{{--                        <div class="stars">--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star-half-alt"></i>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+    {{--            <div class="box">--}}
+    {{--                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,--}}
+    {{--                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis--}}
+    {{--                    fuga. Eligendi eaque molestiae modi?</p>--}}
+    {{--                <div class="student">--}}
+    {{--                    <img src="images/pic-3.jpg" alt="">--}}
+    {{--                    <div>--}}
+    {{--                        <h3>john deo</h3>--}}
+    {{--                        <div class="stars">--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star-half-alt"></i>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
 
-{{--            <div class="box">--}}
-{{--                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,--}}
-{{--                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis--}}
-{{--                    fuga. Eligendi eaque molestiae modi?</p>--}}
-{{--                <div class="student">--}}
-{{--                    <img src="images/pic-4.jpg" alt="">--}}
-{{--                    <div>--}}
-{{--                        <h3>john deo</h3>--}}
-{{--                        <div class="stars">--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star-half-alt"></i>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+    {{--            <div class="box">--}}
+    {{--                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,--}}
+    {{--                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis--}}
+    {{--                    fuga. Eligendi eaque molestiae modi?</p>--}}
+    {{--                <div class="student">--}}
+    {{--                    <img src="images/pic-4.jpg" alt="">--}}
+    {{--                    <div>--}}
+    {{--                        <h3>john deo</h3>--}}
+    {{--                        <div class="stars">--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star-half-alt"></i>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
 
-{{--            <div class="box">--}}
-{{--                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,--}}
-{{--                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis--}}
-{{--                    fuga. Eligendi eaque molestiae modi?</p>--}}
-{{--                <div class="student">--}}
-{{--                    <img src="images/pic-5.jpg" alt="">--}}
-{{--                    <div>--}}
-{{--                        <h3>john deo</h3>--}}
-{{--                        <div class="stars">--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star-half-alt"></i>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+    {{--            <div class="box">--}}
+    {{--                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,--}}
+    {{--                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis--}}
+    {{--                    fuga. Eligendi eaque molestiae modi?</p>--}}
+    {{--                <div class="student">--}}
+    {{--                    <img src="images/pic-5.jpg" alt="">--}}
+    {{--                    <div>--}}
+    {{--                        <h3>john deo</h3>--}}
+    {{--                        <div class="stars">--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star-half-alt"></i>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
 
-{{--            <div class="box">--}}
-{{--                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,--}}
-{{--                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis--}}
-{{--                    fuga. Eligendi eaque molestiae modi?</p>--}}
-{{--                <div class="student">--}}
-{{--                    <img src="images/pic-6.jpg" alt="">--}}
-{{--                    <div>--}}
-{{--                        <h3>john deo</h3>--}}
-{{--                        <div class="stars">--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star-half-alt"></i>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+    {{--            <div class="box">--}}
+    {{--                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,--}}
+    {{--                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis--}}
+    {{--                    fuga. Eligendi eaque molestiae modi?</p>--}}
+    {{--                <div class="student">--}}
+    {{--                    <img src="images/pic-6.jpg" alt="">--}}
+    {{--                    <div>--}}
+    {{--                        <h3>john deo</h3>--}}
+    {{--                        <div class="stars">--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star-half-alt"></i>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
 
-{{--            <div class="box">--}}
-{{--                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,--}}
-{{--                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis--}}
-{{--                    fuga. Eligendi eaque molestiae modi?</p>--}}
-{{--                <div class="student">--}}
-{{--                    <img src="images/pic-7.jpg" alt="">--}}
-{{--                    <div>--}}
-{{--                        <h3>john deo</h3>--}}
-{{--                        <div class="stars">--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star-half-alt"></i>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+    {{--            <div class="box">--}}
+    {{--                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, suscipit a. Quibusdam,--}}
+    {{--                    dignissimos consectetur. Sed ullam iusto eveniet qui aut quibusdam vero voluptate libero facilis--}}
+    {{--                    fuga. Eligendi eaque molestiae modi?</p>--}}
+    {{--                <div class="student">--}}
+    {{--                    <img src="images/pic-7.jpg" alt="">--}}
+    {{--                    <div>--}}
+    {{--                        <h3>john deo</h3>--}}
+    {{--                        <div class="stars">--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star"></i>--}}
+    {{--                            <i class="fas fa-star-half-alt"></i>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
 
-{{--        </div>--}}
+    {{--        </div>--}}
 
-{{--    </section>--}}
+    {{--    </section>--}}
 
 
 
@@ -341,11 +341,17 @@
                 </div>
             </div> -->
         </div>
-        <p class="copyright">Developed By <a href="https://www.facebook.com/ahmed.abdalraheem.739" class="fas fa-heart"
+        <p class="copyright">Developed  <a href="https://www.facebook.com/ahmed.abdalraheem.739" class="fas fa-heart"
                                              target="_blank"></a>
             By
-            <a href="https://www.facebook.com/ahmed.abdalraheem.739" target="_blank">Ahmed Abdelrhim</a> ,
-            <a href="https://www.facebook.com/anas.rabea.35" target="_blank">Anas Rabea</a>
+            <a href="https://www.facebook.com/ahmed.abdalraheem.739" target="_blank">
+        <p>Ahmed Abdelrhim</p>
+        <p><a href="tel:01152067271" style="text-decoration: none; color: #8e44ad;">01152067271</a></p>
+        </a> ,
+        <a href="https://www.facebook.com/anas.rabea.35" target="_blank">
+            <p>Anas Rabea</p>
+            <p><a href="tel:01014012312" style="text-decoration: none; color: #8e44ad;">01014012312</a></p>
+        </a>
         </p>
         &copy; copyright @ 2022 | all rights reserved!
     </footer>

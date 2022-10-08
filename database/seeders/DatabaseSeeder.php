@@ -19,16 +19,17 @@ class DatabaseSeeder extends Seeder
             'name' => 'Ahmed Abdelrhim',
             'email' => 'abdelrhim.admin@gmail.com',
             'phone_number' => '01152067271',
-            'password' => '$2y$10$eDZh5aAN34kfTMOxrLaXmu/NIbQJrI//Yqi9IHDhu0CRELLo7Amke',
+            'password' => '$2y$10$Ijp7tZK3xDjD2lOHd1LZMuOCskHTvA6sesI.XaZJpyqX/O1Bcmbsm',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
 
         Admin::create([
             'name' => 'Aladdin Muhammed',
             'email' => 'aladdin.admin@gmail.com',
             'phone_number' => '01023435023',
-            'password' => '$2y$10$eDZh5aAN34kfTMOxrLaXmu/NIbQJrI//Yqi9IHDhu0CRELLo7Amke',
+            'password' => '$2y$10$Ijp7tZK3xDjD2lOHd1LZMuOCskHTvA6sesI.XaZJpyqX/O1Bcmbsm',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -39,7 +40,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Anas Rabea',
             'email' => 'aladdin.admin@gmail.com',
             'phone_number' => '01014012312',
-            'password' => '$2y$10$eDZh5aAN34kfTMOxrLaXmu/NIbQJrI//Yqi9IHDhu0CRELLo7Amke',
+            'password' => '$2y$10$Ijp7tZK3xDjD2lOHd1LZMuOCskHTvA6sesI.XaZJpyqX/O1Bcmbsm',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

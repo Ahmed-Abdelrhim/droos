@@ -16,7 +16,7 @@ class AdminLoginController extends Controller
     }
 
     // Checks If Admin In Exists In Database Function
-    public function login(Request $request)
+    public function login(Request $request): \Illuminate\Http\RedirectResponse
     {
         // return $request;
         if (Auth::guard('admin')->attempt($this->credentials($request))) {
@@ -58,7 +58,7 @@ class AdminLoginController extends Controller
     }
 
     //Admin Logout Function
-    public function logout()
+    public function logout(): \Illuminate\Http\RedirectResponse
     {
         // Using logout trait
 //        $adminLogout = auth()->guard('author');

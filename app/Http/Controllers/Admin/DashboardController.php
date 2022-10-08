@@ -184,10 +184,11 @@ class DashboardController extends Controller
 
     public function updateAdminProfile(Request $request, $id): \Illuminate\Http\RedirectResponse
     {
+
         // Auth::guard('admin')->user()->id
         $request->validate([
             'name' => 'required|min:4|string',
-            'email' => 'required|unique:admins,email,' . $id,
+            'email' => 'required|email|unique:users,email,'.$id,
             'phone_number' => 'required|min:10',
             'password' => 'nullable|min:8|string|confirmed',
             'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',

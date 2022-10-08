@@ -18,9 +18,12 @@ class CustomLoginController extends Controller
 
     public function registerStudent(StudentLoginRequest $request): \Illuminate\Http\RedirectResponse
     {
-        $mac_address = substr(exec('getmac'), 0, 17);
-        if (User::where('mac_address' , '=' , $mac_address)->first() )
-            return redirect()->back()->with(['mac'=>'لقد قمت بعمل ايميل من هذا الجهاز سابقا']);
+//        $mac_address = substr(exec('getmac'), 0, 17);
+        $ip = request()->getClientIp();
+        if($ip == null)
+            $ip = request()->ip();
+//        if (User::where('mac_address' , '=' , $mac_address)->first() )
+//            return redirect()->back()->with(['mac'=>'لقد قمت بعمل ايميل من هذا الجهاز سابقا']);
         $image_name = null;
         if ($request->has('avatar'))
             $image_name = $this->handleImage($request->avatar, 'studentImages');
@@ -32,7 +35,7 @@ class CustomLoginController extends Controller
             'parent_number' => $request->input('parent_number'),
             'academic_year' => $request->input('academic_year'),
             'password' => bcrypt($request->input('password')),
-            'mac_address' => $mac_address,
+            'mac_address' => $ip,
             'avatar' => $image_name,
         ]);
         DB::commit();
@@ -49,7 +52,7 @@ class CustomLoginController extends Controller
 //        if (Auth::user()->mac_address == substr(exec('getmac'), 0, 17)) {}
 //        return $this->logout();
         if (Auth::attempt($this->credentials($request))) {
-            if (Auth::user()->mac_address == substr(exec('getmac'), 0, 17)) {
+            if (Auth::user()->mac_address === request()->getClientIp()) {
                 $academic_year = Auth::user()->academic_year;
                 if($academic_year === 1 )
                     return redirect()->route('academic_first_years');

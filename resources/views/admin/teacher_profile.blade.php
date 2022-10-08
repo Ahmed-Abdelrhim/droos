@@ -29,7 +29,7 @@
             @enderror
 
             <p>Phone Number <span>*</span></p>
-            <input type="text" name="phone_number" placeholder="enter your phone number" maxlength="50" class="box"
+            <input type="text" name="phone_number" placeholder="enter your phone number" maxlength="11" class="box"
                    value="{{Auth::guard('admin')->user()->phone_number}}"
             >
             @error('phone_number')
