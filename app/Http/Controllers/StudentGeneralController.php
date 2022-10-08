@@ -46,7 +46,7 @@ class StudentGeneralController extends Controller
         $result[0] = $nums[0];
         for ($i = 1 ; $i < count($nums); $i++ )
         {
-            //Time Complexity is O(n) 
+            //Time Complexity is O(n)
             $result[$i] = $nums[$i] + $result[$i-1];
         }
         return $result;
@@ -99,6 +99,8 @@ class StudentGeneralController extends Controller
         $student = User::find($id);
         if (!$student)
             return 'Student Not Found';
+        $file_path = public_path('images/studentImages/'.$student->avatar);
+        unlink($file_path);
         $student->delete();
         return redirect()->back()->with(['success' => 'Student deleted successfully']);
     }

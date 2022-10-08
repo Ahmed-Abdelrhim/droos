@@ -23,7 +23,7 @@
                 @endif
                 @if(Auth::user()->academic_year == 3) {{url('courses/3rd/year')}}
                 @endif
-                @else #
+                @else {{route('home')}}
                 @endif
                 " class="active"><i class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
             </nav>
