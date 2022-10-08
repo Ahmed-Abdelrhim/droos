@@ -72,7 +72,7 @@ class CustomLoginController extends Controller
                     if($cheats == 1) {
                         $user->delete();
                         Auth::logout();
-                        return redirect()->back()->with(['mac' => 'تم حذف الايميل لانك حاولت فتحه اكثر من مره علي اكثر من حهاز']);
+                        return redirect()->back()->with(['mac' => 'تم حذف الايميل لانك حاولت فتحه اكثر من مره علي اكثر من جهاز']);
                     }
                 }
                 DB::beginTransaction();
