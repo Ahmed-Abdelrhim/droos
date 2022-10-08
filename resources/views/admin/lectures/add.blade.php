@@ -104,7 +104,7 @@
 
 
 
-            console.log('Ahmed Abdelrhim');
+            console.log('ahmed abdelrhim');
             $('#academic_year').on('change', function () {
                 let id = $(this).val();
                 $('#month').empty();
