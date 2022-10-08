@@ -347,11 +347,11 @@
     .progress{
         position: relative;
         width: 100%;
-        background-color: #c9cfc9;
+        /* background-color: #c9cfc9; */
     }
 
     .bar{
-        background-color: #00ff00;
+        background-color: #237eb7;
         width: 0%;
         height: 20px;
     }
