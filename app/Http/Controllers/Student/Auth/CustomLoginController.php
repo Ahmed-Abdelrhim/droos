@@ -35,7 +35,7 @@ class CustomLoginController extends Controller
             'parent_number' => $request->input('parent_number'),
             'academic_year' => $request->input('academic_year'),
             'password' => bcrypt($request->input('password')),
-            'mac_address' => $ip,
+            'mac_address' => 0,
             'avatar' => $image_name,
         ]);
         DB::commit();
@@ -52,22 +52,42 @@ class CustomLoginController extends Controller
 //        if (Auth::user()->mac_address == substr(exec('getmac'), 0, 17)) {}
 //        return $this->logout();
         if (Auth::attempt($this->credentials($request))) {
-            if (Auth::user()->mac_address === request()->getClientIp()) {
+            $logged_in = Auth::user()->mac_address;
+            if($logged_in !=0 )
+            {
+                $user = Auth::user();
+                $user->mac_address = 0;
+                $user->save();
+                Auth::logout();
+                return redirect()->back()->with(['mac' => 'هذا الايميل مفتوح بالفعل وبرجاء عدم فتح الأيميل مره مره اخري والا سيتم اعلام مستر علاء']);
+            } else {
+                $user = Auth::user();
+                $user->mac_address = 1;
+                $user->save();
                 $academic_year = Auth::user()->academic_year;
                 if($academic_year === 1 )
                     return redirect()->route('academic_first_years');
                 if($academic_year === 2 )
                     return redirect()->route('academic_second_years');
                 return redirect()->route('academic_third_years');
-            } else {
-                //$this->logout();
-                Auth::logout();
-                return redirect()->back()->with(['mac' => 'يجب فتح الأيميل من الجهاز الذي قمت بتسجيل الدخول فية لأول مرة']);
             }
+
+//            if (Auth::user()->mac_address === request()->getClientIp()) {
+
+//            } else {
+//                //$this->logout();
+//                Auth::logout();
+//                return redirect()->back()->with(['mac' => 'يجب فتح الأيميل من الجهاز الذي قمت بتسجيل الدخول فية لأول مرة']);
+//            }
         }
         return redirect()->back()->withErrors([
             'errors' => 'Email Or Password Is Incorrect',
         ]);
+    }
+
+    protected function authenticated(Request $request, User $user)
+    {
+        $user->logoutOtherDevices($request->password);
     }
 
     public function credentials($request)
@@ -82,6 +102,9 @@ class CustomLoginController extends Controller
 
     public function logout(): \Illuminate\Http\RedirectResponse
     {
+        $user = Auth::user();
+        $user->mac_address = 0;
+        $user->save();
         Auth::logout();
         return redirect()->route('student.login');
     }
