@@ -32,7 +32,7 @@ class CustomLoginController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'phone_number' => $request->input('phone_number'),
-            'parent_number' => $request->input('parent_number'),
+            'parent_number' => null,
             'academic_year' => $request->input('academic_year'),
             'password' => bcrypt($request->input('password')),
             'mac_address' => 0,

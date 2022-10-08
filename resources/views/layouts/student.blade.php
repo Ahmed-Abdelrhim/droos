@@ -488,7 +488,7 @@
                     @endif
                 </h3>
             </div>
-            <img src="@if(Auth::check())
+            <img src="@if(Auth::check() && Auth::user()->avatar != null)
                   {{asset('images/studentImages/'.Auth::user()->avatar)}}
                   @else
                   {{asset('images//pic-6.jpg')}}

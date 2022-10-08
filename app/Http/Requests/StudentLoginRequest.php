@@ -27,7 +27,7 @@ class StudentLoginRequest extends FormRequest
             'name' => 'required|min:4|string ',
             'email' => 'required|unique:users,email',
             'phone_number' => 'required|regex:/(01)[0-9]{9}/|unique:users',
-            'parent_number' => 'required|regex:/(01)[0-9]{9}/|unique:users',
+            'parent_number' => 'nullable',
             'academic_year' => 'between:1,3',
             'password' => 'required|confirmed|min:6',
             'avatar' => 'nullable|mimes:jpeg,jpg,png,gif',

@@ -66,12 +66,14 @@
                     <span class="text-danger" style="color: white">{{$message}}</span>
                     @enderror
 
-                    <p>رقم هاتف ولي الأمر <span>*</span></p>
-                    <input type="tel" name="parent_number" placeholder="ادخل رقم هاتف ولي الأمر" required
-                            maxlength="11" class="box" value="{{old('parent_number')}}">
-                    @error('parent_number')
-                    <span class="text-danger" style="color: white">{{$message}}</span>
-                    @enderror
+{{--                    <p>رقم هاتف ولي الأمر <span>*</span></p>--}}
+{{--                    <input type="tel" name="parent_number" placeholder="ادخل رقم هاتف ولي الأمر" required--}}
+{{--                            maxlength="11" class="box" value="{{old('parent_number')}}">--}}
+{{--                    @error('parent_number')--}}
+{{--                    <span class="text-danger" style="color: white">{{$message}}</span>--}}
+{{--                    @enderror--}}
+
+
                 </div>
                 <div class="col">
                         <p>أختر السنة الدراسية <span>*</span></p>
@@ -95,8 +97,8 @@
                         @error('password_confirmation')
                         <span class="text-danger" style="color: white">{{$message}}</span>
                         @enderror
-                        <p>أختر صورة البروفايل <span>*</span></p>
-                        <input type="file"  class="box" name="avatar">
+{{--                        <p>أختر صورة البروفايل <span>*</span></p>--}}
+{{--                        <input type="file"  class="box" name="avatar">--}}
                 </div>
             </div>
             <p class="link">هل لديك حساب بالفعل؟ <a href="{{route('student.login')}}">تسجيل الدخول</a></p>

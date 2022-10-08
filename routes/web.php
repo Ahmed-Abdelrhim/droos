@@ -133,7 +133,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 });
 
 //Route::get('hash',function (){
-//    //return bcrypt(12345678);
+//    return bcrypt(12345678);
 //    return request()->getClientIp();
 //    return substr(exec('getmac'), 0, 17);
 //});
