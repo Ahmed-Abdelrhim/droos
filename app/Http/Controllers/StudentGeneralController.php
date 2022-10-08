@@ -21,17 +21,17 @@ class StudentGeneralController extends Controller
         $email = Auth::user()->email;
         $phone_number = Auth::user()->phone_number;
 //        try {
-            DB::beginTransaction();
-            Message::create([
-                'name' => $name,
-                'email' => $email,
-                'phone_number' => $phone_number,
-                'msg' => $request->input('msg'),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-            DB::commit();
-            return redirect()->back()->with(['success' => 'تم ارسال الرسالة الي مستر علاء الدين']);
+        DB::beginTransaction();
+        Message::create([
+            'name' => $name,
+            'email' => $email,
+            'phone_number' => $phone_number,
+            'msg' => $request->input('msg'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::commit();
+        return redirect()->back()->with(['success' => 'تم ارسال الرسالة الي مستر علاء الدين']);
 //        }
 //        catch (Exception $e) {
 //            return redirect()->back()->with(['errors' => 'حدث خطأ أثناء ارسال الرسالة']);
@@ -41,13 +41,12 @@ class StudentGeneralController extends Controller
 
     public function play(): array
     {
-        $nums = [1,2,3,4];
+        $nums = [1, 2, 3, 4];
         $result = [];
         $result[0] = $nums[0];
-        for ($i = 1 ; $i < count($nums); $i++ )
-        {
+        for ($i = 1; $i < count($nums); $i++) {
             //Time Complexity is O(n)
-            $result[$i] = $nums[$i] + $result[$i-1];
+            $result[$i] = $nums[$i] + $result[$i - 1];
         }
         return $result;
         //return substr(exec('getmac'), 0, 17);
@@ -66,18 +65,18 @@ class StudentGeneralController extends Controller
     {
         $request->validate([
             'name' => 'required|string|min:4',
-            'email' => 'required|email|unique:users,email,'.Auth::id(),
+            'email' => 'required|email|unique:users,email,' . Auth::id(),
             'password' => 'nullable|min:6|confirmed',
-            'phone_number' => 'required|min:10|unique:users,phone_number,'.Auth::id(),
-            'parent_number' => 'required|min:10|unique:users,parent_number,'.Auth::id(),
+            'phone_number' => 'required|min:10|unique:users,phone_number,' . Auth::id(),
+            'parent_number' => 'required|min:10|unique:users,parent_number,' . Auth::id(),
             'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
         ]);
 
         $image_name = Auth::user()->avatar;
-        if($request->has('avatar'))
-            $image_name = uploadImage('studentImages',$request->avatar);
+        if ($request->has('avatar'))
+            $image_name = uploadImage('studentImages', $request->avatar);
         $password = Auth::user()->password;
-        if($request->password != null )
+        if ($request->password != null)
             $password = bcrypt($request->password);
 
         $student = Auth::user();
@@ -102,7 +101,7 @@ class StudentGeneralController extends Controller
         $student = User::find($id);
         if (!$student)
             return 'Student Not Found';
-        $file_path = 'images/studentImages/'.$student->avatar;
+        $file_path = 'images/studentImages/' . $student->avatar;
         unlink($file_path);
         $student->delete();
         return redirect()->back()->with(['success' => 'Student deleted successfully']);
@@ -111,7 +110,22 @@ class StudentGeneralController extends Controller
     public function aboutUs()
     {
         $who_are_we = WhoAreWe::get();
-        return view('student.about',compact('who_are_we'));
+        if (Auth::check()) {
+            $user = Auth::user();
+            $user->mac_address = 1;
+            $user->save();
+        }
+        return view('student.about', compact('who_are_we'));
+    }
+
+    public function contactUs()
+    {
+        if(Auth::check() ) {
+            $user = Auth::user();
+            $user->mac_address = 1;
+            $user->save();
+        }
+        return view('student.contact');
     }
 
 }

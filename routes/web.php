@@ -53,9 +53,9 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
     Route::get('about', [StudentGeneralController::class,'aboutUs'])->name('about');
 
-    Route::get('contact', function () {
-        return view('student.contact');
-    })->name('contact');
+    Route::get('contact',[StudentGeneralController::class,'contactUs'])->name('contact');
+
+//         return view('student.contact');
 
     Route::get('features',[DashboardController::class,'features'])->name('features');
 
