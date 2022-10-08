@@ -222,7 +222,7 @@ class AcademicSecondYear extends Controller
         $lec = LecturesSecondYear::find($id);
         if (!$lec)
             return 'Lecture Not Found';
-        $file_path = public_path('lectures/second/'.$lec->lec);
+        $file_path = 'lectures/second/'.$lec->lec;
         unlink($file_path);
         $lec->delete();
         return redirect()->back()->with(['success' => 'Lecture deleted successfully']);
