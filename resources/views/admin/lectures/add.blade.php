@@ -11,8 +11,7 @@
                 </div>
             @endif
             <div class="progress">
-                <div class="bar"></div>
-                <div class="percent" style="color:white;"></div>
+                <div class="bar"><div class="percent"></div></div>
             </div>
 
             <h3>Add New Lecture </h3>
@@ -96,15 +95,17 @@
                     percent.html(percentVal);
                 },
 
-                complete:function (){
-                    console.log('success uploading lecture');
-                    alert('lecture added successfully');
+                complete:function submitForm(form) {
+                swal({
+                    text: " تم رفع الفديو بنجاح",
+                    icon: "success",
+                    })
                 },
             });
 
 
 
-            console.log('Ahmed Abdelrhim');
+            // console.log('Ahmed Abdelrhim');
             $('#academic_year').on('change', function () {
                 let id = $(this).val();
                 $('#month').empty();

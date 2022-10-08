@@ -346,7 +346,7 @@
 
     .progress{
         position: relative;
-        width: 50%;
+        width: 100%;
         background-color: #c9cfc9;
     }
 
@@ -357,10 +357,14 @@
     }
 
     .percent{
-        position: absolute;
-        display: inline-block;
-        left: 50%;
-        color: #040608;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+
     }
 </style>
 <header class="header">
@@ -672,6 +676,7 @@
     }
 </script>
 <script src="{{asset('js/admin.js')}}"></script>
+<script src="{{asset('js/sweetalert.min.js')}}"></script>
 {{--<script src="{{asset('js/script.js')}}"></script>--}}
 @stack('javascript')
 @yield('script')
