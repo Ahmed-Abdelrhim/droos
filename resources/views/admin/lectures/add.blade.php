@@ -91,6 +91,10 @@
 
                 uploadProgress:function (event , position , total , percentComplete){
                     let percentVal = percentComplete+'%';
+                    // let progress = document.getElementsByClassName('progress');
+                    // if(percentComplete > '0%') {
+                    //     progress.style.background = '#fff';
+                    // }
                     bar.width(percentVal);
                     percent.html(percentVal);
                 },
