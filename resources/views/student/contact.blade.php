@@ -90,14 +90,13 @@
             <div class="box">
                 <i class="fas fa-phone"></i>
                 <h3>phone number</h3>
-                <a href="tel:01152067271">01152067271</a>
+                <a href="tel:01152067271">01149596478</a>
             </div>
 
             <div class="box">
                 <i class="fas fa-envelope"></i>
                 <h3>email address</h3>
-                <a href="mailto:aabdelrhim974@gmail.com">aabdelrhim974@gmail.com</a>
-                <a href="mailto:anas.rabea1000@gmail.com">anas.rabea1000@gmail.com</a>
+                <a href="mailto:eldenalaa855@gmail.com">eldenalaa855@gmail.com</a>
             </div>
 
             <div class="box">
