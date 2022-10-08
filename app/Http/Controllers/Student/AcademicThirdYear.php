@@ -177,7 +177,7 @@ class AcademicThirdYear extends Controller
         $lec = LecturesThirdYear::find($id);
         if (!$lec)
             return 'Lecture Not Found';
-        $file_path = public_path('lectures/third/'.$lec->lec);
+        $file_path = ('lectures/third/'.$lec->lec);
         unlink($file_path);
         $lec->delete();
         return redirect()->back()->with(['success' => 'Lecture deleted successfully']);

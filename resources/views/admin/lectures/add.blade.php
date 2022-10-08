@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <section class="form-container">
-        <form action="{{route('store.new.lec')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('store.new.lec')}}" method="POST" enctype="multipart/form-data" >
             @csrf
             @if(\Session::get('success'))
                 <div class="row mr-2 ml-2">
@@ -10,6 +10,10 @@
                     </button>
                 </div>
             @endif
+            <div class="progress">
+                <div class="bar"></div>
+                <div class="percent" style="color:white;"></div>
+            </div>
 
             <h3>Add New Lecture </h3>
 
@@ -71,8 +75,35 @@
 @endsection
 @section('script')
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+{{--    <script src="https://cdn.jsdelivr.net/gh/jquery-form/form@4.3.0/dist/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
+
     <script>
         $(document).ready(function () {
+
+            let bar = $('.bar');
+            let percent = $('.percent');
+            $('form').ajaxForm({
+                beforeSend:function(){
+                    let percentVal = '0%';
+                    bar.width(percentVal);
+                    percent.html(percentVal);
+                },
+
+                uploadProgress:function (event , position , total , percentComplete){
+                    let percentVal = percentComplete+'%';
+                    bar.width(percentVal);
+                    percent.html(percentVal);
+                },
+
+                complete:function (){
+                    console.log('success uploading lecture');
+                    alert('lecture added successfully');
+                },
+            });
+
+
+
             console.log('Ahmed Abdelrhim');
             $('#academic_year').on('change', function () {
                 let id = $(this).val();

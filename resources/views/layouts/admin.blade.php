@@ -342,6 +342,26 @@
     .custom-pagination svg {
         display: none !important;
     }
+
+
+    .progress{
+        position: relative;
+        width: 50%;
+        background-color: #c9cfc9;
+    }
+
+    .bar{
+        background-color: #00ff00;
+        width: 0%;
+        height: 20px;
+    }
+
+    .percent{
+        position: absolute;
+        display: inline-block;
+        left: 50%;
+        color: #040608;
+    }
 </style>
 <header class="header">
     <section class="flex">
