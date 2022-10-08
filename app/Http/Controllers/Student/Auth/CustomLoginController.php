@@ -55,7 +55,7 @@ class CustomLoginController extends Controller
             $logged_in = Auth::user()->mac_address;
             if($logged_in !=0 )
             {
-                $user = Auth::user();
+                // $user = Auth::user();
                 Auth::logout();
                 return redirect()->back()->with(['mac' => 'هذا الايميل مفتوح بالفعل وبرجاء عدم فتح الأيميل مره مره اخري والا سيتم اعلام مستر علاء']);
             } else {
