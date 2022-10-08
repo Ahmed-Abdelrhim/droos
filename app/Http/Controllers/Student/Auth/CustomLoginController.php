@@ -19,9 +19,9 @@ class CustomLoginController extends Controller
     public function registerStudent(StudentLoginRequest $request): \Illuminate\Http\RedirectResponse
     {
 //        $mac_address = substr(exec('getmac'), 0, 17);
-        $ip = request()->getClientIp();
-        if($ip == null)
-            $ip = request()->ip();
+//        $ip = request()->getClientIp();
+//        if($ip == null)
+//            $ip = request()->ip();
 //        if (User::where('mac_address' , '=' , $mac_address)->first() )
 //            return redirect()->back()->with(['mac'=>'لقد قمت بعمل ايميل من هذا الجهاز سابقا']);
         $image_name = null;
@@ -56,8 +56,6 @@ class CustomLoginController extends Controller
             if($logged_in !=0 )
             {
                 $user = Auth::user();
-                // $user->mac_address = 0;
-                // $user->save();
                 Auth::logout();
                 return redirect()->back()->with(['mac' => 'هذا الايميل مفتوح بالفعل وبرجاء عدم فتح الأيميل مره مره اخري والا سيتم اعلام مستر علاء']);
             } else {
@@ -112,7 +110,7 @@ class CustomLoginController extends Controller
     public function handleImage($image, $folder): string
     {
         $image_name = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('images/' . $folder), $image_name);
+        $image->move('images/' . $folder , $image_name);
         return $image_name;
     }
 }

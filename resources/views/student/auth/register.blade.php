@@ -96,7 +96,7 @@
                         <span class="text-danger" style="color: white">{{$message}}</span>
                         @enderror
                         <p>أختر صورة البروفايل <span>*</span></p>
-                        <input type="file"  required class="box" name="avatar">
+                        <input type="file"  class="box" name="avatar">
                 </div>
             </div>
             <p class="link">هل لديك حساب بالفعل؟ <a href="{{route('student.login')}}">تسجيل الدخول</a></p>
