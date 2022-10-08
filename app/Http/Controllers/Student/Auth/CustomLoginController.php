@@ -63,17 +63,21 @@ class CustomLoginController extends Controller
                     $cheats = $cheated_before->cheats_number;
                     //warning student
                     if($cheats == 0) {
-                        $cheated_before ++;
+                        $cheated_before->cheats_number = 1;
+                        $cheated_before->save();
                         Auth::logout();
                         return redirect()->back()->with(['mac' => 'اذا حاولت فتح الايميل تاني مش من علي تليفونك الايميل هيتمسح']);
                     }
                     //deleting student account
-                    if($cheated_before == 1) {
+                    if($cheats == 1) {
                         $user->delete();
                         Auth::logout();
                         return redirect()->back()->with(['mac' => 'تم حذف الايميل لانك حاولت فتحه اكثر من مره مش من علي تليفونك']);
                     }
                 }
+                DB::beginTransaction();
+                Cheats::create(['student_id' => $user->id , 'cheats_number' => 1]);
+                DB::commit();
                 Auth::logout();
                 return redirect()->back()->with(['mac' => 'هذا الايميل مفتوح بالفعل وبرجاء عدم فتح الأيميل مره مره اخري والا سيتم اعلام مستر علاء و حذف الايميل  ']);
             } else {

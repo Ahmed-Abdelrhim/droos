@@ -22,6 +22,9 @@ class AcademicThirdYear extends Controller
     public function index()
     {
         $demo = Demo::where('academic_year', '=', 3)->first();
+        $user = Auth::user();
+        $user->mac_address = 1;
+        $user->save();
         return view('student.3rd', compact('demo'));
 
     }
@@ -163,6 +166,9 @@ class AcademicThirdYear extends Controller
     public function enrolledCoursesView()
     {
         $courses = SubscribedThirdYear::orderBy('serial_number', 'asc')->where('student_id', Auth::id())->with('course')->get();
+        $user = Auth::user();
+        $user->mac_address = 1;
+        $user->save();
         return view('student.enrolled.third.index', compact('courses'));
     }
 
@@ -240,6 +246,9 @@ class AcademicThirdYear extends Controller
         $lec = LecturesThirdYear::with('course')->find($id);
         if (!$lec)
             return view('student.access_denied');
+        $user = Auth::user();
+        $user->mac_address = 1;
+        $user->save();
         return view('student.enrolled.third.lecture', compact('lec'));
     }
 

@@ -312,6 +312,11 @@ class DashboardController extends Controller
     public function features()
     {
         $features = Feature::get();
+        if(Auth::check()) {
+            $user = Auth::user();
+            $user->mac_address = 1;
+            $user->save();
+        }
         return view('student.features', compact('features'));
     }
 
