@@ -103,7 +103,7 @@ class AcademicSecondYear extends Controller
             'serial_number' => 'required ',
             'price' => 'required',
             'discount' => 'nullable ',
-            'cover' => 'nullable ',
+            'cover' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
         ]);
 
         $discount = null;

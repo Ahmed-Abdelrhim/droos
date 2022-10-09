@@ -29,7 +29,7 @@ class AddCoursesRequest extends FormRequest
             'serial_number' => 'required ',
             'price' => 'required',
             'discount' => 'nullable ',
-            'cover' => 'required',
+            'cover' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
         ];
     }
 

@@ -137,3 +137,4 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 //    return request()->getClientIp();
 //    return substr(exec('getmac'), 0, 17);
 //});
+// ALTER TABLE cheats ADD FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE;

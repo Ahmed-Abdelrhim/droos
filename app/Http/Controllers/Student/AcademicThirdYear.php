@@ -88,12 +88,12 @@ class AcademicThirdYear extends Controller
         $course = CourseThirdYear::find($id);
         if (!$course)
             return redirect()->back()->with(['errors' => 'Course Not Found']);
-        $this->validate($request, [
+        $validation = $this->validate($request, [
             'name' => 'required',
             'serial_number' => 'required ',
             'price' => 'required',
             'discount' => 'nullable ',
-            'cover' => 'nullable ',
+            'cover' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
         ]);
 
         $discount = null;
@@ -108,7 +108,7 @@ class AcademicThirdYear extends Controller
         if ($request->has('cover')) {
             $cover = handleImage('courses_third_year', $request);
         }
-        $course->update([
+        $updated = $course->update([
             'name' => $request->name,
             'serial_number' => $request->serial_number,
             'price' => $price,
@@ -117,8 +117,9 @@ class AcademicThirdYear extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-        return redirect()->back()->with(['success' => 'تم تعديل الكورس بنجاح']);
-
+        if($updated)
+            return redirect()->back()->with(['success' => 'تم تعديل الكورس بنجاح']);
+        return response()->json(['status' => 0 , 'error' => $validation->errors()->toArray()]);
     }
 
     public function deleteCourse($id)

@@ -79,7 +79,7 @@ class CustomLoginController extends Controller
                 Cheats::create(['student_id' => $user->id , 'cheats_number' => 1]);
                 DB::commit();
                 Auth::logout();
-                return redirect()->back()->with(['mac' => ' تحذيز مام: هذا الايميل مفتوح بالفعل وبرجاء عدم فتح الأيميل مره مره اخري والا سيتم حذف الايميل  ']);
+                return redirect()->back()->with(['mac' => ' تحذيز هام: هذا الايميل مفتوح بالفعل وبرجاء عدم فتح الأيميل مره مره اخري والا سيتم حذف الايميل  ']);
             } else {
                 $user = Auth::user();
                 $user->mac_address = 1;

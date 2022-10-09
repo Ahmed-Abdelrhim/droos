@@ -72,6 +72,7 @@
     </section>
 
 @endsection
+
 @section('script')
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
 {{--    <script src="https://cdn.jsdelivr.net/gh/jquery-form/form@4.3.0/dist/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>--}}

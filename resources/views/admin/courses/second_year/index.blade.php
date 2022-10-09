@@ -2,7 +2,7 @@
 @section('content')
 <section class="courses">
 
-<h1 class="heading">كورسات الصف الأول الثانوي</h1>
+<h1 class="heading">كورسات الصف الثاني الثانوي</h1>
 
 <div class="box-container">
 

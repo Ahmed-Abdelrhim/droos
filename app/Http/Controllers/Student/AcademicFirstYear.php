@@ -85,7 +85,7 @@ class AcademicFirstYear extends Controller
 
     }
 
-    public function updateCourse(Request $request, $id)
+    public function updateCourse(Request $request, $id): \Illuminate\Http\RedirectResponse
     {
         //|unique:course_first_years,name'.$id
         $course = CourseFirstYear::findOrFail($id);
@@ -96,7 +96,7 @@ class AcademicFirstYear extends Controller
             'serial_number' => 'required ',
             'price' => 'required',
             'discount' => 'nullable ',
-            'cover' => 'nullable ',
+            'cover' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
         ]);
 
         $discount = null;
