@@ -252,6 +252,7 @@ class DashboardController extends Controller
                 'week' => $request->week,
                 'created_at' => now(),
                 'updated_at' => now(),]);
+            return response()->json(['status' => 1 , ',msg' => 'Success Upload']);
         }
 
         //Lectures Second Year
@@ -270,6 +271,7 @@ class DashboardController extends Controller
                 'week' => $request->week,
                 'created_at' => now(),
                 'updated_at' => now(),]);
+            return response()->json(['status' => 1 , ',msg' => 'Success Upload']);
         }
 
         //Lectures Third Year
@@ -288,8 +290,11 @@ class DashboardController extends Controller
                 'week' => $request->week,
                 'created_at' => now(),
                 'updated_at' => now(),]);
+            return response()->json(['status' => 1 , ',msg' => 'Success Upload']);
         }
-        return redirect()->route('add.new.lec')->with(['success' => 'Lecture Uploaded Successfully']);
+        return response()->json(['status' => 0 , ',msg' => 'Failed Upload']);
+
+        // return redirect()->route('add.new.lec')->with(['success' => 'Lecture Uploaded Successfully']);
 
     }
 

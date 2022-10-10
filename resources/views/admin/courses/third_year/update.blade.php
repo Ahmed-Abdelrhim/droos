@@ -76,13 +76,11 @@
 {{--            $('form').validate({--}}
 {{--                rules: {--}}
 {{--                    name: {--}}
-{{--                        require: true,--}}
-{{--                        string: true,--}}
+{{--                        --}}
 {{--                    },--}}
-{{--                    serial_number: {--}}
-{{--                        require: true,--}}
-{{--                        number: true,--}}
-{{--                    },--}}
+{{--                    name: {--}}
+{{--                        --}}
+{{--                    }--}}
 {{--                }--}}
 {{--            })--}}
 {{--            let bar = $('.bar');--}}

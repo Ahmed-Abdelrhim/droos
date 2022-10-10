@@ -127,8 +127,8 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
     });
 
-    Route::get('play', [StudentGeneralController::class, 'play']);
-    Route::get('admin/play', [DashboardController::class, 'play']);
+//    Route::get('play', [StudentGeneralController::class, 'play']);
+//    Route::get('admin/play', [DashboardController::class, 'play']);
 
 });
 

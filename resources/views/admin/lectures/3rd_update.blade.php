@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 @section('content')
+{{--    JavaScript:void(); --}}
     <section class="form-container">
-        <form action="{{route('update.lec.3rd',$lec->id)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('update.lec.3rd',$lec->id)}}" method="POST" enctype="multipart/form-data" id="uploadForm">
             @csrf
             @if(\Session::get('success'))
                 <div class="row mr-2 ml-2">

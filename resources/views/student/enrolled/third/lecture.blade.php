@@ -44,8 +44,10 @@
          </div>
          <div class="comment-box">this is a comment form  Anas & Ahmed</div>
          <form action="" class="flex-btn">
-            <input type="submit" value="edit comment" name="edit_comment" class="inline-option-btn">
-            <input type="submit" value="delete comment" name="delete_comment" class="inline-delete-btn">
+{{--            <input disabled value="edit comment" name="edit_comment" class="inline-option-btn">--}}
+{{--            <input type="submit" value="delete comment" name="delete_comment" class="inline-delete-btn">--}}
+             <a  href="#"  class="inline-option-btn">edit comment</a>
+             <a href="#" class="inline-delete-btn">delete comment</a>
          </form>
       </div>
 
