@@ -101,8 +101,10 @@ class StudentGeneralController extends Controller
         $student = User::find($id);
         if (!$student)
             return 'Student Not Found';
-        $file_path = 'images/studentImages/' . $student->avatar;
-        unlink($file_path);
+        //$file_path = 'images/studentImages/'.$student->avatar;
+        $image_name = public_path().'/images/studentImages/'.$student->avatar;
+        if($student->avatar != null)
+            unlink($image_name);
         $student->delete();
         return redirect()->back()->with(['success' => 'Student deleted successfully']);
     }

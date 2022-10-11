@@ -561,3 +561,64 @@ class DashboardController extends Controller
     }
 
 }
+
+
+
+
+//$academic_year = $request->academic_year;
+//
+////Lectures First Year
+//if ($academic_year == 1) {
+//    $course = CourseFirstYear::find($request->month);
+//    if (!$course)
+//        return 'course name you have chosen not exist';
+//
+//    $video_name = uploadLecture('first', $request->lec);
+//    LecturesFirstYear::create([
+//        'name' => $request->name,
+//        'lec' => $video_name,
+//        'homework' => $request->homework,
+//        'quiz' => $request->quiz,
+//        'course_id' => $course->id,
+//        'serial_number' => $course->serial_number,
+//        'week' => $request->week,
+//        'created_at' => now(),
+//        'updated_at' => now(),]);
+//}
+//
+////Lectures Second Year
+//if ($academic_year == 2) {
+//    $course = CourseSecondYear::find($request->month);
+//    if (!$course)
+//        return 'course name you have chosen not exist';
+//    $video_name = uploadLecture('second', $request->lec);
+//    LecturesSecondYear::create([
+//        'name' => $request->name,
+//        'lec' => $video_name,
+//        'homework' => $request->homework,
+//        'quiz' => $request->quiz,
+//        'course_id' => $course->id,
+//        'serial_number' => $course->serial_number,
+//        'week' => $request->week,
+//        'created_at' => now(),
+//        'updated_at' => now(),]);
+//}
+//
+////Lectures Third Year
+//if ($academic_year == 3) {
+//    $course = CourseThirdYear::find($request->month);
+//    if (!$course)
+//        return 'course name you have chosen not exist';
+//    $video_name = uploadLecture('third', $request->lec);
+//    LecturesThirdYear::create([
+//        'name' => $request->name,
+//        'lec' => $video_name,
+//        'homework' => $request->homework,
+//        'quiz' => $request->quiz,
+//        'course_id' => $course->id,
+//        'serial_number' => $course->serial_number,
+//        'week' => $request->week,
+//        'created_at' => now(),
+//        'updated_at' => now(),]);
+//}
+//return redirect()->route('add.new.lec')->with(['success' => 'Lecture Uploaded Successfully']);

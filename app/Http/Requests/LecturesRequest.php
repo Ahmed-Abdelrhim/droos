@@ -26,7 +26,8 @@ class LecturesRequest extends FormRequest
     {
         return [
 //            'lec' => 'mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime'
-            'lec' => 'mimetypes:video/mp4,video/mpeg,video/quicktime',
+        // ,video/mpeg,video/quicktime
+            'lec' => 'mimetypes:video/mp4',
             'name' => 'string|min:4|max:250',
             'academic_year' => 'between:1,3',
             'month' => [new LectureUploading($this->month)],

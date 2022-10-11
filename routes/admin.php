@@ -180,3 +180,6 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
     });
 
 });
+
+// http://127.0.0.1:8000/admin/login
+// //            'lec' => 'mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime

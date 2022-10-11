@@ -104,7 +104,7 @@
                 },
 
                 uploadProgress:function (event , position , total , percentComplete){
-                    console.log(event )
+                    console.log("postition :" + total)
                     {
                         let percentVal = percentComplete+'%';
                         // let progress = document.getElementsByClassName('progress');
