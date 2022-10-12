@@ -32,7 +32,10 @@ use App\Models\CourseFirstYear;
 use App\Models\CourseSecondYear;
 use App\Models\CourseThirdYear;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
+use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
 
 class DashboardController extends Controller
 {
@@ -234,6 +237,47 @@ class DashboardController extends Controller
     //        foreach ($chunks as $key => $value) {
     //            return $key . " ===  " . $value;
     //        }
+
+    public function uploadLargeFiles(Request $request,$folder) {
+        $receiver = new FileReceiver('file', $request, HandlerFactory::classFromRequest($request));
+
+        if (!$receiver->isUploaded()) {
+            // file not uploaded
+        }
+
+        $fileReceived = $receiver->receive(); // receive file
+        if ($fileReceived->isFinished()) { // file uploading is complete / all chunks are uploaded
+            $file = $fileReceived->getFile(); // get file
+            $extension = $file->getClientOriginalExtension();
+            $fileName = str_replace('.'.$extension, '', $file->getClientOriginalName()); //file name without extenstion
+            $fileName .= '_' . md5(time()) . '.' . $extension; // a unique file name
+
+            $lec_name = time() . '.'.$file->getClientOriginalName();
+
+            $disk = Storage::disk(config('filesystems.default'));
+            $path = $disk->putFileAs('videos', $file, $fileName);
+
+            // $lecture_path = move('lectures/'.$folder ,$lec_name );
+
+            // delete chunked file
+            unlink($file->getPathname());
+            return [
+                'path' => asset('storage/' . $path),
+                'filename' => $fileName
+            ];
+        }
+
+        // otherwise return percentage informatoin
+        $handler = $fileReceived->handler();
+        return [
+            'done' => $handler->getPercentageDone(),
+            'status' => true
+        ];
+
+
+
+    }
+
 
 // $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->video));
     public function addNewLecture(LecturesRequest $request)

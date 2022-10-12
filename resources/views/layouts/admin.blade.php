@@ -364,7 +364,10 @@
         text-align: center;
         font-weight: bold;
         font-size: 16px;
+    }
 
+    .card-footer, .progress {
+        display: none;
     }
 </style>
 <header class="header">

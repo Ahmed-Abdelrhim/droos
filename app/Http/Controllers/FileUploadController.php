@@ -36,6 +36,9 @@ class FileUploadController extends Controller {
             $disk = Storage::disk(config('filesystems.default'));
             $path = $disk->putFileAs('videos', $file, $fileName);
 
+//            $lec_name = time() . '.'.$file->getClientOriginalName();
+//            $lecture_path = move('lectures/'.$folder ,$lec_name );
+
             // delete chunked file
             unlink($file->getPathname());
             return [
@@ -50,5 +53,8 @@ class FileUploadController extends Controller {
             'done' => $handler->getPercentageDone(),
             'status' => true
         ];
+
+
+
     }
 }

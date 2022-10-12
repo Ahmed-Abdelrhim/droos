@@ -12,20 +12,28 @@
             @endif
 
 
-
-            <div class="progress">
-                <div class="bar"><div class="percent"></div></div>
+{{--            <div class="progress">--}}
+{{--                <div class="bar">--}}
+{{--                    <div class="percent"></div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+            <div class="progress mt-3" style="height: 25px">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%; height: 100%">75%</div>
             </div>
 
             <h3>Add New Lecture </h3>
 
-            <p>Upload Lecture <span>*</span></p>
-            <input type="file" required class="box" name="lec">
+{{--            <p>Upload Lecture <span>*</span></p>--}}
+            {{--<input type="file" required class="box" name="lec">--}}
+            <div id="upload-container" class="text-center">
+                <p>Upload Lecture <span>*</span></p>
+                <input id="browseFile" class="box">
+            </div>
             <small class="form-text form-danger" style="color: white; font-size: 15px;" id="lec_error"></small>
 
 
             <p>Lecture Name <span>*</span></p>
-            <input type="text" name="name" placeholder="enter lec name"  class="box" value="{{old('name')}}">
+            <input type="text" name="name" placeholder="enter lec name" class="box" value="{{old('name')}}">
             <small class="form-text form-danger" style="color: white; font-size: 15px;" id="name_error"></small>
 
             @error('name')
@@ -39,7 +47,8 @@
                 <option value="2">الصف الثاني الثانوي</option>
                 <option value="3">الصف الثالث الثانوي</option>
             </select>
-            <small class="form-text form-danger" style="color: white; font-size: 15px;" id="academic_year_error"></small>
+            <small class="form-text form-danger" style="color: white; font-size: 15px;"
+                   id="academic_year_error"></small>
 
 
             <p>Lecture Month <span>*</span></p>
@@ -67,7 +76,8 @@
             @enderror
 
             <p>Lecture HomeWork <span>*</span></p>
-            <input type="text" name="homework" placeholder="enter lec homework link" class="box" value="{{old('homework')}}">
+            <input type="text" name="homework" placeholder="enter lec homework link" class="box"
+                   value="{{old('homework')}}">
             @error('homework')
             <span class="text-danger" style="color: white">{{$message}}</span>
             @enderror
@@ -88,87 +98,115 @@
 
 @section('script')
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jquery-form/form@4.3.0/dist/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jquery-form/form@4.3.0/dist/jquery.form.min.js"
+            integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"
+            integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn"
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/resumablejs@1.1.0/resumable.min.js"></script>
 
     <script>
         $(document).ready(function () {
-
-            var $uploadList = $("#file-upload-list");
-            var $fileUpload = $('#fileupload');
-            if ($uploadList.length > 0 && $fileUpload.length > 0) {
-                var idSequence = 0;
-
-                // A quick way setup - url is taken from the html tag
-                $fileUpload.fileupload({
-                    maxChunkSize: 1000000,
-                    method: "POST",
-                    // Not supported yet
-                    sequentialUploads: true,
-                    formData: function (form) {
-                        // Append token to the request - required for web routes
-                        return [{name: '_token', value: $('input[name=_token]').val()}];
-                    },
-                    progressall: function (e, data) {
-                        var progress = parseInt(data.loaded / data.total * 100, 10);
-                        $("#" + data.theId).text('Uploading ' + progress + '%');
-                    },
-                    add: function (e, data) {
-                        data._progress.theId = 'id_' + idSequence;
-                        idSequence++;
-                        $uploadList.append($('<li id="' + data.theId + '"></li>').text('Uploading'));
-                        data.submit();
-                    },
-                    done: function (e, data) {
-                        console.log(data, e);
-                        $uploadList.append($('<li></li>').text('Uploaded: ' + data.result.path + ' ' + data.result.name));
-                    }
-                });
-            }
-
-            let bar = $('.bar');
-            let percent = $('.percent');
-            $('form').ajaxForm({
-                beforeSend:function(){
-                    let percentVal = '0%';
-                    bar.width(percentVal);
-                    percent.html(percentVal);
+            let browseFile = $('#browseFile');
+            let resumable = new Resumable({
+                target: '{{ route('chunk.uploaded') }}',
+                query: {_token: '{{ csrf_token() }}'},// CSRF token
+                fileType: ['mp4'],
+                headers: {
+                    'Accept': 'application/json'
                 },
-
-                uploadProgress:function (event , position , total , percentComplete){
-                    console.log("postition :" + total)
-                    {
-                        let percentVal = percentComplete+'%';
-                        // let progress = document.getElementsByClassName('progress');
-                        // if(percentComplete > '0%') {
-                        //     progress.style.background = '#fff';
-                        // }
-                        bar.width(percentVal);
-                        percent.html(percentVal);
-                    }
-                },
-
-                complete:function submitForm(data) {
-                    //console.log(data);
-                    if(data.status === 200) {
-                        swal({
-                            text: " تم رفع الفديو بنجاح",
-                            icon: "success",
-                        })
-                    } else {
-                        // console.log(data['responseJSON']['errors'])
-                        // data['responseJSON']['errors'].forEach(el => {
-                        //     console.log(el['name'])
-                        // });
-                        $.each(data['responseJSON']['errors'], function(index, value) {
-                            console.log(index + '===>' + value);
-                            $("#"+ index +"_error").text(value);
-                        });
-                    }
-
-                },
+                testChunks: false,
+                throttleProgressCallbacks: 1,
             });
 
+            resumable.assignBrowse(browseFile[0]);
+
+            resumable.on('fileAdded', function (file) { // trigger when file picked
+                showProgress();
+                resumable.upload() // to actually start uploading.
+            });
+
+            resumable.on('fileProgress', function (file) { // trigger when file progress update
+                updateProgress(Math.floor(file.progress() * 100));
+            });
+
+            resumable.on('fileSuccess', function (file, response) { // trigger when file upload complete
+                response = JSON.parse(response)
+                $('#videoPreview').attr('src', response.path);
+                $('.card-footer').show();
+            });
+
+            resumable.on('fileError', function (file, response) { // trigger when there is any error
+                alert('file uploading error.')
+            });
+
+
+            let progress = $('.progress');
+
+            function showProgress() {
+                progress.find('.progress-bar').css('width', '0%');
+                progress.find('.progress-bar').html('0%');
+                progress.find('.progress-bar').removeClass('bg-success');
+                progress.show();
+            }
+
+            function updateProgress(value) {
+                progress.find('.progress-bar').css('width', `${value}%`)
+                progress.find('.progress-bar').html(`${value}%`)
+            }
+
+            function hideProgress() {
+                progress.hide();
+            }
+
+
+            // Code To Dynamic Dropdown
+
+
+            // let bar = $('.bar');
+            // let percent = $('.percent');
+            // $('form').ajaxForm({
+            //     beforeSend: function () {
+            //         let percentVal = '0%';
+            //         bar.width(percentVal);
+            //         percent.html(percentVal);
+            //     },
+            //
+            //     uploadProgress: function (event, position, total, percentComplete) {
+            //         console.log("postition :" + total)
+            //         {
+            //             let percentVal = percentComplete + '%';
+            //             // let progress = document.getElementsByClassName('progress');
+            //             // if(percentComplete > '0%') {
+            //             //     progress.style.background = '#fff';
+            //             // }
+            //             bar.width(percentVal);
+            //             percent.html(percentVal);
+            //         }
+            //     },
+            //
+            //     complete: function submitForm(data) {
+            //         //console.log(data);
+            //         if (data.status === 200) {
+            //             swal({
+            //                 text: " تم رفع الفديو بنجاح",
+            //                 icon: "success",
+            //             })
+            //         } else {
+            //             // console.log(data['responseJSON']['errors'])
+            //             // data['responseJSON']['errors'].forEach(el => {
+            //             //     console.log(el['name'])
+            //             // });
+            //             $.each(data['responseJSON']['errors'], function (index, value) {
+            //                 console.log(index + '===>' + value);
+            //                 $("#" + index + "_error").text(value);
+            //             });
+            //         }
+            //
+            //     },
+            // });
 
 
             // console.log('Ahmed Abdelrhim');
@@ -179,7 +217,7 @@
                 $.ajax({
                     type: 'GET',
                     url: 'getCourseMonths/' + id,
-                    success: function (response){
+                    success: function (response) {
                         console.log(response);
                         response = JSON.parse(response);
                         $('#month').empty();
@@ -259,7 +297,6 @@
 {{--                },--}}
 
 {{--            });--}}
-
 
 
 {{--        });--}}
