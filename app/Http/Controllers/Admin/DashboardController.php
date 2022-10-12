@@ -230,15 +230,15 @@ class DashboardController extends Controller
 
         return json_encode('not-found');
     }
+    //        $chunks = array_chunk(file($request->lec) , 30) ;
+    //        foreach ($chunks as $key => $value) {
+    //            return $key . " ===  " . $value;
+    //        }
 
+// $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->video));
     public function addNewLecture(LecturesRequest $request)
     {
         $academic_year = $request->academic_year;
-//        $chunks = array_chunk(file($request->lec) , 30) ;
-//        foreach ($chunks as $key => $value) {
-//            return $key . " ===  " . $value;
-//        }
-
         //Lectures First Year
         if ($academic_year == 1) {
             $course = CourseFirstYear::find($request->month);
@@ -324,7 +324,7 @@ class DashboardController extends Controller
         $msg= Message::find($id);
         if(!$msg)
             return 'This Message has been Deleted';
-        return $request->admin_reply;
+        // return $request->admin_reply;
         $msg->admin_reply = $request->admin_reply;
         $msg->save();
         return redirect()->back()->with(['success' => 'Message Sent To Student Successfully']);

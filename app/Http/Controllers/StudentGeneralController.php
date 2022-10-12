@@ -130,4 +130,21 @@ class StudentGeneralController extends Controller
         return view('student.contact');
     }
 
+    public function inbox()
+    {
+        if(Auth::check()) {
+            $student = Auth::user();
+            if(!$student)
+                return view('student.access_denied');
+            $student->mac_address = 1;
+            $student->save();
+            $email = $student->email;
+            $messages = Message::where('email','=',$email)->get();
+            if(count($messages) > 0)
+                return view('student.inbox',compact('messages'));
+            return view('student.inbox');
+        }
+
+    }
+
 }

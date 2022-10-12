@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Storage;
+
 function uploadImage($folder, $image): string
 {
     $image_name = time() . '.' . $image->extension();
@@ -10,8 +12,11 @@ function uploadImage($folder, $image): string
 function uploadLecture($folder, $video): string
 {
     $video_name = time() . '.' . $video->extension();
-    $video->move('lectures/' . $folder, $video_name);
+    //$video->move('lectures/' . $folder, $video_name);
+    Storage::disk('public')->put('lectures/' . $folder, $video_name, file_get_contents($video));
     return $video_name;
+    // $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->video));
+
 }
 
 function handleImage($folder, $request): ?string
