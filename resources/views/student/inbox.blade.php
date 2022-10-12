@@ -17,20 +17,20 @@
                 @foreach($messages as $msg)
                     @if($msg->admin_reply != null)
                         <p>رسالتك <span>*</span></p>
-                        <textarea disabled class="box" style="height: 80px">
+                        <textarea disabled class="box" style="height: 150px">
                             {{$msg->msg}}
                         </textarea>
                         <p>رد م/علاءالدين <span>*</span></p>
-                        <textarea disabled class="box" style="height: 100px">
+                        <textarea disabled class="box" style="height: 150px">
                             {{$msg->admin_reply}}
                         </textarea>
                     @else
                         <p>رسالتك <span>*</span></p>
-                        <textarea disabled class="box" style="height: 80px">
+                        <textarea disabled class="box" style="height: 150px">
                             {{$msg->msg}}
                         </textarea>
                         <p>رد م/علاءالدين <span>*</span></p>
-                        <textarea disabled class="box" style="height: 100px">
+                        <textarea disabled class="box" style="height: 150px">
                         لا يوجد رد حتي الان
                     </textarea>
                     @endif

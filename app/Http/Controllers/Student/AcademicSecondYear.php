@@ -137,8 +137,8 @@ class AcademicSecondYear extends Controller
         $course = CourseSecondYear::find($id);
         if (!$course)
             return 'Course Not Found To Be Deleted';
-        $file_path = public_path('images/courses_second_year/'.$course->cover);
-        unlink($file_path);
+        $file_path = 'images/courses_second_year/'.$course->cover;
+        //unlink($file_path);
         $course->delete();
         return redirect()->back()->with(['success' => 'تم حذف الكورس ']);
     }
@@ -229,7 +229,7 @@ class AcademicSecondYear extends Controller
         if (!$lec)
             return 'Lecture Not Found';
         $file_path = 'lectures/second/'.$lec->lec;
-        unlink($file_path);
+        //unlink($file_path);
         $lec->delete();
         return redirect()->back()->with(['success' => 'Lecture deleted successfully']);
     }
