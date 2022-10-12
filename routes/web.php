@@ -131,6 +131,10 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 //    Route::get('admin/play', [DashboardController::class, 'play']);
 
 });
+Route::get('uploading',[HomeController::class,'index'])->name('chunk.upload');
+Route::get('upload',[\App\Http\Controllers\FileUploadController::class,'index']);
+Route::post('file-upload/upload-large-files',[\App\Http\Controllers\FileUploadController::class,'uploadLargeFiles'])->name('chunk.uploaded');
+
 
 //Route::get('hash',function (){
 //    return bcrypt(12345678);

@@ -2,40 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LecturesThirdYear;
-use Illuminate\Http\Request;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
 use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
 
-class HomeController extends Controller
-{
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        // $this->middleware('auth');
-    }
+class FileUploadController extends Controller {
 
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Application|Factory|View
      */
-//    public function index()
-//    {
-//        return view('home');
-//    }
-
     public function index() {
-        return view('video');
+        return view('chunck-upload');
     }
 
     public function uploadLargeFiles(Request $request) {
@@ -52,24 +33,13 @@ class HomeController extends Controller
             $fileName = str_replace('.'.$extension, '', $file->getClientOriginalName()); //file name without extenstion
             $fileName .= '_' . md5(time()) . '.' . $extension; // a unique file name
 
-
-            $video_name = time() .'.'.$request->lec->getClientOriginalName();
-            $request->lec->move('lectures/' . 'third', $video_name);
-            LecturesThirdYear::create([
-                'course_id' => 1,
-                'name' => $request->name,
-                'lec' => $request->video_name,
-                'serial_number' => 1,
-                'week' => $request->week,
-            ]);
-
-            //$disk = Storage::disk(config('filesystems.default'));
-            //$path = $disk->putFileAs('videos', $file, $fileName);
+            $disk = Storage::disk(config('filesystems.default'));
+            $path = $disk->putFileAs('videos', $file, $fileName);
 
             // delete chunked file
             unlink($file->getPathname());
             return [
-                // 'path' => asset('storage/' . $path),
+                'path' => asset('storage/' . $path),
                 'filename' => $fileName
             ];
         }
@@ -80,15 +50,5 @@ class HomeController extends Controller
             'done' => $handler->getPercentageDone(),
             'status' => true
         ];
-    }
-
-    public function chunkUpload(): ?\Illuminate\Http\JsonResponse
-    {
-        return ChunkVideo();
-    }
-
-    public function chunkUploaded()
-    {
-
     }
 }
