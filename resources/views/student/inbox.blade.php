@@ -18,6 +18,8 @@
                 @foreach($messages as $msg)
                     @if($msg->admin_reply != null)
                         <textarea disabled class="box" style="height: 100px">
+                            {{$msg->msg}}
+                            =============
                             {{$msg->admin_reply}}
                         </textarea>
                     @else

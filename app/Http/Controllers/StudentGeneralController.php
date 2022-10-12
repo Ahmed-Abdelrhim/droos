@@ -130,6 +130,11 @@ class StudentGeneralController extends Controller
         return view('student.contact');
     }
 
+    public function showStudentsOpinion()
+    {
+        return view('student.opinion');
+    }
+
     public function inbox()
     {
         if(Auth::check()) {

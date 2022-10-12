@@ -545,7 +545,7 @@
         <a href="{{route('features')}}"><i class="fa-solid fa-gift"></i><span>المميزات </span></a>
         <a href="{{route('contact')}}"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
         <a href="{{route('inbox')}}"><i class="fas fa-headset"></i><span>inbox </span></a>
-{{--        <a href="{{route('opnion')}}"><i class="fas fa-headset"></i><span>اراء طلابنا</span></a>--}}
+        <a href="{{route('opinion')}}"><i class="fas fa-headset"></i><span>اراء طلابنا</span></a>
     </nav>
 </div>
 @yield('content')
