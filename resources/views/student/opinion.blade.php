@@ -19,6 +19,83 @@
         </section>
     </header>
 
-    <h2 class="main-title">صفحة بيضاء اي خدمة</h2>
+    <h2 class="main-title" style="margin: 0 auto 0;"> اراء طلابنا </h2>
+<section class="courses">
+
+   <div class="box-container">
+
+      <div class="box">
+         <div class="thumb">
+            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.07.jpeg')}}" alt="">
+         </div>
+      </div>
+
+      <div class="box">
+         <div class="thumb">
+            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.08 (1).jpeg')}}" alt="">
+         </div>
+      </div>
+
+      <div class="box">
+         <div class="thumb">
+            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.08.jpeg')}}" alt="">
+         </div>
+      </div>
+
+      <div class="box">
+         <div class="thumb">
+            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.09.jpeg')}}" alt="">
+         </div>
+      </div>
+
+      <div class="box">
+         <div class="thumb">
+            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.10 (1).jpeg')}}" alt="">
+         </div>
+      </div>
+
+      <div class="box">
+         <div class="thumb">
+            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.10 (2).jpeg')}}" alt="">
+         </div>
+      </div>
+
+      <div class="box">
+         <div class="thumb">
+            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.10 (3).jpeg')}}" alt="">
+         </div>
+      </div>
+
+      <div class="box">
+         <div class="thumb">
+            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.10.jpeg')}}" alt="">
+         </div>
+      </div>
+
+      <div class="box">
+         <div class="thumb">
+            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.10.jpeg')}}" alt="">
+         </div>
+      </div>
+
+      <div class="box">
+         <div class="thumb">
+            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.12.jpeg')}}" alt="">
+         </div>
+      </div>
+
+      <div class="box">
+         <div class="thumb">
+            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.11 (3).jpeg')}}" alt="">
+         </div>
+      </div>
+
+      <div class="box">
+         <div class="thumb">
+            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.12 (1).jpeg')}}" alt="">
+         </div>
+      </div>
+
+</section>
 
 @endsection
