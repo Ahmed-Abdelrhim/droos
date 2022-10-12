@@ -14,12 +14,12 @@
             <h3>Reply Messages</h3>
 
             <p>student message <span>*</span></p>
-            <textarea name="admin_reply" disabled class="box" style="height: 150px">
+            <textarea name="admin_msg" disabled class="box" style="height: 150px">
                 {{$msg->msg}}
             </textarea>
             {{-- Admin Message  --}}
             <p>reply here<span>*</span></p>
-            <textarea name="admin_msg" required class="box" style="height: 300px">
+            <textarea name="admin_reply" required class="box" style="height: 300px">
             </textarea>
             @error('who_are_we')
             <span class="text-danger" style="color: white">{{$message}}</span>

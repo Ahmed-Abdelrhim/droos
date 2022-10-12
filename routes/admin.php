@@ -162,7 +162,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         //Messages
         Route::get('student/messages',[DashboardController::class,'viewMessages'])->name('view.msg');
         Route::get('reply/msg/{id}',[DashboardController::class,'replyMsgForm'])->name('reply.msg.form');
-        Route::post('reply/msg/{id}',[DashboardController::class,'adminReplyMsg'])->name('store.admin.msg');
+        Route::post('replying/msg/{id}',[DashboardController::class,'adminReplyMsg'])->name('store.admin.msg');
         Route::post('delete/message/{id}',[DashboardController::class,'deleteMessage'])->name('delete.msg');
 
         Route::get('vvv/{id}',[DashboardController::class,'getCourseMonths']);

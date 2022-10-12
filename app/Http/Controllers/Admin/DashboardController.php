@@ -320,6 +320,7 @@ class DashboardController extends Controller
 
     public function adminReplyMsg(Request $request , $id)
     {
+        // return $request->admin_reply;
         $msg= Message::find($id);
         if(!$msg)
             return 'This Message has been Deleted';
