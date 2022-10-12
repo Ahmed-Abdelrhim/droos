@@ -13,23 +13,30 @@
 
             <h3>Reply Messages</h3>
 
-            <p>رد م/علاءالدين <span>*</span></p>
             @if(isset($messages))
                 @foreach($messages as $msg)
                     @if($msg->admin_reply != null)
-                        <textarea disabled class="box" style="height: 100px">
+                        <p>رسالتك <span>*</span></p>
+                        <textarea disabled class="box" style="height: 80px">
                             {{$msg->msg}}
-                            =============
+                        </textarea>
+                        <p>رد م/علاءالدين <span>*</span></p>
+                        <textarea disabled class="box" style="height: 100px">
                             {{$msg->admin_reply}}
                         </textarea>
                     @else
+                        <p>رسالتك <span>*</span></p>
+                        <textarea disabled class="box" style="height: 80px">
+                            {{$msg->msg}}
+                        </textarea>
+                        <p>رد م/علاءالدين <span>*</span></p>
                         <textarea disabled class="box" style="height: 100px">
                         لا يوجد رد حتي الان
                     </textarea>
                     @endif
 
                 @endforeach
-                <button type="submit" class="btn " style="margin-top: 30px">reply</button>
+                <button type="submit" class="btn " style="margin-top: 30px">اضافة رسالة جديده</button>
             @else
                 <textarea disabled class="box" style="height: 100px">
                         لا توجد رسائل حتي الان
