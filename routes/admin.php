@@ -161,6 +161,8 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
         //Messages
         Route::get('student/messages',[DashboardController::class,'viewMessages'])->name('view.msg');
+        Route::get('reply/msg/{id}',[DashboardController::class,'replyMsgForm'])->name('reply.msg.form');
+        Route::post('reply/msg/{id}',[DashboardController::class,'adminReplyMsg'])->name('store.admin.msg');
         Route::post('delete/message/{id}',[DashboardController::class,'deleteMessage'])->name('delete.msg');
 
         Route::get('vvv/{id}',[DashboardController::class,'getCourseMonths']);
@@ -181,5 +183,13 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
 });
 
-// http://127.0.0.1:8000/admin/login
-// //            'lec' => 'mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime
+Route::get('large/file', [HomeController::class,'index'])->name('large');
+Route::post('large/file/size',[HomeController::class,'uploadLargeFiles'])->name('large.file');
+
+// 'lec' => 'mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime
+
+//    php_value upload_max_filesize 999M
+//    php_value post_max_size 64M
+//    php_value max_execution_time 900
+//    php_value max_input_time 900
+ //شده التيار ⚡

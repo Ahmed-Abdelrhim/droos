@@ -234,6 +234,10 @@ class DashboardController extends Controller
     public function addNewLecture(LecturesRequest $request)
     {
         $academic_year = $request->academic_year;
+//        $chunks = array_chunk(file($request->lec) , 30) ;
+//        foreach ($chunks as $key => $value) {
+//            return $key . " ===  " . $value;
+//        }
 
         //Lectures First Year
         if ($academic_year == 1) {
@@ -303,6 +307,27 @@ class DashboardController extends Controller
     {
         $messages = Message::paginate(10);
         return view('admin.messages', compact('messages'));
+    }
+
+    public function replyMsgForm($id)
+    {
+        $msg = Message::find($id);
+        if(!$msg)
+            return 'This Message has been Deleted';
+
+        return view('admin.reply-msg',compact('msg'));
+    }
+
+    public function adminReplyMsg(Request $request , $id)
+    {
+        $msg= Message::find($id);
+        if(!$msg)
+            return 'This Message has been Deleted';
+        return $request->admin_reply;
+        $msg->admin_reply = $request->admin_reply;
+        $msg->save();
+        return redirect()->back()->with(['success' => 'Message Sent To Student Successfully']);
+
     }
 
     public function deleteMessage($id)

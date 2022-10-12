@@ -103,8 +103,8 @@ class StudentGeneralController extends Controller
             return 'Student Not Found';
         //$file_path = 'images/studentImages/'.$student->avatar;
         $image_name = public_path().'/images/studentImages/'.$student->avatar;
-        if($student->avatar != null)
-            unlink($image_name);
+        // if($student->avatar != null)
+        //    unlink($image_name);
         $student->delete();
         return redirect()->back()->with(['success' => 'Student deleted successfully']);
     }

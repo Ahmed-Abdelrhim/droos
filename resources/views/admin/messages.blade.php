@@ -16,8 +16,8 @@
                 <tr>
                     <th>Message</th>
                     <th>Student Name</th>
-                    <th>Student email </th>
-                    <th>Student Phone </th>
+                    <th>Student email</th>
+                    <th>Student Phone</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -31,6 +31,10 @@
                         <td>{{$msg->email}}</td>
                         <td>{{$msg->phone_number}}</td>
                         <td style="width: 130px; height: 30px">
+                            {{--<form action="{{route('reply.msg.form',$msg->id)}}" method="GET">--}}
+
+                            <a href="{{route('reply.msg.form',$msg->id)}}" class="btn btn-primary" style="background-color: #007bff;border-color: #007bff">reply</a>
+                            {{--</form>--}}
                             <form action="{{route('delete.msg',$msg->id)}}" method="POST">
                                 @csrf
                                 <button class="btn btn-danger" style="background-color: #dc3545;">delete</button>
