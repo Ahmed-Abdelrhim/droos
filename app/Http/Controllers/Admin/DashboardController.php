@@ -233,38 +233,37 @@ class DashboardController extends Controller
 
         return json_encode('not-found');
     }
-    //        $chunks = array_chunk(file($request->lec) , 30) ;
-    //        foreach ($chunks as $key => $value) {
-    //            return $key . " ===  " . $value;
-    //        }
+
 
     public function uploadLargeFiles(Request $request,$folder) {
         $receiver = new FileReceiver('file', $request, HandlerFactory::classFromRequest($request));
-
         if (!$receiver->isUploaded()) {
             // file not uploaded
         }
 
         $fileReceived = $receiver->receive(); // receive file
+         // return $fileReceived ;
         if ($fileReceived->isFinished()) { // file uploading is complete / all chunks are uploaded
             $file = $fileReceived->getFile(); // get file
             $extension = $file->getClientOriginalExtension();
             $fileName = str_replace('.'.$extension, '', $file->getClientOriginalName()); //file name without extenstion
             $fileName .= '_' . md5(time()) . '.' . $extension; // a unique file name
 
-            $lec_name = time() . '.'.$file->getClientOriginalName();
+            $lec_name = time() . '.'.$file->guessExtension();
 
-            $disk = Storage::disk(config('filesystems.default'));
-            $path = $disk->putFileAs('videos', $file, $fileName);
+            // $disk = Storage::disk(config('filesystems.default'));
+            $disk = Storage::disk('public')->putFileAs($folder,$file,$lec_name);
+            //$path = $disk->putFileAs('videos', $file, $fileName);
 
             // $lecture_path = move('lectures/'.$folder ,$lec_name );
 
             // delete chunked file
             unlink($file->getPathname());
-            return [
-                'path' => asset('storage/' . $path),
-                'filename' => $fileName
-            ];
+            return $lec_name;
+//            return [
+//                'path' => asset('storage/' . $disk),
+//                'filename' => $fileName
+//            ];
         }
 
         // otherwise return percentage informatoin
@@ -274,9 +273,8 @@ class DashboardController extends Controller
             'status' => true
         ];
 
-
-
     }
+
 
 
 // $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->video));
@@ -327,7 +325,7 @@ class DashboardController extends Controller
             $course = CourseThirdYear::find($request->month);
             if (!$course)
                 return 'course name you have chosen not exist';
-            $video_name = uploadLecture('third', $request->lec);
+            $video_name = $this->uploadLargeFiles($request,'third');
             LecturesThirdYear::create([
                 'name' => $request->name,
                 'lec' => $video_name,
@@ -635,60 +633,3 @@ class DashboardController extends Controller
 
 
 
-//$academic_year = $request->academic_year;
-//
-////Lectures First Year
-//if ($academic_year == 1) {
-//    $course = CourseFirstYear::find($request->month);
-//    if (!$course)
-//        return 'course name you have chosen not exist';
-//
-//    $video_name = uploadLecture('first', $request->lec);
-//    LecturesFirstYear::create([
-//        'name' => $request->name,
-//        'lec' => $video_name,
-//        'homework' => $request->homework,
-//        'quiz' => $request->quiz,
-//        'course_id' => $course->id,
-//        'serial_number' => $course->serial_number,
-//        'week' => $request->week,
-//        'created_at' => now(),
-//        'updated_at' => now(),]);
-//}
-//
-////Lectures Second Year
-//if ($academic_year == 2) {
-//    $course = CourseSecondYear::find($request->month);
-//    if (!$course)
-//        return 'course name you have chosen not exist';
-//    $video_name = uploadLecture('second', $request->lec);
-//    LecturesSecondYear::create([
-//        'name' => $request->name,
-//        'lec' => $video_name,
-//        'homework' => $request->homework,
-//        'quiz' => $request->quiz,
-//        'course_id' => $course->id,
-//        'serial_number' => $course->serial_number,
-//        'week' => $request->week,
-//        'created_at' => now(),
-//        'updated_at' => now(),]);
-//}
-//
-////Lectures Third Year
-//if ($academic_year == 3) {
-//    $course = CourseThirdYear::find($request->month);
-//    if (!$course)
-//        return 'course name you have chosen not exist';
-//    $video_name = uploadLecture('third', $request->lec);
-//    LecturesThirdYear::create([
-//        'name' => $request->name,
-//        'lec' => $video_name,
-//        'homework' => $request->homework,
-//        'quiz' => $request->quiz,
-//        'course_id' => $course->id,
-//        'serial_number' => $course->serial_number,
-//        'week' => $request->week,
-//        'created_at' => now(),
-//        'updated_at' => now(),]);
-//}
-//return redirect()->route('add.new.lec')->with(['success' => 'Lecture Uploaded Successfully']);

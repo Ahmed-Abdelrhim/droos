@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CourseThirdYear;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -33,18 +34,36 @@ class FileUploadController extends Controller {
             $fileName = str_replace('.'.$extension, '', $file->getClientOriginalName()); //file name without extenstion
             $fileName .= '_' . md5(time()) . '.' . $extension; // a unique file name
 
-            $disk = Storage::disk(config('filesystems.default'));
-            $path = $disk->putFileAs('videos', $file, $fileName);
+            $lec_name = time(). '.'.$file->guessExtension();
+            // $disk = Storage::disk(config('filesystems.default'));
+            $disk = Storage::disk('public')->putFileAs('third',$file,$lec_name);
+            //$path = $disk->putFileAs('videos', $file, $fileName);
 
 //            $lec_name = time() . '.'.$file->getClientOriginalName();
 //            $lecture_path = move('lectures/'.$folder ,$lec_name );
 
             // delete chunked file
             unlink($file->getPathname());
-            return [
-                'path' => asset('storage/' . $path),
-                'filename' => $fileName
-            ];
+            $add = CourseThirdYear::create([
+                'name' => $request->name,
+                'lec' => $lec_name,
+                'homework' => $request->homework,
+                'quiz' => $request->quiz,
+                'course_id' => 1,
+                'serial_number' => 1,
+                'week' => $request->week,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            if($add)
+            {
+                return [
+                    'path' => asset('storage/' . $disk),
+                    'filename' => $fileName
+                ];
+            }
+            // return response()->json(['msg' => 'file success']);
+
         }
 
         // otherwise return percentage informatoin

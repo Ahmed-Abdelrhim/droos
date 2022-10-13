@@ -17,18 +17,20 @@
 {{--                    <div class="percent"></div>--}}
 {{--                </div>--}}
 {{--            </div>--}}
-            <div class="progress mt-3" style="height: 25px">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%; height: 100%">75%</div>
-            </div>
 
             <h3>Add New Lecture </h3>
 
-{{--            <p>Upload Lecture <span>*</span></p>--}}
-            {{--<input type="file" required class="box" name="lec">--}}
-            <div id="upload-container" class="text-center">
-                <p>Upload Lecture <span>*</span></p>
-                <input id="browseFile" class="box">
+            <p>Upload Lecture <span>*</span></p>
+{{--            <input type="file" required class="box" name="lec">--}}
+            <div class="card-body">
+                <div id="upload-container" class="text-center">
+                    <button id="browseFile" class="btn btn-primary">Brows File</button>
+                </div>
+                <div class="progress mt-3" style="height: 25px">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%; height: 100%">75%</div>
+                </div>
             </div>
+
             <small class="form-text form-danger" style="color: white; font-size: 15px;" id="lec_error"></small>
 
 
