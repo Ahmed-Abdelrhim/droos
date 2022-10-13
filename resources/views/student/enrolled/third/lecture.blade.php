@@ -5,7 +5,7 @@
 
    <div class="video-container">
       <div class="video">
-         <video src="{{asset('lectures/third/'.$lec->lec)}}" controlsList="nodownload" controls poster="{{asset('images/courses_third_year/'.$lec['course']->cover)}}"
+         <video src="{{asset('lectures/'.$lec->lec)}}" controlsList="nodownload" controls poster="{{asset('images/courses_third_year/'.$lec['course']->cover)}}"
                 id="video"></video>
       </div>
       <h3 class="title">فيديو : {{$lec->name}}</h3>
@@ -53,7 +53,7 @@
 
       <div class="box">
          <div class="user">
-            <img src="{{asset('images/pic-2.jpg')}}" alt="">
+            <img src="{{asset('images/pic-2.jpg')}}" alt="image-not-found">
             <div>
                <h3>john deo</h3>
                <span>22-10-2022</span>

@@ -20,6 +20,9 @@
             {{-- Admin Message  --}}
             <p>reply here<span>*</span></p>
             <textarea name="admin_reply" required class="box" style="height: 300px">
+                @if($msg->admin_reply != null)
+                    {{$msg->admin_reply}}
+                @endif
             </textarea>
             @error('who_are_we')
             <span class="text-danger" style="color: white">{{$message}}</span>
