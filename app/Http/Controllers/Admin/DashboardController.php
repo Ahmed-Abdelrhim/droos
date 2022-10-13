@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddCoursesRequest;
 use App\Http\Requests\LecturesRequest;
+use App\Http\Traits\GlobalTrait;
 use App\Models\Admin;
 use App\Models\Demo;
 use App\Models\Feature;
@@ -34,11 +35,13 @@ use App\Models\CourseThirdYear;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
 use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
 use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
 
 class DashboardController extends Controller
 {
+    use GlobalTrait;
     public function index()
     {
         return view('admin.dashboard');
@@ -217,7 +220,12 @@ class DashboardController extends Controller
 
     public function showAddNewLectureForm()
     {
+
+        //return view::share('lec_name',$lec_name);
         return view('admin.lectures.add');
+//        if($this->getVideoName() == null)
+//            return 'yes null';
+//        return $this->getVideoName();
     }
 
     public function getCourseMonths($id)
@@ -287,10 +295,10 @@ class DashboardController extends Controller
             if (!$course)
                 return 'course name you have chosen not exist';
 
-            $video_name = uploadLecture('first', $request->lec);
+            //$video_name = uploadLecture('first', $request->lec);
             LecturesFirstYear::create([
                 'name' => $request->name,
-                'lec' => $video_name,
+                'lec' => $request->video_name,
                 'homework' => $request->homework,
                 'quiz' => $request->quiz,
                 'course_id' => $course->id,
@@ -298,7 +306,8 @@ class DashboardController extends Controller
                 'week' => $request->week,
                 'created_at' => now(),
                 'updated_at' => now(),]);
-            return response()->json(['status' => 1 , ',msg' => 'Success Upload']);
+            return redirect()->back()->with(['success' => 'Data Saved Successfully']);
+            // return response()->json(['status' => 1 , ',msg' => 'Success Upload']);
         }
 
         //Lectures Second Year
@@ -306,10 +315,10 @@ class DashboardController extends Controller
             $course = CourseSecondYear::find($request->month);
             if (!$course)
                 return 'course name you have chosen not exist';
-            $video_name = uploadLecture('second', $request->lec);
+            //$video_name = uploadLecture('second', $request->lec);
             LecturesSecondYear::create([
                 'name' => $request->name,
-                'lec' => $video_name,
+                'lec' =>$request->video_name,
                 'homework' => $request->homework,
                 'quiz' => $request->quiz,
                 'course_id' => $course->id,
@@ -317,7 +326,9 @@ class DashboardController extends Controller
                 'week' => $request->week,
                 'created_at' => now(),
                 'updated_at' => now(),]);
-            return response()->json(['status' => 1 , ',msg' => 'Success Upload']);
+            return redirect()->back()->with(['success' => 'Data Saved Successfully']);
+
+            // return response()->json(['status' => 1 , ',msg' => 'Success Upload']);
         }
 
         //Lectures Third Year
@@ -325,10 +336,10 @@ class DashboardController extends Controller
             $course = CourseThirdYear::find($request->month);
             if (!$course)
                 return 'course name you have chosen not exist';
-            $video_name = $this->uploadLargeFiles($request,'third');
+            //$video_name = $this->uploadLargeFiles($request,'third');
             LecturesThirdYear::create([
                 'name' => $request->name,
-                'lec' => $video_name,
+                'lec' => $request->video_name,
                 'homework' => $request->homework,
                 'quiz' => $request->quiz,
                 'course_id' => $course->id,
@@ -336,7 +347,8 @@ class DashboardController extends Controller
                 'week' => $request->week,
                 'created_at' => now(),
                 'updated_at' => now(),]);
-            return response()->json(['status' => 1 , ',msg' => 'Success Upload']);
+            return redirect()->back()->with(['success' => 'Data Saved Successfully']);
+            //return response()->json(['status' => 1 , ',msg' => 'Success Upload']);
         }
         return response()->json(['status' => 0 , ',msg' => 'Failed Upload']);
 

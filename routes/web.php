@@ -134,7 +134,10 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 Route::get('uploading',[HomeController::class,'index'])->name('chunk.upload');
 Route::get('upload',[\App\Http\Controllers\FileUploadController::class,'index']);
 Route::post('file-upload/upload-large-files',[\App\Http\Controllers\FileUploadController::class,'uploadLargeFiles'])->name('chunk.uploaded');
+//Route::post('file-upload/upload-large-files/{name}/{academic_year}/{month}/{week}/{homework}/{quiz}',[\App\Http\Controllers\FileUploadController::class,'uploadLargeFiles'])->name('chunk.uploaded');
 
+Route::post('post/post',[\App\Http\Controllers\FileUploadController::class,'add'])->name('post.post');
+//name+ academic_year+month +week +homework +quiz
 
 //Route::get('hash',function (){
 //    return bcrypt(12345678);

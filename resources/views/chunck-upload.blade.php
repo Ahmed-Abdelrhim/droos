@@ -18,6 +18,7 @@
 </style>
 
 <body>
+<h1 id="video_name"></h1>
 
 <div class="container pt-4">
     <div class="row justify-content-center">
@@ -47,18 +48,18 @@
 
 
 {{--                <p>Lecture Month <span>*</span></p>--}}
-{{--                <select class="custom-select" name="month" id="month">--}}
+{{--                <select class="custom-select" name="month" id="month" id="month">--}}
 {{--                </select>--}}
 {{--                <small class="form-text form-danger" style="color: white; font-size: 15px;" id="month_error"></small>--}}
 
-{{--                --}}{{--            <input type="number" name="month" placeholder="enter lec month " required maxlength="2" class="box"--}}
-{{--                --}}{{--                   value="{{old('month')}}">--}}
-{{--                --}}{{--            @error('month')--}}
-{{--                --}}{{--            <span class="text-danger" style="color: white">{{$message}}</span>--}}
-{{--                --}}{{--            @enderror--}}
+{{--                --}}{{--                <input type="number" name="month" placeholder="enter lec month " required maxlength="2" class="box"--}}
+{{--                --}}{{--                       value="{{old('month')}}">--}}
+{{--                @error('month')--}}
+{{--                <span class="text-danger" style="color: white">{{$message}}</span>--}}
+{{--                @enderror--}}
 
 {{--                <p>Lecture Week <span>*</span></p>--}}
-{{--                <select class="custom-select" name="week" required>--}}
+{{--                <select class="custom-select" name="week" required id="week">--}}
 {{--                    <option value="1">week 1</option>--}}
 {{--                    <option value="2">week 2</option>--}}
 {{--                    <option value="3">week 3</option>--}}
@@ -72,18 +73,17 @@
 
 {{--                <p>Lecture HomeWork <span>*</span></p>--}}
 {{--                <input type="text" name="homework" placeholder="enter lec homework link" class="box"--}}
-{{--                       value="{{old('homework')}}">--}}
+{{--                       value="{{old('homework')}}" id="homework">--}}
 {{--                @error('homework')--}}
 {{--                <span class="text-danger" style="color: white">{{$message}}</span>--}}
 {{--                @enderror--}}
 
 {{--                <p>Lecture Quiz <span>*</span></p>--}}
-{{--                <input type="text" name="quiz" placeholder="enter lec quiz link " class="box" value="{{old('quiz')}}">--}}
+{{--                <input type="text" name="quiz" placeholder="enter lec quiz link " class="box" value="{{old('quiz')}}"--}}
+{{--                       id="quiz">--}}
 {{--                @error('quiz')--}}
 {{--                <span class="text-danger" style="color: white">{{$message}}</span>--}}
 {{--                @enderror--}}
-
-
 
 
                 <div class="card-body">
@@ -109,7 +109,6 @@
 </div>
 
 
-
 <!-- jQuery -->
 {{--<script src="{{ asset('assets/js/jQuery.min.js') }}" ></script>--}}
 <script src="{{asset('js/admin.js')}}"></script>
@@ -124,9 +123,17 @@
 
 <script type="text/javascript">
     // console.log('Ahmed Abdelrhim');
+    let name = $('#name').val();
+    let academic_year = $('#academic_year').val();
+    let month = $('#month').val();
+    let week = $('#week').val();
+    let homework = $('#homework').val();
+    let quiz = $('#quiz').val();
     let browseFile = $('#browseFile');
     let resumable = new Resumable({
-        target: '{{ route('chunk.uploaded') }}',
+        {{--target: '{{ route('chunk.uploaded',['name'=> , 'academic_year'=> academic_year, 'month' => month,--}}
+            {{--        'week' => week, 'homework' => homework, 'quiz' => quiz]) }}',--}}
+        target: '{{route('chunk.uploaded')}}',
         query: {_token: '{{ csrf_token() }}'},// CSRF token
         fileType: ['mp4'],
         headers: {
@@ -139,21 +146,51 @@
     resumable.assignBrowse(browseFile[0]);
 
     resumable.on('fileAdded', function (file) { // trigger when file picked
-        showProgress();
-        resumable.upload() // to actually start uploading.
+        $('#submit').on('click', function (e) {
+            showProgress();
+            resumable.upload() // to actually start uploading.
+        });
+
+
+
+
     });
+
     resumable.on('fileProgress', function (file) { // trigger when file progress update
         updateProgress(Math.floor(file.progress() * 100));
     });
 
-    resumable.on('fileSuccess', function (file, response) { // trigger when file upload complete
+    resumable.on('fileSuccess', function ( file,response) { // trigger when file upload complete
+        {{--$.ajax({--}}
+        {{--    url: "{{ route('post.post')}}",--}}
+        {{--    method: 'POST',--}}
+        {{--    data: {--}}
+        {{--        "_token": "{{ csrf_token() }}",--}}
+        {{--    },--}}
+        {{--    success: function (result) {--}}
+        {{--        swal({--}}
+        {{--            text: " تم رفع الفديو بنجاح",--}}
+        {{--            icon: "success",--}}
+        {{--        })--}}
+        {{--    },--}}
+        {{--    error: function(data){--}}
+        {{--        var errors = data.responseJSON;--}}
+
+        {{--        console.log(errors)--}}
+        {{--    },--}}
+        {{--});--}}
+        //     console.log(file);
+
+        response = JSON.parse(response)
+        console.log(response);
+        $('#video_name').text(response.filename);
+
         swal({
             text: " تم رفع الفديو بنجاح",
             icon: "success",
         })
-        // response = JSON.parse(response)
-        // $('#videoPreview').attr('src', response.path);
-        // $('.card-footer').show();
+        //$('#videoPreview').attr('src', response.path);
+        //$('.card-footer').show();
     });
 
     resumable.on('fileError', function (file, response) { // trigger when there is any error
@@ -178,6 +215,8 @@
     function hideProgress() {
         progress.hide();
     }
+
+
 
 
     // $('#submit').on('click',function (){

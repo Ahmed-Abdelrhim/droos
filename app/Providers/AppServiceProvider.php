@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
+        view::share('lec_name' , 'video');
+        view()->composer('*',function($view) {
+            $view->with('video_name','VIDEO');
+            // $view->with('social', Social::all());
+        });
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Storage;
-
+define('PAGINATION_COUNT','video');
 function uploadImage($folder, $image): string
 {
     $image_name = time() . '.' . $image->extension();

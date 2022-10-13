@@ -20,18 +20,19 @@
 
             <h3>Add New Lecture </h3>
 
-            <p>Upload Lecture <span>*</span></p>
-{{--            <input type="file" required class="box" name="lec">--}}
-            <div class="card-body">
-                <div id="upload-container" class="text-center">
-                    <button id="browseFile" class="btn btn-primary">Brows File</button>
-                </div>
-                <div class="progress mt-3" style="height: 25px">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%; height: 100%">75%</div>
-                </div>
-            </div>
+            <p>Video Name <span>*</span></p>
+            <input type="text" name="video_name" placeholder="enter video name name" required class="box" value="{{old('video_name')}}">
+            {{--            <input type="file" required class="box" name="lec">--}}
+{{--            <div class="card-body">--}}
+{{--                <div id="upload-container" class="text-center">--}}
+{{--                    <button id="browseFile" class="btn btn-primary">Brows File</button>--}}
+{{--                </div>--}}
+{{--                <div class="progress mt-3" style="height: 25px">--}}
+{{--                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%; height: 100%">75%</div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <small class="form-text form-danger" style="color: white; font-size: 15px;" id="lec_error"></small>
+{{--            <small class="form-text form-danger" style="color: white; font-size: 15px;" id="lec_error"></small>--}}
 
 
             <p>Lecture Name <span>*</span></p>
@@ -111,57 +112,59 @@
 
     <script>
         $(document).ready(function () {
-            let browseFile = $('#browseFile');
-            let resumable = new Resumable({
-                target: '{{ route('chunk.uploaded') }}',
-                query: {_token: '{{ csrf_token() }}'},// CSRF token
-                fileType: ['mp4'],
-                headers: {
-                    'Accept': 'application/json'
-                },
-                testChunks: false,
-                throttleProgressCallbacks: 1,
-            });
-
-            resumable.assignBrowse(browseFile[0]);
-
-            resumable.on('fileAdded', function (file) { // trigger when file picked
-                showProgress();
-                resumable.upload() // to actually start uploading.
-            });
-
-            resumable.on('fileProgress', function (file) { // trigger when file progress update
-                updateProgress(Math.floor(file.progress() * 100));
-            });
-
-            resumable.on('fileSuccess', function (file, response) { // trigger when file upload complete
-                response = JSON.parse(response)
-                $('#videoPreview').attr('src', response.path);
-                $('.card-footer').show();
-            });
-
-            resumable.on('fileError', function (file, response) { // trigger when there is any error
-                alert('file uploading error.')
-            });
 
 
-            let progress = $('.progress');
+            {{--let browseFile = $('#browseFile');--}}
+            {{--let resumable = new Resumable({--}}
+            {{--    target: '{{ route('chunk.uploaded') }}',--}}
+            {{--    query: {_token: '{{ csrf_token() }}'},// CSRF token--}}
+            {{--    fileType: ['mp4'],--}}
+            {{--    headers: {--}}
+            {{--        'Accept': 'application/json'--}}
+            {{--    },--}}
+            {{--    testChunks: false,--}}
+            {{--    throttleProgressCallbacks: 1,--}}
+            {{--});--}}
 
-            function showProgress() {
-                progress.find('.progress-bar').css('width', '0%');
-                progress.find('.progress-bar').html('0%');
-                progress.find('.progress-bar').removeClass('bg-success');
-                progress.show();
-            }
+            {{--resumable.assignBrowse(browseFile[0]);--}}
 
-            function updateProgress(value) {
-                progress.find('.progress-bar').css('width', `${value}%`)
-                progress.find('.progress-bar').html(`${value}%`)
-            }
+            {{--resumable.on('fileAdded', function (file) { // trigger when file picked--}}
+            {{--    showProgress();--}}
+            {{--    resumable.upload() // to actually start uploading.--}}
+            {{--});--}}
 
-            function hideProgress() {
-                progress.hide();
-            }
+            {{--resumable.on('fileProgress', function (file) { // trigger when file progress update--}}
+            {{--    updateProgress(Math.floor(file.progress() * 100));--}}
+            {{--});--}}
+
+            {{--resumable.on('fileSuccess', function (file, response) { // trigger when file upload complete--}}
+            {{--    response = JSON.parse(response)--}}
+            {{--    $('#videoPreview').attr('src', response.path);--}}
+            {{--    $('.card-footer').show();--}}
+            {{--});--}}
+
+            {{--resumable.on('fileError', function (file, response) { // trigger when there is any error--}}
+            {{--    alert('file uploading error.')--}}
+            {{--});--}}
+
+
+            {{--let progress = $('.progress');--}}
+
+            {{--function showProgress() {--}}
+            {{--    progress.find('.progress-bar').css('width', '0%');--}}
+            {{--    progress.find('.progress-bar').html('0%');--}}
+            {{--    progress.find('.progress-bar').removeClass('bg-success');--}}
+            {{--    progress.show();--}}
+            {{--}--}}
+
+            {{--function updateProgress(value) {--}}
+            {{--    progress.find('.progress-bar').css('width', `${value}%`)--}}
+            {{--    progress.find('.progress-bar').html(`${value}%`)--}}
+            {{--}--}}
+
+            {{--function hideProgress() {--}}
+            {{--    progress.hide();--}}
+            {{--}--}}
 
 
             // Code To Dynamic Dropdown
