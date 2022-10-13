@@ -27,61 +27,61 @@
                     <h5>Upload File</h5>
                 </div>
 
-                <p>Lecture Name <span>*</span></p>
-                <input type="text" name="name" placeholder="enter lec name" class="box" value="{{old('name')}}">
-                <small class="form-text form-danger" style="color: white; font-size: 15px;" id="name_error"></small>
+{{--                <p>Lecture Name <span>*</span></p>--}}
+{{--                <input type="text" name="name" placeholder="enter lec name" class="box" value="{{old('name')}}">--}}
+{{--                <small class="form-text form-danger" style="color: white; font-size: 15px;" id="name_error"></small>--}}
 
-                @error('name')
-                <span class="text-danger" style="color: white">{{$message}}</span>
-                @enderror
+{{--                @error('name')--}}
+{{--                <span class="text-danger" style="color: white">{{$message}}</span>--}}
+{{--                @enderror--}}
 
-                <p>Academic year <span>*</span></p>
-                <select class="custom-select" name="academic_year" required id="academic_year">
-                    <option selected>...Choose</option>
-                    <option value="1">الصف الأول الثانوي</option>
-                    <option value="2">الصف الثاني الثانوي</option>
-                    <option value="3">الصف الثالث الثانوي</option>
-                </select>
-                <small class="form-text form-danger" style="color: white; font-size: 15px;"
-                       id="academic_year_error"></small>
+{{--                <p>Academic year <span>*</span></p>--}}
+{{--                <select class="custom-select" name="academic_year" required id="academic_year">--}}
+{{--                    <option selected>...Choose</option>--}}
+{{--                    <option value="1">الصف الأول الثانوي</option>--}}
+{{--                    <option value="2">الصف الثاني الثانوي</option>--}}
+{{--                    <option value="3">الصف الثالث الثانوي</option>--}}
+{{--                </select>--}}
+{{--                <small class="form-text form-danger" style="color: white; font-size: 15px;"--}}
+{{--                       id="academic_year_error"></small>--}}
 
 
-                <p>Lecture Month <span>*</span></p>
-                <select class="custom-select" name="month" id="month">
-                </select>
-                <small class="form-text form-danger" style="color: white; font-size: 15px;" id="month_error"></small>
+{{--                <p>Lecture Month <span>*</span></p>--}}
+{{--                <select class="custom-select" name="month" id="month">--}}
+{{--                </select>--}}
+{{--                <small class="form-text form-danger" style="color: white; font-size: 15px;" id="month_error"></small>--}}
 
-                {{--            <input type="number" name="month" placeholder="enter lec month " required maxlength="2" class="box"--}}
-                {{--                   value="{{old('month')}}">--}}
-                {{--            @error('month')--}}
-                {{--            <span class="text-danger" style="color: white">{{$message}}</span>--}}
-                {{--            @enderror--}}
+{{--                --}}{{--            <input type="number" name="month" placeholder="enter lec month " required maxlength="2" class="box"--}}
+{{--                --}}{{--                   value="{{old('month')}}">--}}
+{{--                --}}{{--            @error('month')--}}
+{{--                --}}{{--            <span class="text-danger" style="color: white">{{$message}}</span>--}}
+{{--                --}}{{--            @enderror--}}
 
-                <p>Lecture Week <span>*</span></p>
-                <select class="custom-select" name="week" required>
-                    <option value="1">week 1</option>
-                    <option value="2">week 2</option>
-                    <option value="3">week 3</option>
-                    <option value="4">week 4</option>
-                </select>
-                <small class="form-text form-danger" style="color: white; font-size: 15px;" id="week_error"></small>
+{{--                <p>Lecture Week <span>*</span></p>--}}
+{{--                <select class="custom-select" name="week" required>--}}
+{{--                    <option value="1">week 1</option>--}}
+{{--                    <option value="2">week 2</option>--}}
+{{--                    <option value="3">week 3</option>--}}
+{{--                    <option value="4">week 4</option>--}}
+{{--                </select>--}}
+{{--                <small class="form-text form-danger" style="color: white; font-size: 15px;" id="week_error"></small>--}}
 
-                @error('week')
-                <span class="text-danger" style="color: white">{{$message}}</span>
-                @enderror
+{{--                @error('week')--}}
+{{--                <span class="text-danger" style="color: white">{{$message}}</span>--}}
+{{--                @enderror--}}
 
-                <p>Lecture HomeWork <span>*</span></p>
-                <input type="text" name="homework" placeholder="enter lec homework link" class="box"
-                       value="{{old('homework')}}">
-                @error('homework')
-                <span class="text-danger" style="color: white">{{$message}}</span>
-                @enderror
+{{--                <p>Lecture HomeWork <span>*</span></p>--}}
+{{--                <input type="text" name="homework" placeholder="enter lec homework link" class="box"--}}
+{{--                       value="{{old('homework')}}">--}}
+{{--                @error('homework')--}}
+{{--                <span class="text-danger" style="color: white">{{$message}}</span>--}}
+{{--                @enderror--}}
 
-                <p>Lecture Quiz <span>*</span></p>
-                <input type="text" name="quiz" placeholder="enter lec quiz link " class="box" value="{{old('quiz')}}">
-                @error('quiz')
-                <span class="text-danger" style="color: white">{{$message}}</span>
-                @enderror
+{{--                <p>Lecture Quiz <span>*</span></p>--}}
+{{--                <input type="text" name="quiz" placeholder="enter lec quiz link " class="box" value="{{old('quiz')}}">--}}
+{{--                @error('quiz')--}}
+{{--                <span class="text-danger" style="color: white">{{$message}}</span>--}}
+{{--                @enderror--}}
 
 
 
@@ -178,27 +178,29 @@
     function hideProgress() {
         progress.hide();
     }
-    $('#submit').on('click',function (){
-        console.log('hey');
-        $('#academic_year').on('change', function () {
-            let id = $(this).val();
-            $('#month').empty();
-            // $('#month').append('<option value="0" disabled selected>processing ...</option>');
-            $.ajax({
-                type: 'GET',
-                url: 'getCourseMonths/' + id,
-                success: function (response) {
-                    console.log(response);
-                    response = JSON.parse(response);
-                    $('#month').empty();
-                    $('#month').append('<option value="0" disabled selected>select month</option>');
-                    response.forEach(el => {
-                        $('#month').append(`<option value="${el['id']}" >${el['name']}</option>`);
-                    });
-                }
-            });
-        });
-    });
+
+
+    // $('#submit').on('click',function (){
+    //     console.log('hey');
+    //     $('#academic_year').on('change', function () {
+    //         let id = $(this).val();
+    //         $('#month').empty();
+    //         // $('#month').append('<option value="0" disabled selected>processing ...</option>');
+    //         $.ajax({
+    //             type: 'GET',
+    //             url: 'getCourseMonths/' + id,
+    //             success: function (response) {
+    //                 console.log(response);
+    //                 response = JSON.parse(response);
+    //                 $('#month').empty();
+    //                 $('#month').append('<option value="0" disabled selected>select month</option>');
+    //                 response.forEach(el => {
+    //                     $('#month').append(`<option value="${el['id']}" >${el['name']}</option>`);
+    //                 });
+    //             }
+    //         });
+    //     });
+    // });
 
 
 </script>

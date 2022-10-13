@@ -44,24 +44,24 @@ class FileUploadController extends Controller {
 
             // delete chunked file
             unlink($file->getPathname());
-            $add = CourseThirdYear::create([
-                'name' => $request->name,
-                'lec' => $lec_name,
-                'homework' => $request->homework,
-                'quiz' => $request->quiz,
-                'course_id' => 1,
-                'serial_number' => 1,
-                'week' => $request->week,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-            if($add)
-            {
+//            $add = CourseThirdYear::create([
+//                'name' => $request->name,
+//                'lec' => $lec_name,
+//                'homework' => $request->homework,
+//                'quiz' => $request->quiz,
+//                'course_id' => 1,
+//                'serial_number' => 1,
+//                'week' => $request->week,
+//                'created_at' => now(),
+//                'updated_at' => now(),
+//            ]);
+//            if($add)
+//            {
                 return [
                     'path' => asset('storage/' . $disk),
                     'filename' => $fileName
                 ];
-            }
+//            }
             // return response()->json(['msg' => 'file success']);
 
         }
