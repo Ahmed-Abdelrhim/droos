@@ -3,7 +3,7 @@
 
     <header class="header">
 
-        <img id="back-ground" src="{{asset('images/back-ground.png')}}">
+        <img id="back-ground" src="{{asset('storage/images/back-ground.png')}}">
         <section class="flex">
 
             <div class="icons">
@@ -32,9 +32,9 @@
 
             <div class="profile">
                 <img class="image" src="@if(Auth::check())
-                  {{asset('images/studentImages/'.Auth::user()->avatar)}}
+                  {{asset('storage/images/studentImages/'.Auth::user()->avatar)}}
                   @else
-                  {{asset('images//pic-6.jpg')}}
+                  {{asset('storage/images//pic-6.jpg')}}
                   @endif" alt="tutor">
                 <h3 class="name">
                     @if(Auth::check())
@@ -66,8 +66,8 @@
                 {{--                    <a href="{{route('student.register')}}" class="option-btn">register</a>--}}
                 {{--                </div>--}}
             </div>
-            <!-- <img id="logo-background" src="{{asset('images/splash.png')}}"> -->
-            <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
+            <!-- <img id="logo-background" src="{{asset('storage/images/splash.png')}}"> -->
+            <a href="{{asset('home')}}" class="logo"><img src="{{asset('storage/images/msbah.png')}}"></a>
         </section>
 
     </header>
@@ -79,7 +79,7 @@
         <div class="row">
 
             <div class="image">
-                <img src="{{asset('images/about-img.svg')}}" alt="">
+                <img src="{{asset('storage/images/about-img.svg')}}" alt="">
             </div>
 
             <div class="content">
@@ -274,7 +274,7 @@
     <footer class="footer">
         <div class="container">
             <div class="box">
-                <a href="{{route('home')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
+                <a href="{{route('home')}}" class="logo"><img src="{{asset('storage/images/logo.png')}}"></a>
                 <ul class="social">
                     <li>
                         <a href="https://www.facebook.com/profile.php?id=100068906257005" class="facebook"
@@ -322,12 +322,12 @@
                 </div>
             </div>
             <div class="box footer-gallery">
-                <img src="{{asset('images/thumb-9.png')}}" alt=""/>
-                <img src="{{asset('images/thumb-8.png')}}" alt=""/>
-                <img src="{{asset('images/year-2.jpeg')}}" alt=""/>
-                <img src="{{asset('images/ph-1.jpg')}}" alt=""/>
-                <img src="{{asset('images/thumb-5.png')}}" alt=""/>
-                <img src="{{asset('images/thumb-4.png')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-9.png')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-8.png')}}" alt=""/>
+                <img src="{{asset('storage/images/year-2.jpeg')}}" alt=""/>
+                <img src="{{asset('storage/images/ph-1.jpg')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-5.png')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-4.png')}}" alt=""/>
             </div>
             <!-- <div class="box">
                 <p class="text">
@@ -358,7 +358,7 @@
 
     <!-- scroll top button  -->
     <a href="#" class="top">
-        <img src="images/scroll-top-img.png">
+        <img src="{{asset('storage/images/scroll-top-img.png')}}">
     </a>
     <!-- End Footer -->
 
