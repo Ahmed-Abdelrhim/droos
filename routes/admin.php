@@ -181,8 +181,8 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::post('store/demo/videos' , [DashboardController::class,'addDemoVideo'])->name('store.demo.videos');
 
 
-        Route::get('uploading',[HomeController::class,'index'])->name('chunk.upload');
-        Route::get('upload',[FileUploadController::class,'index']);
+        //Route::get('uploading',[HomeController::class,'index'])->name('chunk.upload');
+        Route::get('upload',[FileUploadController::class,'index'])->name('chunk.upload');
         Route::post('file-upload/upload-large-files',[FileUploadController::class,'uploadLargeFiles'])->name('chunk.uploaded');
         Route::post('post/post',[FileUploadController::class,'add'])->name('post.post');
 

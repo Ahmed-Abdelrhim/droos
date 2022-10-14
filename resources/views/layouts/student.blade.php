@@ -409,7 +409,7 @@
 </head>
 <body oncontextmenu="return false">
 <header class="header">
-    <!-- <img id="back-ground" src="{{asset('images/back-ground.png')}}"> -->
+    <!-- <img id="back-ground" src="{{asset('storage/images/back-ground.png')}}"> -->
     <section class="flex">
         <div class="icons">
             <div id="menu-btn" class="fas fa-bars"></div>
@@ -418,9 +418,9 @@
         </div>
         <div class="profile">
             <img class="image"  src="@if(Auth::check() && Auth::user()->avatar != null)
-                  {{asset('images/studentImages/'.Auth::user()->avatar)}}
+                  {{asset('storage/images/studentImages/'.Auth::user()->avatar)}}
                   @else
-                  {{asset('images//pic-6.jpg')}}
+                  {{asset('storage/images/pic-6.jpg')}}
                   @endif" alt="tutor">
             <h3 class="name">
                 @if(Auth::check())

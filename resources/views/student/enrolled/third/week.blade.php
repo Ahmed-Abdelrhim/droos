@@ -4,7 +4,7 @@
         <div class="row">
             <div class="column">
                 <div class="thumb">
-                    <img src="{{asset('images/courses_third_year/'.$course->cover)}}" alt="not-found">
+                    <img src="{{asset('storage/images/courses_third_year/'.$course->cover)}}" alt="not-found">
                     <span>videos : {{count($course['lectures'])}} </span>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                     </p>
                 </div>
                 <div class="tutor">
-                    <img src="{{asset('images/courses_third_year/'.$course->cover)}}" alt="not-found">
+                    <img src="{{asset('storage/images/courses_third_year/'.$course->cover)}}" alt="not-found">
                     <div class="detales">
                         <span> <i class="fas fa-book"></i> + 299   سؤال </span>
                         <span> <i class="fas fa-clock"></i> + 15   ساعة </span>

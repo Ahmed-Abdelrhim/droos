@@ -461,6 +461,7 @@
             <i class="fa fa-caret-down arrow"></i>
         </button>
         <div class="dropdown-container">
+            <a href="{{route('chunk.upload')}}"><i class="fas fa-question"></i><span> رفع محاضرة</span></a>
             <a href="{{route('add.new.lec')}}"><i class="fas fa-question"></i><span>أضافة محاضرة</span></a>
             <a href="{{route('get.lec.1st.year')}}"><i
                     class="fas fa-question"></i><span> محاضرات الصف الأول الثانوي</span></a>

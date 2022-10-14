@@ -19,7 +19,7 @@
 
 
             <div class="profile">
-                <img src="{{asset('images/pic-1.jpg')}}" class="image" alt="">
+                <img src="{{asset('storage/images/pic-1.jpg')}}" class="image" alt="">
                 <h3 class="name">Welcome</h3>
                 <p class="role">studen</p>
                 <div class="flex-btn">
@@ -28,7 +28,7 @@
                 </div>
             </div>
 
-            <a href="{{asset('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
+            <a href="{{asset('home')}}" class="logo"><img src="{{asset('storage/images/msbah.png')}}"></a>
         </section>
 
     </header>
@@ -111,7 +111,7 @@
     <footer class="footer">
         <div class="container">
             <div class="box">
-                <a href="{{route('home')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
+                <a href="{{route('home')}}" class="logo"><img src="{{asset('storage/images/logo.png')}}"></a>
                 <ul class="social">
                     <li>
                         <a href="https://www.facebook.com/profile.php?id=100068906257005" class="facebook"
@@ -159,12 +159,12 @@
                 </div>
             </div>
             <div class="box footer-gallery">
-                <img src="{{asset('images/thumb-9.png')}}" alt=""/>
-                <img src="{{asset('images/thumb-8.png')}}" alt=""/>
-                <img src="{{asset('images/year-2.jpeg')}}" alt=""/>
-                <img src="{{asset('images/ph-1.jpg')}}" alt=""/>
-                <img src="{{asset('images/thumb-5.png')}}" alt=""/>
-                <img src="{{asset('images/thumb-4.png')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-9.png')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-8.png')}}" alt=""/>
+                <img src="{{asset('storage/images/year-2.jpeg')}}" alt=""/>
+                <img src="{{asset('storage/images/ph-1.jpg')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-5.png')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-4.png')}}" alt=""/>
             </div>
             <!-- <div class="box">
                 <p class="text">
@@ -189,7 +189,7 @@
 
 <!-- scroll top button  -->
 <a href="#" class="top">
-   <img src="{{asset('images/scroll-top-img.png')}}">
+   <img src="{{asset('storage/images/scroll-top-img.png')}}">
 </a>
 <!-- End Footer -->
 

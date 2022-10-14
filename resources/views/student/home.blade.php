@@ -104,8 +104,8 @@
             <span></span>
             <span></span>
             <div class="card-content">
-                {{--            <img src="{{asset('images/ph-15.jpeg')}}">--}}
-                <img src="{{asset('images/ph-15.jpg')}}">
+                {{--            <img src="{{asset('storage/images/ph-15.jpeg')}}">--}}
+                <img src="{{asset('storage/images/ph-15.jpg')}}">
                 <h2>01</h2>
                 <h3>الصف الدراسي الأول</h3>
                 <p>جميع كورسات الصف الأول الثانوي</p>

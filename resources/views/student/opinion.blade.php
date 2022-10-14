@@ -1,7 +1,7 @@
 @extends('layouts.design')
 @section('content')
     <header class="header">
-        <!-- <img id="back-ground" src="{{asset('images/back-ground.png')}}"> -->
+        <!-- <img id="back-ground" src="{{asset('storage/images/back-ground.png')}}"> -->
         <section class="flex">
             <div class="icons">
                 <div id="menu-bars" class="fas fa-bars"></div>
@@ -15,7 +15,7 @@
                         class="fas fa-graduation-cap"></i><span>الكورسات</span></a>
                 <a href="{{route('contact')}}" class="active"><i class="fas fa-headset"></i><span>تواصل معنا</span></a>
             </nav>
-            <a href="{{route('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
+            <a href="{{route('home')}}" class="logo"><img src="{{asset('storage/images/msbah.png')}}"></a>
         </section>
     </header>
 
