@@ -5,108 +5,91 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="{{ asset('assets/css/bootstrap5.min.css') }}" rel="stylesheet"/>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
     <title>{{ config('app.name') }}</title>
 </head>
 
 <style>
-    .card-footer, .progress {
+    /* .card-footer, .progress {
         display: none;
+    } */
+
+        .progress{
+        position: relative;
+        width: 100%;
+        /* background-color: #c9cfc9; */
     }
+
+    .bar{
+        background-color: #237eb7;
+        width: 0%;
+        height: 20px;
+    }
+
+.copy {
+    color: #03a9f4;
+    border-color: #03a9f4;
+    background: linear-gradient(to right, #03a9f4 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+
+.copy {
+    background-position: left bottom;
+    color: white;
+}
+
 </style>
 
 <body>
-<h1 id="video_name"></h1>
+
+
+    <section class="form-container">
+
+    <div class="form">
+    <div>
+        <h1 id="video_name"></h1>
+        <button class="copybtn copy">Copy</button>
+    </div>
 
 <div class="container pt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center">
-                    <h5>Upload File</h5>
+                    <h3>Add New video </h3>
                 </div>
 
-{{--                <p>Lecture Name <span>*</span></p>--}}
-{{--                <input type="text" name="name" placeholder="enter lec name" class="box" value="{{old('name')}}">--}}
-{{--                <small class="form-text form-danger" style="color: white; font-size: 15px;" id="name_error"></small>--}}
+                <div class="progress mt-3" style="height: 25px">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bar" role="progressbar"
+                             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; height: 100%">
+                            0%
+                        </div>
+                    </div>
 
-{{--                @error('name')--}}
-{{--                <span class="text-danger" style="color: white">{{$message}}</span>--}}
-{{--                @enderror--}}
-
-{{--                <p>Academic year <span>*</span></p>--}}
-{{--                <select class="custom-select" name="academic_year" required id="academic_year">--}}
-{{--                    <option selected>...Choose</option>--}}
-{{--                    <option value="1">الصف الأول الثانوي</option>--}}
-{{--                    <option value="2">الصف الثاني الثانوي</option>--}}
-{{--                    <option value="3">الصف الثالث الثانوي</option>--}}
-{{--                </select>--}}
-{{--                <small class="form-text form-danger" style="color: white; font-size: 15px;"--}}
-{{--                       id="academic_year_error"></small>--}}
-
-
-{{--                <p>Lecture Month <span>*</span></p>--}}
-{{--                <select class="custom-select" name="month" id="month" id="month">--}}
-{{--                </select>--}}
-{{--                <small class="form-text form-danger" style="color: white; font-size: 15px;" id="month_error"></small>--}}
-
-{{--                --}}{{--                <input type="number" name="month" placeholder="enter lec month " required maxlength="2" class="box"--}}
-{{--                --}}{{--                       value="{{old('month')}}">--}}
-{{--                @error('month')--}}
-{{--                <span class="text-danger" style="color: white">{{$message}}</span>--}}
-{{--                @enderror--}}
-
-{{--                <p>Lecture Week <span>*</span></p>--}}
-{{--                <select class="custom-select" name="week" required id="week">--}}
-{{--                    <option value="1">week 1</option>--}}
-{{--                    <option value="2">week 2</option>--}}
-{{--                    <option value="3">week 3</option>--}}
-{{--                    <option value="4">week 4</option>--}}
-{{--                </select>--}}
-{{--                <small class="form-text form-danger" style="color: white; font-size: 15px;" id="week_error"></small>--}}
-
-{{--                @error('week')--}}
-{{--                <span class="text-danger" style="color: white">{{$message}}</span>--}}
-{{--                @enderror--}}
-
-{{--                <p>Lecture HomeWork <span>*</span></p>--}}
-{{--                <input type="text" name="homework" placeholder="enter lec homework link" class="box"--}}
-{{--                       value="{{old('homework')}}" id="homework">--}}
-{{--                @error('homework')--}}
-{{--                <span class="text-danger" style="color: white">{{$message}}</span>--}}
-{{--                @enderror--}}
-
-{{--                <p>Lecture Quiz <span>*</span></p>--}}
-{{--                <input type="text" name="quiz" placeholder="enter lec quiz link " class="box" value="{{old('quiz')}}"--}}
-{{--                       id="quiz">--}}
-{{--                @error('quiz')--}}
-{{--                <span class="text-danger" style="color: white">{{$message}}</span>--}}
-{{--                @enderror--}}
-
-
+                <p>Choose a video to add<span>*</span></p>
                 <div class="card-body">
                     <div id="upload-container" class="text-center">
                         <button id="browseFile" class="btn btn-primary">Brows File</button>
                     </div>
-                    <div class="progress mt-3" style="height: 25px">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%; height: 100%">
-                            75%
-                        </div>
-                    </div>
 
+                    <p>Upload video <span>*</span></p>
                     <button class="btn btn-primary" id="submit">upload</button>
                 </div>
 
-                {{--                <div class="card-footer p-4" >--}}
-                {{--                    <video id="videoPreview" src="" controls style="width: 100%; height: auto"></video>--}}
-                {{--                </div>--}}
             </div>
         </div>
     </div>
 </div>
+
+
+    </div>
+
+    </section>
+
 
 
 <!-- jQuery -->
@@ -150,10 +133,6 @@
             showProgress();
             resumable.upload() // to actually start uploading.
         });
-
-
-
-
     });
 
     resumable.on('fileProgress', function (file) { // trigger when file progress update
@@ -241,7 +220,17 @@
     //     });
     // });
 
+var copyTextareaBtn = document.querySelector('.copybtn');
+
+copyTextareaBtn.addEventListener('click', function(event) {
+  var copy_text = document.getElementsByTagName("h1")[0];
+  var range = document.createRange();
+  range.selectNode(copy_text);
+  window.getSelection().addRange(range);
+
+});
 
 </script>
 </body>
 </html>
+
