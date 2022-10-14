@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\WaitingListThirdYear;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
 
 class AcademicThirdYear extends Controller
 {
@@ -250,6 +252,7 @@ class AcademicThirdYear extends Controller
         $user = Auth::user();
         $user->mac_address = 1;
         $user->save();
+
         return view('student.enrolled.third.lecture', compact('lec'));
     }
 

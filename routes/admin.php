@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\WaitingListController;
+use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\Student\AcademicFirstYear;
 use App\Http\Controllers\Student\AcademicSecondYear;
 use App\Http\Controllers\Student\AcademicThirdYear;
@@ -178,6 +179,12 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         //Add demo videos
         Route::get('add/demo/video',[DashboardController::class,'demoVideosForm'])->name('demo.videos');
         Route::post('store/demo/videos' , [DashboardController::class,'addDemoVideo'])->name('store.demo.videos');
+
+
+        Route::get('uploading',[HomeController::class,'index'])->name('chunk.upload');
+        Route::get('upload',[FileUploadController::class,'index']);
+        Route::post('file-upload/upload-large-files',[FileUploadController::class,'uploadLargeFiles'])->name('chunk.uploaded');
+        Route::post('post/post',[FileUploadController::class,'add'])->name('post.post');
 
     });
 

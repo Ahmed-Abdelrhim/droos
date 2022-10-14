@@ -5,10 +5,11 @@
 
    <div class="video-container">
       <div class="video">
-         <video src="{{asset('/storage/third/'.$lec->lec)}}" controlsList="nodownload" controls poster="{{asset('images/courses_third_year/'.$lec['course']->cover)}}"
+         <video src="{{asset('storage/third/'.$lec->lec)}}" controlsList="nodownload" controls poster="{{asset('images/courses_third_year/'.$lec['course']->cover)}}"
                 id="video"></video>
       </div>
       <h3 class="title">فيديو : {{$lec->name}}</h3>
+{{--      <h3 class="title">فيديو : {{asset('images/courses_third_year/'.$lec['course']->cover)}}</h3>--}}
       <div class="info">
          <p class="date"><i class="fas fa-calendar"></i><span>22-10-2022</span></p>
          <p class="date"><i class="fas fa-heart"></i><span>44 likes</span></p>

@@ -57,7 +57,8 @@ class FileUploadController extends Controller
 
             $lec_name = time() . '.' . $file->guessExtension();
             // $disk = Storage::disk(config('filesystems.default'));
-            $disk = Storage::disk('public')->putFileAs('third', $file, $lec_name);
+            $disk = Storage::disk('public')->putFileAs('lectures', $file, $lec_name);
+            //$disk = $file->move('lectures/third',$lec_name);
             //$path = $disk->putFileAs('videos', $file, $fileName);
 
 //            $lec_name = time() . '.'.$file->getClientOriginalName();

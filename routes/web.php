@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\WaitingListController;
+use App\Http\Controllers\FileUploadController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
@@ -124,6 +125,8 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('view/quiz/2nd/year/{id}',[AcademicSecondYear::class,'viewStudentQuiz'])->name('view.quiz.link.2nd');
         Route::get('view/quiz/3rd/year/{id}',[AcademicThirdYear::class,'viewStudentQuiz'])->name('view.quiz.link.3rd');
 
+        Route::get('token/lecture/{id}',[StudentGeneralController::class,'createLectureSource'])->name('view.lecture');
+
 
     });
 
@@ -131,12 +134,11 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 //    Route::get('admin/play', [DashboardController::class, 'play']);
 
 });
-Route::get('uploading',[HomeController::class,'index'])->name('chunk.upload');
-Route::get('upload',[\App\Http\Controllers\FileUploadController::class,'index']);
-Route::post('file-upload/upload-large-files',[\App\Http\Controllers\FileUploadController::class,'uploadLargeFiles'])->name('chunk.uploaded');
+
+
+
 //Route::post('file-upload/upload-large-files/{name}/{academic_year}/{month}/{week}/{homework}/{quiz}',[\App\Http\Controllers\FileUploadController::class,'uploadLargeFiles'])->name('chunk.uploaded');
 
-Route::post('post/post',[\App\Http\Controllers\FileUploadController::class,'add'])->name('post.post');
 //name+ academic_year+month +week +homework +quiz
 
 //Route::get('hash',function (){

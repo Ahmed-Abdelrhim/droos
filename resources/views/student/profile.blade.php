@@ -41,11 +41,11 @@
             <span class="text-danger" style="color: white">{{$message}}</span>
             @enderror
 
-            <p>رقم هاتف ولي الأمر <span>*</span></p>
-            <input type="text" name="parent_number" placeholder="enter your parent phone number"
-                   maxlength="50" class="box"
-                   value="{{Auth::user()->parent_number}}"
-            >
+{{--            <p>رقم هاتف ولي الأمر <span>*</span></p>--}}
+{{--            <input type="text" name="parent_number" placeholder="enter your parent phone number"--}}
+{{--                   maxlength="50" class="box"--}}
+{{--                   value="{{Auth::user()->parent_number}}"--}}
+{{--            >--}}
             @error('parent_number')
             <span class="text-danger" style="color: white">{{$message}}</span>
             @enderror

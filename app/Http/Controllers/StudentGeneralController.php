@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LecturesThirdYear;
 use App\Models\User;
 use App\Models\WhoAreWe;
 use Illuminate\Http\Request;
 use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
 use PHPUnit\Exception;
 
 class StudentGeneralController extends Controller
@@ -68,7 +71,7 @@ class StudentGeneralController extends Controller
             'email' => 'required|email|unique:users,email,' . Auth::id(),
             'password' => 'nullable|min:6|confirmed',
             'phone_number' => 'required|min:10|unique:users,phone_number,' . Auth::id(),
-            'parent_number' => 'required|min:10|unique:users,parent_number,' . Auth::id(),
+            'parent_number' => 'nullable',
             'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
         ]);
 
@@ -149,7 +152,16 @@ class StudentGeneralController extends Controller
                 return view('student.inbox',compact('messages'));
             return view('student.inbox');
         }
+    }
 
+    public function createLectureSource($id)
+    {
+        $lec = LecturesThirdYear::find($id);
+        $name = $lec->lec;
+        $fileContents = Storage::disk('public')->get("third/{$name}");
+        $response = Response::make($fileContents, 200);
+        $response->header('Content-Type', "video/mp4");
+        return $response;
     }
 
 }

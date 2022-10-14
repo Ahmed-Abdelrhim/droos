@@ -5,7 +5,7 @@
 
    <div class="video-container">
       <div class="video">
-         <video src="{{asset('lectures/first/'.$lec->lec)}}" controls controlsList="nodownload" poster="{{asset('images/courses_first_year/'.$lec['course']->cover)}}"
+         <video src="{{asset('storage/third/'.$lec->lec)}}" controls controlsList="nodownload" poster="{{asset('images/courses_first_year/'.$lec['course']->cover)}}"
                 id="video"></video>
       </div>
       <h3 class="title">فيديو : {{$lec->name}}</h3>

@@ -10,12 +10,12 @@
             <div class="column">
                 <div class="thumb">
                     @if(isset($demo))
-                        <video src="{{asset('lectures/demo_first_year/'.$demo->demo)}}" controls controlsList="nodownload"
+                        <video src="{{asset('storage/images/demo_first_year/'.$demo->demo)}}" controls controlsList="nodownload"
                                poster="{{asset('images/post-1-1.png')}}"
                                id="video">
                         </video>
                     @else
-                        <video src="{{asset('images/vid-1.mp4')}}" controls controlsList="nodownload" poster="{{asset('images/post-1-1.png')}}"
+                        <video src="{{asset('images/vid-1.mp4')}}" controls controlsList="nodownload" poster="{{asset('storage/images/post-1-1.png')}}"
                                id="video"></video>
                     @endif
 

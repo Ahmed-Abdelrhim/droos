@@ -378,7 +378,7 @@
             <div id="user-btn" class="fas fa-user"></div>
         </div>
         <div class="profile">
-            <img src="{{asset('images/pic-1.jpg')}}" class="image" alt="">
+            <img src="{{asset('storage/images/pic-1.jpg')}}" class="image" alt="">
             <h3 class="name">{{Auth::guard('admin')->user()->name}}</h3>
             <p class="role">Admin</p>
             <a href="{{route('teacher.profile')}}" class="btn">view profile</a>
@@ -395,9 +395,9 @@
                 <h3>{{Auth::guard('admin')->user()->name}}</h3>
             </div>
             @if(Auth::guard('admin')->user()->avatar != null)
-                <img src="{{asset('images/adminImages/'.Auth::guard('admin')->user()->avatar)}}" alt="tutor">
+                <img src="{{asset('storage/images/adminImages/'.Auth::guard('admin')->user()->avatar)}}" alt="tutor">
             @else
-                <img src="{{asset('images/pic-6.jpg')}}" alt="tutor">
+                <img src="{{asset('storage/images/pic-6.jpg')}}" alt="tutor">
             @endif
         </div>
     </section>
@@ -407,7 +407,7 @@
         <i class="fas fa-times"></i>
     </div>
     <div class="logo">
-        <a href="{{route('dashboard')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
+        <a href="{{route('dashboard')}}" class="logo"><img src="{{asset('storage/images/msbah.png')}}"></a>
     </div>
     <nav class="navbar">
         <a href="{{route('dashboard')}}"><i class="fas fa-home"></i><span> لوحة التحكم </span></a>
@@ -506,7 +506,7 @@
     <footer class="footer">
         <div class="container">
             <div class="box">
-                <a href="{{route('home')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
+                <a href="{{route('home')}}" class="logo"><img src="{{asset('storage/images/logo.png')}}"></a>
                 <ul class="social">
                     <li>
                         <a href="https://www.facebook.com/profile.php?id=100068906257005" class="facebook"
@@ -554,12 +554,12 @@
                 </div>
             </div>
             <div class="box footer-gallery">
-                <img src="{{asset('images/thumb-9.png')}}" alt=""/>
-                <img src="{{asset('images/thumb-8.png')}}" alt=""/>
-                <img src="{{asset('images/year-2.jpeg')}}" alt=""/>
-                <img src="{{asset('images/ph-1.jpg')}}" alt=""/>
-                <img src="{{asset('images/thumb-5.png')}}" alt=""/>
-                <img src="{{asset('images/thumb-4.png')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-9.png')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-8.png')}}" alt=""/>
+                <img src="{{asset('storage/images/year-2.jpeg')}}" alt=""/>
+                <img src="{{asset('storage/images/ph-1.jpg')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-5.png')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-4.png')}}" alt=""/>
             </div>
             <!-- <div class="box">
                 <p class="text">
@@ -583,7 +583,7 @@
     </footer>
 <!-- scroll top button  -->
 <a href="#" class="top">
-    <img src="{{asset('images/scroll-top-img.png')}}">
+    <img src="{{asset('storage/images/scroll-top-img.png')}}">
 </a>
 <!-- End Footer -->
 <script>
