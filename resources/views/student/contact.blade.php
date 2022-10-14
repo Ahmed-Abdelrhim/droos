@@ -2,7 +2,7 @@
 @section('content')
     <header class="header">
 
-        <img id="back-ground" src="{{asset('images/back-ground.png')}}">
+        <img id="back-ground" src="{{asset('storage/images/back-ground.png')}}">
         <section class="flex">
 
             <div class="icons">
@@ -30,7 +30,7 @@
 
 
             <div class="profile">
-                <img src="{{asset('images/pic-1.jpg')}}" class="image" alt="">
+                <img src="{{asset('storage/images/pic-1.jpg')}}" class="image" alt="">
                 <h3 class="name">Welcome</h3>
                 <p class="role">student</p>
                 <div class="flex-btn">
@@ -38,8 +38,8 @@
                     <a href="{{route('student.register')}}" class="option-btn">register</a>
                 </div>
             </div>
-            <!-- <img id="logo-background" src="{{asset('images/splash.png')}}"> -->
-            <a href="{{route('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
+            <!-- <img id="logo-background" src="{{asset('storage/images/splash.png')}}"> -->
+            <a href="{{route('home')}}" class="logo"><img src="{{asset('storage/images/msbah.png')}}"></a>
         </section>
 
     </header>
@@ -48,7 +48,7 @@
         <div class="row">
 
             <div class="image">
-                <img src="{{asset('images/contact-img.svg')}}" alt="not-found">
+                <img src="{{asset('storage/images/contact-img.svg')}}" alt="not-found">
             </div>
 
             <form action="{{route('msg')}}" method="POST">
