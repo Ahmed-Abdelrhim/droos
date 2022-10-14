@@ -26,73 +26,73 @@
 
       <div class="box">
          <div class="thumb">
-            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.07.jpeg')}}" alt="">
+            <img style="height: fit-content;" src="{{asset('storage/images/WhatsApp Image 2022-10-12 at 20.45.07.jpeg')}}" alt="">
          </div>
       </div>
 
       <div class="box">
          <div class="thumb">
-            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.08 (1).jpeg')}}" alt="">
+            <img style="height: fit-content;" src="{{asset('storage/images/WhatsApp Image 2022-10-12 at 20.45.08 (1).jpeg')}}" alt="">
          </div>
       </div>
 
       <div class="box">
          <div class="thumb">
-            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.08.jpeg')}}" alt="">
+            <img style="height: fit-content;" src="{{asset('storage/images/WhatsApp Image 2022-10-12 at 20.45.08.jpeg')}}" alt="">
          </div>
       </div>
 
       <div class="box">
          <div class="thumb">
-            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.09.jpeg')}}" alt="">
+            <img style="height: fit-content;" src="{{asset('storage/images/WhatsApp Image 2022-10-12 at 20.45.09.jpeg')}}" alt="">
          </div>
       </div>
 
       <div class="box">
          <div class="thumb">
-            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.10 (1).jpeg')}}" alt="">
+            <img style="height: fit-content;" src="{{asset('storage/images/WhatsApp Image 2022-10-12 at 20.45.10 (1).jpeg')}}" alt="">
          </div>
       </div>
 
       <div class="box">
          <div class="thumb">
-            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.10 (2).jpeg')}}" alt="">
+            <img style="height: fit-content;" src="{{asset('storage/images/WhatsApp Image 2022-10-12 at 20.45.10 (2).jpeg')}}" alt="">
          </div>
       </div>
 
       <div class="box">
          <div class="thumb">
-            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.10 (3).jpeg')}}" alt="">
+            <img style="height: fit-content;" src="{{asset('storage/images/WhatsApp Image 2022-10-12 at 20.45.10 (3).jpeg')}}" alt="">
          </div>
       </div>
 
       <div class="box">
          <div class="thumb">
-            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.10.jpeg')}}" alt="">
+            <img style="height: fit-content;" src="{{asset('storage/images/WhatsApp Image 2022-10-12 at 20.45.10.jpeg')}}" alt="">
          </div>
       </div>
 
       <div class="box">
          <div class="thumb">
-            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.10.jpeg')}}" alt="">
+            <img style="height: fit-content;" src="{{asset('storage/images/WhatsApp Image 2022-10-12 at 20.45.10.jpeg')}}" alt="">
          </div>
       </div>
 
       <div class="box">
          <div class="thumb">
-            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.12.jpeg')}}" alt="">
+            <img style="height: fit-content;" src="{{asset('storage/images/WhatsApp Image 2022-10-12 at 20.45.12.jpeg')}}" alt="">
          </div>
       </div>
 
       <div class="box">
          <div class="thumb">
-            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.11 (3).jpeg')}}" alt="">
+            <img style="height: fit-content;" src="{{asset('storage/images/WhatsApp Image 2022-10-12 at 20.45.11 (3).jpeg')}}" alt="">
          </div>
       </div>
 
       <div class="box">
          <div class="thumb">
-            <img style="height: fit-content;" src="{{asset('images/WhatsApp Image 2022-10-12 at 20.45.12 (1).jpeg')}}" alt="">
+            <img style="height: fit-content;" src="{{asset('storage/images/WhatsApp Image 2022-10-12 at 20.45.12 (1).jpeg')}}" alt="">
          </div>
       </div>
 

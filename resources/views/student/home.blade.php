@@ -1,7 +1,7 @@
 @extends('layouts.design')
 @section('content')
     <header class="header">
-        <!-- <img id="back-ground" src="{{asset('images/back-ground.png')}}"> -->
+        <!-- <img id="back-ground" src="{{asset('storage/images/back-ground.png')}}"> -->
         <section class="flex">
             <div class="icons">
                 <div id="menu-bars" class="fas fa-bars"></div>
@@ -17,7 +17,7 @@
                 <a href="{{route('admin.login.form')}}" class="active"><i class="fa-solid fa-database"></i><span>Control Panel</span></a>
             </nav>
             <div class="profile">
-                <img src="{{asset('images/pic-1.jpg')}}" class="image" alt="">
+                <img src="{{asset('storage/images/pic-1.jpg')}}" class="image" alt="">
                 <h3 class="name">Welcome</h3>
                 <p class="role">student</p>
                 <div class="flex-btn">
@@ -25,15 +25,15 @@
                     <a href="{{route('student.register')}}" class="option-btn">register</a>
                 </div>
             </div>
-            <a href="{{route('home')}}" class="logo"><img src="{{asset('images/msbah.png')}}"></a>
+            <a href="{{route('home')}}" class="logo"><img src="{{asset('storage/images/msbah.png')}}"></a>
         </section>
     </header>
     <!-- START BANNER -->
     <section class="section" id="home">
         <div class="row">
-            <img src="{{asset('images/aladdin.png')}}" alt="image"
+            <img src="{{asset('storage/images/aladdin.png')}}" alt="image"
                  style="width: 350px; height: 450px; margin-top: -60px;">
-            <img src="{{asset('images/logo.png')}}" alt="image" style="width: 60%; margin-right: 60px;">
+            <img src="{{asset('storage/images/logo.png')}}" alt="image" style="width: 60%; margin-right: 60px;">
 
             <div class="slider-content heading">
                 <h1 class="main-font text-uppercase"><span class="slider-text px-2">م/علاء الدين</h1>
@@ -118,7 +118,7 @@
             <span></span>
             <span></span>
             <div class="card-content">
-                <img src="{{asset('images/ph-18.jpg')}}">
+                <img src="{{asset('storage/images/ph-18.jpg')}}">
                 <h2>02</h2>
                 <h3>الصف الدراسي الثاني</h3>
                 <p>جميع كورسات الصف الثاني الثانوي</p>
@@ -131,7 +131,7 @@
             <span></span>
             <span></span>
             <div class="card-content">
-                <img src="{{asset('images/ph-17.jpg')}}">
+                <img src="{{asset('storage/images/ph-17.jpg')}}">
                 <h2>03</h2>
                 <h3>الصف الدراسي الثالث</h3>
                 <p>جميع كورسات الصف الثالث الثانوي</p>
@@ -141,7 +141,7 @@
     </div>
     <div class="container-line">
         <div class="upperpart">
-            <img src="{{asset('images/pngwing.png')}}">
+            <img src="{{asset('storage/images/pngwing.png')}}">
             <div class="first">
                 <div class="linee"></div>
                 <div class="balle"></div>
@@ -165,19 +165,19 @@
     <div class="features" id="features">
         <div class="container">
             <div class="box quality">
-                <div class="img-holder"><img src="{{asset('images/fet-2.svg')}}"></div>
+                <div class="img-holder"><img src="{{asset('storage/images/fet-2.svg')}}"></div>
                 <h2>Quality</h2>
                 <p>شاهد دروسك اكثر من مرة</p>
                 <a href="#">More</a>
             </div>
             <div class="box time">
-                <div class="img-holder"><img src="{{asset('images/fet-1.svg')}}"></div>
+                <div class="img-holder"><img src="{{asset('storage/images/fet-1.svg')}}"></div>
                 <h2>Time</h2>
                 <p>وفر وقت المواصلات و السنتر</p>
                 <a href="#">More</a>
             </div>
             <div class="box passion">
-                <div class="img-holder"><img src="{{asset('images/fet-3.svg')}}"></div>
+                <div class="img-holder"><img src="{{asset('storage/images/fet-3.svg')}}"></div>
                 <h2>Passion</h2>
                 <p>احضر امتحانات دورية </p>
                 <a href="#">More</a>
@@ -189,7 +189,7 @@
     <footer class="footer">
         <div class="container">
             <div class="box">
-                <a href="{{route('home')}}" class="logo"><img src="{{asset('images/logo.png')}}"></a>
+                <a href="{{route('home')}}" class="logo"><img src="{{asset('storage/images/logo.png')}}"></a>
                 <ul class="social">
                     <li>
                         <a href="https://www.facebook.com/profile.php?id=100068906257005" class="facebook"
@@ -237,12 +237,12 @@
                 </div>
             </div>
             <div class="box footer-gallery">
-                <img src="{{asset('images/thumb-9.png')}}" alt=""/>
-                <img src="{{asset('images/thumb-8.png')}}" alt=""/>
-                <img src="{{asset('images/year-2.jpeg')}}" alt=""/>
-                <img src="{{asset('images/ph-1.jpg')}}" alt=""/>
-                <img src="{{asset('images/thumb-5.png')}}" alt=""/>
-                <img src="{{asset('images/thumb-4.png')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-9.png')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-8.png')}}" alt=""/>
+                <img src="{{asset('storage/images/year-2.jpeg')}}" alt=""/>
+                <img src="{{asset('storage/images/ph-1.jpg')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-5.png')}}" alt=""/>
+                <img src="{{asset('storage/images/thumb-4.png')}}" alt=""/>
             </div>
             <!-- <div class="box">
                 <p class="text">
@@ -273,7 +273,7 @@
     </footer>
     <!-- scroll top button  -->
     <a href="#" class="top">
-        <img src="{{asset('images/scroll-top-img.png')}}">
+        <img src="{{asset('storage/images/scroll-top-img.png')}}">
     </a>
     <!-- End Footer -->
 @endsection
