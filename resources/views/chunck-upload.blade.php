@@ -1,10 +1,15 @@
 @extends('layouts.admin')
 @section('content')
+<style>
+        .card-footer, .progress {
+       display: none;
+    }
+</style>
 <section class="form-container">
    <div class="form">
       <div class="compo">
           <h1 id="video_name">انسخ اسم الفديو بعد الرفع</h1>
-          <button class="copybtn" onclick="myFunction()"><i class="fa-regular fa-clipboard"></i></button>
+          <button class="copybtn"><i class="fa-regular fa-clipboard"></i></button>
       </div>
       <div class="container pt-4">
          <div class="row justify-content-center">
@@ -16,7 +21,7 @@
                   <div class="progress mt-3" style="height: 25px">
                      <div class="progress-bar progress-bar-striped progress-bar-animated bar" role="progressbar"
                         aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; height: 100%">
-                        
+
                      </div>
                   </div>
                   <p>Choose a video to add<span>*</span></p>

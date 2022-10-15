@@ -32,7 +32,7 @@
     <section class="section" id="home">
         <div class="row">
             <img src="{{asset('storage/images/aladdin.png')}}" alt="image"
-                 style="width: 350px; height: 450px; margin-top: -60px;">
+                 style="width: 350px; height: 430px; margin-top: -60px;">
             <img src="{{asset('storage/images/logo.png')}}" alt="image" style="width: 60%; margin-right: 60px;">
 
             <div class="slider-content heading">

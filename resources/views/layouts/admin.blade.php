@@ -366,9 +366,7 @@
         font-size: 16px;
     }
 
-    .card-footer, .progress {
-       display: none;
-    }
+
 </style>
 <header class="header">
     <section class="flex">
