@@ -68,7 +68,7 @@
                 //console.log(data);
                 if (data.status === 200) {
                     swal({
-                        text: " تم رفع الفديو بنجاح",
+                        text: " تم رفع فديو ال demo بنجاح",
                         icon: "success",
                     })
                 } else {
