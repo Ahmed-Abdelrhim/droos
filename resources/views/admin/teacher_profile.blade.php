@@ -36,7 +36,7 @@
             <span class="text-danger" style="color: white">{{$message}}</span>
             @enderror
 
-            <p> Password <span>*</span></p>
+            <p> <span>*</span> Password <span> * </span> if you need to change it <span>*</span></p>
             <input type="password" name="password" placeholder="enter your new password" maxlength="20" class="box">
             @error('password')
             <span class="text-danger" style="color: white">{{$message}}</span>
@@ -49,7 +49,7 @@
             <span class="text-danger" style="color: white">{{$message}}</span>
             @enderror
 
-            <p>أختر صورة البروفايل <span>*</span></p>
+            <p> <span>*</span>Profile Picture <span> * </span> if you need to change it<span>*</span> </p>
             <input type="file" class="box" name="avatar">
             <button type="submit" class="btn">تحديث</button>
         </form>

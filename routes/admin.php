@@ -200,3 +200,8 @@ Route::post('large/file/size',[HomeController::class,'uploadLargeFiles'])->name(
 //    php_value max_execution_time 900
 //    php_value max_input_time 900
  //شده التيار ⚡
+
+
+
+//     $2y$10$4M0hrgUyniov4v2FHs1a6.y13Vvm1t9e61ltLZUbxe2YU3DW9QnQy
+//     $2y$10$Cx9KeusVkTWsPbihp2Hd4.BsCcAAPnsdnQZ9h/GBaN5np9S3nLsGu

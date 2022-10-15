@@ -30,9 +30,9 @@ class Admin extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $fillable = ['name', 'email', 'phone_number', 'avatar', 'password', 'created_at', 'updated_at', 'deleted_at',];
+    protected $fillable = ['name', 'email', 'phone_number', 'avatar', 'password', 'created_at', 'updated_at', 'deleted_at'];
 
-    protected $hidden = ['created_at', 'updated_at',];
+    protected $hidden = ['created_at', 'updated_at'];
 
     public $timestamps = true;
 }

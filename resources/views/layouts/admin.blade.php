@@ -378,7 +378,12 @@
             <div id="user-btn" class="fas fa-user"></div>
         </div>
         <div class="profile">
-            <img src="{{asset('storage/images/pic-1.jpg')}}" class="image" alt="">
+            <img src="@if(Auth::guard('admin')->check())
+            {{asset('storage/images/adminImages/'.Auth::guard('admin')->user()->avatar)}}
+            @else
+            {{asset('storage/images/pic-1.jpg')}}
+            @endif
+            " class="image" alt="not-found">
             <h3 class="name">{{Auth::guard('admin')->user()->name}}</h3>
             <p class="role">Admin</p>
             <a href="{{route('teacher.profile')}}" class="btn">view profile</a>
