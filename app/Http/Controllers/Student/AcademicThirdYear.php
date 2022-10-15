@@ -146,6 +146,10 @@ class AcademicThirdYear extends Controller
         $student_id = Auth::user()->id;
         $course = CourseThirdYear::findOrFail($id);
         $serial_number = $course->serial_number;
+        $already_exists = WaitingListThirdYear::where('student_id' ,'=',$student_id)->where('course_id','=',$course->id)
+            ->where('serial_number','=',$serial_number)->first();
+        if($already_exists)
+            return redirect()->route('courses.3rd.students')->with(['success' => 'انت بالفعل مشترك سيتم تفعيل الكورس عند الدفع']);
         WaitingListThirdYear::create([
             'student_id' => $student_id,
             'course_id' => $course->id,

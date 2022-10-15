@@ -157,6 +157,13 @@ class AcademicSecondYear extends Controller
             return redirect()->back()->with(['errors' => ' يجب أن تكون في الصف الثاني الثانوي حتي تستطيع الاشتراك في الكورس']);
         $course = CourseSecondYear::findOrFail($id);
         $serial_number = $course->serial_number;
+
+        $already_exists = WaitingListSecondtYear::where('student_id' ,'=',$student_id)->where('course_id','=',$course->id)
+            ->where('serial_number','=',$serial_number)->first();
+        if($already_exists)
+            return redirect()->route('courses.2nd.students')->with(['success' => 'انت بالفعل مشترك سيتم تفعيل الكورس عند الدفع']);
+
+
         WaitingListSecondtYear::create([
             'student_id' => $student_id,
             'course_id' => $course->id,

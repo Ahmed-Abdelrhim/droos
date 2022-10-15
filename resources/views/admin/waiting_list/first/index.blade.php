@@ -18,7 +18,7 @@
                     <th>Student Name</th>
                     <th>Student Email</th>
                     <th>Student Phone</th>
-                    <th>Student Parent Phone</th>
+                    {{--<th>Student Parent Phone</th>--}}
                     <th>Course Month</th>
                     <th>Actions</th>
                 </tr>
@@ -29,10 +29,10 @@
                         <th>{{$data['students']->name}}</th>
                         <th>{{$data['students']->email}}</th>
                         <th>{{$data['students']->phone_number}}</th>
-                        <th>{{$data['students']->parent_number}}</th>
+                        {{-- <th>{{$data['students']->parent_number}}</th>--}}
                         <th>{{$data->serial_number}}</th>
-{{--                        <th>{{$data->name}}</th>--}}
-                        <td style="width: 130px; hei    ght: 30px">
+                        {{--                        <th>{{$data->name}}</th>--}}
+                        <td style="width: 130px; height: 30px">
                             <form action="{{route('activate.waiting.1st',$data->id)}}" method="POST">
                                 @csrf
                                 <button class="btn btn-primary" style="background-color: #007bff;border-color: #007bff">
@@ -49,7 +49,7 @@
                 </tbody>
             </table>
         </div>
-            <div class="custom-pagination"> {{$allData->links()}} </div>
+        <div class="custom-pagination"> {{$allData->links()}} </div>
 
     </section>
 @endsection
