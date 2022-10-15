@@ -7,11 +7,11 @@
                 <div class="thumb">
                     @if(isset($demo))
                         <video src="{{asset('storage/images/demo_third_year/'.$demo->demo)}}" controls controlsList="nodownload"
-                               poster="{{asset('images/post-1-1.png')}}"
+                               poster="{{asset('storage/images/ph-18.jpg')}}"
                                id="video">
                         </video>
                     @else
-                        <video src="{{asset('storage/images/vid-1.mp4')}}" controls controlsList="nodownload" poster="{{asset('storage/images/post-1-1.png')}}"
+                        <video src="{{asset('storage/images/vid-1.mp4')}}" controls controlsList="nodownload" poster="{{asset('storage/images/ph-18.jpg')}}"
                                id="video"></video>
                     @endif
                 </div>
