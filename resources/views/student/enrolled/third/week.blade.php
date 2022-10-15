@@ -107,8 +107,6 @@
                                     <i class="fa-solid fa-chalkboard-user"></i>
                                     <span>لا يوجد كويز حتي الأن</span></a>
                             @endif
-
-
                         @endif
                     @endforeach
                 @else

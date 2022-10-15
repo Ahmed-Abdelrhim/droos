@@ -116,7 +116,7 @@ class CustomLoginController extends Controller
         $user->mac_address = 0;
         $user->save();
         Auth::logout();
-        return redirect()->route('student.login');
+        return redirect()->route('login');
     }
 
     public function handleImage($image, $folder): string
