@@ -15,7 +15,7 @@
                 <span></span>
                 <span></span>
                 <div class="card-content">
-                    <img src="{{asset('images/courses_second_year/'.$course->cover)}}">
+                    <img src="{{asset('storage/images/courses_second_year/'.$course->cover)}}">
                     <h2>02</h2>
                     <h3>الصف الثاني الثانوي</h3>
                     <p style="margin-top: 5px">{{$course->name}}</p>

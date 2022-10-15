@@ -18,12 +18,12 @@
                         <span></span>
                         <span></span>
                         <div class="card-content">
-                            <img src="{{asset('images/courses_third_year/'.$course->cover)}}">
+                            <img src="{{asset('storage/images/courses_third_year/'.$course->cover)}}">
                             <h2>03</h2>
                             <h3>الصف الثالث الثانوي</h3>
                             <p style="margin-top: 5px">{{$course->name}}</p>
                             <p style="margin-top: 5px">السعر : {{$course->price}}</p>
-                            @if(isset($serials))
+                            @if(isset($serials) && count($serials) > 0 )
                                 @if(in_array($course->serial_number,$serials))
                                     <a href="{{route('my.courses.3rd')}}">عرض الكورس</a>
                                 @else

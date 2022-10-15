@@ -11,6 +11,12 @@
                 </div>
             @endif
 
+            <div class="progress">
+                <div class="bar">
+                    <div class="percent" style="color:white;"></div>
+                </div>
+            </div>
+
             <h3>Add New Lecture </h3>
 
             <p>Upload Lecture <span>*</span></p>
@@ -29,3 +35,52 @@
     </section>
 
 @endsection
+@section('script')
+    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jquery-form/form@4.3.0/dist/jquery.form.min.js"
+            integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"
+            integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn"
+            crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        // console.log('Ahmed Abdelrhim');
+        let bar = $('.bar');
+        let percent = $('.percent');
+        $('form').ajaxForm({
+            beforeSend: function () {
+                let percentVal = '0%';
+                bar.width(percentVal);
+                percent.html(percentVal);
+            },
+
+            uploadProgress: function (event, position, total, percentComplete) {
+                console.log("postition :" + total)
+                {
+                    let percentVal = percentComplete + '%';
+                    bar.width(percentVal);
+                    percent.html(percentVal);
+                }
+            },
+
+            complete: function submitForm(data) {
+                //console.log(data);
+                if (data.status === 200) {
+                    swal({
+                        text: " تم رفع فديو ال demo بنجاح",
+                        icon: "success",
+                    })
+                } else {
+                    $.each(data['responseJSON']['errors'], function (index, value) {
+                        console.log(index + '===>' + value);
+                        $("#" + index + "_error").text(value);
+                    });
+                }
+
+            },
+        });
+
+    </script>
+@endsection
+

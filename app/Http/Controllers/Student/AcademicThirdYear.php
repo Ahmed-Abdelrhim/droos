@@ -146,6 +146,10 @@ class AcademicThirdYear extends Controller
         $student_id = Auth::user()->id;
         $course = CourseThirdYear::findOrFail($id);
         $serial_number = $course->serial_number;
+        $already_exists = WaitingListThirdYear::where('student_id' ,'=',$student_id)->where('course_id','=',$course->id)
+            ->where('serial_number','=',$serial_number)->first();
+        if($already_exists)
+            return redirect()->route('courses.3rd.students')->with(['success' => 'انت بالفعل مشترك سيتم تفعيل الكورس عند الدفع']);
         WaitingListThirdYear::create([
             'student_id' => $student_id,
             'course_id' => $course->id,
@@ -216,10 +220,10 @@ class AcademicThirdYear extends Controller
             'quiz' => $request->quiz,
             'course_id' => $lecture->course_id,
             'serial_number' => $lecture->serial_number,
-            'week' => $request->week,
+            'week' => $lecture->week,
             'created_at' => now(),
             'updated_at' => now(),]);
-        return redirect()->back()->with(['success' => 'lecture updated successfully']);
+        return redirect()->back()->with(['success' => 'lecture 3rd year updated successfully']);
     }
 
     public function viewWeeksPage($id)

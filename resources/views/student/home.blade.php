@@ -21,7 +21,7 @@
                 <h3 class="name">Welcome</h3>
                 <p class="role">student</p>
                 <div class="flex-btn">
-                    <a href="{{route('student.login')}}" class="option-btn">login</a>
+                    <a href="{{route('login')}}" class="option-btn">login</a>
                     <a href="{{route('student.register')}}" class="option-btn">register</a>
                 </div>
             </div>
@@ -104,8 +104,8 @@
             <span></span>
             <span></span>
             <div class="card-content">
-                {{--            <img src="{{asset('images/ph-15.jpeg')}}">--}}
-                <img src="{{asset('images/ph-15.jpg')}}">
+                {{--            <img src="{{asset('storage/images/ph-15.jpeg')}}">--}}
+                <img src="{{asset('storage/images/ph-15.jpg')}}">
                 <h2>01</h2>
                 <h3>الصف الدراسي الأول</h3>
                 <p>جميع كورسات الصف الأول الثانوي</p>

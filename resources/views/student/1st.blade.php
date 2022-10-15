@@ -11,11 +11,11 @@
                 <div class="thumb">
                     @if(isset($demo))
                         <video src="{{asset('storage/images/demo_first_year/'.$demo->demo)}}" controls controlsList="nodownload"
-                               poster="{{asset('images/post-1-1.png')}}"
+                               poster="{{asset('storage/images/ph-18.jpg')}}"
                                id="video">
                         </video>
                     @else
-                        <video src="{{asset('images/vid-1.mp4')}}" controls controlsList="nodownload" poster="{{asset('storage/images/post-1-1.png')}}"
+                        <video src="{{asset('storage/images/vid-1.mp4')}}" controls controlsList="nodownload" poster="{{asset('storage/images/ph-18.jpg')}}"
                                id="video"></video>
                     @endif
 
@@ -56,19 +56,19 @@
                 <div class="img-holder"><img src="{{asset('storage/images/fet-2.svg')}}"></div>
                 <h2>Quality</h2>
                 <p>شاهد دروسك اكثر من مرة</p>
-                <a href="#">More</a>
+                <a href="{{route('about')}}">More</a>
             </div>
             <div class="box time">
                 <div class="img-holder"><img src="{{asset('storage/images/fet-1.svg')}}"></div>
                 <h2>Time</h2>
                 <p>وفر وقت المواصلات و السنتر</p>
-                <a href="#">More</a>
+                <a href="{{route('features')}}">More</a>
             </div>
             <div class="box passion">
                 <div class="img-holder"><img src="{{asset('storage/images/fet-3.svg')}}"></div>
                 <h2>Passion</h2>
                 <p>احضر امتحانات دورية </p>
-                <a href="#">More</a>
+                <a href="{{route('about')}}">More</a>
             </div>
         </div>
     </div>

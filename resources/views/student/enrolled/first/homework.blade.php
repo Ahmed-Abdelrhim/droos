@@ -5,7 +5,7 @@
         <div class="row">
             <div class="column">
                 <div class="thumb">
-                    <img src="{{asset('images/aab.png')}}" alt="not-found">
+                    <img src="{{asset('storage/images/aab.png')}}" alt="not-found">
                     <a href="{{$homework}}" class="inline-btn" target="_blank"><i
                         style="margin-left:15px;" class="fas fa-book"></i>الدخول الي الواجب</a>
                 </div>

@@ -366,9 +366,9 @@
         font-size: 16px;
     }
 
-    .card-footer, .progress {
-        display: none;
-    }
+    /*.card-footer, .progress {*/
+    /*    display: none;*/
+    /*}*/
 </style>
 <header class="header">
     <section class="flex">
@@ -378,7 +378,12 @@
             <div id="user-btn" class="fas fa-user"></div>
         </div>
         <div class="profile">
-            <img src="{{asset('storage/images/pic-1.jpg')}}" class="image" alt="">
+            <img src="@if(Auth::guard('admin')->check())
+            {{asset('storage/images/adminImages/'.Auth::guard('admin')->user()->avatar)}}
+            @else
+            {{asset('storage/images/pic-1.jpg')}}
+            @endif
+            " class="image" alt="not-found">
             <h3 class="name">{{Auth::guard('admin')->user()->name}}</h3>
             <p class="role">Admin</p>
             <a href="{{route('teacher.profile')}}" class="btn">view profile</a>
@@ -461,6 +466,7 @@
             <i class="fa fa-caret-down arrow"></i>
         </button>
         <div class="dropdown-container">
+            <a href="{{route('chunk.upload')}}"><i class="fas fa-question"></i><span> رفع محاضرة</span></a>
             <a href="{{route('add.new.lec')}}"><i class="fas fa-question"></i><span>أضافة محاضرة</span></a>
             <a href="{{route('get.lec.1st.year')}}"><i
                     class="fas fa-question"></i><span> محاضرات الصف الأول الثانوي</span></a>

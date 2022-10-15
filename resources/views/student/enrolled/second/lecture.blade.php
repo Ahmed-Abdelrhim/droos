@@ -5,7 +5,7 @@
 
    <div class="video-container">
       <div class="video">
-         <video src="{{asset('storage/third/'.$lec->lec)}}" controls controlsList="nodownload" poster="{{asset('images/courses_second_year/'.$lec['course']->cover)}}"
+         <video src="{{asset('storage/third/'.$lec->lec)}}" controls controlsList="nodownload" poster="{{asset('storage/images/courses_second_year/'.$lec['course']->cover)}}"
                 id="video"></video>
       </div>
       <h3 class="title">فيديو : {{$lec->name}}</h3>
@@ -36,7 +36,7 @@
 
       <div class="box">
          <div class="user">
-            <img src="{{asset('images/pic-1.jpg')}}" alt="">
+            <img src="{{asset('storage/images/pic-1.jpg')}}" alt="">
             <div>
                 <h3>Created By Ahmed Abdelrhim & Anas Rabea</h3>
                <span>22-10-2022</span>
@@ -51,7 +51,7 @@
 
       <div class="box">
          <div class="user">
-            <img src="{{asset('images/pic-2.jpg')}}" alt="">
+            <img src="{{asset('storage/images/pic-2.jpg')}}" alt="">
             <div>
                <h3>john deo</h3>
                <span>22-10-2022</span>
@@ -63,7 +63,7 @@
 
       <div class="box">
          <div class="user">
-            <img src="{{asset('images/pic-3.jpg')}}" alt="">
+            <img src="{{asset('storage/images/pic-3.jpg')}}" alt="">
             <div>
                <h3>john deo</h3>
                <span>22-10-2022</span>
@@ -76,7 +76,7 @@
 
       <div class="box">
          <div class="user">
-            <img src="{{asset('images/pic-4.jpg')}}" alt="">
+            <img src="{{asset('storage/images/pic-4.jpg')}}" alt="">
             <div>
                <h3>john deo</h3>
                <span>22-10-2022</span>
@@ -87,7 +87,7 @@
 
       <div class="box">
          <div class="user">
-            <img src="{{asset('images/pic-5.jpg')}}" alt="">
+            <img src="{{asset('storage/images/pic-5.jpg')}}" alt="">
             <div>
                <h3>john deo</h3>
                <span>22-10-2022</span>
@@ -98,7 +98,7 @@
 
       <div class="box">
          <div class="user">
-            <img src="{{asset('images/pic-2.jpg')}}" alt="">
+            <img src="{{asset('storage/images/pic-2.jpg')}}" alt="">
             <div>
                <h3>john deo</h3>
                <span>22-10-2022</span>

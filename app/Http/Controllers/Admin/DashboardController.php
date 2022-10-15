@@ -188,24 +188,29 @@ class DashboardController extends Controller
         return view('admin.teacher_profile');
     }
 
-    public function updateAdminProfile(Request $request, $id): \Illuminate\Http\RedirectResponse
+    public function updateAdminProfile(Request $request, $id)
     {
 
         // Auth::guard('admin')->user()->id
         $request->validate([
             'name' => 'required|min:4|string',
-            'email' => 'required|email|unique:users,email,'.$id,
+            'email' => 'required|email|unique:admins,email,'.$id,
             'phone_number' => 'required|min:10',
             'password' => 'nullable|min:8|string|confirmed',
-            'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
+            'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:30000',
         ]);
         $admin = Admin::find(Auth::guard('admin')->user()->id);
         $password = $admin->password;
-        if ($password != null)
+        if ($request->password != null)
             $password = bcrypt($request->password);
+
+        // return $password;
+        // return $request;
         $image_name = $admin->avatar;
         if ($request->has('avatar'))
             $image_name = uploadImage('adminImages', $request->avatar);
+
+        DB::beginTransaction();
         $admin->update([
             'name' => $request->name,
             'email' => $request->email,
@@ -215,6 +220,7 @@ class DashboardController extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+        DB::commit();
         return redirect()->back()->with(['success' => 'admin profile updated successfully']);
     }
 
