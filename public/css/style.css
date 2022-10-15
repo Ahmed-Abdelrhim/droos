@@ -2086,8 +2086,7 @@ footer .container img {
     width: 100%;
 }
 
-.contact .row form,
-.form {
+.contact .row form{
     flex: 1 1 30rem;
     background-color: var(--white);
     padding: 2rem;
@@ -2549,4 +2548,41 @@ footer .container img {
     100% {
         transform: rotate(360deg);
     }
+}
+
+                .progress {
+                    position: relative;
+                    width: 100%;
+                    background-color: var(--black);
+                }
+
+                .bar {
+                    background-color: #237eb7;
+                    width: 0%;
+                    height: 20px;
+                    color: #fff;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    font-weight: bold;
+                    font-size: 16px;
+                }
+
+.compo {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    font-size: 18px;
+    color: #03a9f4;
+    background-color: var(--light-bg);
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.copybtn i {
+    font-size: 24px;
+    background-color: var(--light-bg);
+    color: var(--main-color);
+    cursor: pointer;
 }
