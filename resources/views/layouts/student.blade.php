@@ -417,7 +417,7 @@
             <div id="user-btn" class="fas fa-user"></div>
         </div>
         <div class="profile">
-            <img class="image"  src="@if(Auth::check() && Auth::user()->avatar != null)
+            <img class="image" src="@if(Auth::check() && Auth::user()->avatar != null)
                   {{asset('storage/images/studentImages/'.Auth::user()->avatar)}}
                   @else
                   {{asset('storage/images/pic-6.jpg')}}
@@ -426,7 +426,7 @@
                 @if(Auth::check())
                     {{Auth::user()->name}}
                 @else
-                     <span style="margin-left: 5px;">Student</span>
+                    <span style="margin-left: 5px;">Student</span>
                 @endif
             </h3>
             @if(Auth::check() )
@@ -439,8 +439,8 @@
                     <button class="btn" type="submit">log out</button>
                 </form>
             @else
-                    <a href="{{route('login')}}" class="option-btn">login</a>
-                    <a href="{{route('student.register')}}" class="option-btn">register</a>
+                <a href="{{route('login')}}" class="option-btn">login</a>
+                <a href="{{route('student.register')}}" class="option-btn">register</a>
             @endif
         </div>
         {{--
@@ -467,30 +467,35 @@
      --}}
         <div class="tutor">
             <div class="info">
-                <h3 >
+                <h3>
                     @if(Auth::check())
-                        <span style="margin-left: 10px; width: fit-content; display:block;">Welcome_
+                        <span style="margin-left: 10px; width: fit-content; display:block;">
+                            <a href="{{route('home')}}">
+                                Welcome_
                      @if(Auth::user()->academic_year == 1)
-                                الصف الأول الثانوي
-                            @endif
-                            @if(Auth::user()->academic_year == 2)
-                                الصف الثاني الثانوي
-                            @endif
-                            @if(Auth::user()->academic_year == 3)
-                                الصف الثالث الثانوي
-                            @endif
+                                    الصف الأول الثانوي
+                                @endif
+                                @if(Auth::user()->academic_year == 2)
+                                    الصف الثاني الثانوي
+                                @endif
+                                @if(Auth::user()->academic_year == 3)
+                                    الصف الثالث الثانوي
+                                @endif
+                            </a>
                      </span>
-                        {{Auth::user()->name}}
+                        <a href="{{route('home')}}">{{Auth::user()->name}}</a>
                     @else
                         Student
                     @endif
                 </h3>
             </div>
-            <img src="@if(Auth::check() && Auth::user()->avatar != null)
+            <a href="{{route('home')}}">
+                <img src="@if(Auth::check() && Auth::user()->avatar != null)
                   {{asset('storage/images/studentImages/'.Auth::user()->avatar)}}
                   @else
                   {{asset('storage/images/pic-6.jpg')}}
                   @endif" alt="tutor">
+            </a>
         </div>
         {{--
         <h2 style="margin-left: 10px;">--}}
@@ -550,84 +555,84 @@
 </div>
 @yield('content')
 <!-- Start Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="box">
-                <a href="{{route('home')}}" class="logo"><img src="{{asset('storage/images/logo.png')}}"></a>
-                <ul class="social">
-                    <li>
-                        <a href="https://www.facebook.com/profile.php?id=100068906257005" class="facebook"
-                           target="_blank">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://web.facebook.com/profile.php?id=100009262544420" class="twitter"
-                           target="_blank">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.youtube.com/channel/UCXrIOiXRybTNagbllgISrDQ" class="youtube"
-                           target="_blank">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </li>
-                </ul>
-                <p class="text">
-                    منصة علاء الدين لشرح منهج الفزياء للثانوية العامة
-                </p>
-            </div>
-            <div class="box">
-                <ul class="links">
-                    <li><a href="{{route('home')}}">الرئيسية</a></li>
-                    <li><a href="{{route('about')}}">من نحن</a></li>
-                    <li><a href="{{route('contact')}}">تواصل معنا</a></li>
-                    <li><a href="{{route('home')}}">الكورسات</a></li>
-                </ul>
-            </div>
-            <div class="box">
-                <div class="line">
-                    <i class="fas fa-map-marker-alt fa-fw"></i>
-                    <div class="info">مصر</div>
-                </div>
-                <div class="line">
-                    <i class="far fa-clock fa-fw"></i>
-                    <div class="info">24/7</div>
-                </div>
-                <div class="line">
-                    <i class="fas fa-phone-volume fa-fw"></i>
-                    <div class="info">01149596478</div>
-                </div>
-            </div>
-            <div class="box footer-gallery">
-                <img src="{{asset('storage/images/thumb-9.png')}}" alt=""/>
-                <img src="{{asset('storage/images/thumb-8.png')}}" alt=""/>
-                <img src="{{asset('storage/images/year-2.jpeg')}}" alt=""/>
-                <img src="{{asset('storage/images/ph-1.jpg')}}" alt=""/>
-                <img src="{{asset('storage/images/thumb-5.png')}}" alt=""/>
-                <img src="{{asset('storage/images/thumb-4.png')}}" alt=""/>
-            </div>
-            <!-- <div class="box">
-                <p class="text">
-                    للتواصل مع مطوري الموقع يرجي الاتصال علي الارقام التالية
-                </p>
-                <div class="line">
-                    <i class="fas fa-phone-volume fa-fw"></i>
-                    <div class="info">01152067271</div>
-                    <i class="fas fa-phone-volume fa-fw"></i>
-                    <div class="info">01014012312</div>
-                </div>
-            </div> -->
+<footer class="footer">
+    <div class="container">
+        <div class="box">
+            <a href="{{route('home')}}" class="logo"><img src="{{asset('storage/images/logo.png')}}"></a>
+            <ul class="social">
+                <li>
+                    <a href="https://www.facebook.com/profile.php?id=100068906257005" class="facebook"
+                       target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://web.facebook.com/profile.php?id=100009262544420" class="twitter"
+                       target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/channel/UCXrIOiXRybTNagbllgISrDQ" class="youtube"
+                       target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </li>
+            </ul>
+            <p class="text">
+                منصة علاء الدين لشرح منهج الفزياء للثانوية العامة
+            </p>
         </div>
-        <p class="copyright">Developed By <a href="https://www.facebook.com/ahmed.abdalraheem.739" class="fas fa-heart"
-                                             target="_blank"></a>
-            By
-            <a href="https://www.facebook.com/ahmed.abdalraheem.739" target="_blank">Ahmed Abdelrhim</a> ,
-            <a href="https://www.facebook.com/anas.rabea.35" target="_blank">Anas Rabea</a>
-        </p>
-        &copy; copyright @ 2022 | all rights reserved!
-    </footer>
+        <div class="box">
+            <ul class="links">
+                <li><a href="{{route('home')}}">الرئيسية</a></li>
+                <li><a href="{{route('about')}}">من نحن</a></li>
+                <li><a href="{{route('contact')}}">تواصل معنا</a></li>
+                <li><a href="{{route('home')}}">الكورسات</a></li>
+            </ul>
+        </div>
+        <div class="box">
+            <div class="line">
+                <i class="fas fa-map-marker-alt fa-fw"></i>
+                <div class="info">مصر</div>
+            </div>
+            <div class="line">
+                <i class="far fa-clock fa-fw"></i>
+                <div class="info">24/7</div>
+            </div>
+            <div class="line">
+                <i class="fas fa-phone-volume fa-fw"></i>
+                <div class="info">01149596478</div>
+            </div>
+        </div>
+        <div class="box footer-gallery">
+            <img src="{{asset('storage/images/thumb-9.png')}}" alt=""/>
+            <img src="{{asset('storage/images/thumb-8.png')}}" alt=""/>
+            <img src="{{asset('storage/images/year-2.jpeg')}}" alt=""/>
+            <img src="{{asset('storage/images/ph-1.jpg')}}" alt=""/>
+            <img src="{{asset('storage/images/thumb-5.png')}}" alt=""/>
+            <img src="{{asset('storage/images/thumb-4.png')}}" alt=""/>
+        </div>
+        <!-- <div class="box">
+            <p class="text">
+                للتواصل مع مطوري الموقع يرجي الاتصال علي الارقام التالية
+            </p>
+            <div class="line">
+                <i class="fas fa-phone-volume fa-fw"></i>
+                <div class="info">01152067271</div>
+                <i class="fas fa-phone-volume fa-fw"></i>
+                <div class="info">01014012312</div>
+            </div>
+        </div> -->
+    </div>
+    <p class="copyright">Developed By <a href="https://www.facebook.com/ahmed.abdalraheem.739" class="fas fa-heart"
+                                         target="_blank"></a>
+        By
+        <a href="https://www.facebook.com/ahmed.abdalraheem.739" target="_blank">Ahmed Abdelrhim</a> ,
+        <a href="https://www.facebook.com/anas.rabea.35" target="_blank">Anas Rabea</a>
+    </p>
+    &copy; copyright @ 2022 | all rights reserved!
+</footer>
 <!-- scroll top button  -->
 <a href="#" class="top">
     <img src="{{asset('storage/images/scroll-top-img.png')}}">
@@ -751,23 +756,23 @@
     }
 
     // remove "Inspect Element"
-document.onkeydown = function(e) {
-  if(event.keyCode == 123) {
-     return false;
-  }
-  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-     return false;
-  }
-  if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-     return false;
-  }
-  if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-     return false;
-  }
-  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-     return false;
-  }
-}
+    document.onkeydown = function (e) {
+        if (event.keyCode == 123) {
+            return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+            return false;
+        }
+    }
 
 </script>
 {{--Custom JavaScript--}}

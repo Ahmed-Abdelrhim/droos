@@ -36,7 +36,7 @@ class CustomLoginController extends Controller
             'avatar' => $image_name,
         ]);
         DB::commit();
-        return redirect()->route('student.login');
+        return redirect()->route('login');
     }
 
     public function showLoginForm()

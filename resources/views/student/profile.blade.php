@@ -33,7 +33,7 @@
             <span class="text-danger" style="color: white">{{$message}}</span>
             @enderror
 
-            <p>رقم هاتف الطالب <span>*</span></p>
+            <p>رقم الهاتف <span>*</span></p>
             <input type="text" name="phone_number" placeholder="enter your phone number" maxlength="50" class="box"
                    value="{{Auth::user()->phone_number}}"
             >
@@ -51,20 +51,20 @@
             @enderror
 
 
-            <p>الباسورد جديد <span>*</span></p>
+            <p>الباسورد الجديد <span>*</span>اذا كنت تريد تغيره <span>*</span></p>
             <input type="password" name="password" placeholder="enter your new password" maxlength="20" class="box">
             @error('password')
             <span class="text-danger" style="color: white">{{$message}}</span>
             @enderror
 
-            <p>تأكيد الباسورد <span>*</span></p>
+            <p>تأكيد الباسورد الجديد <span>*</span></p>
             <input type="password" name="password_confirmation" placeholder="confirm your password" maxlength="20"
                    class="box">
             @error('password_confirmation')
             <span class="text-danger" style="color: white">{{$message}}</span>
             @enderror
 
-            <p>أختر صورة البروفايل <span>*</span></p>
+            <p> أختر صورة البروفايل <span>*</span>اذا كنت تريد<span>*</span></p>
             <input type="file" class="box" name="avatar">
             <button type="submit" class="btn">تحديث</button>
         </form>
