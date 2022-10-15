@@ -168,19 +168,19 @@
                 <div class="img-holder"><img src="{{asset('storage/images/fet-2.svg')}}"></div>
                 <h2>Quality</h2>
                 <p>شاهد دروسك اكثر من مرة</p>
-                <a href="#">More</a>
+                <a href="{{route('about')}}">More</a>
             </div>
             <div class="box time">
                 <div class="img-holder"><img src="{{asset('storage/images/fet-1.svg')}}"></div>
                 <h2>Time</h2>
                 <p>وفر وقت المواصلات و السنتر</p>
-                <a href="#">More</a>
+                <a href="{{route('features')}}">More</a>
             </div>
             <div class="box passion">
                 <div class="img-holder"><img src="{{asset('storage/images/fet-3.svg')}}"></div>
                 <h2>Passion</h2>
                 <p>احضر امتحانات دورية </p>
-                <a href="#">More</a>
+                <a href="{{route('about')}}">More</a>
             </div>
         </div>
     </div>
