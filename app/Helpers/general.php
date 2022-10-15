@@ -5,7 +5,7 @@ function uploadImage($folder, $image): string
 {
     $image_name = time() . '.' . $image->extension();
     //$image->move('images/' . $folder, $image_name);
-    Storage::disk('public')->putFileAs( $folder, $image, $image_name);
+    Storage::disk('public')->putFileAs( 'images/'.$folder, $image, $image_name);
 
     return $image_name;
 }

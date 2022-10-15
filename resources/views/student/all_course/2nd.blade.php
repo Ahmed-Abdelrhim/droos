@@ -24,7 +24,7 @@
                     <h3>الصف الثاني الثانوي</h3>
                     <p style="margin-top: 5px">{{$course->name}}</p>
                     <p style="margin-top: 5px">السعر : {{$course->price}}</p>
-                    @if(isset($serials))
+                    @if(isset($serials) && count($serials) > 0)
                         @if(in_array($course->serial_number,$serials))
                             <a>عرض الكورس</a>
                         @else
