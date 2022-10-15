@@ -7,14 +7,17 @@
 {{--   <h1 class="heading">شراء الكورس </h1>--}}
     <h1 class="heading"> لشراء الكورس <span style="font-size: 18px;">قم بتحويل الفلوس بفودافون كاش علي الأرقام: 01025642978</span>  </h1>
 
+
+    @if(\Session::get('success'))
+        <div class="row mr-2 ml-2">
+            <button type="text" class="btn btn-lg btn-block btn-outline-success mb-2"
+                    id="type-error">{{\Session::get('success')}}
+            </button>
+        </div>
+    @endif
+
     <div class="card-container" id="cards">
-        @if(\Session::get('success'))
-            <div class="row mr-2 ml-2">
-                <button type="text" class="btn btn-lg btn-block btn-outline-success mb-2"
-                        id="type-error">{{\Session::get('success')}}
-                </button>
-            </div>
-        @endif
+
             <div class="card">
                 <span></span>
                 <span></span>
