@@ -23,7 +23,7 @@
                 <h3 class="name">Welcome</h3>
                 <p class="role">studen</p>
                 <div class="flex-btn">
-                    <a href="{{route('student.login')}}" class="option-btn">login</a>
+                    <a href="{{route('login')}}" class="option-btn">login</a>
                     <a href="{{route('student.register')}}" class="option-btn">register</a>
                 </div>
             </div>
@@ -101,7 +101,7 @@
 {{--                        <input type="file"  class="box" name="avatar">--}}
                 </div>
             </div>
-            <p class="link">هل لديك حساب بالفعل؟ <a href="{{route('student.login')}}">تسجيل الدخول</a></p>
+            <p class="link">هل لديك حساب بالفعل؟ <a href="{{route('login')}}">تسجيل الدخول</a></p>
             <button type="submit" class="btn">تسجيل</button>
         </form>
 

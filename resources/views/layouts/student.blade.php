@@ -439,7 +439,7 @@
                     <button class="btn" type="submit">log out</button>
                 </form>
             @else
-                    <a href="{{route('student.login')}}" class="option-btn">login</a>
+                    <a href="{{route('login')}}" class="option-btn">login</a>
                     <a href="{{route('student.register')}}" class="option-btn">register</a>
             @endif
         </div>

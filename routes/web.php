@@ -34,6 +34,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::post('register', [CustomLoginController::class, 'registerStudent'])->name('store.student');
 
         Route::get('login', [CustomLoginController::class, 'showLoginForm'])->name('student.login');
+        Route::get('login', [CustomLoginController::class, 'showLoginForm'])->name('login');
         Route::post('login', [CustomLoginController::class, 'login'])->name('login.student');
 
         Route::get('home', function () {
