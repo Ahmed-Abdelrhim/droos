@@ -216,10 +216,10 @@ class AcademicThirdYear extends Controller
             'quiz' => $request->quiz,
             'course_id' => $lecture->course_id,
             'serial_number' => $lecture->serial_number,
-            'week' => $request->week,
+            'week' => $lecture->week,
             'created_at' => now(),
             'updated_at' => now(),]);
-        return redirect()->back()->with(['success' => 'lecture updated successfully']);
+        return redirect()->back()->with(['success' => 'lecture 3rd year updated successfully']);
     }
 
     public function viewWeeksPage($id)
