@@ -15,6 +15,7 @@ use App\Models\WaitingListFirstYear;
 use Illuminate\Http\Request;
 use App\Models\CourseFirstYear;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Gate;
 
@@ -198,7 +199,7 @@ class AcademicFirstYear extends Controller
         $lec = LecturesFirstYear::find($id);
         if (!$lec)
             return 'Lecture Not Found';
-        $file_path = 'lectures/first/'.$lec->lec;
+        //$file_path = Storage::disk('public')->get('third/'.$lec->lec);
         //unlink($file_path);
         $lec->delete();
         return redirect()->back()->with(['success' => 'Lecture deleted successfully']);

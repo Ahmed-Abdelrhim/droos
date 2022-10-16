@@ -15,6 +15,7 @@ use App\Models\WaitingListSecondtYear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class AcademicSecondYear extends Controller
 {
@@ -235,7 +236,7 @@ class AcademicSecondYear extends Controller
         $lec = LecturesSecondYear::find($id);
         if (!$lec)
             return 'Lecture Not Found';
-        $file_path = 'lectures/second/'.$lec->lec;
+        //$file_path = Storage::disk('public')->get('third/'.$lec->lec);
         //unlink($file_path);
         $lec->delete();
         return redirect()->back()->with(['success' => 'Lecture deleted successfully']);
