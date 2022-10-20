@@ -1,10 +1,83 @@
 @extends('layouts.admin')
 @section('content')
     <style>
-        .card-footer, .progress {
-            display: none;
-        }
+
+.card-footer, .progress {
+    display: none;
+}
+
+
+.form-container .form{
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 2rem;
+    width: 50rem;
+    box-shadow: 5px 5px 8px 5px #aaaaaa;
+}
+
+.contact .row .form h3 {
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+    color: var(--black);
+    font-size: 2.5rem;
+}
+
+
+.form-container .form p {
+    font-size: 1.7rem;
+    color: var(--light-color);
+    padding-top: 1rem;
+}
+
+.form-container .form p span {
+    color: var(--red);
+}
+
+.form-container .form h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+    color: var(--main-color);
+    text-align: center;
+}
+.progress {
+                    position: relative;
+                    width: 100%;
+                    background-color: var(--black);
+                }
+
+.bar {
+    background-color: #237eb7;
+    width: 0%;
+    height: 20px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.compo {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    font-size: 18px;
+    color: #03a9f4;
+    background-color: var(--light-bg);
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.copybtn i {
+    font-size: 24px;
+    background-color: var(--light-bg);
+    color: var(--main-color);
+    cursor: pointer;
+}
     </style>
+
     <section class="form-container">
         <div class="form">
             <div class="compo">
