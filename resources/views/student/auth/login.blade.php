@@ -33,11 +33,12 @@
     <section class="form-container">
 
         <form action="{{route('login.student')}}" method="POST" enctype="multipart/form-data">
-            @csrf
+            {{--@csrf--}}
+            {{ csrf_field() }}
             @error('errors')
             <div class="row mr-2 ml-2">
-                <a  href="#" class="btn btn-lg btn-block btn-outline-danger mb-2"
-                        id="type-error">{{$message}}
+                <a href="#" class="btn btn-lg btn-block btn-outline-danger mb-2"
+                   id="type-error">{{$message}}
                 </a>
             </div>
             @enderror
@@ -46,7 +47,7 @@
             @if (Session::has('mac'))
                 <div class="row mr-2 ml-2">
                     <a href="#" style="background-color: #dc3545;" class="btn btn-lg btn-block btn-outline-success mb-2"
-                            id="type-error">{{Session::get('mac')}}
+                       id="type-error">{{Session::get('mac')}}
                     </a>
                 </div>
             @endif

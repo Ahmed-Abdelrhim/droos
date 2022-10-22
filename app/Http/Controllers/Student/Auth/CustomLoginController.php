@@ -49,56 +49,62 @@ class CustomLoginController extends Controller
 //        if (Auth::user()->mac_address == substr(exec('getmac'), 0, 17)) {}
 //        return $this->logout();
         if (Auth::attempt($this->credentials($request))) {
-            return $this->authenticated();
-            // Don't Open Two Devices At The Same Time
-//            $logged_in = Auth::user()->mac_address;
-//            if ($logged_in != 0) {
-//                $user = Auth::user();
-//                $cheated_before = Cheats::where('student_id', '=', $user->id)->first();
-//                if ($cheated_before) {
-//                    $cheats = $cheated_before->cheats_number;
-//                    //warning student
-//                    if ($cheats == 0) {
-//                        $cheated_before->cheats_number = 1;
-//                        $cheated_before->save();
-//                        Auth::logout();
-//                        return redirect()->back()->with(['mac' => 'تحذيز مام: اذا حاولت فتح الايميل مره اخري من جهاز مختلف سيتم حذف الايميل']);
-//                    }
-//                    //deleting student account
-//                    if ($cheats == 1) {
-//                        $user->delete();
-//                        Auth::logout();
-//                        return redirect()->back()->with(['mac' => 'تم حذف الايميل لانك حاولت فتحه اكثر من مره علي اكثر من جهاز']);
-//                    }
-//                }
-//                DB::beginTransaction();
-//                Cheats::create(['student_id' => $user->id, 'cheats_number' => 1]);
-//                DB::commit();
-//                Auth::logout();
-//                return redirect()->back()->with(['mac' => ' تحذيز هام: هذا الايميل مفتوح بالفعل وبرجاء عدم فتح الأيميل مره مره اخري والا سيتم حذف الايميل  ']);
-//            }
-//            else {
-//                $user = Auth::user();
-//                $user->mac_address = 1;
-//                $user->save();
-//                $academic_year = Auth::user()->academic_year;
-//                if ($academic_year === 1)
-//                    return redirect()->route('academic_first_years');
-//                if ($academic_year === 2)
-//                    return redirect()->route('academic_second_years');
-//                return redirect()->route('academic_third_years');
-//            }
+            //return $this->authenticated();
+             //Don't Open Two Devices At The Same Time
+            $logged_in = Auth::user()->mac_address;
+            if ($logged_in != 0) {
+                $user = Auth::user();
+                $cheated_before = Cheats::where('student_id', '=', $user->id)->first();
+                if ($cheated_before) {
+                    $cheats = $cheated_before->cheats_number;
+                    //warning student
+                    if ($cheats == 0) {
+                        $cheated_before->cheats_number = 1;
+                        $cheated_before->save();
+                        $user->mac_address = 0;
+                        $user->save();
+                        Auth::logout();
+                        return redirect()->back()->with(['mac' => 'تحذيز مام: اذا حاولت فتح الايميل مره اخري من جهاز مختلف سيتم حذف الايميل']);
+                    }
+                    //deleting student account
+                    if ($cheats == 1) {
+                        $user->delete();
+                        Auth::logout();
+                        return redirect()->back()->with(['mac' => 'تم حذف الايميل لانك حاولت فتحه اكثر من مره علي اكثر من جهاز']);
+                    }
+                }
+                DB::beginTransaction();
+                Cheats::create(['student_id' => $user->id, 'cheats_number' => 0]);
+                DB::commit();
+                $user->mac_address = 0;
+                $user->save();
+                Auth::logout();
+                $request->session()->flash('mac', 'تحذيز هام: هذا الايميل مفتوح بالفعل وبرجاء عدم فتح الأيميل مره مره اخري والا سيتم حذف الايميل ');
+                //return redirect()->route('login')->with(['mac' => ' تحذيز هام: هذا الايميل مفتوح بالفعل وبرجاء عدم فتح الأيميل مره مره اخري والا سيتم حذف الايميل  ']);
+                return redirect()->back();
+            }
+            else {
+                $user = Auth::user();
+                //$user->mac_address = 1;
+                //$user->save();
+                $academic_year = Auth::user()->academic_year;
+                if ($academic_year === 1)
+                    return redirect()->route('academic_first_years');
+                if ($academic_year === 2)
+                    return redirect()->route('academic_second_years');
+                return redirect()->route('academic_third_years');
+            }
         }
         return redirect()->back()->withErrors([
             'errors' => 'Email Or Password Is Incorrect',
         ]);
     }
 
-    protected function authenticated(): \Illuminate\Http\RedirectResponse
-    {
-        Auth::logoutOtherDevices(request('password'));
-        return redirect()->intended();
-    }
+//    protected function authenticated(): \Illuminate\Http\RedirectResponse
+//    {
+//        Auth::logoutOtherDevices(request('password'));
+//        return redirect()->intended();
+//    }
 
     public function credentials($request)
     {

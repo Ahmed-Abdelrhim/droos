@@ -150,3 +150,6 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 // ALTER TABLE cheats ADD FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE;
 
 // C:\xampp\htdocs\droos\storage\logs       laravel.logg
+// SESSION_DOMAIN=alaa-elden.com
+// 01150050050
+// test@test.com

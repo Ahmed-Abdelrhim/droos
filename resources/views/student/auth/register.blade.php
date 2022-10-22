@@ -35,6 +35,7 @@
     <section class="form-container">
 
         <form class="register" action="{{route('store.student')}}" method="POST" enctype="multipart/form-data">
+            {{ csrf_field() }}
             {{-- Mac Address Message --}}
             @if (Session::has('mac'))
                 <div class="row mr-2 ml-2">
@@ -44,61 +45,65 @@
                 </div>
             @endif
 
-            @csrf
+            {{--@csrf--}}
             <h3>سجل الاّن</h3>
             <div class="flex">
                 <div class="col">
                     <p>أسم الطالب (ثنائي) <span>*</span></p>
-                    <input type="text" name="name" placeholder="ادخل الاسم" required maxlength="30" class="box" value="{{old('name')}}">
+                    <input type="text" name="name" placeholder="ادخل الاسم" required maxlength="30" class="box"
+                           value="{{old('name')}}">
                     @error('name')
                     <span class="text-danger" style="color: white">{{$message}}</span>
                     @enderror
                     <p>الأيميل <span>*</span></p>
-                    <input type="email" name="email" placeholder="ادخل الأيميل" required maxlength="50" class="box" value="{{old('email')}}">
+                    <input type="email" name="email" placeholder="ادخل الأيميل" required maxlength="50" class="box"
+                           value="{{old('email')}}">
                     @error('email')
                     <span class="text-danger" style="color: white">{{$message}}</span>
                     @enderror
 
                     <p>رقم هاتف الطالب <span>*</span></p>
-                    <input type="tel" name="phone_number" placeholder="ادخل رقم الهاتف" required  maxlength="11"
-                            class="box" value="{{old('phone_number')}}">
+                    <input type="tel" name="phone_number" placeholder="ادخل رقم الهاتف" required maxlength="11"
+                           class="box" value="{{old('phone_number')}}">
                     @error('phone_number')
                     <span class="text-danger" style="color: white">{{$message}}</span>
                     @enderror
 
-{{--                    <p>رقم هاتف ولي الأمر <span>*</span></p>--}}
-{{--                    <input type="tel" name="parent_number" placeholder="ادخل رقم هاتف ولي الأمر" required--}}
-{{--                            maxlength="11" class="box" value="{{old('parent_number')}}">--}}
-{{--                    @error('parent_number')--}}
-{{--                    <span class="text-danger" style="color: white">{{$message}}</span>--}}
-{{--                    @enderror--}}
+                    {{--                    <p>رقم هاتف ولي الأمر <span>*</span></p>--}}
+                    {{--                    <input type="tel" name="parent_number" placeholder="ادخل رقم هاتف ولي الأمر" required--}}
+                    {{--                            maxlength="11" class="box" value="{{old('parent_number')}}">--}}
+                    {{--                    @error('parent_number')--}}
+                    {{--                    <span class="text-danger" style="color: white">{{$message}}</span>--}}
+                    {{--                    @enderror--}}
 
 
                 </div>
                 <div class="col">
-                        <p>أختر السنة الدراسية <span>*</span></p>
-                        <select class="custom-select box" name="academic_year">
-                            <option selected>اختر...</option>
-                            <option value="1">الصف الأول الثانوي</option>
-                            <option value="2">الصف الثاني الثانوي</option>
-                            <option value="3">الصف الثالث الثانوي</option>
-                        </select>
-                        @error('academic_year')
-                        <span class="text-danger" style="color: white">{{$message}}</span>
-                        @enderror
-                        <p>الباسورد <span>*</span></p>
-                        <input type="password" name="password" placeholder="ادخل الباسورد" required maxlength="20" class="box">
-                        @error('password')
-                        <span class="text-danger" style="color: white">{{$message}}</span>
-                        @enderror
-                        <p>تأكيد الباسورد <span>*</span></p>
-                        <input type="password" name="password_confirmation" placeholder="ادخل الباسورد مرة اخري" required maxlength="20"
-                            class="box">
-                        @error('password_confirmation')
-                        <span class="text-danger" style="color: white">{{$message}}</span>
-                        @enderror
-{{--                        <p>أختر صورة البروفايل <span>*</span></p>--}}
-{{--                        <input type="file"  class="box" name="avatar">--}}
+                    <p>أختر السنة الدراسية <span>*</span></p>
+                    <select class="custom-select box" name="academic_year">
+                        <option selected>اختر...</option>
+                        <option value="1">الصف الأول الثانوي</option>
+                        <option value="2">الصف الثاني الثانوي</option>
+                        <option value="3">الصف الثالث الثانوي</option>
+                    </select>
+                    @error('academic_year')
+                    <span class="text-danger" style="color: white">{{$message}}</span>
+                    @enderror
+                    <p>الباسورد <span>*</span></p>
+                    <input type="password" name="password" placeholder="ادخل الباسورد" required maxlength="20"
+                           class="box">
+                    @error('password')
+                    <span class="text-danger" style="color: white">{{$message}}</span>
+                    @enderror
+                    <p>تأكيد الباسورد <span>*</span></p>
+                    <input type="password" name="password_confirmation" placeholder="ادخل الباسورد مرة اخري" required
+                           maxlength="20"
+                           class="box">
+                    @error('password_confirmation')
+                    <span class="text-danger" style="color: white">{{$message}}</span>
+                    @enderror
+                    {{--                        <p>أختر صورة البروفايل <span>*</span></p>--}}
+                    {{--                        <input type="file"  class="box" name="avatar">--}}
                 </div>
             </div>
             <p class="link">هل لديك حساب بالفعل؟ <a href="{{route('login')}}">تسجيل الدخول</a></p>
@@ -107,7 +112,7 @@
 
     </section>
 
-<!-- Start Footer -->
+    <!-- Start Footer -->
     <footer class="footer">
         <div class="container">
             <div class="box">
@@ -187,14 +192,14 @@
         &copy; copyright @ 2022 | all rights reserved!
     </footer>
 
-<!-- scroll top button  -->
-<a href="#" class="top">
-   <img src="{{asset('storage/images/scroll-top-img.png')}}">
-</a>
-<!-- End Footer -->
+    <!-- scroll top button  -->
+    <a href="#" class="top">
+        <img src="{{asset('storage/images/scroll-top-img.png')}}">
+    </a>
+    <!-- End Footer -->
 
 
-<!-- custom js file link  -->
-<script src="{{asset('js/script.js')}}"></script>
+    <!-- custom js file link  -->
+    <script src="{{asset('js/script.js')}}"></script>
 
 @endsection
