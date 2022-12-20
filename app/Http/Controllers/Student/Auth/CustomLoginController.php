@@ -114,7 +114,7 @@ class CustomLoginController extends Controller
     public function username($request): string
     {
         $value = $request->get('email');
-        $login = 'name';
+        $login = 'email';
         if (is_numeric($value))
             $login = 'phone_number';
         if (filter_var($value , FILTER_VALIDATE_EMAIL))

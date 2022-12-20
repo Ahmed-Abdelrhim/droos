@@ -136,6 +136,10 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
 });
 
+Route::get('test',function(){
+    return view('test');
+});
+
 
 
 //Route::post('file-upload/upload-large-files/{name}/{academic_year}/{month}/{week}/{homework}/{quiz}',[\App\Http\Controllers\FileUploadController::class,'uploadLargeFiles'])->name('chunk.uploaded');

@@ -62,6 +62,7 @@
 
     {{--    End--}}
 
+    @livewireStyles
 
 </head>
 <body>
@@ -94,6 +95,7 @@
 
 
 
+@livewireScripts
 
 @stack('javascript')
 @yield('script')

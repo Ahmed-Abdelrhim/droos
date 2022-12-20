@@ -8,6 +8,7 @@
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    @livewireStyles
     <style>
         body {
             background-color: var(--light-bg);
@@ -406,6 +407,7 @@
             padding-left: 8px;
         }
     </style>
+
 </head>
 <body oncontextmenu="return false">
 <header class="header">
@@ -780,5 +782,6 @@
 <script src="{{asset('js/sweetalert.min.js')}}"></script>
 @stack('javascript')
 @yield('script')
+@livewireScripts
 </body>
 </html>
