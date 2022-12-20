@@ -25,7 +25,7 @@ class CustomLoginController extends Controller
         if ($request->has('avatar'))
             $image_name = $this->handleImage($request->avatar, 'studentImages');
         DB::beginTransaction();
-        User::create([
+        User::query()->create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'phone_number' => $request->input('phone_number'),
@@ -54,7 +54,7 @@ class CustomLoginController extends Controller
             $logged_in = Auth::user()->mac_address;
             if ($logged_in != 0) {
                 $user = Auth::user();
-                $cheated_before = Cheats::where('student_id', '=', $user->id)->first();
+                $cheated_before = Cheats::query()->where('student_id', '=', $user->id)->first();
                 if ($cheated_before) {
                     $cheats = $cheated_before->cheats_number;
                     //warning student
@@ -108,12 +108,19 @@ class CustomLoginController extends Controller
 
     public function credentials($request)
     {
-        return $request->only($this->username(), 'password');
+        return $request->only($this->username($request), 'password');
     }
 
-    public function username(): string
+    public function username($request): string
     {
-        return 'email';
+        $value = $request->get('email');
+        $login = 'name';
+        if (is_numeric($value))
+            $login = 'phone_number';
+        if (filter_var($value , FILTER_VALIDATE_EMAIL))
+            $login = 'email';
+        request()->merge([$login => $value]);
+        return $login;
     }
 
     public function logout(): \Illuminate\Http\RedirectResponse
