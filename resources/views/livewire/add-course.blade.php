@@ -34,7 +34,7 @@
             @enderror
 
             <p>Academic year <span>*</span></p>
-            <select class="custom-select" name="academic_year" wire:model="academi_year">
+            <select class="custom-select" name="academic_year" wire:model="academic_year">
                 <option value="1">الصف الأول الثانوي</option>
                 <option value="2">الصف الثاني الثانوي</option>
                 <option value="3">الصف الثالث الثانوي</option>
@@ -49,7 +49,7 @@
 
             <p>Course price <span>*</span></p>
             <input type="number" name="price" placeholder="سعر الكورس" required maxlength="50" class="box"
-                   wire:model="cost">
+                   wire:model="price">
             @error('price')
             <span class="text-danger" style="color: white">{{$message}}</span>
             @enderror

@@ -6,9 +6,12 @@ use App\Models\CourseThirdYear;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class AddCourse extends Component
 {
+    use WithFileUploads;
+
     public $name;
     public $academic_year;
     public $price;
