@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Livewire;
-
+use App\Models\CourseFirstYear;
+use App\Models\CourseSecondYear;
 use App\Models\CourseThirdYear;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -52,21 +53,45 @@ class AddCourse extends Component
                 $this->cover->storeAs('courses_first_year',$cover,'public');
         }
 
-        $discount = null;
+        $price = $this->price;
         if ($this->discount != null) {
-            $discount = $this->price -  (($this->discount / 100 ) * $this->price);
+            $price = $this->price -  (($this->discount / 100 ) * $this->price);
         }
         try {
             DB::beginTransaction();
-            $done = CourseThirdYear::query()->create([
-                'name' => $this->name,
-                'serial_number' => $this->month,
-                'price' => $this->price,
-                'cover' => $cover,
-                'discount' => $discount,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
+            if($this->academic_year == 3) {
+                CourseThirdYear::query()->create([
+                    'name' => $this->name,
+                    'serial_number' => $this->month,
+                    'price' => $price,
+                    'cover' => $cover,
+                    'discount' => $this->discount,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            }
+            if($this->academic_year == 2) {
+                CourseSecondYear::query()->create([
+                    'name' => $this->name,
+                    'serial_number' => $this->month,
+                    'price' => $price,
+                    'cover' => $cover,
+                    'discount' => $this->discount,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            }
+            if($this->academic_year == 1) {
+                CourseFirstYear::query()->create([
+                    'name' => $this->name,
+                    'serial_number' => $this->month,
+                    'price' => $price,
+                    'cover' => $cover,
+                    'discount' => $this->discount,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            }
             DB::commit();
         } catch (\Exception $e) {
             session()->flash('errors' ,'something went wrong');

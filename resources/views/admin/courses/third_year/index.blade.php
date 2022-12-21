@@ -13,7 +13,7 @@
                 <span></span>
                 <span></span>
                 <div class="card-content">
-                    <img src="{{asset('storage/images/courses_third_year/'.$course->cover)}}">
+                    <img src="{{asset('storage/courses_third_year/'.$course->cover)}}">
                     <h2>03</h2>
                     <h3>الصف الثالث الثانوي</h3>
                     <p style="margin-top: 5px">{{$course->name}}</p>
