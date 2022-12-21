@@ -53,8 +53,8 @@
             @endif
 
             <h3>تسجيل الدخول</h3>
-            <p>الأيميل <span>*</span></p>
-            <input type="email" name="email" placeholder="ادخل الأيميل" required maxlength="50" class="box"
+            <p>الأيميل , رقم الهاتف <span>*</span></p>
+            <input name="email" placeholder="ادخل الأيميل" required maxlength="50" class="box"
                    value="{{old('email')}}">
 
             <p>الباسورد <span>*</span></p>
