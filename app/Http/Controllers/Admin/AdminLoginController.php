@@ -49,12 +49,19 @@ class AdminLoginController extends Controller
 
     public function credentials($request)
     {
-        return $request->only($this->username(), 'password');
+        return $request->only($this->username($request), 'password');
     }
 
-    public function username(): string
+    public function username($request): string
     {
-        return 'email';
+        $value = $request->get('email');
+        $login = 'email';
+        if (is_numeric($value))
+            $login = 'phone_number';
+        if (filter_var($value,FILTER_VALIDATE_EMAIL))
+            $login = 'email';
+        request()->merge([$login => $value]);
+        return $login;
     }
 
     //Admin Logout Function

@@ -7,28 +7,22 @@ use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class StudentProfile extends Component
+class AdminProfile extends Component
 {
     use WithFileUploads;
-
     public $name;
     public $email;
-    public $phone_number;
+    public $phone;
     public $password;
     public $password_confirmation;
     public $avatar;
 
-
-
     public function rules():array
     {
-        // .auth()->user()->id
-        // .auth()->user()->id
-        // |unique:users,phone_number,
         return [
             'name' => 'required|string|min:4',
-            'email' => 'required|email|unique:users,phone_number,'.auth()->user()->id,
-            'phone_number' => 'required|regex:/(01)[0-9]{9}/|unique:users,phone_number,'.auth()->user()->id,
+            'email' => 'required|email|unique:admins,phone_number,'.auth()->guard('admin')->user()->id,
+            'phone' => 'required|regex:/(01)[0-9]{9}/|unique:admins,phone_number,'.auth()->guard('admin')->user()->id,
             'password' => 'nullable|string|min:6',
             'password_confirmation' => 'nullable|string|min:6|same:password',
             'avatar' => 'nullable|image|max:3024', // 3MB Max
@@ -53,37 +47,38 @@ class StudentProfile extends Component
 
     public function mount()
     {
-        $this->name = auth()->user()->name;
-        $this->email = auth()->user()->email;
-        $this->phone_number = auth()->user()->phone_number;
+        $this->name = auth()->guard('admin')->user()->name;
+        $this->email = auth()->guard('admin')->user()->email;
+        $this->phone = auth()->guard('admin')->user()->phone_number;
     }
+
 
     public function render()
     {
-        return view('livewire.student-profile');
+        return view('livewire.admin-profile');
     }
 
     public function submit()
     {
         $this->validate();
-        $user = auth()->user();
+        $user = auth()->guard('admin')->user();
+
         $image_name = null;
         if ($user->avatar != null)
             $image_name = $user->avatar;
         if ($this->avatar != null) {
             $image_name = Str::random(4) . time() . '.' . $this->avatar->guessExtension();
-            $this->avatar->storeAs('images/studentImages',$image_name,'public');
+            $this->avatar->storeAs('images/adminImages/',$image_name,'public');
         }
-
         $password = $user->password;
-        if ($this->password != null )
+        if ($this->password != null)
             $password = bcrypt($this->password);
         try {
             DB::beginTransaction();
             $user->update([
                 'name' => $this->name,
                 'email' => $this->email,
-                'phone_number' => $this->phone_number,
+                'phone_number' => $this->phone,
                 'password' => $password,
                 'avatar' => $image_name,
             ]);
@@ -94,13 +89,10 @@ class StudentProfile extends Component
         DB::commit();
         $this->name = '';
         $this->email = '';
-        $this->phone_number = '';
+        $this->phone = '';
         $this->password = '';
         $this->password_confirmation = '';
         $this->avatar = '';
         session()->flash('success','profile updated successfully');
     }
 }
-
-
-

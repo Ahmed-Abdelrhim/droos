@@ -487,8 +487,6 @@ class DashboardController extends Controller
         //                'created_at' => now(),
         //                'updated_at' => now(),
 
-
-
         if ($request->academic_year == 1) {
             $demo = uploadLecture('demo_first_year', $request->demo);
             $demo_video = Demo::query()->where('academic_year', '=', 1)->first();

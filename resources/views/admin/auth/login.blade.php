@@ -42,8 +42,8 @@
                 </div>
             @endif
             <h3>Dashboard login</h3>
-            <p>your email <span>*</span></p>
-            <input type="email" name="email" placeholder="enter your email" required maxlength="50" class="box"
+            <p>email , phone<span>*</span></p>
+            <input name="email" placeholder="enter your email" required maxlength="50" class="box"
                    value="{{old('email')}}">
 
             <p>your password <span>*</span></p>
