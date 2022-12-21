@@ -15,6 +15,7 @@ use App\Models\WaitingListSecondtYear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\WaitingListThirdYear;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
@@ -23,7 +24,10 @@ class AcademicThirdYear extends Controller
 {
     public function index()
     {
-        $demo = Demo::where('academic_year', '=', 3)->first();
+        Demo::query()->where('academic_year', '=', 3)->first();
+        // Cache::put('dom_third_year', $demo, now()->addDay(2)  );
+        $demo = Cache::get('demo_third_year');
+
         $user = Auth::user();
         $user->mac_address = 1;
         $user->save();

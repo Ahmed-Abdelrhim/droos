@@ -20,6 +20,7 @@ use App\Models\QuizFirstYear;
 use App\Models\QuizSecondYear;
 use App\Models\QuizThirdYear;
 use App\Models\WhoAreWe;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -42,6 +43,7 @@ use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
 class DashboardController extends Controller
 {
     use GlobalTrait;
+
     public function index()
     {
         return view('admin.dashboard');
@@ -194,7 +196,7 @@ class DashboardController extends Controller
         // Auth::guard('admin')->user()->id
         $request->validate([
             'name' => 'required|min:4|string',
-            'email' => 'required|email|unique:admins,email,'.$id,
+            'email' => 'required|email|unique:admins,email,' . $id,
             'phone_number' => 'required|min:10',
             'password' => 'nullable|min:8|string|confirmed',
             'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:30000',
@@ -249,24 +251,25 @@ class DashboardController extends Controller
     }
 
 
-    public function uploadLargeFiles(Request $request,$folder) {
+    public function uploadLargeFiles(Request $request, $folder)
+    {
         $receiver = new FileReceiver('file', $request, HandlerFactory::classFromRequest($request));
         if (!$receiver->isUploaded()) {
             // file not uploaded
         }
 
         $fileReceived = $receiver->receive(); // receive file
-         // return $fileReceived ;
+        // return $fileReceived ;
         if ($fileReceived->isFinished()) { // file uploading is complete / all chunks are uploaded
             $file = $fileReceived->getFile(); // get file
             $extension = $file->getClientOriginalExtension();
-            $fileName = str_replace('.'.$extension, '', $file->getClientOriginalName()); //file name without extenstion
+            $fileName = str_replace('.' . $extension, '', $file->getClientOriginalName()); //file name without extenstion
             $fileName .= '_' . md5(time()) . '.' . $extension; // a unique file name
 
-            $lec_name = time() . '.'.$file->guessExtension();
+            $lec_name = time() . '.' . $file->guessExtension();
 
             // $disk = Storage::disk(config('filesystems.default'));
-            $disk = Storage::disk('public')->putFileAs($folder,$file,$lec_name);
+            $disk = Storage::disk('public')->putFileAs($folder, $file, $lec_name);
             //$path = $disk->putFileAs('videos', $file, $fileName);
 
             // $lecture_path = move('lectures/'.$folder ,$lec_name );
@@ -288,7 +291,6 @@ class DashboardController extends Controller
         ];
 
     }
-
 
 
 // $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->video));
@@ -324,7 +326,7 @@ class DashboardController extends Controller
             //$video_name = uploadLecture('second', $request->lec);
             LecturesSecondYear::create([
                 'name' => $request->name,
-                'lec' =>$request->video_name,
+                'lec' => $request->video_name,
                 'homework' => $request->homework,
                 'quiz' => $request->quiz,
                 'course_id' => $course->id,
@@ -356,7 +358,7 @@ class DashboardController extends Controller
             return redirect()->back()->with(['success' => 'Data Saved Successfully']);
             //return response()->json(['status' => 1 , ',msg' => 'Success Upload']);
         }
-        return response()->json(['status' => 0 , ',msg' => 'Failed Upload']);
+        return response()->json(['status' => 0, ',msg' => 'Failed Upload']);
 
         // return redirect()->route('add.new.lec')->with(['success' => 'Lecture Uploaded Successfully']);
 
@@ -372,17 +374,17 @@ class DashboardController extends Controller
     public function replyMsgForm($id)
     {
         $msg = Message::find($id);
-        if(!$msg)
+        if (!$msg)
             return 'This Message has been Deleted';
 
-        return view('admin.reply-msg',compact('msg'));
+        return view('admin.reply-msg', compact('msg'));
     }
 
-    public function adminReplyMsg(Request $request , $id)
+    public function adminReplyMsg(Request $request, $id)
     {
         // return $request->admin_reply;
-        $msg= Message::find($id);
-        if(!$msg)
+        $msg = Message::find($id);
+        if (!$msg)
             return 'This Message has been Deleted';
         // return $request->admin_reply;
         $msg->admin_reply = $request->admin_reply;
@@ -403,7 +405,7 @@ class DashboardController extends Controller
     public function features()
     {
         $features = Feature::get();
-        if(Auth::check()) {
+        if (Auth::check()) {
             $user = Auth::user();
             $user->mac_address = 1;
             $user->save();
@@ -480,49 +482,64 @@ class DashboardController extends Controller
             'demo' => 'mimetypes:video/mp4,video/mpeg,video/quicktime',
             'academic_year' => 'between:1,3',
         ]);
+        //                'demo_first_year' => $demo,
+        //                'academic_year' => 1,
+        //                'created_at' => now(),
+        //                'updated_at' => now(),
+
+
+
         if ($request->academic_year == 1) {
             $demo = uploadLecture('demo_first_year', $request->demo);
-            $demo_video = Demo::where('academic_year', '=', 1)->first();
+            $demo_video = Demo::query()->where('academic_year', '=', 1)->first();
             if ($demo_video)
                 $demo_video->delete();
-            Demo::create([
+            $demo_insert = Demo::query()->create([
                 'demo' => $demo,
                 'academic_year' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
-            return redirect()->back()->with(['success' => 'demo video first year added successfully']);
+            Cache::put('demo', $demo_insert, now()->addDays(2));
+            session()->flash('success', 'demo video was added successfully');
+            return redirect()->back();
         }
 
         if ($request->academic_year == 2) {
             $demo = uploadLecture('demo_second_year', $request->demo);
-            $demo_video = Demo::where('academic_year', '=', 2)->first();
+            $demo_video = Demo::query()->where('academic_year', '=', 2)->first();
             if ($demo_video)
                 $demo_video->delete();
-            Demo::create([
+            $demo_insert = Demo::query()->create([
                 'demo' => $demo,
                 'academic_year' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
-            return redirect()->back()->with(['success' => 'demo video second year added successfully']);
+            Cache::put('demo_second_year', $demo_insert, now()->addDays(2));
+            session()->flash('success', 'demo video was added successfully');
+            return redirect()->back();
         }
 
         if ($request->academic_year == 3) {
             $demo = uploadLecture('demo_third_year', $request->demo);
-            $demo_video = Demo::where('academic_year', '=', 3)->first();
+            $demo_video = Demo::query()->where('academic_year', '=', 3)->first();
             if ($demo_video)
                 $demo_video->delete();
-            Demo::create([
+            $demo_insert = Demo::query()->create([
                 'demo' => $demo,
                 'academic_year' => 3,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
-            return redirect()->back()->with(['success' => 'demo video third year added successfully']);
+            Cache::put('demo_third_year', $demo_insert, now()->addDays(2));
+            session()->flash('success', 'demo video was added successfully');
+            return redirect()->back();
         }
 
-        return '';
+        // Cache::put('demo', $demo, now()->addDays(2));
+        session()->flash('errors', 'something went wrong');
+        return redirect()->back();
 
     }
 
