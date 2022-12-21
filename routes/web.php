@@ -49,9 +49,9 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
     Route::get('courses/3rd/year', [AcademicThirdYear::class, 'courses'])->name('courses.3rd.students');
 //    Route::get('students/openion',[StudentGeneralController::class,'']);
 
-//    Route::get('hash', function () {
-//        return bcrypt('12345678');
-//    });
+    Route::get('hash', function () {
+        return bcrypt('12345678');
+    });
 
     Route::get('about', [StudentGeneralController::class,'aboutUs'])->name('about');
 
