@@ -71,7 +71,7 @@ class StudentProfile extends Component
         if ($user->avatar != null)
             $image_name = $user->avatar;
         if ($this->avatar != null) {
-            $image_name = Str::random(4) . time() . $this->avatar->guessExtension();
+            $image_name = Str::random(4) . time() . '.' . $this->avatar->guessExtension();
             $this->avatar->storeAs('images/studentImages',$image_name,'public');
         }
         try {

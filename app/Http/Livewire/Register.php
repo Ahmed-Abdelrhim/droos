@@ -61,7 +61,7 @@ class Register extends Component
         $this->validate();
         $image_name = null;
         if ($this->photo != null ) {
-            $image_name = Str::random(4) . time() . $this->photo->guessExtension();
+            $image_name = Str::random(4) . time() . '.' .$this->photo->guessExtension();
             $this->photo->storeAs('images/studentImages' , $image_name ,'public');
         }
         // dd($this->name, $this->email,$this->phone,$this->password,$this->academic_year);
