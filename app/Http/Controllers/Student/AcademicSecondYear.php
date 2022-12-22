@@ -14,21 +14,25 @@ use App\Models\User;
 use App\Models\WaitingListSecondtYear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 
 class AcademicSecondYear extends Controller
 {
-    public function index()
+    public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-        $demo = Demo::where('academic_year', '=', 2)->first();
+        // $demo = Demo::query()->where('academic_year', '=', 2)->first();
+        $demo = Cache::get('demo_second_year');
+        if (empty($demo))
+            $demo = Demo::query()->where('academic_year', '=', 2)->first();
         $user = Auth::user();
         $user->mac_address = 1;
         $user->save();
-        return view('student.2nd', compact('demo'));
+        return view('student.2nd',['demo' => $demo]);
     }
 
-    public function courses()
+    public function courses(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $courses = CourseSecondYear::get();
         if (Auth::check()) {
@@ -71,20 +75,20 @@ class AcademicSecondYear extends Controller
         return view('student.all_course.2nd', compact('courses'));
     }
 
-    public function allStudents()
+    public function allStudents(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $students = User::orderBy('id', 'asc')->where('academic_year', 2)->paginate(7);
         return view('admin.students.2nd', compact('students'));
     }
 
 
-    public function showAllCourses()
+    public function showAllCourses(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $courses = CourseSecondYear::orderBy('id', 'asc')->get();
         return view('admin.courses.second_year.index', compact('courses'));
     }
 
-    public function showCourseEditForm($id)
+    public function showCourseEditForm($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|string|\Illuminate\Contracts\Foundation\Application
     {
         $course = CourseSecondYear::find($id);
         if (!$course)
@@ -93,7 +97,7 @@ class AcademicSecondYear extends Controller
 
     }
 
-    public function updateCourse(Request $request, $id)
+    public function updateCourse(Request $request, $id): \Illuminate\Http\RedirectResponse
     {
         //|unique:course_first_years,name'.$id
         $course = CourseSecondYear::find($id);
@@ -133,7 +137,7 @@ class AcademicSecondYear extends Controller
 
     }
 
-    public function deleteCourse($id)
+    public function deleteCourse($id): string|\Illuminate\Http\RedirectResponse
     {
         $course = CourseSecondYear::find($id);
         if (!$course)
@@ -144,7 +148,7 @@ class AcademicSecondYear extends Controller
         return redirect()->back()->with(['success' => 'تم حذف الكورس ']);
     }
 
-    public function toSubscribeCourse($id)
+    public function toSubscribeCourse($id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $course = CourseSecondYear::query()->find($id);
         if (!$course)
@@ -152,7 +156,7 @@ class AcademicSecondYear extends Controller
         return view('student.to_subscribe.2nd', compact('course'));
     }
 
-    public function subscribeCourseNow($id)
+    public function subscribeCourseNow($id): \Illuminate\Http\RedirectResponse
     {
         $student = Auth::user();
         $student_id = $student->id;
@@ -178,7 +182,7 @@ class AcademicSecondYear extends Controller
         return redirect()->route('courses.2nd.students')->with(['success' => 'تم الأضافة الي قائمة الأنتظار سيتم تفعيل الكورس عند الدفع']);
     }
 
-    public function deleteSubscription($id)
+    public function deleteSubscription($id): string|\Illuminate\Http\RedirectResponse
     {
         $subscription = SubscribedSecondYear::find($id);
         if (!$subscription)
@@ -187,7 +191,7 @@ class AcademicSecondYear extends Controller
         return redirect()->back()->with(['success' => 'subscription deleted successfully']);
     }
 
-    public function enrolledCoursesView()
+    public function enrolledCoursesView(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $courses = SubscribedSecondYear::orderBy('serial_number', 'asc')->where('student_id', Auth::id())->with('course')->get();
         $user = Auth::user();
@@ -196,13 +200,13 @@ class AcademicSecondYear extends Controller
         return view('student.enrolled.second.index', compact('courses'));
     }
 
-    public function getLectures()
+    public function getLectures(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $allData = LecturesSecondYear::paginate(10);
         return view('admin.lectures.2nd', compact('allData'));
     }
 
-    public function updateLectureForm($id)
+    public function updateLectureForm($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|string|\Illuminate\Contracts\Foundation\Application
     {
         $lec = LecturesSecondYear::find($id);
         if(!$lec)
@@ -210,7 +214,7 @@ class AcademicSecondYear extends Controller
         return view('admin.lectures.2nd_updte',compact('lec'));
     }
 
-    public function updateLecture(LecturesRequest $request , $id)
+    public function updateLecture(LecturesRequest $request , $id): string|\Illuminate\Http\RedirectResponse
     {
         $lecture = LecturesSecondYear::find($id);
         if (!$lecture)
@@ -233,7 +237,7 @@ class AcademicSecondYear extends Controller
 
     }
 
-    public function deleteLecture($id)
+    public function deleteLecture($id): string|\Illuminate\Http\RedirectResponse
     {
         $lec = LecturesSecondYear::find($id);
         if (!$lec)
@@ -244,7 +248,7 @@ class AcademicSecondYear extends Controller
         return redirect()->back()->with(['success' => 'Lecture deleted successfully']);
     }
 
-    public function viewWeeksPage($id)
+    public function viewWeeksPage($id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $course = CourseSecondYear::with('lectures')->find($id);
 //        return $course['lectures'];
@@ -274,7 +278,7 @@ class AcademicSecondYear extends Controller
 //            , 'quiz1', 'quiz2', 'quiz3', 'quiz4', 'lectures1', 'lectures2', 'lectures3', 'lectures4'));
     }
 
-    public function viewEnrolledCourse($id)
+    public function viewEnrolledCourse($id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $lec = LecturesSecondYear::with('course')->find($id);
         if (!$lec)
@@ -285,13 +289,13 @@ class AcademicSecondYear extends Controller
         return view('student.enrolled.second.lecture', compact('lec'));
     }
 
-    public function getHomeWork()
+    public function getHomeWork(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $homeworks = HomeWorkSecondYear::with('course')->paginate(10);
         return view('admin.homework.2nd', compact('homeworks'));
     }
 
-    public function deleteHomeWork($id)
+    public function deleteHomeWork($id): string|\Illuminate\Http\RedirectResponse
     {
         $homework = HomeWorkSecondYear::find($id);
         if (!$homework)
@@ -300,19 +304,19 @@ class AcademicSecondYear extends Controller
         return redirect()->back()->with(['success' => 'home work deleted successfully']);
     }
 
-    public function viewStudentHomeWork($id)
+    public function viewStudentHomeWork($id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $homework = LecturesSecondYear::find($id)->homework;
         return view('student.enrolled.second.homework', compact('homework'));
     }
 
-    public function getQuiz()
+    public function getQuiz(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $quizzes = QuizSecondYear::with('course')->paginate(10);
         return view('admin.quiz.2nd', compact('quizzes'));
     }
 
-    public function deleteQuiz($id)
+    public function deleteQuiz($id): string|\Illuminate\Http\RedirectResponse
     {
         $quiz = QuizSecondYear::find($id);
         if (!$quiz)
@@ -321,7 +325,7 @@ class AcademicSecondYear extends Controller
         return redirect()->back()->with(['success' => 'quiz deleted successfully']);
     }
 
-    public function viewStudentQuiz($id)
+    public function viewStudentQuiz($id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $quiz = LecturesSecondYear::find($id)->quiz;
         return view('student.enrolled.second.quiz', compact('quiz'));

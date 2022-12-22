@@ -24,14 +24,14 @@ class AcademicThirdYear extends Controller
 {
     public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-        Demo::query()->where('academic_year', '=', 3)->first();
         // Cache::put('dom_third_year', $demo, now()->addDay(2)  );
         $demo = Cache::get('demo_third_year');
-
+        if (empty($demo))
+            $demo = Demo::query()->where('academic_year', '=', 3)->first();
         $user = Auth::user();
         $user->mac_address = 1;
         $user->save();
-        return view('student.3rd', compact('demo'));
+        return view('student.3rd', ['demo' => $demo]);
 
     }
 

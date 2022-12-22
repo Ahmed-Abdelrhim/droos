@@ -8,12 +8,13 @@
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
             integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-    @livewireStyles
     <style>
         body {
             background-color: var(--light-bg);
@@ -412,6 +413,7 @@
             padding-left: 8px;
         }
     </style>
+    @livewireStyles
 
 </head>
 <body oncontextmenu="return false">
@@ -645,148 +647,155 @@
     <img src="{{asset('storage/images/scroll-top-img.png')}}">
 </a>
 <!-- End Footer -->
-<script>
-    let toggleBtn = document.getElementById('toggle-btn');
-    let body = document.body;
-    let darkMode = localStorage.getItem('dark-mode');
 
-    const enableDarkMode = () => {
-        toggleBtn.classList.replace('fa-sun', 'fa-moon');
-        body.classList.add('dark');
-        localStorage.setItem('dark-mode', 'enabled');
-    }
+{{--<script>--}}
+{{--    let toggleBtn = document.getElementById('toggle-btn');--}}
+{{--    let body = document.body;--}}
+{{--    let darkMode = localStorage.getItem('dark-mode');--}}
 
-    const disableDarkMode = () => {
-        toggleBtn.classList.replace('fa-moon', 'fa-sun');
-        body.classList.remove('dark');
-        localStorage.setItem('dark-mode', 'disabled');
-    }
+{{--    const enableDarkMode = () => {--}}
+{{--        toggleBtn.classList.replace('fa-sun', 'fa-moon');--}}
+{{--        body.classList.add('dark');--}}
+{{--        localStorage.setItem('dark-mode', 'enabled');--}}
+{{--    }--}}
 
-    if (darkMode === 'enabled') {
-        enableDarkMode();
-    }
+{{--    const disableDarkMode = () => {--}}
+{{--        toggleBtn.classList.replace('fa-moon', 'fa-sun');--}}
+{{--        body.classList.remove('dark');--}}
+{{--        localStorage.setItem('dark-mode', 'disabled');--}}
+{{--    }--}}
 
-    toggleBtn.onclick = (e) => {
-        darkMode = localStorage.getItem('dark-mode');
-        if (darkMode === 'disabled') {
-            enableDarkMode();
-        } else {
-            disableDarkMode();
-        }
-    }
-    let sideBar = document.querySelector('.side-bar');
-    document.querySelector('#menu-btn').onclick = () => {
-        sideBar.classList.toggle('active');
-        body.classList.toggle('active');
-    }
+{{--    if (darkMode === 'enabled') {--}}
+{{--        enableDarkMode();--}}
+{{--    }--}}
 
-    document.querySelector('#close-btn').onclick = () => {
-        sideBar.classList.remove('active');
-        body.classList.remove('active');
-    }
+{{--    toggleBtn.onclick = (e) => {--}}
+{{--        darkMode = localStorage.getItem('dark-mode');--}}
+{{--        if (darkMode === 'disabled') {--}}
+{{--            enableDarkMode();--}}
+{{--        } else {--}}
+{{--            disableDarkMode();--}}
+{{--        }--}}
+{{--    }--}}
+{{--    let sideBar = document.querySelector('.side-bar');--}}
+{{--    document.querySelector('#menu-btn').onclick = () => {--}}
+{{--        sideBar.classList.toggle('active');--}}
+{{--        body.classList.toggle('active');--}}
+{{--    }--}}
 
-
-    let profile = document.querySelector('.header .flex .profile');
-
-    document.querySelector('#user-btn').onclick = () => {
-        profile.classList.toggle('active');
-        search.classList.remove('active');
-    }
-    window.onscroll = () => {
-        profile.classList.remove('active');
-        if (window.innerWidth < 1200) {
-            sideBar.classList.remove('active');
-            body.classList.remove('active');
-        }
-    }
+{{--    document.querySelector('#close-btn').onclick = () => {--}}
+{{--        sideBar.classList.remove('active');--}}
+{{--        body.classList.remove('active');--}}
+{{--    }--}}
 
 
-    // scroll to top
-    let up = document.querySelector(".top");
+{{--    let profile = document.querySelector('.header .flex .profile');--}}
 
-    window.onscroll = function () {
-        console.log(window.scrollY);
-        if (window.scrollY >= 300) {
-            up.style.display = "block";
-        } else {
-            up.style.display = "none";
-        }
-        //  this.scrollY >= 1000 ? span.classList.add("show") : span.classList.remove("show");
-    };
-
-    up.onclick = function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    };
-
-    function submitForm(form) {
-        swal({
-            title: "هل انت متأكد من شراء الكورس",
-            // text: "لتأكيد الاشتراك",
-            text: "قم بتحويل الفلوس بفودافون كاش علي الأرقام: 01025642978",
-            text: "ارسل رسالة الدفع و ايميلك في المنصة علي واتس  : 01149596478",
-            icon: "warning",
-            buttons: true,
-        })
-            .then(function (isOkay) {
-                if (isOkay) {
-                    form.submit();
-                }
-            });
-        return false;
-    }
+{{--    document.querySelector('#user-btn').onclick = () => {--}}
+{{--        profile.classList.toggle('active');--}}
+{{--        search.classList.remove('active');--}}
+{{--    }--}}
+{{--    window.onscroll = () => {--}}
+{{--        profile.classList.remove('active');--}}
+{{--        if (window.innerWidth < 1200) {--}}
+{{--            sideBar.classList.remove('active');--}}
+{{--            body.classList.remove('active');--}}
+{{--        }--}}
+{{--    }--}}
 
 
-    up.onclick = function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    };
+{{--    // scroll to top--}}
+{{--    let up = document.querySelector(".top");--}}
 
-    //* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-    var dropdown = document.getElementsByClassName("dropdown-btn");
-    var i;
+{{--    window.onscroll = function () {--}}
+{{--        console.log(window.scrollY);--}}
+{{--        if (window.scrollY >= 300) {--}}
+{{--            up.style.display = "block";--}}
+{{--        } else {--}}
+{{--            up.style.display = "none";--}}
+{{--        }--}}
+{{--        //  this.scrollY >= 1000 ? span.classList.add("show") : span.classList.remove("show");--}}
+{{--    };--}}
 
-    for (i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var dropdownContent = this.nextElementSibling;
-            if (dropdownContent.style.display === "block") {
-                dropdownContent.style.display = "none";
-            } else {
-                dropdownContent.style.display = "block";
-            }
-        });
-    }
+{{--    up.onclick = function () {--}}
+{{--        window.scrollTo({--}}
+{{--            top: 0,--}}
+{{--            behavior: "smooth",--}}
+{{--        });--}}
+{{--    };--}}
 
-    // remove "Inspect Element"
-    document.onkeydown = function (e) {
-        if (event.keyCode == 123) {
-            return false;
-        }
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-            return false;
-        }
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-            return false;
-        }
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-            return false;
-        }
-        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-            return false;
-        }
-    }
+{{--    function submitForm(form) {--}}
+{{--        swal({--}}
+{{--            title: "هل انت متأكد من شراء الكورس",--}}
+{{--            // text: "لتأكيد الاشتراك",--}}
+{{--            text: "قم بتحويل الفلوس بفودافون كاش علي الأرقام: 01025642978",--}}
+{{--            text: "ارسل رسالة الدفع و ايميلك في المنصة علي واتس  : 01149596478",--}}
+{{--            icon: "warning",--}}
+{{--            buttons: true,--}}
+{{--        })--}}
+{{--            .then(function (isOkay) {--}}
+{{--                if (isOkay) {--}}
+{{--                    form.submit();--}}
+{{--                }--}}
+{{--            });--}}
+{{--        return false;--}}
+{{--    }--}}
 
-</script>
+
+{{--    up.onclick = function () {--}}
+{{--        window.scrollTo({--}}
+{{--            top: 0,--}}
+{{--            behavior: "smooth",--}}
+{{--        });--}}
+{{--    };--}}
+
+{{--    //* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */--}}
+{{--    var dropdown = document.getElementsByClassName("dropdown-btn");--}}
+{{--    var i;--}}
+
+{{--    for (i = 0; i < dropdown.length; i++) {--}}
+{{--        dropdown[i].addEventListener("click", function () {--}}
+{{--            this.classList.toggle("active");--}}
+{{--            var dropdownContent = this.nextElementSibling;--}}
+{{--            if (dropdownContent.style.display === "block") {--}}
+{{--                dropdownContent.style.display = "none";--}}
+{{--            } else {--}}
+{{--                dropdownContent.style.display = "block";--}}
+{{--            }--}}
+{{--        });--}}
+{{--    }--}}
+
+{{--    // remove "Inspect Element"--}}
+{{--    document.onkeydown = function (e) {--}}
+{{--        if (event.keyCode == 123) {--}}
+{{--            return false;--}}
+{{--        }--}}
+{{--        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {--}}
+{{--            return false;--}}
+{{--        }--}}
+{{--        if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {--}}
+{{--            return false;--}}
+{{--        }--}}
+{{--        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {--}}
+{{--            return false;--}}
+{{--        }--}}
+{{--        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {--}}
+{{--            return false;--}}
+{{--        }--}}
+{{--    }--}}
+
+{{--</script>--}}
+
+
+
 {{--Custom JavaScript--}}
 <script src="{{asset('js/script.js')}}"></script>
 <script src="{{asset('js/sweetalert.min.js')}}"></script>
+
 @stack('javascript')
 @yield('script')
+{{--@livewireScripts--}}
 @livewireScripts
+
 </body>
 </html>

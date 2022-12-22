@@ -2,6 +2,7 @@
 @section('content')
     <section class="courses">
         <h1 class="heading">كورسات الصف الثالث الثانوي</h1>
+        {{-- Alerady exists --}}
         @if(\Session::get('success'))
             <div class="row mr-2 ml-2">
                 <button type="text" class="btn btn-lg btn-block btn-outline-success mb-2"
@@ -9,6 +10,18 @@
                 </button>
             </div>
         @endif
+
+        {{-- New Subscription --}}
+        @if(\Session::get('subscription'))
+            <script>
+                swal({
+                    text: " {!! Session::get('subscription') !!}",
+                    icon: "success",
+                })
+            </script>
+        @endif
+
+
         <div class="box-container">
             <div class="card-container" id="cards">
                 @foreach($courses as $course)
