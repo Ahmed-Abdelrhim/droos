@@ -174,12 +174,13 @@ class AcademicThirdYear extends Controller
         return redirect()->back()->with(['success' => 'subscription deleted successfully']);
     }
 
-    public function enrolledCoursesView(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function enrolledCoursesView()
     {
-        $courses = SubscribedThirdYear::orderBy('serial_number', 'asc')->where('student_id', Auth::id())->with('course')->get();
+        $courses = SubscribedThirdYear::query()->orderBy('serial_number', 'asc')->where('student_id', Auth::id())->with('course')->get();
         $user = Auth::user();
         $user->mac_address = 1;
         $user->save();
+        // return count($courses);
         return view('student.enrolled.third.index', compact('courses'));
     }
 

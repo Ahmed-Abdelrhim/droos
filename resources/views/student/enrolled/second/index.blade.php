@@ -12,7 +12,7 @@
         @endif
         <div class="box-container">
             <div class="card-container" id="cards">
-                @if(isset($courses))
+                @if(isset($courses) && count($courses) > 0)
                     @foreach($courses as $course)
                         <div class="card">
                             <span></span>
