@@ -23,6 +23,16 @@
     </script>
 @endif
 
+@if ($waiting_for_activation)
+    <script>
+        swal({
+            text: " {{$waiting_for_activation}} ",
+            icon: "info",
+        })
+    </script>
+@endif
+
+
 <form wire:submit.prevent="submit">
 {{--     @csrf--}}
     <input type="submit" style="cursor: pointer"/>
