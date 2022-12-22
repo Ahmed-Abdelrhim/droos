@@ -33,6 +33,7 @@ class AdminSubscribeCourse extends Component
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
+            DB::commit();
             // dd();
             return $this->reject();
         } catch (\Exception $e) {
@@ -41,14 +42,14 @@ class AdminSubscribeCourse extends Component
         }
     }
 
-    public function reject()
+    public function reject(): \Livewire\Event
     {
         $wait = WaitingListThirdYear::query()->find($this->data_id);
         if(! $wait)
             dd ('Student Not Found');
         $wait->delete();
         session()->flash('success','success transaction');
-        $this->emit('taskAdded');
+        return $this->emit('taskAdded');
         // return redirect()->route('waiting.list.3rd')->with(['success' => 'success transaction']);
     }
 }
