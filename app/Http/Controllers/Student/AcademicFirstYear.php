@@ -138,7 +138,9 @@ class AcademicFirstYear extends Controller
 
     public function toSubscribeCourse($id)
     {
-        $course = CourseFirstYear::findOrFail($id);
+        $course = CourseFirstYear::query()->find($id);
+        if (!$course)
+            return view('errors.404');
         return view('student.to_subscribe.1st', compact('course'));
     }
 
