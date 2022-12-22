@@ -37,7 +37,7 @@ class AcademicThirdYear extends Controller
 
     public function courses(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-        $courses = CourseThirdYear::get();
+        $courses = CourseThirdYear::query()->get();
         if (Auth::check()) {
             $serials = [];
             $id = Auth::id();
@@ -46,8 +46,8 @@ class AcademicThirdYear extends Controller
             if (!Gate::allows('view-courses', 3))
                 return view('student.access_denied', compact('academic_year'));
 
-            $subscribed = SubscribedThirdYear::orderBy('id', 'asc')->where('student_id', $id)->get();
-            $waitingList = WaitingListThirdYear::orderBy('id', 'asc')->where('student_id', $id)->get();
+            $subscribed = SubscribedThirdYear::query()->orderBy('id', 'asc')->where('student_id', $id)->get();
+            $waitingList = WaitingListThirdYear::query()->orderBy('id', 'asc')->where('student_id', $id)->get();
             if (count($subscribed) > 0 || count($waitingList) > 0) {
                 //If Student Already Subscribed In The Course
                 foreach ($subscribed as $sub) {
