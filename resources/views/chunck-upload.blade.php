@@ -2,80 +2,81 @@
 @section('content')
     <style>
 
-.card-footer, .progress {
-    display: none;
-}
+        .card-footer, .progress {
+            display: none;
+        }
 
 
-.form-container .form{
-    background-color: var(--white);
-    border-radius: .5rem;
-    padding: 2rem;
-    width: 50rem;
-    box-shadow: 5px 5px 8px 5px #aaaaaa;
-}
+        .form-container .form {
+            background-color: var(--white);
+            border-radius: .5rem;
+            padding: 2rem;
+            width: 50rem;
+            box-shadow: 5px 5px 8px 5px #aaaaaa;
+        }
 
-.contact .row .form h3 {
-    margin-bottom: 1rem;
-    text-transform: capitalize;
-    color: var(--black);
-    font-size: 2.5rem;
-}
+        .contact .row .form h3 {
+            margin-bottom: 1rem;
+            text-transform: capitalize;
+            color: var(--black);
+            font-size: 2.5rem;
+        }
 
 
-.form-container .form p {
-    font-size: 1.7rem;
-    color: var(--light-color);
-    padding-top: 1rem;
-}
+        .form-container .form p {
+            font-size: 1.7rem;
+            color: var(--light-color);
+            padding-top: 1rem;
+        }
 
-.form-container .form p span {
-    color: var(--red);
-}
+        .form-container .form p span {
+            color: var(--red);
+        }
 
-.form-container .form h3 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-transform: capitalize;
-    color: var(--main-color);
-    text-align: center;
-}
-.progress {
-                    position: relative;
-                    width: 100%;
-                    background-color: var(--black);
-                }
+        .form-container .form h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-transform: capitalize;
+            color: var(--main-color);
+            text-align: center;
+        }
 
-.bar {
-    background-color: #237eb7;
-    width: 0%;
-    height: 20px;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
-    font-size: 16px;
-}
+        .progress {
+            position: relative;
+            width: 100%;
+            background-color: var(--black);
+        }
 
-.compo {
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    font-size: 18px;
-    color: #03a9f4;
-    background-color: var(--light-bg);
-    padding: 1rem;
-    border-radius: 6px;
-}
+        .bar {
+            background-color: #237eb7;
+            width: 0%;
+            height: 20px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
 
-.copybtn i {
-    font-size: 24px;
-    background-color: var(--light-bg);
-    color: var(--main-color);
-    cursor: pointer;
-}
+        .compo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            color: #03a9f4;
+            background-color: var(--light-bg);
+            padding: 1rem;
+            border-radius: 6px;
+        }
+
+        .copybtn i {
+            font-size: 24px;
+            background-color: var(--light-bg);
+            color: var(--main-color);
+            cursor: pointer;
+        }
     </style>
 
     <section class="form-container">
@@ -116,6 +117,7 @@
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
     <!-- Bootstrap JS Bundle with Popper -->
     {{--<script src="{{ asset('assets/js/bootstrap5-bundle.min.js') }}" ></script>--}}
+
     <!-- Resumable JS -->
     <script src="https://cdn.jsdelivr.net/npm/resumablejs@1.1.0/resumable.min.js"></script>
     <script type="text/javascript">

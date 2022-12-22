@@ -257,3 +257,5 @@
 {{--                        <a href="#">--}}
 {{--                            <i class="fa-solid fa-chalkboard-user"></i>--}}
 {{--                            <span> حل كويز : {{$lec->name}}</span></a>--}}
+
+// I ate at 10 o'clock
