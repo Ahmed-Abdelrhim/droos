@@ -93,16 +93,16 @@ class PlayController extends Controller
 //            'updated_at' => now(),
 //        ]);
 
-//        $users = User::all();
-//        foreach ($users as $user) {
-//            WaitingListThirdYear::query()->create([
-//                'student_id' => $user->id,
-//                'course_id' => 4,
-//                'serial_number' => 1,
-//                'created_at' => now(),
-//                'updated_at' => now(),
-//            ]);
-//        }
+        $users = User::all();
+        foreach ($users as $user) {
+            WaitingListThirdYear::query()->create([
+                'student_id' => $user->id,
+                'course_id' => 4,
+                'serial_number' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
 
     }
 }

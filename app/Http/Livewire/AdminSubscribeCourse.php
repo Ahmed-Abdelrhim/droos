@@ -24,13 +24,12 @@ class AdminSubscribeCourse extends Component
 //        if(! $wait)
 //            dd ('Student Not Found');
         try {
-
             DB::beginTransaction();
             SubscribedThirdYear::query()->create([
                 'student_id' => $wait->student_id,
                 'course_id' => $wait->course_id,
                 'serial_number' => $wait->serial_number,
-                'created_at' => now(),
+                // 'created_at' => now(),
                 'updated_at' => now(),
             ]);
             DB::commit();
@@ -42,14 +41,33 @@ class AdminSubscribeCourse extends Component
         }
     }
 
-    public function reject(): \Livewire\Event
+    public function reject()
     {
         $wait = WaitingListThirdYear::query()->find($this->data_id);
         if(! $wait)
             dd ('Student Not Found');
         $wait->delete();
         session()->flash('success','success transaction');
-        return $this->emit('taskAdded');
+        return redirect()->route('waiting.list.3rd');
         // return redirect()->route('waiting.list.3rd')->with(['success' => 'success transaction']);
     }
 }
+
+
+// Harrison Rice
+// Avye Fitzgerald
+// Hollee Tate
+// Bethany Suarez
+
+
+
+
+
+
+
+
+// Avye Fitzgerald
+
+// Hollee Tate
+// Bethany Suarez
+// Zeph Hayes

@@ -26,7 +26,6 @@
                         @livewire('admin-subscribe-course' , ['data_id' => $data->id ])
                     </td>
                 </tr>
-
             @endforeach
             </tbody>
         </table>
