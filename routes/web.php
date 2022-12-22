@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\WaitingListController;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\PlayController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
@@ -140,7 +141,7 @@ Route::get('test',function(){
     return view('test');
 });
 
-
+Route::get('play',[PlayController::class,'addSomeStudentsToWaitingList']);
 
 //Route::post('file-upload/upload-large-files/{name}/{academic_year}/{month}/{week}/{homework}/{quiz}',[\App\Http\Controllers\FileUploadController::class,'uploadLargeFiles'])->name('chunk.uploaded');
 
