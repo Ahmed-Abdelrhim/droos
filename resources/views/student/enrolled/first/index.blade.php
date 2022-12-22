@@ -20,7 +20,7 @@
                             <span></span>
                             <span></span>
                             <div class="card-content">
-                                <img src="{{asset('storage/courses_first_year/'.$course['course']->cover)}}">
+                                <img src="{{asset('storage/courses_first_year/'.$course['course']->cover)}}" alt="">
                                 <h2>01</h2>
                                 <h3>الصف الأول الثانوي</h3>
                                 <p style="margin-top: 5px">{{$course['course']->name}}</p>
