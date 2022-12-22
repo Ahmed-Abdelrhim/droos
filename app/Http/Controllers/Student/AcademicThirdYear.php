@@ -147,16 +147,19 @@ class AcademicThirdYear extends Controller
         return view('student.to_subscribe.3rd', compact('course'));
     }
 
-    public function subscribeCourseNow($id): \Illuminate\Http\RedirectResponse
+    public function subscribeCourseNow($id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
         $student_id = Auth::user()->id;
-        $course = CourseThirdYear::query()->findOrFail($id);
+        $course = CourseThirdYear::query()->find($id);
+        if (!$course)
+            return view('errors.404');
         $serial_number = $course->serial_number;
+
         $already_exists = WaitingListThirdYear::query()->where('student_id' ,'=',$student_id)->where('course_id','=',$course->id)
             ->where('serial_number','=',$serial_number)->first();
         if($already_exists)
             return redirect()->route('courses.3rd.students')->with(['success' => 'انت بالفعل مشترك سيتم تفعيل الكورس عند الدفع']);
-        WaitingListThirdYear::create([
+        WaitingListThirdYear::query()->create([
             'student_id' => $student_id,
             'course_id' => $course->id,
             'serial_number' => $serial_number,
