@@ -37,7 +37,7 @@ class AcademicSecondYear extends Controller
             $academic_year = Auth::user()->academic_year;
 
             if (!Gate::allows('view-courses', 2))
-                return view('student.access_denied', compact('academic_year'));
+                return view('errors.404');
 
             $subscribed = SubscribedSecondYear::orderBy('id', 'asc')->where('student_id', $id)->get();
             $waitingList = WaitingListSecondtYear::orderBy('id', 'asc')->where('student_id', $id)->get();

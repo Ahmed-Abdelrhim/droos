@@ -22,6 +22,9 @@
                             <h2>03</h2>
                             <h3>الصف الثالث الثانوي</h3>
                             <p style="margin-top: 5px">{{$course->name}}</p>
+                            @if($course->discount != null)
+                                <p style="margin-top: 5px">خصم : {{$course->discount}}% </p>
+                            @endif
                             <p style="margin-top: 5px">السعر : {{$course->price}}</p>
                             @if(isset($serials) && count($serials) > 0 )
                                 @if(in_array($course->serial_number,$serials))

@@ -44,7 +44,7 @@ class AcademicThirdYear extends Controller
             $academic_year = Auth::user()->academic_year;
 
             if (!Gate::allows('view-courses', 3))
-                return view('student.access_denied', compact('academic_year'));
+                return view('errors.404');
 
             $subscribed = SubscribedThirdYear::query()->orderBy('id', 'asc')->where('student_id', $id)->get();
             $waitingList = WaitingListThirdYear::query()->orderBy('id', 'asc')->where('student_id', $id)->get();
@@ -61,7 +61,7 @@ class AcademicThirdYear extends Controller
 
                 return view('student.all_course.3rd', compact('courses', 'serials'));
             }
-            //Student Authenticated and not waiting or subscribed in any course
+            // Student Authenticated and not waiting or subscribed in any course
             return view('student.all_course.3rd', compact('courses'));
         }
         return view('student.all_course.3rd', compact('courses'));

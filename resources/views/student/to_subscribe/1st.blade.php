@@ -26,6 +26,9 @@
                     <h2>01</h2>
                     <h3>الصف الأول الثانوي</h3>
                     <p style="margin-top: 5px"> شراء {{$course->name}}</p>
+                    @if($course->discount != null)
+                        <p style="margin-top: 5px">خصم : {{$course->discount}}%</p>
+                    @endif
                     <p style="margin-top: 5px">السعر : {{$course->price}}</p>
                     <form action="{{route('subscribe.1st',$course->id)}}" onsubmit="return submitForm(this);" method="POST">
                         @csrf
