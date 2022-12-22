@@ -207,23 +207,24 @@ Route::post('large/file/size',[HomeController::class,'uploadLargeFiles'])->name(
 //     $2y$10$Cx9KeusVkTWsPbihp2Hd4.BsCcAAPnsdnQZ9h/GBaN5np9S3nLsGu  .
 
 // table for questions :
-//  1 = id , string('question')
-// 2 = string('answer')
-// 3 = int('grade')
+//  1 = id
+// 2 = string('question');
+// 3 = string('answer');
+// 4 = int('grade');
 
 // table for quiz
 // 1 = id
 // 2 = unsignedInt('question_id'); foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
-// 3 = string('choice')
+// 3 = string('choice');
 
 // table for correction
 // 1 = id
 // 2 = unsignedInt('student_id'); foreign('student_id')->references('users')->on('id')->onDelete('cascade');
 // 3 = unsignedInt('question_id'); foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
-// 4 = string('std_ans')
+// 4 = string('std_ans');
 // 5 = unique(['student_id' , 'question_id']);
 
 // table marks
 // 1 = id
 // 2 = unsignedInt('student_id'); foreign('student_id')->references('users')->on('id')->onDelete('cascade');
-// 3 = int('mark')
+// 3 = int('mark');
