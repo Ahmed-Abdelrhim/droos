@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Cheats;
+use Illuminate\Support\Facades\Validator;
 
 
 class CustomLoginController extends Controller
@@ -45,8 +46,21 @@ class CustomLoginController extends Controller
         return view('student.auth.login');
     }
 
-    public function login(Request $request): RedirectResponse
+    public function login(Request $request)
     {
+        $validator = Validator::make($request->all(),[
+            'email' => 'required',
+            'password' => 'required|min:6',
+        ],[
+            'email.required' => 'يجب إدخال الإيميل أو رقم التليفون',
+            'password.required' => 'يجب إدخال الباسورد ',
+            'password.min' => ' الباسورد يجب أن لا يقل عن 6 حروف'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
 
         if (Auth::attempt($this->credentials($request))) {
             //return $this->authenticated();
@@ -95,11 +109,13 @@ class CustomLoginController extends Controller
                 return redirect()->route('academic_third_years');
             }
         }
+        // return $request;
 
-        $email = User::query()->where('email',$request->get('email'));
-        $phone = User::query()->where('phone_number',$request->get('phone_number'));
+        $email = User::query()->where('email',$request->get('email'))->first();
+
+        $phone = User::query()->where('phone_number',$request->get('phone_number'))->first();
         if ($email || $phone) {
-            redirect()->back()->withErrors([
+            return redirect()->back()->withErrors([
                 'errors' => 'Password Is Incorrect',
             ]);
         }

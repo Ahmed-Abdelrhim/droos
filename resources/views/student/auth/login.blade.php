@@ -8,9 +8,9 @@
     {{--    <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/dist/css/bootstrap.min.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <!-- CSS Libraries -->
-{{--    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/visitor.ico') }}">--}}
+    {{--    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/visitor.ico') }}">--}}
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/ph.ico') }}">
-{{--    <img  src="{{ asset('assets/physics.jpg') }}" alt="physics">--}}
+    {{--    <img  src="{{ asset('assets/physics.jpg') }}" alt="physics">--}}
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
@@ -29,6 +29,17 @@
                         <div class="card-header">
                             <h4>{{ __('Login') }}</h4>
                         </div>
+
+                        @error('errors')
+                        <div class="row mr-2 ml-2 mb-3 col-7 mx-auto">
+                            <a href="#" class="btn btn-danger mb-2"
+                               id="type-error">{{$message}}
+                            </a>
+                            <span class="invalid-feedback mb-2" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        </div>
+                        @enderror
 
                         <div class="card-body">
                             <form method="POST" action="{{ route('login.student') }}">
