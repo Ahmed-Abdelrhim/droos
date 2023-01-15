@@ -186,3 +186,27 @@ Route::get('auth/Student/Subscription/{string}',[AcademicThirdYear::class,'authe
 // P = raw * h * g
 
 // 5 * 20
+
+
+// 1000 * 10 * h = Mahmoud is coming right now
+
+// P = m * g / A
+// P = m / A * h
+
+
+// P(cube) = raw * 10 * g = 100raw
+//p(cuboid) = 100 * raw
+
+
+
+// P(x) = F / A(x)
+// p(y) = F / A(y)
+
+
+// P(2) = raw * 2A * l * h
+
+// P(2) = 10raw(2) *   h
+
+//
+// P(1) = raw(1) * 2 * h * 10 => 20raw(1) * h
+// 2raw(1)  =  raw(2) done

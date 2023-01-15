@@ -1,4 +1,4 @@
-<div>
+
     <form wire:submit.prevent="submit" enctype="multipart/form-data">
 
         {{-- Success Message --}}
@@ -80,5 +80,5 @@
         <button type="submit" class="btn">تحديث</button>
     </form>
 
-</div>
+
 
