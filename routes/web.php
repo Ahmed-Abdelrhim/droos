@@ -183,5 +183,6 @@ Route::get('auth/Student/Subscription/{string}',[AcademicThirdYear::class,'authe
 // m(t) = raw * A * h
 // P(t) ==========================================> raw * h  * g
 
-//
+// P = raw * h * g
 
+// 5 * 20
