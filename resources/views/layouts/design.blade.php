@@ -58,6 +58,7 @@
 
     {{--    <script src="{{asset('plugins/editor/js/editor.bootstrap.min.js')}}"></script>--}}
 
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/ph.ico') }}">
 
 
     @livewireStyles
