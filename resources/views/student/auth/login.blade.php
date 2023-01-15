@@ -31,13 +31,12 @@
                         </div>
 
                         <div class="card-body">
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ route('login.student') }}">
                                 @csrf
                                 <div class="form-group">
                                     <label for="email">Email , Phone</label><span class="text-danger"> *</span>
-                                    <input id="email" type="email"
-                                           class="form-control @error('email') is-invalid @enderror" name="email"
-                                           value="{{ old('email') }}"/>
+                                    <input id="email"
+                                           class="form-control @error('email') is-invalid @enderror" name="email"/>
                                     @error('email')
                                     <div class="invalid-feedback">
                                         {{ $message }}

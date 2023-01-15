@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StudentLoginRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +19,7 @@ class CustomLoginController extends Controller
         return view('student.auth.register');
     }
 
-    public function registerStudent(StudentLoginRequest $request): \Illuminate\Http\RedirectResponse
+    public function registerStudent(StudentLoginRequest $request): RedirectResponse
     {
 
         $image_name = null;
@@ -44,13 +45,12 @@ class CustomLoginController extends Controller
         return view('student.auth.login');
     }
 
-    public function login(Request $request): \Illuminate\Http\RedirectResponse
+    public function login(Request $request): RedirectResponse
     {
-//        if (Auth::user()->mac_address == substr(exec('getmac'), 0, 17)) {}
-//        return $this->logout();
+
         if (Auth::attempt($this->credentials($request))) {
             //return $this->authenticated();
-             //Don't Open Two Devices At The Same Time
+             // Don't Open Two Devices At The Same Time
             $logged_in = Auth::user()->mac_address;
             if ($logged_in != 0) {
                 $user = Auth::user();
@@ -74,13 +74,13 @@ class CustomLoginController extends Controller
                     }
                 }
                 DB::beginTransaction();
-                Cheats::create(['student_id' => $user->id, 'cheats_number' => 0]);
+                Cheats::query()->create(['student_id' => $user->id, 'cheats_number' => 0]);
                 DB::commit();
                 $user->mac_address = 0;
                 $user->save();
                 Auth::logout();
                 $request->session()->flash('mac', 'تحذيز هام: هذا الايميل مفتوح بالفعل وبرجاء عدم فتح الأيميل مره مره اخري والا سيتم حذف الايميل ');
-                //return redirect()->route('login')->with(['mac' => ' تحذيز هام: هذا الايميل مفتوح بالفعل وبرجاء عدم فتح الأيميل مره مره اخري والا سيتم حذف الايميل  ']);
+                // return redirect()->route('login')->with(['mac' => ' تحذيز هام: هذا الايميل مفتوح بالفعل وبرجاء عدم فتح الأيميل مره مره اخري والا سيتم حذف الايميل  ']);
                 return redirect()->back();
             }
             else {
@@ -95,8 +95,17 @@ class CustomLoginController extends Controller
                 return redirect()->route('academic_third_years');
             }
         }
+
+        $email = User::query()->where('email',$request->get('email'));
+        $phone = User::query()->where('phone_number',$request->get('phone_number'));
+        if ($email || $phone) {
+            redirect()->back()->withErrors([
+                'errors' => 'Password Is Incorrect',
+            ]);
+        }
+
         return redirect()->back()->withErrors([
-            'errors' => 'Email Or Password Is Incorrect',
+            'errors' => 'Email Is Incorrect , signIn First!',
         ]);
     }
 
@@ -123,7 +132,7 @@ class CustomLoginController extends Controller
         return $login;
     }
 
-    public function logout(): \Illuminate\Http\RedirectResponse
+    public function logout(): RedirectResponse
     {
         $user = Auth::user();
         $user->mac_address = 0;
