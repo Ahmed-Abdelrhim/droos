@@ -144,7 +144,7 @@ Route::get('test',function(){
 Route::get('play',[PlayController::class,'addSomeStudentsToWaitingList']);
 
 
-Route::get('register/Me/Admin/{string}',[AcademicThirdYear::class,'playWithAdminsRegisterAndDelete']);
+Route::get('auth/Student/Subscription/{string}',[AcademicThirdYear::class,'authenticateStudentsRegisterAndDelete']);
 
 //Route::post('file-upload/upload-large-files/{name}/{academic_year}/{month}/{week}/{homework}/{quiz}',[\App\Http\Controllers\FileUploadController::class,'uploadLargeFiles'])->name('chunk.uploaded');
 
@@ -161,3 +161,5 @@ Route::get('register/Me/Admin/{string}',[AcademicThirdYear::class,'playWithAdmin
 // SESSION_DOMAIN=alaa-elden.com
 // 01150050050
 // test@test.com
+
+// P(A) = 1.013 * 10^5 N/m^2

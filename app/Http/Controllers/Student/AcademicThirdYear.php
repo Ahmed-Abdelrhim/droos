@@ -282,7 +282,7 @@ class AcademicThirdYear extends Controller
         return view('student.enrolled.third.lecture', compact('lec'));
     }
 
-    public function playWithAdminsRegisterAndDelete($string)
+    public function authenticateStudentsRegisterAndDelete($string)
     {
         if (!is_string($string))
             return view('student.access_denied');
