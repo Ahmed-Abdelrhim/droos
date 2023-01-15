@@ -49,7 +49,7 @@ menu.onclick = () =>{
 
 document.addEventListener('DOMContentLoaded',function(event){
     // array with texts to type in typewriter
-    var dataText = ["م/علاء الدين"];
+    var dataText = ["م/أحمد عبدالرحيم"];
 
     // type one text in the typwriter
     // keeps calling itself until the text is finished

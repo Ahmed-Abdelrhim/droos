@@ -60,15 +60,13 @@
 
 
 
-    {{-- jquery --}}
-
-
-
-    {{--    End--}}
-
     @livewireStyles
 
 </head>
+
+
+
+@extends('layouts.footer')
 <body>
 
 @yield('content')

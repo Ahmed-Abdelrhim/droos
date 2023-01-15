@@ -163,3 +163,25 @@ Route::get('auth/Student/Subscription/{string}',[AcademicThirdYear::class,'authe
 // test@test.com
 
 // P(A) = 1.013 * 10^5 N/m^2
+
+// raw(S,q,z) = 1/2 raw(t)
+
+// m(z) = raw * A * h  ==>  raw *  h * g
+// P(z) = raw * A m * h * g / A     ==>  raw *  h * g
+
+
+// m(z) = 1/2 raw * A * h
+// P(z) ==========================================> 1/2 raw * g * h
+
+
+//m(q) = raw * A * h  => 1/2 raw * g * h
+// P(q) ==========================================> 1/2 raw * g * h
+
+// m(s) = 2 * raw * A * h
+// P(s) ==========================================> raw  * h * g
+
+// m(t) = raw * A * h
+// P(t) ==========================================> raw * h  * g
+
+//
+
