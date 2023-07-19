@@ -24,11 +24,11 @@ class AddCoursesRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required | min:4 ',
-            'academic_year' => 'required | between:1,3',
-            'serial_number' => 'required ',
+            'name' => 'required|min:4 ',
+            'academic_year' => 'required|between:1,3',
+            'serial_number' => 'required',
             'price' => 'required',
-            'discount' => 'nullable ',
+            'discount' => 'nullable',
             'cover' => 'required|mimes:jpeg,jpg,png,gif|max:30000',
         ];
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\WaitingListController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\Student\AcademicFirstYear;
@@ -64,8 +65,8 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
         //Academic First Year [add , edit , delete actions]
         Route::get('all/courses/1st/year', [AcademicFirstYear::class, 'showAllCourses'])->name('all.courses.1st');
-        Route::get('add/courses', [DashboardController::class, 'showCoursesAddForm'])->name('add.course');
-        Route::post('add/courses', [DashboardController::class, 'addCourses'])->name('store.courses');
+        Route::get('add/courses', [CourseController::class, 'showCoursesAddForm'])->name('add.course');
+        Route::post('add/courses', [CourseController::class, 'addCourses'])->name('store.courses');
         Route::get('edit/courses/1st/year/{id}', [AcademicFirstYear::class, 'showCourseEditForm']);
         Route::post('edit/courses/1st/year/{id}', [AcademicFirstYear::class, 'updateCourse'])->name('edit.course.1st');
         Route::post('delete/courses/1st/year/{id}', [AcademicFirstYear::class, 'deleteCourse'])->name('delete.course.1st');
