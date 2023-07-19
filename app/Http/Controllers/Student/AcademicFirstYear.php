@@ -133,7 +133,7 @@ class AcademicFirstYear extends Controller
         $course = CourseFirstYear::find($id);
         if (!$course)
             return 'Course Not Found To Be Deleted';
-        $file_path = 'images/courses_first_year/'.$course->cover;
+        $file_path = 'images/courses_first_year/' . $course->cover;
         // unlink($file_path);
         $course->delete();
         return redirect()->back()->with(['success' => 'تم حذف الكورس ']);
@@ -157,9 +157,9 @@ class AcademicFirstYear extends Controller
         $serial_number = $course->serial_number;
 
 
-        $already_exists = WaitingListFirstYear::where('student_id' ,'=',$student_id)->where('course_id','=',$course->id)
-            ->where('serial_number','=',$serial_number)->first();
-        if($already_exists)
+        $already_exists = WaitingListFirstYear::where('student_id', '=', $student_id)->where('course_id', '=', $course->id)
+            ->where('serial_number', '=', $serial_number)->first();
+        if ($already_exists)
             return redirect()->route('courses.1st.students')->with(['success' => 'انت بالفعل مشترك سيتم تفعيل الكورس عند الدفع']);
 
 
@@ -213,18 +213,18 @@ class AcademicFirstYear extends Controller
     public function updateLectureForm($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|string|\Illuminate\Contracts\Foundation\Application
     {
         $lec = LecturesFirstYear::find($id);
-        if(!$lec)
+        if (!$lec)
             return 'Lecture Not Found To Be Updated';
-        return view('admin.lectures.1st_update',compact('lec'));
+        return view('admin.lectures.1st_update', compact('lec'));
     }
 
-    public function updateLecture(LecturesRequest $request , $id): string|\Illuminate\Http\RedirectResponse
+    public function updateLecture(LecturesRequest $request, $id): string|\Illuminate\Http\RedirectResponse
     {
         $lecture = LecturesFirstYear::find($id);
         if (!$lecture)
             return 'lecture not found to be updated';
         $video_name = $lecture->lec;
-        if($request->has('lec'))
+        if ($request->has('lec'))
             $video_name = uploadLecture('first', $request->lec);
 
         $lecture->update([
@@ -263,14 +263,20 @@ class AcademicFirstYear extends Controller
 //            , 'quiz1', 'quiz2', 'quiz3', 'quiz4'));
     }
 
-    public function viewEnrolledCourse($id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function viewEnrolledCourse($id)
     {
         $lec = LecturesFirstYear::with('course')->find($id);
-        if (!$lec)
+        if (!$lec) {
             return view('student.access_denied');
+        }
         $user = Auth::user();
-        $user->mac_address = 1;
-        $user->save();
+        $subscribed_student = SubscribedFirstYear::query()
+            ->where('student_id', $user->id)
+            ->where('course_id', $lec?->course->id)
+            ->first();
+        if (!$subscribed_student) {
+            return view('student.access_denied');
+        }
         return view('student.enrolled.first.lecture', compact('lec'));
     }
 
