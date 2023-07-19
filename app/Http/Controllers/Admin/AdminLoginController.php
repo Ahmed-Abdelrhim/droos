@@ -29,7 +29,7 @@ class AdminLoginController extends Controller
 //            'email' => 'email or password is incorrect.',
 //            'password' => 'wrong password'
 //        ]);
-        return back()->with(['message'=> 'Email or password is wrong!']);
+        return back()->with(['message'=> 'Email or password is wrong']);
 
     }
 

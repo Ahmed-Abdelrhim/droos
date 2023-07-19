@@ -177,6 +177,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
 
+        Intervention\Image\ImageServiceProvider::class
+
 
     ],
 
@@ -235,6 +237,8 @@ return [
         'DataTables' => Yajra\DataTables\DataTablesServiceProvider::class,
 
         'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
+        'Image' => Intervention\Image\Facades\Image::class
+
 
 
     ],

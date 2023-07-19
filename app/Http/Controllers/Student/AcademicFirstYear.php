@@ -242,7 +242,7 @@ class AcademicFirstYear extends Controller
 
     }
 
-    public function viewWeeksPage($id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function viewWeeksPage($id)
     {
         $course = CourseFirstYear::with('lectures')->find($id);
         if (!$course)

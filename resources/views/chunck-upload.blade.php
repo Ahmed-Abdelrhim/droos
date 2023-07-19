@@ -119,7 +119,15 @@
     {{--<script src="{{ asset('assets/js/bootstrap5-bundle.min.js') }}" ></script>--}}
 
     <!-- Resumable JS -->
-    <script src="https://cdn.jsdelivr.net/npm/resumablejs@1.1.0/resumable.min.js"></script>
+{{--    <script src="https://cdn.jsdelivr.net/npm/resumablejs@1.1.0/resumable.min.js"></script>--}}
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/resumable.js/1.0.3/resumable.min.js"
+            integrity="sha512-OmtdY/NUD+0FF4ebU+B5sszC7gAomj26TfyUUq6191kbbtBZx0RJNqcpGg5mouTvUh7NI0cbU9PStfRl8uE/rw==" crossorigin="anonymous"
+            referrerpolicy="no-referrer">
+    </script>
+
+
     <script type="text/javascript">
         // console.log('Ahmed Abdelrhim');
         let name = $('#name').val();

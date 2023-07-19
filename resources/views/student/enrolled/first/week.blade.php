@@ -31,7 +31,7 @@
     <section class="playlist-details">
         <h2 class="heading"><span>محتوى</span> الكورس</h2>
         <div class="select-box">
-            <!-- first week -->
+            <!-- START FIRST WEEK -->
             <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الاول
                 <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">محتوى الاسبوع الاول</span>
                 <i class="fa fa-caret-down arrow"></i>
@@ -73,7 +73,8 @@
                         <span>لايوجد محتوي حتي الأن</span></a>
                 @endif
             </div>
-            <!-- Second Week -->
+            <!-- END FIRST WEEK -->
+            <!-- START SECOND WEEK -->
             <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثاني
                 <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">
       محتوى الاسبوع الثاني</span>
@@ -116,7 +117,8 @@
                         <span>لايوجد محتوي حتي الأن</span></a>
                 @endif
             </div>
-            <!-- Third Week -->
+            <!-- END SECOND WEEK -->
+            <!-- START THIRD WEEK -->
             <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الثالث
                 <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">
       محتوى الاسبوع الثالث</span>
@@ -160,7 +162,8 @@
                         <span>لايوجد محتوي حتي الأن</span></a>
                 @endif
             </div>
-            <!-- Fourth Week -->
+            <!-- END THIRD WEEK -->
+            <!-- START Fourth WEEK -->
             <button class="dropdown-btn"><i class="fa-solid fa-arrows-to-circle maine"></i>الاسبوع الرابع
                 <span style="display:block; font-size: 14px; color:#eee; margin-top: 15px; margin-right:15px;">
       محتوى الاسبوع الرابع</span>
@@ -202,9 +205,14 @@
                         <span>لايوجد محتوي حتي الأن</span></a>
                 @endif
             </div>
+            <!-- END Fourth WEEK -->
+
         </div>
     </section>
 @endsection
+
+
+
 @section('script')
     <script>
         var message = "This function has been disabled!";

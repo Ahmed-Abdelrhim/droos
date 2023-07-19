@@ -798,6 +798,8 @@
 @stack('javascript')
 @yield('script')
 {{--@livewireScripts--}}
+
+
 @livewireScripts
 
 </body>
