@@ -2,7 +2,7 @@
 <html class="loading" lang="en" data-textdirection="ltr">
 <!-- BEGIN: Head-->
 <head>
-    <title>Dross</title>
+    <title>Droos</title>
     @include('admin.frontend.partials._head')
     @include('admin.frontend.components.custom_style')
 </head>
