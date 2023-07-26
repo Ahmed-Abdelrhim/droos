@@ -15,16 +15,10 @@ class CourseService
         if ($request->discount != null) {
             $price = $this->calculateDiscount($request->discount , $request->price);
         }
-
-
-
-
     }
-
     public function calculateDiscount($discount , $price): float|int
     {
         $newDiscount = ($discount / 100) * ($price);
         return $price - $newDiscount;
     }
-
 }
