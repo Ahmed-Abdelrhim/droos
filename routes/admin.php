@@ -89,15 +89,21 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('profile',[DashboardController::class,'showTeacherProfile'])->name('teacher.profile');
         Route::post('update/admin/profile/{id}',[DashboardController::class,'updateAdminProfile'])->name('update.admin.profile');
 
-        //All Students
+        //All Students···
         Route::get('all/students/1st/year',[AcademicFirstYear::class,'allStudents'])->name('all.students.1st');
+        Route::get('get/first/year/students',[AcademicFirstYear::class,'studentsDataTable'])->name('students.datatables.1st');
+
+
         Route::post('delete/student/{id}',[StudentGeneralController::class,'deleteStudent'])->name('delete.student');
 
         Route::get('all/students/2nd/year',[AcademicSecondYear::class,'allStudents'])->name('all.students.2nd');
 
         Route::get('all/students/3rd/year',[AcademicThirdYear::class,'allStudents'])->name('all.students.3rd');
 
-        //Waiting List
+
+
+
+        //Waiting List···
         Route::get('view/waiting/list/1st',[WaitingListController::class,'waitingFirstYear'])->name('waiting.list.1st');
         Route::post('activate/waiting/list/1st/{id}' , [WaitingListController::class,'activateWaitingListFirstYear'])->name('activate.waiting.1st');
         Route::post('delete/waiting/list/1st/{id}' , [WaitingListController::class,'deleteWaitingListFirstYear'])->name('delete.waiting.1st');

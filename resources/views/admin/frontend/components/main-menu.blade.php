@@ -56,23 +56,17 @@
                     data-feather="more-horizontal"></i>
             </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#">
-                    <i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">
+                    {{-- <i data-feather="mail"></i> --}}
+                    <i class="fa-solid fa-envelope"></i>
+                    <span class="menu-title text-truncate" data-i18n="Email">
                         Messages
                     </span></a>
             </li>
 
             <li class=" nav-item"><a class="d-flex align-items-center" href="#">
-                    <i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Chat">
-{{--    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"--}}
-{{--         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-life-buoy">--}}
-{{--        <circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle>--}}
-{{--        --}}
-{{--        <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>--}}
-{{--        <line--}}
-{{--            x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line><line--}}
-{{--            x1="14.83" y1="9.17" x2="18.36" y2="5.64"></line><line x1="4.93" y1="19.07" x2="9.17" y2="14.83">--}}
-{{--        </line>--}}
-{{--    </svg>--}}
+                    {{-- <i data-feather="message-square"></i> --}}
+                    <i class="fa-solid fa-feather"></i>
+                    <span class="menu-title text-truncate" data-i18n="Chat">
                         Features
                     </span>
                 </a>
@@ -84,39 +78,113 @@
             <li class=" nav-item"><a class="d-flex align-items-center" href=""><i data-feather="check-square"></i><span
                         class="menu-title text-truncate" data-i18n="Todo">Demo videos</span></a>
             </li>
+
+
             <!-- START ALL STUDENTS -->
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="shopping-cart"></i><span class="menu-title text-truncate" data-i18n="eCommerce">Students</span></a>
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="#">
+                    {{-- <i data-feather="user"></i> --}}
+                    <i class="fa-solid fa-users"></i>
+                    <span class="menu-title text-truncate">Students</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Shop">Shop</span></a>
+                    <li><a class="d-flex align-items-center" href="{{route('all.students.1st')}}"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Shop">First year</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Details">Details</span></a>
+                    <li><a class="d-flex align-items-center" href="{{route('all.students.2nd')}}"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Details">Second year</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Wish List">Wish List</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Checkout">Checkout</span></a>
+                    <li><a class="d-flex align-items-center" href="{{route('all.students.3rd')}}"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Wish List">Third year</span></a>
                     </li>
                 </ul>
             </li>
-            <!-- END ALL STUDENTS -->
+            <!-- END: All STUDENTS-->
 
-
-
-
-
-
-
-
-
-
-
-            <li class=" nav-item"><a class="d-flex align-items-center" href=""><i data-feather="check-square"></i><span
-                        class="menu-title text-truncate" data-i18n="Todo">Cashier</span></a>
+            <!-- START: Waiting LIST-->
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span class="menu-title text-truncate" data-i18n="eCommerce">Waiting List</span></a>
+                <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Shop">First year</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Details">Second year</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Wish List">Third year</span></a>
+                    </li>
+                </ul>
             </li>
+            <!-- END: Waiting LIST-->
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href=""><i data-feather="check-square"></i><span
-                        class="menu-title text-truncate" data-i18n="Todo">Reports</span></a>
+
+            <!-- START: Subscribed LIST-->
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <span class="menu-title text-truncate" data-i18n="eCommerce">Subscriptions</span>
+                </a>
+                <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Shop">First year</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Details">Second year</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Wish List">Third year</span></a>
+                    </li>
+                </ul>
             </li>
+            <!-- END: Subscribed LIST-->
 
+
+            <!-- START: Courses LIST-->
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span class="menu-title text-truncate" data-i18n="eCommerce">Courses</span></a>
+                <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Shop">Add Course</span></a>
+
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Shop">First year</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Details">Second year</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Wish List">Third year</span></a>
+                    </li>
+                </ul>
+            </li>
+            <!-- END: Courses LIST-->
+
+
+            <!-- START: Lectures LIST-->
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="#">
+                    <i class="fa-solid fa-book"></i>
+                    <span class="menu-title text-truncate" data-i18n="eCommerce">Lectures</span></a>
+                <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Shop">Add Video</span></a>
+
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Shop">Add Lecture</span></a>
+
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Shop">First year</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Details">Second year</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                                class="menu-item text-truncate" data-i18n="Wish List">Third year</span></a>
+                    </li>
+                </ul>
+            </li>
+            <!-- END: Lectures LIST-->
         </ul>
     </div>
 </div>

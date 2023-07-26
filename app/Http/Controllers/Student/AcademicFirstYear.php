@@ -12,6 +12,9 @@ use App\Models\QuizFirstYear;
 use App\Models\SubscribedFirstYear;
 use App\Models\User;
 use App\Models\WaitingListFirstYear;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use App\Models\CourseFirstYear;
@@ -22,7 +25,7 @@ use Illuminate\Support\Facades\Gate;
 
 class AcademicFirstYear extends Controller
 {
-    public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function index(): Factory|View|Application
     {
         $demo = Cache::get('demo_first_year');
         if (empty($demo))
@@ -34,7 +37,7 @@ class AcademicFirstYear extends Controller
     }
 
     //Student or anyone View All Courses
-    public function courses(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function courses(): Factory|View|Application
     {
         $courses = CourseFirstYear::query()->get();
         if (Auth::check()) {
@@ -66,21 +69,54 @@ class AcademicFirstYear extends Controller
         return view('student.all_course.1st', compact('courses'));
     }
 
-    public function allStudents(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function allStudents(): View
     {
-        $students = User::orderBy('id', 'asc')->where('academic_year', '=', 1)->paginate(7);
-        return view('admin.students.1st', compact('students'));
+        return view('admin.students.1st');
+    }
+
+    public function studentsDataTable()
+    {
+        $students = User::query()
+            ->orderBy('id', 'asc')
+            ->where('academic_year', '=', 1)
+            //->paginate(7);
+            ->get();
+
+        // color: #7367f0;
+        // font-size: 15px;
+        // font-weight: bold;
+
+        return Datatables::of($students)
+            ->addColumn('name', function ($students) {
+                return  '<span style="color: #7367f0;font-size: 15px;font-weight: bold">' . $students->name . '</span>';
+            })
+            ->addColumn('email', function ($students) {
+                return   '<span style="color: #6610f2;font-size: 15px;font-weight: bold">' . $students->email . '</span>';
+            })
+            ->addColumn('phone_number', function ($students) {
+                return '<span style="color: #28c76f;font-size: 15px;font-weight: bold">' . $students->phone_number . '</span>';
+            })
+            ->addColumn('created_at', function ($students) {
+                return '<span style="font-size: 15px;font-weight: bold">' . $students->created_at->format('d-M-Y') . '</span>';
+            })
+            ->addColumn('action', function ($students) {
+                return '<a href="' . route('delete.student', $students->id) . '"  style="color: red;font-size: 21px;" title="Delete Student">
+                        <i class="fa-solid fa-trash"></i></a>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
     }
 
 
     //Admin[only] View All Courses
-    public function showAllCourses(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function showAllCourses(): View
     {
         $courses = CourseFirstYear::orderBy('id', 'asc')->get();
         return view('admin.courses.first_year.index', compact('courses'));
     }
 
-    public function showCourseEditForm($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|string|\Illuminate\Contracts\Foundation\Application
+    public function showCourseEditForm($id): View|Factory|string|Application
     {
         $course = CourseFirstYear::find($id);
         if (!$course)
@@ -139,7 +175,7 @@ class AcademicFirstYear extends Controller
         return redirect()->back()->with(['success' => 'تم حذف الكورس ']);
     }
 
-    public function toSubscribeCourse($id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function toSubscribeCourse($id): Factory|View|Application
     {
         $course = CourseFirstYear::query()->find($id);
         if (!$course)
@@ -184,7 +220,7 @@ class AcademicFirstYear extends Controller
         return redirect()->back()->with(['success' => 'subscription deleted successfully']);
     }
 
-    public function enrolledCoursesView(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function enrolledCoursesView(): Factory|View|Application
     {
         $enrolled = SubscribedFirstYear::orderBy('serial_number', 'asc')->where('student_id', Auth::id())->with('course')->get();
         $user = Auth::user();
@@ -193,7 +229,7 @@ class AcademicFirstYear extends Controller
         return view('student.enrolled.first.index', compact('enrolled'));
     }
 
-    public function getLectures(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function getLectures(): Factory|View|Application
     {
         $allData = LecturesFirstYear::paginate(10);
         return view('admin.lectures.1st', compact('allData'));
@@ -210,7 +246,7 @@ class AcademicFirstYear extends Controller
         return redirect()->back()->with(['success' => 'Lecture deleted successfully']);
     }
 
-    public function updateLectureForm($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|string|\Illuminate\Contracts\Foundation\Application
+    public function updateLectureForm($id): View|Factory|string|Application
     {
         $lec = LecturesFirstYear::find($id);
         if (!$lec)
@@ -280,7 +316,7 @@ class AcademicFirstYear extends Controller
         return view('student.enrolled.first.lecture', compact('lec'));
     }
 
-    public function getHomeWork(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function getHomeWork(): Factory|View|Application
     {
         $homeworks = HomeWorkFirstYear::with('course')->paginate(10);
         return view('admin.homework.1st', compact('homeworks'));
@@ -288,20 +324,20 @@ class AcademicFirstYear extends Controller
 
     public function deleteHomeWork($id): string|\Illuminate\Http\RedirectResponse
     {
-        $homework = HomeWorkFirstYear::find($id);
+        $homework = HomeWorkFirstYear::query()->find($id);
         if (!$homework)
             return 'Home Work Not Found';
         $homework->delete();
         return redirect()->back()->with(['success' => 'home work deleted successfully']);
     }
 
-    public function viewStudentHomeWork($id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function viewStudentHomeWork($id): Factory|View|Application
     {
         $homework = LecturesFirstYear::find($id)->homework;
         return view('student.enrolled.first.homework', compact('homework'));
     }
 
-    public function getQuiz(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function getQuiz(): Factory|View|Application
     {
         $quizzes = QuizFirstYear::with('course')->paginate(10);
         return view('admin.quiz.1st', compact('quizzes'));
@@ -317,7 +353,7 @@ class AcademicFirstYear extends Controller
         return redirect()->back()->with(['success' => 'quiz deleted successfully']);
     }
 
-    public function viewStudentQuiz($id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function viewStudentQuiz($id): Factory|View|Application
     {
         $quiz = LecturesFirstYear::find($id)->quiz;
         return view('student.enrolled.first.quiz', compact('quiz'));

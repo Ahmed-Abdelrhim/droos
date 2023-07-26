@@ -1,5 +1,4 @@
 @extends('admin.frontend.app.master')
-
 @section('main-content')
     <!-- BEGIN: Content-->
     <div class="app-content content ">
