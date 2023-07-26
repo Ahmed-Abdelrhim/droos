@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LecturesRequest;
-use App\Http\Requests\UpdateFirstYearCourseRrquest;
+// use App\Http\Requests\UpdateFirstYearCourseRrquest;
 use App\Models\Demo;
 use App\Models\HomeWorkFirstYear;
 use App\Models\LecturesFirstYear;
@@ -15,6 +15,7 @@ use App\Models\WaitingListFirstYear;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use App\Models\CourseFirstYear;
@@ -22,9 +23,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Gate;
+use App\Traits\Datatable;
 
 class AcademicFirstYear extends Controller
 {
+    use Datatable;
     public function index(): Factory|View|Application
     {
         $demo = Cache::get('demo_first_year');
@@ -79,33 +82,8 @@ class AcademicFirstYear extends Controller
         $students = User::query()
             ->orderBy('id', 'asc')
             ->where('academic_year', '=', 1)
-            //->paginate(7);
             ->get();
-
-        // color: #7367f0;
-        // font-size: 15px;
-        // font-weight: bold;
-
-        return Datatables::of($students)
-            ->addColumn('name', function ($students) {
-                return  '<span style="color: #7367f0;font-size: 15px;font-weight: bold">' . $students->name . '</span>';
-            })
-            ->addColumn('email', function ($students) {
-                return   '<span style="color: #6610f2;font-size: 15px;font-weight: bold">' . $students->email . '</span>';
-            })
-            ->addColumn('phone_number', function ($students) {
-                return '<span style="color: #28c76f;font-size: 15px;font-weight: bold">' . $students->phone_number . '</span>';
-            })
-            ->addColumn('created_at', function ($students) {
-                return '<span style="font-size: 15px;font-weight: bold">' . $students->created_at->format('d-M-Y') . '</span>';
-            })
-            ->addColumn('action', function ($students) {
-                return '<a href="' . route('delete.student', $students->id) . '"  style="color: red;font-size: 21px;" title="Delete Student">
-                        <i class="fa-solid fa-trash"></i></a>';
-            })
-            ->rawColumns(['action'])
-            ->escapeColumns([])
-            ->make(true);
+        return $this->getStudentsFromDataTable($students);
     }
 
 
@@ -125,7 +103,7 @@ class AcademicFirstYear extends Controller
 
     }
 
-    public function updateCourse(Request $request, $id): \Illuminate\Http\RedirectResponse
+    public function updateCourse(Request $request, $id): RedirectResponse
     {
         //|unique:course_first_years,name'.$id
         $course = CourseFirstYear::findOrFail($id);
@@ -164,7 +142,7 @@ class AcademicFirstYear extends Controller
 
     }
 
-    public function deleteCourse($id): string|\Illuminate\Http\RedirectResponse
+    public function deleteCourse($id): string|RedirectResponse
     {
         $course = CourseFirstYear::find($id);
         if (!$course)
@@ -183,7 +161,7 @@ class AcademicFirstYear extends Controller
         return view('student.to_subscribe.1st', compact('course'));
     }
 
-    public function subscribeCourseNow($id): \Illuminate\Http\RedirectResponse
+    public function subscribeCourseNow($id): RedirectResponse
     {
         $student = Auth::user();
         $student_id = $student->id;
@@ -211,7 +189,7 @@ class AcademicFirstYear extends Controller
         return redirect()->route('courses.1st.students')->with(['success' => 'تم الأضافة الي قائمة الأنتظار سيتم تفعيل الكورس عند الدفع']);
     }
 
-    public function deleteSubscription($id): string|\Illuminate\Http\RedirectResponse
+    public function deleteSubscription($id): string|RedirectResponse
     {
         $subscription = SubscribedFirstYear::find($id);
         if (!$subscription)
@@ -235,7 +213,7 @@ class AcademicFirstYear extends Controller
         return view('admin.lectures.1st', compact('allData'));
     }
 
-    public function deleteLecture($id): string|\Illuminate\Http\RedirectResponse
+    public function deleteLecture($id): string|RedirectResponse
     {
         $lec = LecturesFirstYear::find($id);
         if (!$lec)
@@ -254,7 +232,7 @@ class AcademicFirstYear extends Controller
         return view('admin.lectures.1st_update', compact('lec'));
     }
 
-    public function updateLecture(LecturesRequest $request, $id): string|\Illuminate\Http\RedirectResponse
+    public function updateLecture(LecturesRequest $request, $id): string|RedirectResponse
     {
         $lecture = LecturesFirstYear::find($id);
         if (!$lecture)
@@ -322,7 +300,7 @@ class AcademicFirstYear extends Controller
         return view('admin.homework.1st', compact('homeworks'));
     }
 
-    public function deleteHomeWork($id): string|\Illuminate\Http\RedirectResponse
+    public function deleteHomeWork($id): string|RedirectResponse
     {
         $homework = HomeWorkFirstYear::query()->find($id);
         if (!$homework)
@@ -344,7 +322,7 @@ class AcademicFirstYear extends Controller
     }
 
 
-    public function deleteQuiz($id): string|\Illuminate\Http\RedirectResponse
+    public function deleteQuiz($id): string|RedirectResponse
     {
         $quiz = QuizFirstYear::find($id);
         if (!$quiz)

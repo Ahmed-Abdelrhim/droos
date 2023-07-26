@@ -26,9 +26,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use App\Traits\Datatable;
 
 class AcademicThirdYear extends Controller
 {
+    use Datatable;
     public function index(): Factory|View|Application
     {
         // Cache::put('dom_third_year', $demo, now()->addDay(2)  );

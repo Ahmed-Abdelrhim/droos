@@ -17,9 +17,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\DataTables;
+use App\Traits\Datatable;
 
 class AcademicSecondYear extends Controller
 {
+    use Datatable;
     public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         // $demo = Demo::query()->where('academic_year', '=', 2)->first();
@@ -80,6 +83,16 @@ class AcademicSecondYear extends Controller
         $students = User::orderBy('id', 'asc')->where('academic_year', 2)->paginate(7);
         return view('admin.students.2nd', compact('students'));
     }
+
+    public function studentsDataTable()
+    {
+        $students = User::query()
+            ->orderBy('id', 'asc')
+            ->where('academic_year', '=', 2)
+            ->get();
+        return $this->getStudentsFromDataTable($students);
+    }
+
 
 
     public function showAllCourses(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
