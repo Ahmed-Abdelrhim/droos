@@ -68,7 +68,8 @@
                     <div class="user-nav d-sm-flex d-none"><span
                             class="user-name fw-bolder">{{auth()->user()->name}}</span><span
                             class="user-status">Admin</span></div>
-                    <span class="avatar"><img class="round" src="" alt="avatar" height="40" width="40"><span
+                    <span class="avatar">
+                        <img class="round" src="{{asset('storage/6/conversions/my-pic-5-avatar.jpg')}}" alt="avatar" height="40" width="40"><span
                             class="avatar-status-online"></span></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item"

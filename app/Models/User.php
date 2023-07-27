@@ -105,8 +105,8 @@ class User extends Authenticatable implements HasMedia
         $this->addMediaCollection('students')
             ->registerMediaConversions(function (Media $media) {
                 $this->addMediaConversion('avatar')
-                    ->width(100)
-                    ->height(100)
+                    ->width(45)
+                    ->height(45)
                     ->sharpen(10);
             });
     }

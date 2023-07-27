@@ -99,10 +99,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
         Route::get('all/students/3rd/year',[AcademicThirdYear::class,'allStudents'])->name('all.students.3rd');
         Route::get('get/third/year/students',[AcademicThirdYear::class,'studentsDataTable'])->name('students.datatables.3rd');
-
-
         Route::post('delete/student/{id}',[StudentGeneralController::class,'deleteStudent'])->name('delete.student');
-
 
         //Waiting List···
         Route::get('view/waiting/list/1st',[WaitingListController::class,'waitingFirstYear'])->name('waiting.list.1st');

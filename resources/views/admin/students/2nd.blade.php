@@ -14,13 +14,13 @@
                     <!-- list and filter start -->
                     <div class="card">
                         <div class="card-body border-bottom">
-                            <h4 class="card-title">Students First Year</h4>
+                            <h4 class="card-title">Students Second Year</h4>
                         </div>
                         <div class="card-datatable table-responsive pt-0">
                             <table class="user-list-table table" id="usersTable"  data-url="{{ route('students.datatables.1st') }}">
                                 <thead class="table-light">
                                 <tr>
-                                    <th></th>
+                                    <th>Image</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
@@ -54,7 +54,7 @@
                 // data : {status : status, requested : requests}
             },
             columns : [
-                {data : 'id', name : 'id'},
+                {data : 'image', name : 'image'},
                 {data : 'name', name : 'name'},
                 {data : 'email', name : 'email'},
                 {data : 'phone_number', name : 'phone_number'},

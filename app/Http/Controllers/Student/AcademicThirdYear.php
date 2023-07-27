@@ -81,9 +81,11 @@ class AcademicThirdYear extends Controller
     public function studentsDataTable()
     {
         $students = User::query()
+            ->with('media')
             ->orderBy('id', 'asc')
             ->where('academic_year', '=', 3)
             ->get();
+        // return $students[0]->getFirstMediaUrl('students');
         return $this->getStudentsFromDataTable($students);
     }
 
