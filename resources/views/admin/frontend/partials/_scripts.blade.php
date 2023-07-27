@@ -29,7 +29,7 @@
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
-<script src="{{ asset('admin/assets/js/iziToast.min.js') }}"></script>
+<script src="{{ asset('assets/js/iziToast.min.js') }}"></script>
 <script>
     @if(Session::has('message'))
     var type = "{{ Session::get('alert-type','info') }}"

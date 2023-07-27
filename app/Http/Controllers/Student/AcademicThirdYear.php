@@ -37,11 +37,7 @@ class AcademicThirdYear extends Controller
         $demo = Cache::get('demo_third_year');
         if (empty($demo))
             $demo = Demo::query()->where('academic_year', '=', 3)->first();
-        $user = Auth::user();
-        $user->mac_address = 1;
-        $user->save();
         return view('student.3rd', ['demo' => $demo]);
-
     }
 
     public function courses(): Factory|View|Application

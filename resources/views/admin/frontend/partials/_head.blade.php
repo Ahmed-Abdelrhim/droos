@@ -35,7 +35,7 @@
       crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-<link rel="stylesheet" href="{{ asset('admin/assets/css/iziToast.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/iziToast.min.css') }}">
 
 @yield('css')
 <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/css/apexcharts.css')}}">
