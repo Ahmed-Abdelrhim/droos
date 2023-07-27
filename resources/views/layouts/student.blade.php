@@ -17,7 +17,6 @@
 
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/ph.ico') }}">
 
-    <script src="{{ asset('assets/css/iziToast.min.css') }}"></script>
 
 
     <style>
@@ -419,6 +418,8 @@
         }
     </style>
 {{--    @livewireStyles--}}
+    <link rel="stylesheet" href="{{ asset('assets/css/iziToast.min.css') }}">
+
 
 </head>
 <body oncontextmenu="return false">
@@ -813,7 +814,7 @@
             iziToast.info({
                 title: 'info',
                 message: '{{ session('message') }}',
-                position: 'bottomRight'
+                position: 'topRight'
             });
             break;
 
@@ -821,7 +822,7 @@
             iziToast.success({
                 title: 'Success',
                 message: '{{ session('message') }}',
-                position: 'bottomRight'
+                position: 'topRight'
             });
             break;
 
@@ -829,7 +830,7 @@
             iziToast.warning({
                 title: 'warning',
                 message: '{{ session('message') }}',
-                position: 'bottomRight'
+                position: 'topRight'
             });
             break;
 
@@ -837,7 +838,7 @@
             iziToast.error({
                 title: 'error',
                 message: '{{ session('message') }}',
-                position: 'bottomRight'
+                position: 'topRight'
             });
             break;
     }
