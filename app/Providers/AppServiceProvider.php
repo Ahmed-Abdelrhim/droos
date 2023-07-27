@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,5 +30,6 @@ class AppServiceProvider extends ServiceProvider
             $view->with('video_name','VIDEO');
             // $view->with('social', Social::all());
         });
+        Model::preventLazyLoading(!$this->app->isProduction());
     }
 }

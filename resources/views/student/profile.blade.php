@@ -1,27 +1,20 @@
 @extends('layouts.student')
 @section('content')
-{{--    <livewire:student-profile />--}}
-
     <section class="form-container">
-
-
         <form action="{{route('update.student.profile')}}" method="POST" enctype="multipart/form-data">
-             Success Message
-            @if (Session::has('success'))
-                <div class="row mr-2 ml-2">
-                    <button type="text" class="btn btn-lg btn-block btn-outline-success mb-2"
-                            id="type-error">{{Session::get('success')}}
-                    </button>
-                </div>
-            @endif
-
+            {{-- Success Message --}}
+            {{--            @if (Session::has('success'))--}}
+            {{--                <div class="row mr-2 ml-2">--}}
+            {{--                    <button type="text" class="btn btn-lg btn-block btn-outline-success mb-2"--}}
+            {{--                            id="type-error">{{Session::get('success')}}--}}
+            {{--                    </button>--}}
+            {{--                </div>--}}
+            {{--            @endif--}}
 
             @csrf
             <h3>Student Profile</h3>
             <p>الأسم <span>*</span></p>
-            <input type="text" name="name" placeholder="enter your name" maxlength="50" class="box"
-                   value="{{Auth::user()->name}}"
-            >
+            <input type="text" name="name" placeholder="enter your name" maxlength="50" class="box" value="{{Auth::user()->name}}">
             @error('name')
             <span class="text-danger" style="color: white">{{$message}}</span>
             @enderror

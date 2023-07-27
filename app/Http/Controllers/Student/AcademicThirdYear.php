@@ -78,8 +78,17 @@ class AcademicThirdYear extends Controller
 
     public function allStudents(): Factory|View|Application
     {
-        $students = User::query()->orderBy('id', 'asc')->where('academic_year', 3)->paginate(7);
-        return view('admin.students.3rd', compact('students'));
+        // $students = User::query()->orderBy('id', 'asc')->where('academic_year', 3)->paginate(7);
+        return view('admin.students.3rd');
+    }
+
+    public function studentsDataTable()
+    {
+        $students = User::query()
+            ->orderBy('id', 'asc')
+            ->where('academic_year', '=', 3)
+            ->get();
+        return $this->getStudentsFromDataTable($students);
     }
 
     public function showAllCourses(): Factory|View|Application

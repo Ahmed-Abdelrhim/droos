@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LecturesThirdYear;
 use App\Models\User;
 use App\Models\WhoAreWe;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,7 @@ use PHPUnit\Exception;
 
 class StudentGeneralController extends Controller
 {
-    public function storeMessage(Request $request): \Illuminate\Http\RedirectResponse
+    public function storeMessage(Request $request): RedirectResponse
     {
         $request->validate([
             'msg' => 'required | min:4'
@@ -52,19 +53,14 @@ class StudentGeneralController extends Controller
             $result[$i] = $nums[$i] + $result[$i - 1];
         }
         return $result;
-        //return substr(exec('getmac'), 0, 17);
-        // return substr(shell_exec('getmac'), 159,20);
     }
 
     public function viewProfileForm()
     {
-        $user = Auth::user();
-        $user->mac_address = 1;
-        $user->save();
         return view('student.profile');
     }
 
-    public function updateStudentProfile(Request $request): \Illuminate\Http\RedirectResponse
+    public function updateStudentProfile(Request $request): RedirectResponse
     {
         $request->validate([
             'name' => 'required|string|min:4',
@@ -75,14 +71,19 @@ class StudentGeneralController extends Controller
             'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
         ]);
 
-        $image_name = Auth::user()->avatar;
-        if ($request->has('avatar'))
-            $image_name = uploadImage('studentImages', $request->avatar);
-        $password = Auth::user()->password;
-        if ($request->password != null)
-            $password = bcrypt($request->password);
-
         $student = Auth::user();
+        $image_name = $student->avatar;
+        if ($request->has('avatar')) {
+            // $image_name = uploadImage('studentImages', $request->avatar);
+            //TODO: MAKE it in the background
+            $student->addMediaFromRequest('avatar')->toMediaCollection('students');
+        }
+
+        $password = Auth::user()->password;
+        if ($request->password != null) {
+            $password = bcrypt($request->password);
+        }
+
         DB::beginTransaction();
         $student->update([
             'name' => $request->name,
@@ -96,7 +97,8 @@ class StudentGeneralController extends Controller
             'updated_at' => now(),
         ]);
         DB::commit();
-        return redirect()->back()->with(['success' => 'تم تحديث الأيميل بنجاح']);
+        $notifications = array('message' => 'تم تحديث الأيميل بنجاح', 'alert-type' => 'success');
+        return redirect()->back()->with($notifications);
     }
 
     public function deleteStudent($id)
