@@ -3,22 +3,24 @@ namespace  App\Services;
 
 class CourseService
 {
-    public function addCourse($request)
+    public function addCourse($model , $request , $discount)
     {
-        $academic_year = $request->academic_year;
-        if (!in_array($academic_year, [1, 2, 3])) {
-            return 'يجب ادخال السنة الدراسية صحيحا وأن تكون أولي أو ثانيةأو ثالثة ثانوي';
-        }
-
-        $discount = null;
-        $price = $request->price;
-        if ($request->discount != null) {
-            $price = $this->calculateDiscount($request->discount , $request->price);
-        }
+        return $model->query()->create([
+            'name' => $request->name,
+            'serial_number' => $request->serial_number,
+            'price' => $request->get('price'),
+            'cover' => '$cover',
+            'discount' => $discount,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
     public function calculateDiscount($discount , $price): float|int
     {
         $newDiscount = ($discount / 100) * ($price);
         return $price - $newDiscount;
     }
+
+
+
 }
