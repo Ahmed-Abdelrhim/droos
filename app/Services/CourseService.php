@@ -14,10 +14,15 @@ class CourseService
             'price' => $request->get('price'),
             'discount' => $discount,
             'created_at' => now(),
-            // 'cover' => '$cover',
-            // 'updated_at' => now(),
         ]);
-        $customPath = Storage::disk('public')->path('courses_third_year');
+        $customFolderPath = 'courses_third_year';
+        $customPath = 'public/' . $customFolderPath;
+
+        // Create the folder if it doesn't exist
+        if (!Storage::disk('public')->exists($customFolderPath)) {
+            Storage::disk('public')->makeDirectory($customFolderPath);
+        }
+
 
         $course->addMediaFromRequest('cover')
             ->toMediaCollection('courses', 'public', $customPath);
@@ -28,7 +33,4 @@ class CourseService
         $newDiscount = ($discount / 100) * ($price);
         return $price - $newDiscount;
     }
-
-
-
 }
