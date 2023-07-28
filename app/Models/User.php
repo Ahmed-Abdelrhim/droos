@@ -13,9 +13,14 @@ use App\Models\WaitingListThirdYear;
 use App\Models\SubscribedFirstYear;
 use App\Models\SubscribedSecondYear;
 use App\Models\SubscribedThirdYear;
-class User extends Authenticatable
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+
+
+class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -93,4 +98,16 @@ class User extends Authenticatable
     }
     ####### End Subscribed #######
     ############################################ End Relations ##############################################
+
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('students')
+            ->registerMediaConversions(function (Media $media) {
+                $this->addMediaConversion('avatar')
+                    ->width(45)
+                    ->height(45)
+                    ->sharpen(10);
+            });
+    }
 }

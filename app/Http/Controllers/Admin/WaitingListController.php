@@ -7,6 +7,7 @@ use App\Models\SubscribedFirstYear;
 use App\Models\SubscribedSecondYear;
 use App\Models\SubscribedThirdYear;
 use App\Models\User;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use App\Models\WaitingListFirstYear;
 use App\Models\WaitingListSecondtYear;
@@ -17,7 +18,7 @@ use Yajra\DataTables\DataTables;
 
 class WaitingListController extends Controller
 {
-    public function waitingFirstYear(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function waitingFirstYear(Request $request): Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $allData = WaitingListFirstYear::with('students')->paginate(10);
         return view('admin.waiting_list.first.index', compact('allData'));
@@ -47,7 +48,7 @@ class WaitingListController extends Controller
         return redirect()->route('waiting.list.1st')->with(['success' => 'success transaction']);
     }
 
-    public function waitingSecondYear(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function waitingSecondYear(): Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $allData = WaitingListSecondtYear::with('students')->paginate(10);
         return view('admin.waiting_list.second.index', compact('allData'));
@@ -78,7 +79,7 @@ class WaitingListController extends Controller
         return redirect()->route('waiting.list.2nd')->with(['success' => 'success transaction']);
     }
 
-    public function waitingThirdYear(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function waitingThirdYear(): Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $allData = WaitingListThirdYear::with('students')->paginate(10);
         return view('admin.waiting_list.third.index', ['allData' => $allData]);

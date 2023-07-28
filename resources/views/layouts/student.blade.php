@@ -7,6 +7,7 @@
     <title>Physics With Aladdin</title>
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
 
@@ -416,7 +417,9 @@
             padding-left: 8px;
         }
     </style>
-    @livewireStyles
+{{--    @livewireStyles--}}
+    <link rel="stylesheet" href="{{ asset('assets/css/iziToast.min.css') }}">
+
 
 </head>
 <body oncontextmenu="return false">
@@ -792,7 +795,7 @@
 
 
 {{--Custom JavaScript--}}
-<script src="{{asset('js/script.js')}}"></script>
+{{--<script src="{{asset('js/script.js')}}"></script>--}}
 <script src="{{asset('js/sweetalert.min.js')}}"></script>
 
 @stack('javascript')
@@ -800,7 +803,47 @@
 {{--@livewireScripts--}}
 
 
-@livewireScripts
+{{--@livewireScripts--}}
+
+<script src="{{ asset('assets/js/iziToast.min.js') }}"></script>
+<script>
+    @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type','info') }}"
+    switch (type) {
+        case 'info':
+            iziToast.info({
+                title: 'info',
+                message: '{{ session('message') }}',
+                position: 'topRight'
+            });
+            break;
+
+        case 'success':
+            iziToast.success({
+                title: 'Success',
+                message: '{{ session('message') }}',
+                position: 'topRight'
+            });
+            break;
+
+        case 'warning':
+            iziToast.warning({
+                title: 'warning',
+                message: '{{ session('message') }}',
+                position: 'topRight'
+            });
+            break;
+
+        case 'error':
+            iziToast.error({
+                title: 'error',
+                message: '{{ session('message') }}',
+                position: 'topRight'
+            });
+            break;
+    }
+    @endif
+</script>
 
 </body>
 </html>

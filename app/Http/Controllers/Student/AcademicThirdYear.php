@@ -26,20 +26,18 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use App\Traits\Datatable;
 
 class AcademicThirdYear extends Controller
 {
+    use Datatable;
     public function index(): Factory|View|Application
     {
         // Cache::put('dom_third_year', $demo, now()->addDay(2)  );
         $demo = Cache::get('demo_third_year');
         if (empty($demo))
             $demo = Demo::query()->where('academic_year', '=', 3)->first();
-        $user = Auth::user();
-        $user->mac_address = 1;
-        $user->save();
         return view('student.3rd', ['demo' => $demo]);
-
     }
 
     public function courses(): Factory|View|Application
@@ -76,8 +74,19 @@ class AcademicThirdYear extends Controller
 
     public function allStudents(): Factory|View|Application
     {
-        $students = User::query()->orderBy('id', 'asc')->where('academic_year', 3)->paginate(7);
-        return view('admin.students.3rd', compact('students'));
+        // $students = User::query()->orderBy('id', 'asc')->where('academic_year', 3)->paginate(7);
+        return view('admin.students.3rd');
+    }
+
+    public function studentsDataTable()
+    {
+        $students = User::query()
+            ->with('media')
+            ->orderBy('id', 'asc')
+            ->where('academic_year', '=', 3)
+            ->get();
+        // return $students[0]->getFirstMediaUrl('students');
+        return $this->getStudentsFromDataTable($students);
     }
 
     public function showAllCourses(): Factory|View|Application
