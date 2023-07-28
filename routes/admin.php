@@ -26,11 +26,9 @@ use App\Http\Controllers\Admin\AdminLoginController;
 */
 
 Route::group(['middleware' => 'disable_back_btn'], function () {
-
     Route::group(['middleware' => 'guest:admin'], function () {
         Route::get('admin/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login.form');
         Route::post('admin/post/login', [AdminLoginController::class, 'login'])->name('signIn');
-
 //        Route::get('login', [CustomLoginController::class, 'showLoginForm']);
     });
 
