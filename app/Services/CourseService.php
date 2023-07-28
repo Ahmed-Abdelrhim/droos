@@ -1,19 +1,27 @@
 <?php
 namespace  App\Services;
 
+use Illuminate\Support\Facades\Storage;
+
 class CourseService
 {
     public function addCourse($model , $request , $discount)
     {
-        return $model->query()->create([
+        // addMedia( storage_path( 'app/public/'. 'courses_third_year') )->toMediaCollection('courses');
+        $course = $model->query()->create([
             'name' => $request->name,
             'serial_number' => $request->serial_number,
             'price' => $request->get('price'),
-            'cover' => '$cover',
             'discount' => $discount,
             'created_at' => now(),
-            'updated_at' => now(),
+            // 'cover' => '$cover',
+            // 'updated_at' => now(),
         ]);
+        $customPath = Storage::disk('public')->path('courses_third_year');
+
+        $course->addMediaFromRequest('cover')
+            ->toMediaCollection('courses', 'public', $customPath);
+        return $course;
     }
     public function calculateDiscount($discount , $price): float|int
     {

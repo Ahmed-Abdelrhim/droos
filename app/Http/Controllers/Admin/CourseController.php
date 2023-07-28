@@ -17,6 +17,7 @@ use App\Factory\ThirdYear;
 class CourseController extends Controller
 {
     private CourseService $courseService;
+
     public function __construct(CourseService $courseService)
     {
         $this->courseService = $courseService;
@@ -27,32 +28,33 @@ class CourseController extends Controller
         return view('admin.courses.add');
     }
 
-
     public function addCourses(AddCoursesRequest $request)
     {
         $request->validated();
+        // return $request;
         $academic_year = (string)$request->academic_year;
         if (!in_array($academic_year, [1, 2, 3])) {
-            $notifications = array( 'message' =>  'يجب إختيار سنة دراسية صحيحة' , 'alert-type' => 'error' );
+            $notifications = array('message' => 'يجب إختيار سنة دراسية صحيحة', 'alert-type' => 'error');
             return redirect()->back()->with($notifications);
         }
 
         $discount = null;
         if ($request->get('discount') !== null) {
-            $discount = $this->courseService->calculateDiscount($request->get('discount') , $request->get('price'));
+            $discount = $this->courseService->calculateDiscount($request->get('discount'), $request->get('price'));
         }
 
-            $model = match ($academic_year) {
-                '1' => (new FirstYear())->create(),
-                '2' => (new SecondYear())->create(),
-                '3' => (new ThirdYear())->create(),
-            };
+        $model = match ($academic_year) {
+            '1' => (new FirstYear())->create(),
+            '2' => (new SecondYear())->create(),
+            '3' => (new ThirdYear())->create(),
+        };
 
-        $course = $this->courseService->addCourse($model , $request , $discount);
+        $course = $this->courseService->addCourse($model, $request, $discount);
 
-            $notifications = array( 'message' =>  'تم اضافة الكورس بنجاح' , 'alert-type' => 'success' );
-            return redirect()->back()->with($notifications);
-        }
+        $notifications = array('message' => 'تم اضافة الكورس بنجاح', 'alert-type' => 'success');
+        return redirect()->back()->with($notifications);
+    }
+
 }
 
 
@@ -94,7 +96,6 @@ class CourseController extends Controller
 //                    'updated_at' => now(),
 //                ]);
 //            }
-
 
 
 //            $oldPrice = $request->price;
