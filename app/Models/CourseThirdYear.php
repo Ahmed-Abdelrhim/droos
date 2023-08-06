@@ -11,7 +11,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class CourseThirdYear extends Model implements HasMedia
 {
-    use HasFactory , InteractsWithMedia;
+    use InteractsWithMedia , HasFactory;
     protected $table = 'course_third_years';
     protected $fillable = ['name','serial_number','price','cover','discount','created_at','updated_at'];
     protected $hidden = ['created_at','updated_at'];
@@ -43,7 +43,7 @@ class CourseThirdYear extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('courses')
+        $this->addMediaCollection('third_year_courses')
             ->registerMediaConversions(function (Media $media) {
                 $this->addMediaConversion('cover')
                     ->width(462)

@@ -8,6 +8,7 @@ use App\Models\CourseFirstYear;
 use App\Models\CourseSecondYear;
 use App\Models\CourseThirdYear;
 use App\Services\CourseService;
+use Illuminate\Contracts\View\View;
 use PhpOffice\PhpSpreadsheet\Calculation\Web\Service;
 
 use App\Factory\FirstYear;
@@ -23,7 +24,7 @@ class CourseController extends Controller
         $this->courseService = $courseService;
     }
 
-    public function showCoursesAddForm()
+    public function showCoursesAddForm(): View
     {
         return view('admin.courses.add');
     }
@@ -31,7 +32,6 @@ class CourseController extends Controller
     public function addCourses(AddCoursesRequest $request)
     {
         $request->validated();
-        // return $request;
         $academic_year = (string)$request->academic_year;
         if (!in_array($academic_year, [1, 2, 3])) {
             $notifications = array('message' => 'يجب إختيار سنة دراسية صحيحة', 'alert-type' => 'error');

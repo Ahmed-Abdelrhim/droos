@@ -12,13 +12,11 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class CourseFirstYear extends Model implements HasMedia
 {
-    use HasFactory , InteractsWithMedia;
+    use InteractsWithMedia , HasFactory ;
     protected $table = 'course_first_years';
     protected $fillable = ['name','serial_number','price','cover','discount','created_at','updated_at'];
     protected $hidden = ['created_at','updated_at'];
     public $timestamps = true;
-
-
 
     public function subscribed(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
@@ -43,7 +41,7 @@ class CourseFirstYear extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('courses')
+        $this->addMediaCollection('first_year_courses')
             ->registerMediaConversions(function (Media $media) {
                 $this->addMediaConversion('cover')
                     ->width(462)

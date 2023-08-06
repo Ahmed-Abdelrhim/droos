@@ -10,14 +10,14 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-start mb-0">Form Validation</h2>
+                            <h2 class="content-header-title float-start mb-0">Add New Course</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a>
                                     </li>
                                     <li class="breadcrumb-item"><a href="#">Courses</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Add Course
+                                    <li class="breadcrumb-item active">Add New Course
                                     </li>
                                 </ol>
                             </div>

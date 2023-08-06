@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LecturesRequest;
 // use App\Http\Requests\UpdateFirstYearCourseRrquest;
+use App\Http\Requests\UpdateCourseFirstYear;
 use App\Models\Demo;
 use App\Models\HomeWorkFirstYear;
 use App\Models\LecturesFirstYear;
@@ -12,6 +13,7 @@ use App\Models\QuizFirstYear;
 use App\Models\SubscribedFirstYear;
 use App\Models\User;
 use App\Models\WaitingListFirstYear;
+use App\Services\CourseService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -28,7 +30,13 @@ use App\Traits\Datatable;
 class AcademicFirstYear extends Controller
 {
     use Datatable;
-    public function index(): Factory|View|Application
+    private CourseService $courseService;
+    public function __construct(CourseService $courseService)
+    {
+        $this->courseService = $courseService;
+    }
+
+    public function index(): View
     {
         $demo = Cache::get('demo_first_year');
         if (empty($demo))
@@ -86,67 +94,49 @@ class AcademicFirstYear extends Controller
         return $this->getStudentsFromDataTable($students);
     }
 
-
     //Admin[only] View All Courses
-    public function showAllCourses(): View
+    public function showAllCourses()
     {
-        $courses = CourseFirstYear::orderBy('id', 'asc')->get();
-        return view('admin.courses.first_year.index', compact('courses'));
+        $courses = CourseFirstYear::query()
+            ->with('media')
+            ->orderBy('created_at', 'desc')
+            ->get();
+        return view('admin.courses.first_year.index', ['courses' => $courses]);
     }
 
     public function showCourseEditForm($id): View|Factory|string|Application
     {
-        $course = CourseFirstYear::find($id);
-        if (!$course)
+        $id = decrypt($id);
+        $course = CourseFirstYear::query()->find($id);
+        if (!$course) {
             return 'Course Not Found';
-        return view('admin.courses.first_year.update', compact('course'));
+        }
+        return view('admin.courses.first_year.update', ['course' => $course]);
 
     }
 
-    public function updateCourse(Request $request, $id): RedirectResponse
+    public function updateCourse(UpdateCourseFirstYear $request, $id): RedirectResponse
     {
-        //|unique:course_first_years,name'.$id
-        $course = CourseFirstYear::findOrFail($id);
-        if (!$course)
-            return redirect()->back()->with(['errors' => 'Course Not Found']);
-        $this->validate($request, [
-            'name' => 'required',
-            'serial_number' => 'required ',
-            'price' => 'required',
-            'discount' => 'nullable ',
-            'cover' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
-        ]);
-
-        $discount = null;
-        $price = $request->price;
-        if ($request->discount != null) {
-            $dis = ($request->discount / 100) * ($request->price);
-            $discount = $request->discount;
-            $price = $request->price - $dis;
+        $id = decrypt($id);
+        $request->validated();
+        $course = CourseFirstYear::query()->find($id);
+        if (!$course) {
+            $notifications = array('message' => 'Course Not Found', 'alert-type' => 'error');
+            return redirect()->back()->with($notifications);
         }
 
-        $cover = $course->cover;
-        if ($request->has('cover')) {
-            $cover = handleImage('courses_first_year', $request);
-        }
-        $course->update([
-            'name' => $request->name,
-            'serial_number' => $request->serial_number,
-            'price' => $price,
-            'cover' => $cover,
-            'discount' => $discount,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-        return redirect()->back()->with(['success' => 'تم تعديل الكورس بنجاح']);
+        $this->courseService->updateCourse($course , $request);
+        $notifications = array('message' => 'Course Updated Successfully', 'alert-type' => 'success');
+        return redirect()->route('all.courses.1st')->with($notifications);
 
     }
 
     public function deleteCourse($id): string|RedirectResponse
     {
-        $course = CourseFirstYear::find($id);
-        if (!$course)
+        $course = CourseFirstYear::query()->find($id);
+        if (!$course) {
             return 'Course Not Found To Be Deleted';
+        }
         $file_path = 'images/courses_first_year/' . $course->cover;
         // unlink($file_path);
         $course->delete();

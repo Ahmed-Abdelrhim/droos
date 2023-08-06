@@ -64,25 +64,27 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
 
         //Academic First Year [add , edit , delete actions]
         Route::get('all/courses/1st/year', [AcademicFirstYear::class, 'showAllCourses'])->name('all.courses.1st');
-        Route::get('add/courses', [CourseController::class, 'showCoursesAddForm'])->name('add.course');
+        Route::get('add/new/course', [CourseController::class, 'showCoursesAddForm'])->name('add.course');
         Route::post('add/courses', [CourseController::class, 'addCourses'])->name('store.courses');
-        Route::get('edit/courses/1st/year/{id}', [AcademicFirstYear::class, 'showCourseEditForm']);
-        Route::post('edit/courses/1st/year/{id}', [AcademicFirstYear::class, 'updateCourse'])->name('edit.course.1st');
-        Route::post('delete/courses/1st/year/{id}', [AcademicFirstYear::class, 'deleteCourse'])->name('delete.course.1st');
+
+
+        Route::get('edit/courses/1st/year/{course}', [AcademicFirstYear::class, 'showCourseEditForm'])->name('edit.course.1st');
+        Route::post('update/courses/1st/year/{course}', [AcademicFirstYear::class, 'updateCourse'])->name('update.course.1st');
+        Route::post('delete/courses/1st/year/{course}', [AcademicFirstYear::class, 'deleteCourse'])->name('delete.course.1st');
 
 
         //Academic Second Year [add , edit , delete actions]
         Route::get('all/courses/2nd/year', [AcademicSecondYear::class, 'showAllCourses'])->name('all.courses.2nd');
-        Route::get('edit/courses/2nd/year/{id}', [AcademicSecondYear::class, 'showCourseEditForm']);
-        Route::post('edit/courses/2nd/year/{id}', [AcademicSecondYear::class, 'updateCourse'])->name('edit.course.2nd');
-        Route::post('delete/courses/2nd/year/{id}', [AcademicSecondYear::class, 'deleteCourse'])->name('delete.course.2nd');
+        Route::get('edit/courses/2nd/year/{course}', [AcademicSecondYear::class, 'showCourseEditForm']);
+        Route::post('edit/courses/2nd/year/{course}', [AcademicSecondYear::class, 'updateCourse'])->name('edit.course.2nd');
+        Route::post('delete/courses/2nd/year/{course}', [AcademicSecondYear::class, 'deleteCourse'])->name('delete.course.2nd');
 
 
         //Academic Third Year [add , edit , delete actions]
         Route::get('all/courses/3rd/year', [AcademicThirdYear::class, 'showAllCourses'])->name('all.courses.3rd');
-        Route::get('edit/courses/3rd/year/{id}', [AcademicThirdYear::class, 'showCourseEditForm']);
-        Route::post('edit/courses/3rd/year/{id}', [AcademicThirdYear::class, 'updateCourse'])->name('edit.course.3rd');
-        Route::post('delete/courses/3rd/year/{id}', [AcademicThirdYear::class, 'deleteCourse'])->name('delete.course.3rd');
+        Route::get('edit/courses/3rd/year/{course}', [AcademicThirdYear::class, 'showCourseEditForm']);
+        Route::post('edit/courses/3rd/year/{course}', [AcademicThirdYear::class, 'updateCourse'])->name('edit.course.3rd');
+        Route::post('delete/courses/3rd/year/{course}', [AcademicThirdYear::class, 'deleteCourse'])->name('delete.course.3rd');
 
         //Admin Profile
         Route::get('profile',[ProfileController::class,'showTeacherProfile'])->name('teacher.profile');
