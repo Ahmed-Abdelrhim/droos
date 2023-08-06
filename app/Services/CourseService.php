@@ -1,20 +1,32 @@
 <?php
 namespace  App\Services;
 
+use Illuminate\Support\Facades\Storage;
+
 class CourseService
 {
-    public function addCourse($request)
+    public function addCourse($model , $request , $discount)
     {
-        $academic_year = $request->academic_year;
-        if (!in_array($academic_year, [1, 2, 3])) {
-            return 'يجب ادخال السنة الدراسية صحيحا وأن تكون أولي أو ثانيةأو ثالثة ثانوي';
+        // addMedia( storage_path( 'app/public/'. 'courses_third_year') )->toMediaCollection('courses');
+        $course = $model->query()->create([
+            'name' => $request->name,
+            'serial_number' => $request->serial_number,
+            'price' => $request->get('price'),
+            'discount' => $discount,
+            'created_at' => now(),
+        ]);
+        $customFolderPath = 'courses_third_year';
+        $customPath = 'public/' . $customFolderPath;
+
+        // Create the folder if it doesn't exist
+        if (!Storage::disk('public')->exists($customFolderPath)) {
+            Storage::disk('public')->makeDirectory($customFolderPath);
         }
 
-        $discount = null;
-        $price = $request->price;
-        if ($request->discount != null) {
-            $price = $this->calculateDiscount($request->discount , $request->price);
-        }
+
+        $course->addMediaFromRequest('cover')
+            ->toMediaCollection('courses', 'public', $customPath);
+        return $course;
     }
     public function calculateDiscount($discount , $price): float|int
     {

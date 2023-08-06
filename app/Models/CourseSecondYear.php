@@ -5,9 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\LecturesSecondYear;
-class CourseSecondYear extends Model
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+
+class CourseSecondYear extends Model implements HasMedia
 {
-    use HasFactory;
+    use HasFactory , InteractsWithMedia;
     protected $table = 'course_second_years';
     protected $fillable = ['name','serial_number','price','cover','discount','created_at','updated_at'];
     protected $hidden = ['created_at','updated_at'];
@@ -31,5 +35,16 @@ class CourseSecondYear extends Model
     public function quiz(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(QuizSecondYear::class,'course_id','id');
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('courses')
+            ->registerMediaConversions(function (Media $media) {
+                $this->addMediaConversion('cover')
+                    ->width(462)
+                    ->height(317)
+                    ->sharpen(10);
+            });
     }
 }

@@ -144,7 +144,8 @@
                     <i class="fa-brands fa-youtube"></i>
                     <span class="menu-title text-truncate" data-i18n="eCommerce">Courses</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
+                    <li>
+                        <a class="d-flex align-items-center" href="{{route('add.course')}}"><i data-feather="circle"></i><span
                                 class="menu-item text-truncate" data-i18n="Shop">Add Course</span></a>
 
                     <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
