@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="card-body">
                                     <form class="form form-vertical" method="post"
-                                          action="{{route('update.course.1st')}}" enctype="multipart/form-data">
+                                          action="{{route('update.course.1st', $course->id)}}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="row">
                                             <div class="col-12">
@@ -79,7 +79,9 @@
                                             <div class="col-12">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="serial_number">Course Month</label>
-                                                    <input class="form-control {{ $errors->has('serial_number') ? " is-invalid " : '' }}" id="serial_number" name="serial_number"></input>
+                                                    <input class="form-control
+                                                    {{ $errors->has('serial_number') ? " is-invalid " : '' }}" id="serial_number"
+                                                           name="serial_number" value="{{$course->serial_number}}" ></input>
                                                     @error('serial_number')
                                                     <span class="text-danger">{{$message}}</span>
                                                     @enderror
@@ -90,7 +92,9 @@
                                             <div class="col-12">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="price">Course Price</label>
-                                                    <input class="form-control {{ $errors->has('price') ? " is-invalid " : '' }}" id="price" name="price"></input>
+                                                    <input class="form-control
+                                                    {{ $errors->has('price') ? " is-invalid " : '' }}" id="price" name="price"
+                                                           value="{{$course->price}}" ></input>
                                                     @error('price')
                                                     <span class="text-danger">{{$message}}</span>
                                                     @enderror
@@ -103,7 +107,9 @@
                                                         Course Discount
                                                         <span style="color:red;"> * </span> If Exists <span style="color:red"> * </span>
                                                     </label>
-                                                    <input class="form-control {{ $errors->has('discount') ? " is-invalid " : '' }}" id="discount" name="discount"></input>
+                                                    <input class="form-control
+                                                    {{ $errors->has('discount') ? " is-invalid " : '' }}" id="discount" name="discount"
+                                                           value="{{$course->discount}}"></input>
                                                     @error('discount')
                                                     <span class="text-danger">{{$message}}</span>
                                                     @enderror
