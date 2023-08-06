@@ -46,6 +46,7 @@ class DashboardController extends Controller
 
     public function index()
     {
+        return auth()->user();
         return view('admin.dashboard');
     }
 
@@ -124,55 +125,16 @@ class DashboardController extends Controller
     }
 
 
-    public function showTeacherProfile()
-    {
-        return view('admin.teacher_profile');
-    }
 
-    public function updateAdminProfile(Request $request, $id)
-    {
-
-        // Auth::guard('admin')->user()->id
-        $request->validate([
-            'name' => 'required|min:4|string',
-            'email' => 'required|email|unique:admins,email,' . $id,
-            'phone_number' => 'required|min:10',
-            'password' => 'nullable|min:8|string|confirmed',
-            'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:30000',
-        ]);
-        $admin = Admin::find(Auth::guard('admin')->user()->id);
-        $password = $admin->password;
-        if ($request->password != null)
-            $password = bcrypt($request->password);
-
-        // return $password;
-        // return $request;
-        $image_name = $admin->avatar;
-        if ($request->has('avatar'))
-            $image_name = uploadImage('adminImages', $request->avatar);
-
-        DB::beginTransaction();
-        $admin->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone_number' => $request->phone_number,
-            'password' => $password,
-            'avatar' => $image_name,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-        DB::commit();
-        return redirect()->back()->with(['success' => 'admin profile updated successfully']);
-    }
 
     public function showAddNewLectureForm()
     {
 
         //return view::share('lec_name',$lec_name);
         return view('admin.lectures.add');
-//        if($this->getVideoName() == null)
-//            return 'yes null';
-//        return $this->getVideoName();
+        //        if($this->getVideoName() == null)
+        //            return 'yes null';
+        //        return $this->getVideoName();
     }
 
     public function getCourseMonths($id)

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\WaitingListController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\Student\AcademicFirstYear;
@@ -86,8 +87,8 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::post('delete/courses/3rd/year/{id}', [AcademicThirdYear::class, 'deleteCourse'])->name('delete.course.3rd');
 
         //Admin Profile
-        Route::get('profile',[DashboardController::class,'showTeacherProfile'])->name('teacher.profile');
-        Route::post('update/admin/profile/{id}',[DashboardController::class,'updateAdminProfile'])->name('update.admin.profile');
+        Route::get('profile',[ProfileController::class,'showTeacherProfile'])->name('teacher.profile');
+        Route::post('update/admin/profile',[ProfileController::class,'updateAdminProfile'])->name('update.admin.profile');
 
         //All Students···
         Route::get('all/students/1st/year',[AcademicFirstYear::class,'allStudents'])->name('all.students.1st');

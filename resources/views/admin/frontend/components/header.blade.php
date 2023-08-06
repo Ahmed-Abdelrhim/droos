@@ -69,12 +69,15 @@
                             class="user-name fw-bolder">{{auth()->user()->name}}</span><span
                             class="user-status">Admin</span></div>
                     <span class="avatar">
-                        <img class="round" src="{{asset('storage/6/conversions/my-pic-5-avatar.jpg')}}" alt="avatar" height="40" width="40"><span
-                            class="avatar-status-online"></span></span>
+{{--                        <img class="round" src="{{asset('storage/6/conversions/my-pic-5-avatar.jpg')}}" alt="avatar" height="40" width="40">--}}
+                        <img class="round"
+                             src="@if(auth()->guard('admin')->user()->getFirstMediaUrl('admins','avatar') != null){{auth()->guard('admin')->user()->getFirstMediaUrl('admins','avatar')}} @else {{asset('storage/default_image/default.jpg') }} @endif" alt="avatar"
+                             height="40" width="40">
+                        <span class="avatar-status-online"></span>
+                    </span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item"
-                                                                                                href="#"><i
-                            class="me-50" data-feather="user"></i> Profile</a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
+                    <a class="dropdown-item" href="{{route('teacher.profile')}}"><i class="me-50" data-feather="user"></i> Profile</a>
 
                     {{--                    <a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a>--}}
                     {{--                    <a class="dropdown-item" href="app-todo.html"><i class="me-50" data-feather="check-square"></i> Task</a>--}}
@@ -82,17 +85,18 @@
 
 
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i class="me-50"
-                                                         data-feather="settings"></i>
-                        Settings</a>
-                    <a class="dropdown-item" href="#">
-                        <i class="me-50" data-feather="credit-card"></i>
-                        Pricing
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="me-50" data-feather="help-circle"></i> FAQ
-                    </a>
-                    <a class="dropdown-item" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+{{--                    <a class="dropdown-item" href="#"><i class="me-50"--}}
+{{--                                                         data-feather="settings"></i>--}}
+{{--                        Settings</a>--}}
+{{--                    <a class="dropdown-item" href="#">--}}
+{{--                        <i class="me-50" data-feather="credit-card"></i>--}}
+{{--                        Pricing--}}
+{{--                    </a>--}}
+{{--                    <a class="dropdown-item" href="#">--}}
+{{--                        <i class="me-50" data-feather="help-circle"></i> FAQ--}}
+{{--                    </a>--}}
+                    <a class="dropdown-item" href="#"
+                       onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         <i class="me-50" data-feather="power"></i>
                         Logout
                         <form method="post" action="#" id="logout-form" style="display: none">@csrf</form>
