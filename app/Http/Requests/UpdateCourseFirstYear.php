@@ -21,8 +21,9 @@ class UpdateCourseFirstYear extends FormRequest
      */
     public function rules(): array
     {
+        // unique:course_first_years,name
         return [
-            'name' => 'required|unique:course_first_years,name' . 2,
+            'name' => 'required',
             'serial_number' => 'required ',
             'price' => 'required',
             'discount' => 'nullable ',

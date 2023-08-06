@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="card-body">
                                     <form class="form form-vertical" method="post"
-                                          action="{{route('update.course.1st', $course->id)}}" enctype="multipart/form-data">
+                                          action="{{route('update.course.1st', encrypt($course->id))}}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="row">
                                             <div class="col-12">

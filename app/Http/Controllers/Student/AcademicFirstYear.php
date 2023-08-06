@@ -115,7 +115,7 @@ class AcademicFirstYear extends Controller
 
     }
 
-    public function updateCourse(UpdateCourseFirstYear $request, $id): RedirectResponse
+    public function updateCourse(UpdateCourseFirstYear $request, $id)
     {
         $id = decrypt($id);
         $request->validated();
